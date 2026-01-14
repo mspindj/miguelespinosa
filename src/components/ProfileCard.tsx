@@ -1,4 +1,4 @@
-import headshot from "@/assets/miguel-espinosa.jpg";
+import headshot from "@/assets/spin-profile.jpg";
 
 const ProfileCard = () => {
   return (
@@ -8,16 +8,10 @@ const ProfileCard = () => {
         <img 
           src={headshot} 
           alt="Miguel Espinosa - System Architect"
-          className="absolute inset-0 w-full h-full object-cover object-top grayscale brightness-[0.85] contrast-[1.15]"
+          className="absolute inset-0 w-full h-full object-cover object-top grayscale contrast-110"
           style={{
-            filter: 'grayscale(100%) brightness(0.85) contrast(1.15)',
-          }}
-        />
-        {/* Darken the blue background via overlay */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(to bottom, rgba(24, 24, 27, 0.3) 0%, rgba(24, 24, 27, 0.1) 30%, rgba(24, 24, 27, 0.6) 70%, rgba(24, 24, 27, 1) 100%)',
+            maskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)',
           }}
         />
       </div>
