@@ -6,43 +6,43 @@
 
 @layer base {
   :root {
-    --background: 240 6% 10%;
+    --background: 0 0% 2%;
     --foreground: 0 0% 98%;
 
-    --card: 240 5% 11%;
+    --card: 0 0% 6%;
     --card-foreground: 0 0% 98%;
-    --card-hover: 240 5% 14%;
+    --card-hover: 0 0% 10%;
 
-    --popover: 240 5% 11%;
+    --popover: 0 0% 6%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 24 95% 53%;
     --primary-foreground: 0 0% 98%;
     --primary-glow: 24 95% 53%;
 
-    --secondary: 240 4% 16%;
+    --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 240 4% 16%;
+    --accent: 0 0% 12%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 4% 20%;
-    --input: 240 4% 16%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
     --ring: 24 95% 53%;
 
     --radius: 1rem;
 
     /* Custom tokens */
-    --gradient-card: linear-gradient(180deg, hsl(240 5% 13%) 0%, hsl(240 6% 10%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(24 95% 53% / 0.15) 0%, transparent 70%);
-    --gradient-text: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(240 5% 65%) 100%);
-    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.4);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 4%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(24 95% 53% / 0.12) 0%, transparent 60%);
+    --gradient-text: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(0 0% 55%) 100%);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
     --shadow-glow: 0 0 40px -10px hsl(24 95% 53% / 0.3);
   }
 
@@ -61,6 +61,17 @@
 }
 
 @layer components {
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    @apply border-primary/30;
+    box-shadow: var(--shadow-glow);
+  }
+
   .bento-card {
     @apply relative overflow-hidden rounded-2xl border border-border bg-card p-6;
     background: var(--gradient-card);
@@ -84,6 +95,11 @@
     background-clip: text;
   }
 
+  .text-stroke {
+    -webkit-text-stroke: 1px hsl(var(--foreground) / 0.2);
+    color: transparent;
+  }
+
   .profile-image {
     @apply relative overflow-hidden rounded-2xl;
     aspect-ratio: 1;
@@ -97,7 +113,7 @@
   .profile-image::after {
     content: '';
     @apply absolute inset-0;
-    background: linear-gradient(to top, hsl(240 6% 10%) 0%, transparent 50%);
+    background: linear-gradient(to top, hsl(0 0% 2%) 0%, transparent 50%);
   }
 
   .glow-dot {
@@ -113,8 +129,19 @@
 
   .grid-pattern {
     background-image: 
-      linear-gradient(hsl(240 4% 20% / 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(240 4% 20% / 0.3) 1px, transparent 1px);
+      linear-gradient(hsl(0 0% 15% / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 15% / 0.3) 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
   }
 }
