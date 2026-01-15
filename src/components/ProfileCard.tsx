@@ -7,11 +7,11 @@ const ProfileCard = () => {
       <div className="relative flex-1 min-h-[320px] overflow-hidden rounded-t-2xl">
         <img 
           src={headshot} 
-          alt="Miguel Espinosa - System Architect"
+          alt="Miguel Espinosa - Senior Design Director"
           className="absolute inset-0 w-full h-full object-cover object-top grayscale contrast-110"
           style={{
-            maskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
           }}
         />
       </div>
@@ -20,10 +20,10 @@ const ProfileCard = () => {
       <div className="relative z-10 p-6 pt-4 space-y-2 bg-card">
         <span className="tech-label">
           <span className="glow-dot" />
-          SYS.ARCHITECT
+          DESIGN.DIRECTOR
         </span>
         <p className="text-sm text-muted-foreground font-mono tracking-wide">
-          Miguel Espinosa / System Architect
+          Miguel Espinosa / Senior Design Director
         </p>
       </div>
     </div>
