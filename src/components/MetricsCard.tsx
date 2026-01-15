@@ -1,17 +1,17 @@
-import { Activity } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 const metrics = [
-  { label: "Years Exp", value: "8+" },
-  { label: "Projects", value: "50+" },
-  { label: "Uptime SLA", value: "99.9%" },
+  { label: "Years Leading", value: "15+" },
+  { label: "Global Teams", value: "50+" },
+  { label: "Enterprise", value: "B2B" },
 ];
 
 const MetricsCard = () => {
   return (
     <div className="bento-card">
       <div className="flex items-center gap-2 text-muted-foreground mb-4">
-        <Activity className="h-4 w-4" />
-        <span className="text-xs font-mono uppercase tracking-widest">Metrics</span>
+        <TrendingUp className="h-4 w-4" />
+        <span className="text-xs font-mono uppercase tracking-widest">Impact</span>
       </div>
       <div className="grid grid-cols-3 gap-4">
         {metrics.map((metric) => (
