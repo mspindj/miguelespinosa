@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface CaseStudy {
   number: string;
@@ -110,10 +111,13 @@ const CaseStudySection = () => {
                 </div>
 
                 {/* CTA */}
-                <button className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                <Link 
+                  to={study.codename === "Flamingo DS" ? "/case-study/flamingo" : "#"}
+                  className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                >
                   <span className="uppercase tracking-widest">Read Case Study</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </button>
+                </Link>
               </div>
             </article>
           ))}
