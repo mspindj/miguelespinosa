@@ -50,10 +50,10 @@ const caseStudies: CaseStudy[] = [
 
 const CaseStudySection = () => {
   return (
-    <section id="work" className="py-24 lg:py-32">
+    <section id="work" className="py-32 lg:py-40">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="flex items-center gap-4 mb-16">
+        <div className="flex items-center gap-4 mb-20">
           <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
             Selected Cases
           </span>
@@ -61,7 +61,7 @@ const CaseStudySection = () => {
         </div>
 
         {/* Case studies */}
-        <div className="space-y-24">
+        <div className="space-y-32">
           {caseStudies.map((study, index) => (
             <article
               key={study.codename}

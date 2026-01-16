@@ -56,10 +56,10 @@ const competencies = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 lg:py-32">
+    <section id="experience" className="py-32 lg:py-40">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="flex items-center gap-4 mb-16">
+        <div className="flex items-center gap-4 mb-20">
           <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
             Experience
           </span>
@@ -76,9 +76,8 @@ const ExperienceSection = () => {
                 alt="Miguel Espinosa - Senior Design Director"
                 className="w-full h-full object-cover object-top grayscale contrast-110"
                 style={{
-                  maskImage: "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
-                  WebkitMaskImage:
-                    "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
+                  maskImage: "radial-gradient(ellipse 80% 90% at 50% 40%, black 50%, transparent 100%)",
+                  WebkitMaskImage: "radial-gradient(ellipse 80% 90% at 50% 40%, black 50%, transparent 100%)",
                 }}
               />
             </div>
