@@ -1,3 +1,5 @@
+import { motion, type Variants } from "framer-motion";
+
 interface ManifestoCard {
   number: string;
   category: string;
@@ -49,12 +51,34 @@ const manifestoCards: ManifestoCard[] = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+};
+
 const ManifestoSection = () => {
   return (
-    <section id="philosophy" className="py-24 lg:py-32">
+    <section id="philosophy" className="py-32 lg:py-40">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-20">
           <div className="lg:col-span-1">
             <span className="text-xs font-mono text-primary uppercase tracking-widest mb-4 block">
               Core Belief
@@ -72,11 +96,24 @@ const ManifestoSection = () => {
         </div>
 
         {/* Manifesto cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {manifestoCards.map((card) => (
-            <article
+            <motion.article
               key={card.number}
-              className="glass-card p-6 rounded-2xl hover:border-primary/30 transition-all group"
+              variants={cardVariants}
+              whileHover={{
+                y: -4,
+                boxShadow: "0 0 30px -5px hsl(24 95% 53% / 0.3)",
+                borderColor: "hsl(24 95% 53% / 0.4)",
+              }}
+              transition={{ duration: 0.2 }}
+              className="glass-card p-6 rounded-2xl transition-colors cursor-pointer"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-xs font-mono text-primary">{card.number}</span>
@@ -111,9 +148,9 @@ const ManifestoSection = () => {
                   {card.quote}
                 </p>
               )}
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

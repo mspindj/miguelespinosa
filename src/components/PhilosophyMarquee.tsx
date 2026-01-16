@@ -1,6 +1,6 @@
 const PhilosophyMarquee = () => {
   return (
-    <section className="py-16 overflow-hidden border-y border-white/10">
+    <section className="py-24 lg:py-32 overflow-hidden border-y border-white/10">
       <div className="flex animate-marquee whitespace-nowrap">
         {[...Array(4)].map((_, i) => (
           <span

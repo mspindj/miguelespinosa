@@ -6,7 +6,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-end pb-24 pt-32">
+    <section className="relative min-h-[90vh] flex flex-col justify-end pb-32 pt-40">
       {/* Ambient glow */}
       <div
         className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] pointer-events-none opacity-60"

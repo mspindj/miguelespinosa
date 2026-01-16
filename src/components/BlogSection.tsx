@@ -26,7 +26,7 @@ const articles: Article[] = [
 
 const BlogSection = () => {
   return (
-    <section className="py-24 lg:py-32 border-t border-white/10">
+    <section className="py-32 lg:py-40 border-t border-white/10">
       <div className="container mx-auto px-6">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-16">
