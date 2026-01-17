@@ -9,6 +9,7 @@ import FlamingoCase from "./pages/FlamingoCase";
 import DesignTransformationCase from "./pages/DesignTransformationCase";
 import TatiCase from "./pages/TatiCase";
 import CashConversionCase from "./pages/CashConversionCase";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/case-study/flamingo" element={<FlamingoCase />} />
