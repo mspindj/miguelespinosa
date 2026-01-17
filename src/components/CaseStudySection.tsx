@@ -10,7 +10,11 @@ interface CaseStudy {
   metrics: { value: string; label: string }[];
 }
 
-const caseStudies: CaseStudy[] = [
+interface CaseStudyData extends CaseStudy {
+  path: string;
+}
+
+const caseStudies: CaseStudyData[] = [
   {
     number: "01",
     year: "2023 — 2025",
@@ -22,30 +26,46 @@ const caseStudies: CaseStudy[] = [
       { value: "-40%", label: "Handoff Time" },
       { value: "100%", label: "Consistency" },
     ],
+    path: "/case-study/flamingo",
   },
   {
     number: "02",
     year: "2022 — 2024",
-    codename: "Cash Conversion",
-    subtitle: "Fintech UX Transformation",
+    codename: "Design Transformation",
+    subtitle: "Scaling Design through Organization",
     description:
-      "Transforming complex financial operations into seamless, human-centric experiences. Simplification of mental models for enterprise workflows.",
+      "Moving design from a service-oriented execution layer to a strategic core function. Building high-performance design organizations.",
     metrics: [
-      { value: "2x", label: "Velocity" },
-      { value: "$2.4M", label: "Cost Savings" },
+      { value: "Global", label: "Design Org" },
+      { value: "DesignOps", label: "Framework" },
     ],
+    path: "/case-study/design-transformation",
   },
   {
     number: "03",
     year: "2024 — 2025",
     codename: "Tati AI",
-    subtitle: "AI Integration Project",
+    subtitle: "AI Translation Designed for Trust",
     description:
       "Designing the trust layer between humans and AI agents. Focused on clarity, specialized interfaces, and user confidence in AI-driven products.",
     metrics: [
-      { value: "90%", label: "Adoption" },
-      { value: "4.8/5", label: "CSAT Score" },
+      { value: "Trust", label: "Core Feature" },
+      { value: "Low", label: "Variable Costs" },
     ],
+    path: "/case-study/tati-ai",
+  },
+  {
+    number: "04",
+    year: "2018 — 2020",
+    codename: "Cash Conversion",
+    subtitle: "Redefining Mental Models in Fintech",
+    description:
+      "Transforming complex financial operations into seamless, human-centric experiences. Simplification of mental models for enterprise workflows.",
+    metrics: [
+      { value: "#1", label: "Mobile Bank Colombia" },
+      { value: "-40%", label: "Transfer Steps" },
+    ],
+    path: "/case-study/cash-conversion",
   },
 ];
 
@@ -112,7 +132,7 @@ const CaseStudySection = () => {
 
                 {/* CTA */}
                 <Link 
-                  to={study.codename === "Flamingo DS" ? "/case-study/flamingo" : "#"}
+                  to={study.path}
                   className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                 >
                   <span className="uppercase tracking-widest">Read Case Study</span>
