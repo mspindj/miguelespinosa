@@ -44,13 +44,13 @@ const caseStudies: CaseStudyData[] = [
   {
     number: "03",
     year: "2024 — 2025",
-    codename: "Tati AI",
+    codename: "tati.la",
     subtitle: "AI Translation Designed for Trust",
     description:
       "Designing the trust layer between humans and AI agents. Focused on clarity, specialized interfaces, and user confidence in AI-driven products.",
     metrics: [
       { value: "Trust", label: "Core Feature" },
-      { value: "Low", label: "Variable Costs" },
+      { value: "96%+", label: "Quality Standard" },
     ],
     path: "/case-study/tati-ai",
   },

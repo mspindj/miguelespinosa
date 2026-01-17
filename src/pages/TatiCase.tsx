@@ -47,7 +47,7 @@ const TatiCase = () => {
   const metrics = [
     { direction: "up" as const, value: "MVP", label: "Functional MVP shipped successfully" },
     { direction: "down" as const, value: "Low", label: "Variable costs per document" },
-    { direction: "up" as const, value: "100%", label: "Quality standards met" },
+    { direction: "up" as const, value: "96%+", label: "Quality standards met" },
     { direction: "up" as const, value: "Trust", label: "Core product feature for scaling" },
   ];
 
@@ -58,7 +58,7 @@ const TatiCase = () => {
       <CaseStudyHero
         number="03"
         year="2024 — 2025"
-        title="Tati AI"
+        title="tati.la"
         subtitle="AI Translation Designed for Trust"
       />
 
@@ -67,7 +67,7 @@ const TatiCase = () => {
         <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
           We envisioned a future where AI-powered translation would not optimize for speed 
           or volume, but for <span className="text-primary font-semibold">trust, accuracy, and responsibility</span>. 
-          Tati was designed to amplify human expertise, not replace it.
+          tati.la was designed to amplify human expertise, not replace it.
         </p>
       </CaseStudySection>
 
@@ -140,7 +140,7 @@ const TatiCase = () => {
             We avoided the <span className="text-muted-foreground line-through">"AI spectacle" of real-time chat</span>.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Instead, we designed Tati as a <span className="text-primary font-semibold">document-first, asynchronous service</span> powered 
+            Instead, we designed tati.la as a <span className="text-primary font-semibold">document-first, asynchronous service</span> powered 
             by AI but guided by expert-curated glossaries. We prioritized clarity and 
             traceability over speed.
           </p>
