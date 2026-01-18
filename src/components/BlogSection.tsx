@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Article {
   category: string;
@@ -38,7 +39,7 @@ const articles: Article[] = [
 
 const BlogSection = () => {
   return (
-    <section className="py-32 lg:py-40 border-t border-white/10">
+    <section id="insights" className="py-32 lg:py-40 border-t border-white/10">
       <div className="container mx-auto px-6">
         {/* Section header - Editorial style */}
         <div className="mb-16 lg:mb-20">
@@ -54,44 +55,43 @@ const BlogSection = () => {
         {/* Article grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {articles.map((article) => (
-            <article
-              key={article.slug}
-              className="group cursor-pointer border border-white/10 rounded-2xl overflow-hidden bg-card/30 hover:border-primary/30 transition-all duration-300"
-            >
-              {/* Abstract geometric thumbnail */}
-              <div className={`aspect-[16/10] relative overflow-hidden ${article.patternClass}`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-
-              {/* Content */}
-              <div className="p-6 lg:p-8">
-                {/* Category tag */}
-                <span className="text-xs font-mono text-primary uppercase tracking-widest mb-4 block">
-                  {article.category}
-                </span>
-
-                {/* Title */}
-                <h3 className="text-xl lg:text-2xl font-semibold leading-tight text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                  {article.title}
-                </h3>
-
-                {/* Date */}
-                <time className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-4 block">
-                  {article.date}
-                </time>
-
-                {/* Summary */}
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
-                  {article.summary}
-                </p>
-
-                {/* CTA */}
-                <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                  <span>Read Article</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            <Link to={`/insights/${article.slug}`} key={article.slug}>
+              <article className="group cursor-pointer border border-white/10 rounded-2xl overflow-hidden bg-card/30 hover:border-primary/30 transition-all duration-300 h-full">
+                {/* Abstract geometric thumbnail */}
+                <div className={`aspect-[16/10] relative overflow-hidden ${article.patternClass}`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-              </div>
-            </article>
+
+                {/* Content */}
+                <div className="p-6 lg:p-8">
+                  {/* Category tag */}
+                  <span className="text-xs font-mono text-primary uppercase tracking-widest mb-4 block">
+                    {article.category}
+                  </span>
+
+                  {/* Title */}
+                  <h3 className="text-xl lg:text-2xl font-semibold leading-tight text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                    {article.title}
+                  </h3>
+
+                  {/* Date */}
+                  <time className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-4 block">
+                    {article.date}
+                  </time>
+
+                  {/* Summary */}
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
+                    {article.summary}
+                  </p>
+
+                  {/* CTA */}
+                  <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                    <span>Read Article</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>

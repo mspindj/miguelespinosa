@@ -36,6 +36,7 @@ const Header = () => {
             { label: "Work", id: "work" },
             { label: "Philosophy", id: "philosophy" },
             { label: "Experience", id: "experience" },
+            { label: "Insights", id: "insights" },
             { label: "Contact", id: "contact" },
           ].map((item) => (
             <button
