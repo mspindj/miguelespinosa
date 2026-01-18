@@ -133,6 +133,69 @@
       linear-gradient(90deg, hsl(0 0% 15% / 0.3) 1px, transparent 1px);
     background-size: 24px 24px;
   }
+  /* Abstract geometric patterns for blog thumbnails */
+  .pattern-systems {
+    background: 
+      radial-gradient(circle at 20% 30%, hsl(24 95% 53% / 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, hsl(24 95% 53% / 0.1) 0%, transparent 35%),
+      linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 4%) 100%);
+    position: relative;
+  }
+  
+  .pattern-systems::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(hsl(0 0% 20% / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 20% / 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  }
+  
+  .pattern-ai {
+    background: 
+      conic-gradient(from 180deg at 50% 50%, hsl(24 95% 53% / 0.08) 0deg, transparent 60deg, hsl(24 95% 53% / 0.05) 120deg, transparent 180deg, hsl(24 95% 53% / 0.08) 240deg, transparent 300deg, hsl(24 95% 53% / 0.05) 360deg),
+      radial-gradient(ellipse at 30% 40%, hsl(24 95% 53% / 0.12) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(0 0% 6%) 0%, hsl(0 0% 10%) 50%, hsl(0 0% 4%) 100%);
+  }
+  
+  .pattern-ai::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 60% 30%, hsl(0 0% 30% / 0.3) 0%, transparent 20%),
+      radial-gradient(circle at 40% 60%, hsl(0 0% 25% / 0.2) 0%, transparent 25%),
+      radial-gradient(circle at 70% 70%, hsl(0 0% 20% / 0.2) 0%, transparent 15%);
+  }
+  
+  .pattern-leadership {
+    background: 
+      linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 6%) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .pattern-leadership::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(45deg, transparent 40%, hsl(24 95% 53% / 0.08) 45%, hsl(24 95% 53% / 0.12) 50%, hsl(24 95% 53% / 0.08) 55%, transparent 60%),
+      linear-gradient(-45deg, transparent 40%, hsl(0 0% 20% / 0.15) 45%, hsl(0 0% 25% / 0.2) 50%, hsl(0 0% 20% / 0.15) 55%, transparent 60%);
+  }
+  
+  .pattern-leadership::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    height: 60%;
+    background: linear-gradient(to top, hsl(24 95% 53% / 0.06) 0%, transparent 100%);
+    clip-path: polygon(30% 100%, 50% 20%, 70% 100%);
+  }
 }
 
 @layer utilities {
