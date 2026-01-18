@@ -196,6 +196,45 @@
     background: linear-gradient(to top, hsl(24 95% 53% / 0.06) 0%, transparent 100%);
     clip-path: polygon(30% 100%, 50% 20%, 70% 100%);
   }
+
+
+  /* Article typography styles */
+  .article-body p {
+    @apply text-lg text-muted-foreground leading-relaxed mb-6;
+  }
+
+  .article-body h2 {
+    @apply text-2xl lg:text-3xl font-semibold text-foreground mt-12 mb-6;
+  }
+
+  .article-body strong {
+    @apply text-foreground font-semibold;
+  }
+
+  .article-body em {
+    @apply italic;
+  }
+
+  .article-callout {
+    @apply border-l-4 border-primary pl-6 py-4 my-8 bg-card/30;
+  }
+
+  .article-callout p {
+    @apply text-xl lg:text-2xl font-medium text-foreground leading-relaxed mb-0 italic;
+  }
+
+  .article-list {
+    @apply list-none space-y-3 my-6;
+  }
+
+  .article-list li {
+    @apply text-lg text-muted-foreground leading-relaxed pl-6 relative;
+  }
+
+  .article-list li::before {
+    content: '';
+    @apply absolute left-0 top-3 w-2 h-2 rounded-full bg-primary;
+  }
 }
 
 @layer utilities {
