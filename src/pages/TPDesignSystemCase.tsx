@@ -22,7 +22,7 @@ const containerVariants = {
   },
 };
 
-const FlamingoCase = () => {
+const TPDesignSystemCase = () => {
   const problems = [
     "UX quality depended entirely on local context.",
     "Patterns diverged across products.",
@@ -60,7 +60,7 @@ const FlamingoCase = () => {
       <CaseStudyHero
         number="01"
         year="2023 — 2025"
-        title="Project Flamingo"
+        title="TP Design System"
         subtitle="Scaling Design by Scaling Decisions"
       />
 
@@ -68,7 +68,7 @@ const FlamingoCase = () => {
       <CaseStudySection label="The Vision">
         <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
           We envisioned a future where design at scale wouldn't depend on individuals, 
-          but on shared decisions, shared language, and shared responsibility. Flamingo 
+          but on shared decisions, shared language, and shared responsibility. The TP Design System 
           was created to make design decisions reusable, discussable, and scalable 
           across a global organization.
         </p>
@@ -139,7 +139,7 @@ const FlamingoCase = () => {
       <CaseStudySection label="The Decision">
         <div className="glass-card p-8 lg:p-12 rounded-2xl border border-primary/20">
           <p className="text-xl lg:text-2xl text-foreground leading-relaxed">
-            We deliberately positioned Flamingo not as a{" "}
+            We deliberately positioned the TP Design System not as a{" "}
             <span className="text-muted-foreground line-through">component library</span>, 
             but as <span className="text-primary font-semibold">design infrastructure</span>. 
             It was a system designed to align teams, enable autonomy, and scale decisions.
@@ -150,7 +150,7 @@ const FlamingoCase = () => {
       {/* What We Built */}
       <CaseStudySection label="What We Built">
         <p className="text-lg text-muted-foreground mb-10">
-          Flamingo was built inside product teams, not alongside them:
+          The TP Design System was built inside product teams, not alongside them:
         </p>
         <motion.ul
           variants={containerVariants}
@@ -195,7 +195,7 @@ const FlamingoCase = () => {
       <CaseStudySection label="Leadership Reflection" className="pb-32">
         <p className="text-lg text-muted-foreground mb-10">
           While execution was owned by the teams, my responsibility was to ensure 
-          Flamingo could exist and scale through vision, stakeholder alignment, and governance.
+          the TP Design System could exist and scale through vision, stakeholder alignment, and governance.
         </p>
         <PullQuote
           quote="Scaling design is not about standardizing creativity. It's about standardizing how teams make decisions together. Trust enables scale."
@@ -207,4 +207,4 @@ const FlamingoCase = () => {
   );
 };
 
-export default FlamingoCase;
+export default TPDesignSystemCase;

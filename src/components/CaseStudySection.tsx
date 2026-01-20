@@ -18,7 +18,7 @@ const caseStudies: CaseStudyData[] = [
   {
     number: "01",
     year: "2023 — 2025",
-    codename: "Flamingo DS",
+    codename: "TP Design System",
     subtitle: "Design System Architecture",
     description:
       "Architected a multi-brand design system to unify product fragmented UI libraries. Focused on tokenization and engineer-handoff automation.",
@@ -26,7 +26,7 @@ const caseStudies: CaseStudyData[] = [
       { value: "-40%", label: "Handoff Time" },
       { value: "100%", label: "Consistency" },
     ],
-    path: "/case-study/flamingo",
+    path: "/case-study/tp-design-system",
   },
   {
     number: "02",
