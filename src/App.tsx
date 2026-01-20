@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import FlamingoCase from "./pages/FlamingoCase";
+import TPDesignSystemCase from "./pages/TPDesignSystemCase";
 import DesignTransformationCase from "./pages/DesignTransformationCase";
 import TatiCase from "./pages/TatiCase";
 import CashConversionCase from "./pages/CashConversionCase";
@@ -25,7 +25,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/case-study/flamingo" element={<FlamingoCase />} />
+          <Route path="/case-study/tp-design-system" element={<TPDesignSystemCase />} />
           <Route path="/case-study/design-transformation" element={<DesignTransformationCase />} />
           <Route path="/case-study/tati-ai" element={<TatiCase />} />
           <Route path="/case-study/cash-conversion" element={<CashConversionCase />} />

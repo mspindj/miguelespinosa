@@ -28,7 +28,7 @@ const DesignSystemArticle = () => {
       <h2>The "Artifact Trap"</h2>
 
       <p>
-        When we built Flamingo (our global design system at TP), the temptation was to start with the visuals. "Let's make it look modern." But visuals are easy. The hard part is the governance.
+        When we built the TP Design System, the temptation was to start with the visuals. "Let's make it look modern." But visuals are easy. The hard part is the governance.
       </p>
 
       <p>

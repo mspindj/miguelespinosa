@@ -47,7 +47,7 @@ const DesignBehaviorArticle = () => {
       <h2>Culture Eats Process for Breakfast</h2>
 
       <p>
-        You can have the best Design System in the world (like our Flamingo system), but it's useless if the culture doesn't value the <em>why</em> behind the design. To change the culture, you have to change the language. We stopped talking about "empathy" and "delight" in board meetings. Instead, we talked about:
+        You can have the best Design System in the world (like our TP Design System), but it's useless if the culture doesn't value the <em>why</em> behind the design. To change the culture, you have to change the language. We stopped talking about "empathy" and "delight" in board meetings. Instead, we talked about:
       </p>
 
       <ul className="article-list">

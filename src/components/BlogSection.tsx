@@ -15,7 +15,7 @@ const articles: Article[] = [
     category: "Design Systems & Ops",
     title: "Why Your Design System is Failing (It's Not the UI Kit)",
     date: "Oct 12, 2025",
-    summary: "Most Design Systems die in the 'figma graveyard' because they focus on artifacts instead of governance. Based on the 'Flamingo' global rollout, here is how to shift from shipping components to scaling decision-making across distributed teams.",
+    summary: "Most Design Systems die in the 'figma graveyard' because they focus on artifacts instead of governance. Based on the TP Design System global rollout, here is how to shift from shipping components to scaling decision-making across distributed teams.",
     slug: "design-system-failing",
     patternClass: "pattern-systems",
   },
