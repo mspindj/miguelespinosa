@@ -10,9 +10,9 @@ import DesignTransformationCase from "./pages/DesignTransformationCase";
 import TatiCase from "./pages/TatiCase";
 import CashConversionCase from "./pages/CashConversionCase";
 import ScrollToTop from "./components/ScrollToTop";
-import DesignSystemArticle from "./pages/articles/DesignSystemArticle";
-import AIDrivenDesignArticle from "./pages/articles/AIDrivenDesignArticle";
-import DesignBehaviorArticle from "./pages/articles/DesignBehaviorArticle";
+import ROIExperienceArticle from "./pages/articles/ROIExperienceArticle";
+import AILeadershipParadoxArticle from "./pages/articles/AILeadershipParadoxArticle";
+import AuthorityGapArticle from "./pages/articles/AuthorityGapArticle";
 
 const queryClient = new QueryClient();
 
@@ -30,9 +30,9 @@ const App = () => (
           <Route path="/case-study/tati-ai" element={<TatiCase />} />
           <Route path="/case-study/cash-conversion" element={<CashConversionCase />} />
           {/* Article routes */}
-          <Route path="/insights/design-system-failing" element={<DesignSystemArticle />} />
-          <Route path="/insights/ai-driven-design" element={<AIDrivenDesignArticle />} />
-          <Route path="/insights/design-behavior" element={<DesignBehaviorArticle />} />
+          <Route path="/insights/roi-of-experience" element={<ROIExperienceArticle />} />
+          <Route path="/insights/ai-leadership-paradox" element={<AILeadershipParadoxArticle />} />
+          <Route path="/insights/authority-gap" element={<AuthorityGapArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
