@@ -12,27 +12,27 @@ interface Article {
 
 const articles: Article[] = [
   {
-    category: "Design Systems & Ops",
-    title: "Why Your Design System is Failing (It's Not the UI Kit)",
-    date: "Oct 12, 2025",
-    summary: "Most Design Systems die in the 'figma graveyard' because they focus on artifacts instead of governance. Based on the TP Design System global rollout, here is how to shift from shipping components to scaling decision-making across distributed teams.",
-    slug: "design-system-failing",
+    category: "Business Strategy",
+    title: "Beyond Vanity Metrics: The ROI of Experience in 2026",
+    date: "Jan 20, 2026",
+    summary: "If you are reporting NPS in a budget meeting, you've already lost the room. Strategic design is no longer about how the user feels, but about how fast the organization moves.",
+    slug: "roi-of-experience",
     patternClass: "pattern-systems",
   },
   {
-    category: "AI & Product Strategy",
-    title: "AI-Driven Design: Moving from Spectacle to Utility",
-    date: "Nov 04, 2025",
-    summary: "We need to stop trying to impress users with AI magic and start building trust. A look at why 'boring' AI—automating operational friction and ensuring traceability—is the true driver of business ROI in the next decade.",
-    slug: "ai-driven-design",
+    category: "AI / Leadership",
+    title: "The AI Paradox: High-Tech Demands High-Touch Leadership",
+    date: "Jan 25, 2026",
+    summary: "AI generates answers; leaders generate the right questions. As AI commoditizes execution, the value of a 'Maker' shifts toward the 'Director'.",
+    slug: "ai-leadership-paradox",
     patternClass: "pattern-ai",
   },
   {
-    category: "Leadership",
-    title: "Design is a Behavior, Not a Department",
-    date: "Jan 15, 2026",
-    summary: "Transitioning from a service-bureau model to a strategic partner requires breaking silos. Insights on how to mature an organization's UX culture from 'make it pretty' to 'business first' strategies.",
-    slug: "design-behavior",
+    category: "Executive Presence",
+    title: "The Authority Gap: Why Your Title Isn't Enough",
+    date: "Jan 30, 2026",
+    summary: "Shifting from 'Design Evangelist' to 'Strategic Architect'. Authority in 2026 isn't granted by a seat at the table; it's earned by solving expensive problems.",
+    slug: "authority-gap",
     patternClass: "pattern-leadership",
   },
 ];
@@ -56,7 +56,7 @@ const BlogSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {articles.map((article) => (
             <Link to={`/insights/${article.slug}`} key={article.slug}>
-              <article className="group cursor-pointer border border-white/10 rounded-2xl overflow-hidden bg-card/30 hover:border-primary/30 transition-all duration-300 h-full">
+              <article className="group cursor-pointer border border-white/10 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md hover:border-primary/40 hover:bg-white/10 transition-all duration-300 h-full">
                 {/* Abstract geometric thumbnail */}
                 <div className={`aspect-[16/10] relative overflow-hidden ${article.patternClass}`}>
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
