@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ReactNode } from "react";
+import ReadingProgress from "@/components/insights/ReadingProgress";
 
 interface ArticleLayoutProps {
   category: string;
@@ -21,11 +22,14 @@ const ArticleLayout = ({
 }: ArticleLayoutProps) => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Reading progress bar */}
+      <ReadingProgress />
+
       {/* Back navigation */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
+      <div className="fixed top-[3px] left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-6 py-4">
           <Link
-            to="/#insights"
+            to="/insights"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
