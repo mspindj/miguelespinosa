@@ -1,7 +1,7 @@
 export interface Article {
   slug: string;
   category: string;
-  filterTag: 'ai-strategy' | 'design-leadership' | 'business-roi' | 'soft-skills';
+  filterTag: 'ai-strategy' | 'design-leadership' | 'business-roi' | 'soft-skills' | 'ai-ethics' | 'ops-strategy';
   title: string;
   subtitle: string;
   date: string;
@@ -34,7 +34,7 @@ export const articles: Article[] = [
     readingTime: "5 min read",
     summary: "As AI commoditizes execution, the value of a 'Maker' shifts toward the 'Director'.",
     patternClass: "pattern-ai",
-    featured: true,
+    featured: false,
   },
   {
     slug: "authority-gap",
@@ -46,7 +46,7 @@ export const articles: Article[] = [
     readingTime: "4 min read",
     summary: "Authority in 2026 isn't granted by a seat at the table; it's earned by solving expensive problems.",
     patternClass: "pattern-leadership",
-    featured: true,
+    featured: false,
   },
   {
     slug: "outcome-stories",
@@ -58,7 +58,7 @@ export const articles: Article[] = [
     readingTime: "6 min read",
     summary: "The most powerful design metric isn't pixels shipped—it's organizational behavior changed.",
     patternClass: "pattern-outcomes",
-    featured: false,
+    featured: true,
   },
   {
     slug: "lean-leadership",
@@ -84,13 +84,51 @@ export const articles: Article[] = [
     patternClass: "pattern-guardrails",
     featured: false,
   },
+  {
+    slug: "strategy-bottleneck",
+    category: "AI Ethics",
+    filterTag: "ai-ethics",
+    title: "The Strategy Bottleneck: Why 'Can AI do it?' is the Wrong Question",
+    subtitle: "When generative speed replaces strategic friction, we stop solving problems and start just picking options.",
+    date: "Feb 20, 2026",
+    readingTime: "4 min read",
+    summary: "As leaders, our role is to reintroduce Strategic Friction.",
+    patternClass: "pattern-bottleneck",
+    featured: false,
+  },
+  {
+    slug: "research-inflection",
+    category: "Ops Strategy",
+    filterTag: "ops-strategy",
+    title: "The Research Inflection Point: The End of Manual Analysis",
+    subtitle: "Jakob Nielsen's 2026 findings are clear: AI is now a better observer of user emotion than a junior researcher.",
+    date: "Feb 25, 2026",
+    readingTime: "5 min read",
+    summary: "We aren't automating empathy; we are automating observation.",
+    patternClass: "pattern-research",
+    featured: false,
+  },
+  {
+    slug: "generalist-advantage",
+    category: "Talent Strategy",
+    filterTag: "soft-skills",
+    title: "The Return of the Generalist: Why Depth is Dead",
+    subtitle: "In an AI world, specialized execution is a commodity. Synthesis is the new premium.",
+    date: "Mar 1, 2026",
+    readingTime: "5 min read",
+    summary: "Don't polish the pixel; orchestrate the system.",
+    patternClass: "pattern-generalist",
+    featured: false,
+  },
 ];
 
 export const filterOptions = [
   { value: "all", label: "All" },
   { value: "ai-strategy", label: "AI Strategy" },
+  { value: "ai-ethics", label: "AI Ethics" },
   { value: "design-leadership", label: "Design Leadership" },
   { value: "business-roi", label: "Business ROI" },
+  { value: "ops-strategy", label: "Ops Strategy" },
   { value: "soft-skills", label: "Soft Skills" },
 ] as const;
 

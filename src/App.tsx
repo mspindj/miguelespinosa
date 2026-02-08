@@ -17,6 +17,9 @@ import AuthorityGapArticle from "./pages/articles/AuthorityGapArticle";
 import OutcomeStoriesArticle from "./pages/articles/OutcomeStoriesArticle";
 import LeanLeadershipArticle from "./pages/articles/LeanLeadershipArticle";
 import AIGuardrailsArticle from "./pages/articles/AIGuardrailsArticle";
+import StrategyBottleneckArticle from "./pages/articles/StrategyBottleneckArticle";
+import ResearchInflectionArticle from "./pages/articles/ResearchInflectionArticle";
+import GeneralistAdvantageArticle from "./pages/articles/GeneralistAdvantageArticle";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +45,9 @@ const App = () => (
           <Route path="/insights/outcome-stories" element={<OutcomeStoriesArticle />} />
           <Route path="/insights/lean-leadership" element={<LeanLeadershipArticle />} />
           <Route path="/insights/ai-guardrails" element={<AIGuardrailsArticle />} />
+          <Route path="/insights/strategy-bottleneck" element={<StrategyBottleneckArticle />} />
+          <Route path="/insights/research-inflection" element={<ResearchInflectionArticle />} />
+          <Route path="/insights/generalist-advantage" element={<GeneralistAdvantageArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
