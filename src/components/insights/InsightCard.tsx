@@ -34,7 +34,9 @@ const InsightCard = ({ article, featured = false }: InsightCardProps) => {
           </span>
 
           {/* Title */}
-          <h3 className="text-xl lg:text-2xl font-semibold leading-tight tracking-tight text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+          <h3 className={`font-semibold leading-tight tracking-tight text-foreground mb-3 group-hover:text-primary transition-colors duration-300 ${
+            featured ? "text-2xl lg:text-3xl" : "text-xl lg:text-2xl"
+          }`}>
             {article.title}
           </h3>
 

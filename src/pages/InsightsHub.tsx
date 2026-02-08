@@ -91,10 +91,9 @@ const InsightsHub = () => {
               }
             }}
           >
-            {filteredArticles.map((article, index) => (
+            {filteredArticles.map((article) => (
               <motion.div
                 key={article.slug}
-                className={article.featured && index < 2 ? "lg:col-span-1 xl:col-span-1" : ""}
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }

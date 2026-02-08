@@ -275,6 +275,108 @@
     background: linear-gradient(90deg, transparent, hsl(24 95% 53% / 0.4), transparent);
   }
 
+  /* Strategy Bottleneck - Converging lines representing friction */
+  .pattern-bottleneck {
+    background: 
+      linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 4%) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .pattern-bottleneck::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(60deg, transparent 45%, hsl(24 95% 53% / 0.1) 48%, hsl(24 95% 53% / 0.15) 50%, hsl(24 95% 53% / 0.1) 52%, transparent 55%),
+      linear-gradient(120deg, transparent 45%, hsl(0 0% 25% / 0.2) 48%, hsl(0 0% 30% / 0.25) 50%, hsl(0 0% 25% / 0.2) 52%, transparent 55%);
+  }
+  
+  .pattern-bottleneck::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: hsl(24 95% 53% / 0.2);
+    box-shadow: 0 0 30px 15px hsl(24 95% 53% / 0.1);
+  }
+
+  /* Research Inflection - Data visualization aesthetic */
+  .pattern-research {
+    background: 
+      linear-gradient(180deg, hsl(0 0% 6%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 4%) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .pattern-research::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 8px,
+        hsl(24 95% 53% / 0.05) 8px,
+        hsl(24 95% 53% / 0.05) 9px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 30px,
+        hsl(0 0% 20% / 0.2) 30px,
+        hsl(0 0% 20% / 0.2) 31px
+      );
+  }
+  
+  .pattern-research::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+    height: 40%;
+    background: 
+      radial-gradient(ellipse at 20% 80%, hsl(24 95% 53% / 0.15) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 60%, hsl(24 95% 53% / 0.1) 0%, transparent 35%),
+      radial-gradient(ellipse at 80% 70%, hsl(24 95% 53% / 0.12) 0%, transparent 30%);
+  }
+
+  /* Generalist Advantage - Connected nodes representing synthesis */
+  .pattern-generalist {
+    background: 
+      radial-gradient(ellipse at 50% 50%, hsl(0 0% 10%) 0%, hsl(0 0% 4%) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .pattern-generalist::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 30% 30%, hsl(24 95% 53% / 0.12) 0%, transparent 20%),
+      radial-gradient(circle at 70% 30%, hsl(24 95% 53% / 0.08) 0%, transparent 18%),
+      radial-gradient(circle at 50% 70%, hsl(24 95% 53% / 0.1) 0%, transparent 22%),
+      radial-gradient(circle at 20% 60%, hsl(0 0% 30% / 0.15) 0%, transparent 15%),
+      radial-gradient(circle at 80% 65%, hsl(0 0% 25% / 0.12) 0%, transparent 16%);
+  }
+  
+  .pattern-generalist::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(45deg, transparent 48%, hsl(24 95% 53% / 0.08) 49%, hsl(24 95% 53% / 0.08) 51%, transparent 52%),
+      linear-gradient(135deg, transparent 48%, hsl(0 0% 25% / 0.12) 49%, hsl(0 0% 25% / 0.12) 51%, transparent 52%),
+      linear-gradient(90deg, transparent 48%, hsl(0 0% 20% / 0.08) 49%, hsl(0 0% 20% / 0.08) 51%, transparent 52%);
+  }
+
 
   /* Article typography styles */
   .article-body p {
