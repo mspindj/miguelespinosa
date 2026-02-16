@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import flamingoImage from "@/assets/flamingo.jpeg";
 
 interface CaseStudy {
   number: string;
@@ -12,6 +13,7 @@ interface CaseStudy {
 
 interface CaseStudyData extends CaseStudy {
   path: string;
+  image?: string;
 }
 
 const caseStudies: CaseStudyData[] = [
@@ -27,6 +29,7 @@ const caseStudies: CaseStudyData[] = [
       { value: "100%", label: "Consistency" },
     ],
     path: "/case-study/tp-design-system",
+    image: flamingoImage,
   },
   {
     number: "02",
@@ -96,12 +99,16 @@ const CaseStudySection = () => {
                   index % 2 === 1 ? "lg:order-2" : ""
                 }`}
               >
-                <div className="w-full h-full bg-gradient-to-br from-card to-secondary flex items-center justify-center relative">
-                  <span className="text-6xl font-bold text-muted-foreground/20">
-                    {study.number}
-                  </span>
-                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
+                {study.image ? (
+                  <img src={study.image} alt={study.codename} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-card to-secondary flex items-center justify-center relative">
+                    <span className="text-6xl font-bold text-muted-foreground/20">
+                      {study.number}
+                    </span>
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                )}
               </div>
 
               {/* Content */}
