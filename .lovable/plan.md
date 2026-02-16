@@ -1,32 +1,25 @@
 
-## Add Flamingo Image to TP Design System — Case Study Page + Home Card
+## Add tati.la Screenshot to Case Study Page + Home Card
 
-Use the uploaded flamingo image in two locations: as a hero banner on the TP Design System case study page, and as the visual thumbnail for its card on the home page.
+Same treatment as the flamingo image for TP Design System: use the uploaded screenshot as a hero banner on the tati.la case study page and as the thumbnail image on the home page card.
 
 ---
 
 ### 1. Save the Image
 
-Copy `user-uploads://flamingo.jpeg` to `src/assets/flamingo.jpeg`
+Copy `user-uploads://Screenshot_2026-02-16_at_2.59.40 PM.png` to `src/assets/tati-hero.png`
 
----
+### 2. Case Study Page
 
-### 2. TP Design System Case Study Page
+**File:** `src/pages/TatiCase.tsx`
 
-**File:** `src/pages/TPDesignSystemCase.tsx`
+- Import the image: `import tatiHero from "@/assets/tati-hero.png"`
+- Add a full-width image banner between the Hero and "The Vision" section (same pattern as TP Design System: `container mx-auto px-6 py-12`, `rounded-2xl overflow-hidden`, `aspect-[21/9] object-cover`)
 
-- Import the image: `import flamingoImage from "@/assets/flamingo.jpeg"`
-- Add a full-width image section between the Hero and "The Vision" section
-- Wrapped in a rounded container with `aspect-[21/9] object-cover rounded-2xl overflow-hidden`
-- Contained within the standard `container mx-auto px-6` layout
-
----
-
-### 3. Home Page Case Study Card
+### 3. Home Page Card
 
 **File:** `src/components/CaseStudySection.tsx`
 
-- Add an optional `image` property to the `CaseStudyData` interface
-- Import the flamingo image and assign it to the TP Design System entry
-- Update the card rendering: when `study.image` exists, render an `<img>` tag with `object-cover` instead of the current gradient placeholder with the large number overlay
-- Other case studies without an image continue to show the existing placeholder
+- Import the tati hero image
+- Add `image: tatiHero` to the tati.la entry in the `caseStudies` array
+- The existing conditional rendering logic already handles displaying the image vs placeholder
