@@ -2,14 +2,13 @@
 
 ## Fix tati-hero.png Asset
 
-The previous copy of the tati.la screenshot failed, leaving a missing or corrupt file at `src/assets/tati-hero.png`, which causes the build error.
+The `tati-hero.png` file was deleted in a previous attempt and never successfully replaced, causing the build error. The image is now available as a fresh upload.
 
 ---
 
 ### Fix
 
-1. **Delete** the broken `src/assets/tati-hero.png`
-2. **Copy** `user-uploads://Screenshot_2026-02-16_at_3.02.56 PM-2.png` to `src/assets/tati-hero.png`
+1. **Copy** `user-uploads://tatila_image.png` to `src/assets/tati-hero.png`
 
 No code changes needed -- `TatiCase.tsx` and `CaseStudySection.tsx` already reference this file correctly.
 
