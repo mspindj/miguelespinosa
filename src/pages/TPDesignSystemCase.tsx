@@ -1,6 +1,7 @@
 import { motion, type Easing } from "framer-motion";
 import BackToHome from "@/components/case-study/BackToHome";
 import CaseStudyHero from "@/components/case-study/CaseStudyHero";
+import flamingoImage from "@/assets/flamingo.jpeg";
 import CaseStudySection from "@/components/case-study/CaseStudySection";
 import MetricGrid from "@/components/case-study/MetricGrid";
 import PullQuote from "@/components/case-study/PullQuote";
@@ -63,6 +64,17 @@ const TPDesignSystemCase = () => {
         title="TP Design System"
         subtitle="Scaling Design by Scaling Decisions"
       />
+
+      {/* Hero image */}
+      <div className="container mx-auto px-6 py-12">
+        <div className="rounded-2xl overflow-hidden">
+          <img
+            src={flamingoImage}
+            alt="TP Design System — Flamingo"
+            className="w-full aspect-[21/9] object-cover"
+          />
+        </div>
+      </div>
 
       {/* Vision */}
       <CaseStudySection label="The Vision">
