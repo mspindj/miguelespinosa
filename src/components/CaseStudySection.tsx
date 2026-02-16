@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import flamingoImage from "@/assets/flamingo.jpeg";
+import tatiHero from "@/assets/tati-hero.png";
 
 interface CaseStudy {
   number: string;
@@ -56,6 +57,7 @@ const caseStudies: CaseStudyData[] = [
       { value: "96%+", label: "Quality Standard" },
     ],
     path: "/case-study/tati-ai",
+    image: tatiHero,
   },
   {
     number: "04",

@@ -4,6 +4,7 @@ import CaseStudyHero from "@/components/case-study/CaseStudyHero";
 import CaseStudySection from "@/components/case-study/CaseStudySection";
 import MetricGrid from "@/components/case-study/MetricGrid";
 import PullQuote from "@/components/case-study/PullQuote";
+import tatiHero from "@/assets/tati-hero.png";
 
 const bulletVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -61,6 +62,17 @@ const TatiCase = () => {
         title="tati.la"
         subtitle="AI Translation Designed for Trust"
       />
+
+      {/* Hero Image */}
+      <div className="container mx-auto px-6 py-12">
+        <div className="rounded-2xl overflow-hidden">
+          <img
+            src={tatiHero}
+            alt="tati.la AI Translation platform"
+            className="w-full aspect-[21/9] object-cover"
+          />
+        </div>
+      </div>
 
       {/* Vision */}
       <CaseStudySection label="The Vision">
