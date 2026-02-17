@@ -1,14 +1,15 @@
 
 
-## Fix tati-hero.png Asset
+## Update tati.la Case Study: Date + Project URL
 
-The `tati-hero.png` file was deleted in a previous attempt and never successfully replaced, causing the build error. The image is now available as a fresh upload.
+Two small changes across two files.
 
----
+### 1. Update Year from "2024 -- 2025" to "2025 -- 2026"
 
-### Fix
+- **`src/components/CaseStudySection.tsx`** (line 50): Change `"2024 — 2025"` to `"2025 — 2026"` in the tati.la entry
+- **`src/pages/TatiCase.tsx`** (line 61): Change `"2024 — 2025"` to `"2025 — 2026"` in the CaseStudyHero props
 
-1. **Copy** `user-uploads://tatila_image.png` to `src/assets/tati-hero.png`
+### 2. Add Project URL
 
-No code changes needed -- `TatiCase.tsx` and `CaseStudySection.tsx` already reference this file correctly.
+- **`src/pages/TatiCase.tsx`**: Add a clickable link to [http://tati.la](http://tati.la) near the top of the case study page (below the hero/banner area), styled consistently with the existing design -- likely a small mono-font link with an external arrow icon, similar to how CTAs are styled elsewhere in the site.
 
