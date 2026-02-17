@@ -58,10 +58,25 @@ const TatiCase = () => {
 
       <CaseStudyHero
         number="03"
-        year="2024 — 2025"
+        year="2025 — 2026"
         title="tati.la"
         subtitle="AI Translation Designed for Trust"
       />
+
+      {/* Project URL */}
+      <div className="container mx-auto px-6 max-w-4xl pt-6">
+        <a
+          href="http://tati.la"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-primary/80 transition-colors uppercase tracking-widest"
+        >
+          tati.la
+          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+          </svg>
+        </a>
+      </div>
 
       {/* Hero Image */}
       <div className="container mx-auto px-6 py-12">

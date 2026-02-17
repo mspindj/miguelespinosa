@@ -47,7 +47,7 @@ const caseStudies: CaseStudyData[] = [
   },
   {
     number: "03",
-    year: "2024 — 2025",
+    year: "2025 — 2026",
     codename: "tati.la",
     subtitle: "AI Translation Designed for Trust",
     description:
