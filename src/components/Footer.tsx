@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Dribbble } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
