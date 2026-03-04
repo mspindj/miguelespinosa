@@ -11,7 +11,7 @@ const Footer = () => {
               Let's build something scalable.
             </h2>
             <a
-              href="mailto:hello@miguelespinosa.com"
+              href="mailto:hola@miguelespinosa.co"
               className="text-lg text-primary hover:text-primary/80 transition-colors"
             >
               hello@miguelespinosa.com
