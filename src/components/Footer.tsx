@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Dribbble } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -22,28 +22,12 @@ const Footer = () => {
           <div className="flex flex-col lg:items-end gap-6">
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/mspin/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
               >
                 <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="https://dribbble.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
-              >
-                <Dribbble className="w-4 h-4" />
               </a>
             </div>
 
