@@ -14,7 +14,7 @@ const Footer = () => {
               href="mailto:hola@miguelespinosa.co"
               className="text-lg text-primary hover:text-primary/80 transition-colors"
             >
-              hello@miguelespinosa.com
+              hola@miguelespinosa.co
             </a>
           </div>
 
