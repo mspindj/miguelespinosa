@@ -21,6 +21,12 @@ import AIGuardrailsArticle from "./pages/articles/AIGuardrailsArticle";
 import StrategyBottleneckArticle from "./pages/articles/StrategyBottleneckArticle";
 import ResearchInflectionArticle from "./pages/articles/ResearchInflectionArticle";
 import GeneralistAdvantageArticle from "./pages/articles/GeneralistAdvantageArticle";
+import DesignDebtArticle from "./pages/articles/DesignDebtArticle";
+import TrustLayerArticle from "./pages/articles/TrustLayerArticle";
+import AmbassadorModelArticle from "./pages/articles/AmbassadorModelArticle";
+import OrderTakerArticle from "./pages/articles/OrderTakerArticle";
+import CostOfConfusionArticle from "./pages/articles/CostOfConfusionArticle";
+import HireForJudgmentArticle from "./pages/articles/HireForJudgmentArticle";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +56,12 @@ const App = () => (
           <Route path="/insights/strategy-bottleneck" element={<StrategyBottleneckArticle />} />
           <Route path="/insights/research-inflection" element={<ResearchInflectionArticle />} />
           <Route path="/insights/generalist-advantage" element={<GeneralistAdvantageArticle />} />
+          <Route path="/insights/design-debt" element={<DesignDebtArticle />} />
+          <Route path="/insights/trust-layer" element={<TrustLayerArticle />} />
+          <Route path="/insights/ambassador-model" element={<AmbassadorModelArticle />} />
+          <Route path="/insights/order-taker" element={<OrderTakerArticle />} />
+          <Route path="/insights/cost-of-confusion" element={<CostOfConfusionArticle />} />
+          <Route path="/insights/hire-for-judgment" element={<HireForJudgmentArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
