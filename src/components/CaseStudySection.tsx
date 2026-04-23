@@ -130,7 +130,7 @@ const CaseStudySection = () => {
             to="/case-study/cash-conversion"
             className="group inline-flex items-center gap-2 text-xs font-mono text-muted-foreground hover:text-foreground uppercase tracking-widest transition-colors"
           >
-            Also: BBVA Cash Conversion
+            Also: BBVA Colombia — Digital Banking at Scale
             <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>

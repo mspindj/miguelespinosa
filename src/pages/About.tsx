@@ -131,7 +131,7 @@ const About = () => {
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
                 <a
-                  href="/CV_MiguelEspinosa_2026.pdf"
+                  href="/CV_MiguelEspinosa_2026_ATS_ENG.pdf"
                   download
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
                 >
