@@ -178,12 +178,34 @@ Long-tail: "senior director product design portfolio", "leadership through produ
 - Push a `main` → Vercel despliega automáticamente
 - Dominio: miguelespinosa.co
 
+## Insights Hub — Estado (Abr 2026)
+15 artículos publicados. Rutas en App.tsx, metadata en src/lib/articles.ts.
+
+| Slug | Categoría | Featured |
+|------|-----------|----------|
+| roi-of-experience | business-roi | ✓ |
+| ai-leadership-paradox | ai-strategy | |
+| authority-gap | design-leadership | |
+| outcome-stories | design-leadership | ✓ |
+| lean-leadership | soft-skills | |
+| ai-guardrails | ai-strategy | |
+| strategy-bottleneck | ai-ethics | |
+| research-inflection | ops-strategy | |
+| generalist-advantage | soft-skills | |
+| design-debt | design-leadership | |
+| trust-layer | ai-strategy | ✓ |
+| ambassador-model | ops-strategy | |
+| order-taker | design-leadership | |
+| cost-of-confusion | business-roi | |
+| hire-for-judgment | soft-skills | |
+
 ## Pendientes
 - [ ] Auditar case studies TP Design System y Design Transformation vs copy canónico de Notion
 - [ ] Evaluar Lighthouse score (performance, SEO, a11y)
 - [ ] Evaluar prerendering para SEO (React SPA sin SSR)
 - [ ] Configurar dominio custom en Vercel (DNS → A record 76.76.21.21)
 - [ ] Subir CV v2 a /public para actualizar el link de descarga en /about
+- [ ] Actualizar nombre del CV en About.tsx si se publica una v3
 
 ## Sesiones
 - **21 Abr 2026** — Diagnóstico inicial. Todo el contenido está en Notion. Repo tiene 4 case studies sin auditar.
@@ -192,8 +214,10 @@ Long-tail: "senior director product design portfolio", "leadership through produ
   - P1: Sistema de color (chartreuse), HeroSection copy, ManifestoSection, Footer, ExperienceSection
   - P2: About page (/about), análisis de 21 portafolios de referencia
   - Arquitectura final homepage: lista editorial + quote única + ExperienceSection solo en /about
-- **23 Abr 2026** — Sprint portfolio + CV:
-  - Deploy migrado a Vercel
-  - BBVA case study reconstruido como portfolio narrative completo (5 productos, métricas reales)
-  - CV v2 generado: título corregido, Tati añadido, BBVA con métricas reales de Behance, certifications actualizadas
+- **23 Abr 2026** — Sprint portfolio + CV + contenido:
+  - Deploy migrado de Lovable a Vercel (vercel.json con SPA rewrite)
+  - BBVA case study reconstruido: 5 productos, métricas reales de Behance, narrativa Design Authority
+  - CV v2 generado en DOCX: título Senior Director, Tati añadido, BBVA con datos reales, 7 certificaciones
   - Confirmado: Globant = Senior UX Designer (no modificar), Zinobe = fintech/lending (no banking)
+  - 6 nuevos artículos publicados en Insights Hub (hub: 9 → 15 artículos)
+  - Artículos anclados en experiencia real: Tati (trust layer), BBVA (ambassador model), TP (design debt, cost of confusion)
