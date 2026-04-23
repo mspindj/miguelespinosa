@@ -203,7 +203,7 @@ Long-tail: "senior director product design portfolio", "leadership through produ
 - [ ] Auditar case studies TP Design System y Design Transformation vs copy canónico de Notion
 - [ ] Evaluar Lighthouse score (performance, SEO, a11y)
 - [ ] Evaluar prerendering para SEO (React SPA sin SSR)
-- [ ] Configurar dominio custom en Vercel (DNS → A record 76.76.21.21)
+- [x] Configurar dominio custom en Vercel — ✅ miguelespinosa.co al aire
 - [ ] Subir CV v2 a /public para actualizar el link de descarga en /about
 - [ ] Actualizar nombre del CV en About.tsx si se publica una v3
 
