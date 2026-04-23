@@ -204,8 +204,7 @@ Long-tail: "senior director product design portfolio", "leadership through produ
 - [ ] Evaluar Lighthouse score (performance, SEO, a11y)
 - [ ] Evaluar prerendering para SEO (React SPA sin SSR)
 - [x] Configurar dominio custom en Vercel — ✅ miguelespinosa.co al aire
-- [ ] Subir CV v2 a /public para actualizar el link de descarga en /about
-- [ ] Actualizar nombre del CV en About.tsx si se publica una v3
+- [x] Subir CV v2 a /public — ✅ `CV_MiguelEspinosa_2026_ATS_ENG_v2.pdf` en producción
 
 ## Sesiones
 - **21 Abr 2026** — Diagnóstico inicial. Todo el contenido está en Notion. Repo tiene 4 case studies sin auditar.
