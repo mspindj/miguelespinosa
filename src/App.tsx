@@ -10,6 +10,7 @@ import DesignTransformationCase from "./pages/DesignTransformationCase";
 import TatiCase from "./pages/TatiCase";
 import CashConversionCase from "./pages/CashConversionCase";
 import ScrollToTop from "./components/ScrollToTop";
+import About from "./pages/About";
 import InsightsHub from "./pages/InsightsHub";
 import ROIExperienceArticle from "./pages/articles/ROIExperienceArticle";
 import AILeadershipParadoxArticle from "./pages/articles/AILeadershipParadoxArticle";
@@ -32,6 +33,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
           <Route path="/case-study/tp-design-system" element={<TPDesignSystemCase />} />
           <Route path="/case-study/design-transformation" element={<DesignTransformationCase />} />
           <Route path="/case-study/tati-ai" element={<TatiCase />} />

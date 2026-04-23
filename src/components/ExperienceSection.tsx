@@ -1,4 +1,4 @@
-import headshot from "@/assets/spin-profile.jpg";
+import headshot from "@/assets/miguel-profile.jpg";
 
 interface Experience {
   title: string;
@@ -9,30 +9,31 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    title: "Senior Global Director of Design",
+    title: "Senior Director of Product Design",
     company: "Teleperformance",
     period: "Mar 2022 – Nov 2025",
     highlights: [
-      "Lead the global product design organization, overseeing strategy and execution across multiple geographies.",
-      "Integrated AI-driven tools to enhance operational efficiency and innovation.",
+      "Led the global product design organization across 4 geographies — from vision to governance.",
+      "Built a multi-brand design system that cut handoff time 40% and achieved 90% UI consistency across products.",
+      "Drove design transformation from execution layer to strategic organizational capability.",
     ],
   },
   {
-    title: "Senior UX Designer / Technical Leader",
+    title: "Senior UX Lead",
     company: "Globant",
     period: "Oct 2020 – Feb 2022",
     highlights: [
-      "Served as Technical UX Lead for major accounts including DIRECTV.",
-      "Mentored a team of 7 designers, fostering growth and best practices.",
+      "Technical UX Lead for DIRECTV — embedded in product squads, aligned design with engineering delivery.",
+      "Mentored and grew a team of 7 designers.",
     ],
   },
   {
     title: "Head of Product Design",
-    company: "Zinobe SAS",
+    company: "Zinobe",
     period: "Dec 2019 – Aug 2020",
     highlights: [
-      "Spearheaded product design for a leading fintech, focusing on accessible financial products.",
-      "Led design for financial products with +1M credits disbursed.",
+      "Led product design for a fintech platform that disbursed +1M credits.",
+      "Simplified complex credit workflows for underserved financial populations.",
     ],
   },
   {
@@ -40,18 +41,22 @@ const experiences: Experience[] = [
     company: "BBVA Colombia",
     period: "May 2016 – Dec 2019",
     highlights: [
-      "Built and scaled the design capabilities within the organization.",
-      "Created and managed the Design Ambassadors Program (125+ employees).",
+      "Built the design team from 0 to 12 — hiring, culture, process.",
+      "Redesigned the cash conversion flow: BBVA named Best Mobile Bank in Colombia 2019.",
+      "Created the Design Ambassadors Program with 125+ employees across business units.",
     ],
   },
 ];
 
 const competencies = [
+  "Design Leadership",
+  "Design Systems at Scale",
+  "AI Product Strategy",
+  "DesignOps",
+  "Digital Transformation",
+  "Team Building",
   "Product Strategy",
-  "Design Systems",
-  "Team Leadership",
-  "Agile/Scrum",
-  "Data Analytics",
+  "Stakeholder Alignment",
 ];
 
 const ExperienceSection = () => {
@@ -83,9 +88,9 @@ const ExperienceSection = () => {
             </div>
 
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Over 10 years of experience defining product vision and leading high-performing
-              design teams. I thrive in complex environments where technical constraints meet user
-              needs.
+              15+ years scaling design organizations, building design systems at global scale,
+              and leading AI product strategy. I resolve the problem behind the problem —
+              design is not a service layer, it's decision-making infrastructure.
             </p>
 
             {/* Competencies */}
@@ -105,9 +110,13 @@ const ExperienceSection = () => {
               </div>
             </div>
 
-            <button className="text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+            <a
+              href="/CV_MiguelEspinosa_2026.pdf"
+              download
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            >
               Download Resume →
-            </button>
+            </a>
           </div>
 
           {/* Right column - Timeline */}

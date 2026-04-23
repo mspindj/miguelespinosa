@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      background: #111111;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Grid texture */
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* Chartreuse glow */
+    .glow {
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(200,229,50,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .glow-right {
+      position: absolute;
+      bottom: -150px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(200,229,50,0.06) 0%, transparent 65%);
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      padding: 72px 80px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #C8E532;
+      box-shadow: 0 0 12px 3px rgba(200,229,50,0.5);
+    }
+
+    .label {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .middle {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 24px 0;
+    }
+
+    h1 {
+      font-size: 80px;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    h1 span {
+      color: rgba(255,255,255,0.25);
+    }
+
+    .subtitle {
+      margin-top: 28px;
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      max-width: 600px;
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .url {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,229,50,0.12);
+      border: 1px solid rgba(200,229,50,0.25);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 13px;
+      color: #C8E532;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* Side border accent */
+    .accent-line {
+      position: absolute;
+      left: 0;
+      top: 80px;
+      bottom: 80px;
+      width: 3px;
+      background: linear-gradient(to bottom, transparent, #C8E532, transparent);
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <div class="glow-right"></div>
+  <div class="accent-line"></div>
+
+  <div class="content">
+    <div class="top">
+      <div class="dot"></div>
+      <span class="label">Senior Director of Product Design</span>
+    </div>
+
+    <div class="middle">
+      <h1>LEADERSHIP<br><span>THROUGH</span><br>DECISIONS.</h1>
+      <p class="subtitle">
+        Bridging business strategy, human-centered design, and AI innovation at global scale.
+      </p>
+    </div>
+
+    <div class="bottom">
+      <div>
+        <div class="name">Miguel Espinosa</div>
+        <div class="url">miguelespinosa.co</div>
+      </div>
+      <div class="badge">
+        Design · AI · Systems
+      </div>
+    </div>
+  </div>
+</body>
+</html>

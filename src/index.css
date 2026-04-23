@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,9 +16,9 @@
     --popover: 0 0% 6%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 24 95% 53%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 24 95% 53%;
+    --primary: 70 77% 55%;
+    --primary-foreground: 0 0% 5%;
+    --primary-glow: 70 77% 55%;
 
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 98%;
@@ -34,16 +34,16 @@
 
     --border: 0 0% 15%;
     --input: 0 0% 10%;
-    --ring: 24 95% 53%;
+    --ring: 70 77% 55%;
 
     --radius: 1rem;
 
     /* Custom tokens */
     --gradient-card: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 4%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(24 95% 53% / 0.12) 0%, transparent 60%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(70 77% 55% / 0.10) 0%, transparent 60%);
     --gradient-text: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(0 0% 55%) 100%);
     --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 40px -10px hsl(24 95% 53% / 0.3);
+    --shadow-glow: 0 0 40px -10px hsl(70 77% 55% / 0.3);
   }
 
   * {
@@ -136,8 +136,8 @@
   /* Abstract geometric patterns for blog thumbnails */
   .pattern-systems {
     background: 
-      radial-gradient(circle at 20% 30%, hsl(24 95% 53% / 0.15) 0%, transparent 40%),
-      radial-gradient(circle at 80% 70%, hsl(24 95% 53% / 0.1) 0%, transparent 35%),
+      radial-gradient(circle at 20% 30%, hsl(70 77% 55% / 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, hsl(70 77% 55% / 0.1) 0%, transparent 35%),
       linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 4%) 100%);
     position: relative;
   }
@@ -155,8 +155,8 @@
   
   .pattern-ai {
     background: 
-      conic-gradient(from 180deg at 50% 50%, hsl(24 95% 53% / 0.08) 0deg, transparent 60deg, hsl(24 95% 53% / 0.05) 120deg, transparent 180deg, hsl(24 95% 53% / 0.08) 240deg, transparent 300deg, hsl(24 95% 53% / 0.05) 360deg),
-      radial-gradient(ellipse at 30% 40%, hsl(24 95% 53% / 0.12) 0%, transparent 50%),
+      conic-gradient(from 180deg at 50% 50%, hsl(70 77% 55% / 0.08) 0deg, transparent 60deg, hsl(70 77% 55% / 0.05) 120deg, transparent 180deg, hsl(70 77% 55% / 0.08) 240deg, transparent 300deg, hsl(70 77% 55% / 0.05) 360deg),
+      radial-gradient(ellipse at 30% 40%, hsl(70 77% 55% / 0.12) 0%, transparent 50%),
       linear-gradient(135deg, hsl(0 0% 6%) 0%, hsl(0 0% 10%) 50%, hsl(0 0% 4%) 100%);
   }
   
@@ -182,7 +182,7 @@
     position: absolute;
     inset: 0;
     background: 
-      linear-gradient(45deg, transparent 40%, hsl(24 95% 53% / 0.08) 45%, hsl(24 95% 53% / 0.12) 50%, hsl(24 95% 53% / 0.08) 55%, transparent 60%),
+      linear-gradient(45deg, transparent 40%, hsl(70 77% 55% / 0.08) 45%, hsl(70 77% 55% / 0.12) 50%, hsl(70 77% 55% / 0.08) 55%, transparent 60%),
       linear-gradient(-45deg, transparent 40%, hsl(0 0% 20% / 0.15) 45%, hsl(0 0% 25% / 0.2) 50%, hsl(0 0% 20% / 0.15) 55%, transparent 60%);
   }
   
@@ -193,15 +193,15 @@
     left: 20%;
     right: 20%;
     height: 60%;
-    background: linear-gradient(to top, hsl(24 95% 53% / 0.06) 0%, transparent 100%);
+    background: linear-gradient(to top, hsl(70 77% 55% / 0.06) 0%, transparent 100%);
     clip-path: polygon(30% 100%, 50% 20%, 70% 100%);
   }
 
   /* New article patterns for Insights Hub */
   .pattern-outcomes {
     background: 
-      radial-gradient(ellipse at 70% 20%, hsl(24 95% 53% / 0.12) 0%, transparent 45%),
-      radial-gradient(ellipse at 30% 80%, hsl(24 95% 53% / 0.08) 0%, transparent 40%),
+      radial-gradient(ellipse at 70% 20%, hsl(70 77% 55% / 0.12) 0%, transparent 45%),
+      radial-gradient(ellipse at 30% 80%, hsl(70 77% 55% / 0.08) 0%, transparent 40%),
       linear-gradient(160deg, hsl(0 0% 8%) 0%, hsl(0 0% 4%) 100%);
     position: relative;
   }
@@ -232,8 +232,8 @@
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(circle at 25% 50%, hsl(24 95% 53% / 0.1) 0%, transparent 30%),
-      radial-gradient(circle at 75% 50%, hsl(24 95% 53% / 0.06) 0%, transparent 25%);
+      radial-gradient(circle at 25% 50%, hsl(70 77% 55% / 0.1) 0%, transparent 30%),
+      radial-gradient(circle at 75% 50%, hsl(70 77% 55% / 0.06) 0%, transparent 25%);
   }
   
   .pattern-lean::after {
@@ -243,7 +243,7 @@
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(24 95% 53% / 0.3), transparent);
+    background: linear-gradient(90deg, transparent, hsl(70 77% 55% / 0.3), transparent);
   }
 
   .pattern-guardrails {
@@ -258,8 +258,8 @@
     position: absolute;
     inset: 0;
     background-image: 
-      linear-gradient(0deg, hsl(24 95% 53% / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(24 95% 53% / 0.08) 1px, transparent 1px);
+      linear-gradient(0deg, hsl(70 77% 55% / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(70 77% 55% / 0.08) 1px, transparent 1px);
     background-size: 20px 20px;
     mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
   }
@@ -272,7 +272,7 @@
     transform: translateX(-50%);
     width: 60%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, hsl(24 95% 53% / 0.4), transparent);
+    background: linear-gradient(90deg, transparent, hsl(70 77% 55% / 0.4), transparent);
   }
 
   /* Strategy Bottleneck - Converging lines representing friction */
@@ -288,7 +288,7 @@
     position: absolute;
     inset: 0;
     background: 
-      linear-gradient(60deg, transparent 45%, hsl(24 95% 53% / 0.1) 48%, hsl(24 95% 53% / 0.15) 50%, hsl(24 95% 53% / 0.1) 52%, transparent 55%),
+      linear-gradient(60deg, transparent 45%, hsl(70 77% 55% / 0.1) 48%, hsl(70 77% 55% / 0.15) 50%, hsl(70 77% 55% / 0.1) 52%, transparent 55%),
       linear-gradient(120deg, transparent 45%, hsl(0 0% 25% / 0.2) 48%, hsl(0 0% 30% / 0.25) 50%, hsl(0 0% 25% / 0.2) 52%, transparent 55%);
   }
   
@@ -301,8 +301,8 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: hsl(24 95% 53% / 0.2);
-    box-shadow: 0 0 30px 15px hsl(24 95% 53% / 0.1);
+    background: hsl(70 77% 55% / 0.2);
+    box-shadow: 0 0 30px 15px hsl(70 77% 55% / 0.1);
   }
 
   /* Research Inflection - Data visualization aesthetic */
@@ -322,8 +322,8 @@
         0deg,
         transparent,
         transparent 8px,
-        hsl(24 95% 53% / 0.05) 8px,
-        hsl(24 95% 53% / 0.05) 9px
+        hsl(70 77% 55% / 0.05) 8px,
+        hsl(70 77% 55% / 0.05) 9px
       ),
       repeating-linear-gradient(
         90deg,
@@ -342,9 +342,9 @@
     right: 10%;
     height: 40%;
     background: 
-      radial-gradient(ellipse at 20% 80%, hsl(24 95% 53% / 0.15) 0%, transparent 40%),
-      radial-gradient(ellipse at 50% 60%, hsl(24 95% 53% / 0.1) 0%, transparent 35%),
-      radial-gradient(ellipse at 80% 70%, hsl(24 95% 53% / 0.12) 0%, transparent 30%);
+      radial-gradient(ellipse at 20% 80%, hsl(70 77% 55% / 0.15) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 60%, hsl(70 77% 55% / 0.1) 0%, transparent 35%),
+      radial-gradient(ellipse at 80% 70%, hsl(70 77% 55% / 0.12) 0%, transparent 30%);
   }
 
   /* Generalist Advantage - Connected nodes representing synthesis */
@@ -360,9 +360,9 @@
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(circle at 30% 30%, hsl(24 95% 53% / 0.12) 0%, transparent 20%),
-      radial-gradient(circle at 70% 30%, hsl(24 95% 53% / 0.08) 0%, transparent 18%),
-      radial-gradient(circle at 50% 70%, hsl(24 95% 53% / 0.1) 0%, transparent 22%),
+      radial-gradient(circle at 30% 30%, hsl(70 77% 55% / 0.12) 0%, transparent 20%),
+      radial-gradient(circle at 70% 30%, hsl(70 77% 55% / 0.08) 0%, transparent 18%),
+      radial-gradient(circle at 50% 70%, hsl(70 77% 55% / 0.1) 0%, transparent 22%),
       radial-gradient(circle at 20% 60%, hsl(0 0% 30% / 0.15) 0%, transparent 15%),
       radial-gradient(circle at 80% 65%, hsl(0 0% 25% / 0.12) 0%, transparent 16%);
   }
@@ -372,7 +372,7 @@
     position: absolute;
     inset: 0;
     background: 
-      linear-gradient(45deg, transparent 48%, hsl(24 95% 53% / 0.08) 49%, hsl(24 95% 53% / 0.08) 51%, transparent 52%),
+      linear-gradient(45deg, transparent 48%, hsl(70 77% 55% / 0.08) 49%, hsl(70 77% 55% / 0.08) 51%, transparent 52%),
       linear-gradient(135deg, transparent 48%, hsl(0 0% 25% / 0.12) 49%, hsl(0 0% 25% / 0.12) 51%, transparent 52%),
       linear-gradient(90deg, transparent 48%, hsl(0 0% 20% / 0.08) 49%, hsl(0 0% 20% / 0.08) 51%, transparent 52%);
   }

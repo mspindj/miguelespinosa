@@ -42,7 +42,7 @@ const BlogSection = () => {
                 className="group cursor-pointer border border-white/10 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md hover:border-primary/40 transition-all duration-300 h-full"
                 whileHover={{ 
                   scale: 1.02,
-                  boxShadow: "0 0 30px -5px hsl(24 95% 53% / 0.4)"
+                  boxShadow: "0 0 30px -5px hsl(70 77% 55% / 0.4)"
                 }}
               >
                 {/* Abstract geometric thumbnail */}

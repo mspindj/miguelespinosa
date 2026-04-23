@@ -1,155 +1,50 @@
-import { motion, type Variants } from "framer-motion";
-
-interface ManifestoCard {
-  number: string;
-  category: string;
-  title: string;
-  description: string;
-  tags?: string[];
-  quote?: string;
-}
-
-const manifestoCards: ManifestoCard[] = [
-  {
-    number: "01",
-    category: "The Context",
-    title: "Navigating Complexity",
-    description:
-      "In 2026, the interface is no longer just a screen; it's an intelligent layer between intent and outcome. We design for ecosystems, not just pages.",
-    tags: ["Systemic thinking", "Adaptive interfaces"],
-  },
-  {
-    number: "02",
-    category: "How I Define UX",
-    title: "Orientation, Not Advocacy",
-    description:
-      "Moving beyond 'empathy' as a buzzword to strategic business alignment. UX provides the map for the organization.",
-    quote: "UX IS NOT ADVOCACY. UX IS ORIENTATION.",
-  },
-  {
-    number: "03",
-    category: "How I Lead",
-    title: "Clarity Earns Priority",
-    description:
-      "Leadership is about reducing ambiguity. A clear vision empowers autonomous decision-making and decentralized execution.",
-    tags: ["Reduce friction", "Enable velocity"],
-  },
-  {
-    number: "04",
-    category: "AI as Infrastructure",
-    title: "The New Substrate",
-    description:
-      "AI isn't a feature; it's the substrate. We design the guardrails and the goals, allowing the system to handle the path.",
-    quote: "FROM UI KITS TO LOGIC LIBRARIES",
-  },
-  {
-    number: "05",
-    category: "Ethics & Research",
-    title: "The Responsible Future",
-    description:
-      "With great automation comes the need for rigorous ethical frameworks. Research shifts from validation to discovery of unintended consequences.",
-  },
-];
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  },
-};
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const ManifestoSection = () => {
   return (
-    <section id="philosophy" className="py-32 lg:py-40">
-      <div className="container mx-auto px-6">
-        {/* Section header */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-20">
-          <div className="lg:col-span-1">
-            <span className="text-xs font-mono text-primary uppercase tracking-widest mb-4 block">
-              Core Belief
-            </span>
-            <blockquote className="text-2xl lg:text-3xl font-semibold text-foreground leading-tight">
-              "UX is decision infrastructure."
-            </blockquote>
-          </div>
-          <div className="lg:col-span-2">
-            <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-foreground mb-4">
-              How I Think and Lead UX in 2026:
-            </h2>
-            <p className="text-xl text-muted-foreground">A Personal Manifesto</p>
-          </div>
-        </div>
+    <section id="philosophy" className="py-32 lg:py-48 relative overflow-hidden">
+      {/* Ambient glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 50%, hsl(70 77% 55% / 0.06) 0%, transparent 70%)",
+        }}
+      />
 
-        {/* Manifesto cards */}
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="max-w-5xl mx-auto text-center"
         >
-          {manifestoCards.map((card) => (
-            <motion.article
-              key={card.number}
-              variants={cardVariants}
-              whileHover={{
-                y: -4,
-                boxShadow: "0 0 30px -5px hsl(24 95% 53% / 0.3)",
-                borderColor: "hsl(24 95% 53% / 0.4)",
-              }}
-              transition={{ duration: 0.2 }}
-              className="glass-card p-6 rounded-2xl transition-colors cursor-pointer"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs font-mono text-primary">{card.number}</span>
-                <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
-                  — {card.category}
-                </span>
-              </div>
+          <span className="text-xs font-mono text-primary uppercase tracking-widest mb-12 block">
+            On AI Products
+          </span>
 
-              <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                {card.title}
-              </h3>
+          <blockquote className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter text-foreground leading-[0.95] mb-8">
+            "Good AI products
+            <br />
+            <span className="text-foreground/30">don't impress users</span>
+            <br />— they reassure them."
+          </blockquote>
 
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                {card.description}
-              </p>
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-12 leading-relaxed">
+            When the interface is a promise, clarity becomes the core feature.
+            I design the trust layer between humans and intelligent systems.
+          </p>
 
-              {card.tags && (
-                <div className="flex flex-wrap gap-2">
-                  {card.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-mono text-muted-foreground bg-secondary px-2 py-1 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              {card.quote && (
-                <p className="text-xs font-mono text-primary/80 mt-4 pt-4 border-t border-white/10">
-                  {card.quote}
-                </p>
-              )}
-            </motion.article>
-          ))}
+          <Link
+            to="/about"
+            className="group inline-flex items-center gap-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <span className="uppercase tracking-widest">Read the Full Manifesto</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
         </motion.div>
       </div>
     </section>

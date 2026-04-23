@@ -1,155 +1,138 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import flamingoImage from "@/assets/flamingo.jpeg";
-import tatiHero from "@/assets/tati-hero.png";
+import { motion } from "framer-motion";
 
-interface CaseStudy {
+interface CaseStudyData {
   number: string;
   year: string;
-  codename: string;
-  subtitle: string;
+  title: string;
   description: string;
-  metrics: { value: string; label: string }[];
-}
-
-interface CaseStudyData extends CaseStudy {
+  metric: string;
+  metricLabel: string;
   path: string;
-  image?: string;
+  tags: string[];
 }
 
 const caseStudies: CaseStudyData[] = [
   {
     number: "01",
     year: "2023 — 2025",
-    codename: "TP Design System",
-    subtitle: "Design System Architecture",
+    title: "TP Design System",
     description:
-      "Architected a multi-brand design system to unify product fragmented UI libraries. Focused on tokenization and engineer-handoff automation.",
-    metrics: [
-      { value: "-40%", label: "Handoff Time" },
-      { value: "100%", label: "Consistency" },
-    ],
+      "Multi-brand design system unifying fragmented UI libraries across a 500K+ employee organization. Token architecture + engineer-handoff automation.",
+    metric: "−40%",
+    metricLabel: "Handoff Time",
     path: "/case-study/tp-design-system",
-    image: flamingoImage,
+    tags: ["Design Systems", "DesignOps", "Teleperformance"],
   },
   {
     number: "02",
     year: "2022 — 2024",
-    codename: "Design Transformation",
-    subtitle: "Scaling Design through Organization",
+    title: "Design Transformation",
     description:
-      "Moving design from a service-oriented execution layer to a strategic core function. Building high-performance design organizations.",
-    metrics: [
-      { value: "Global", label: "Design Org" },
-      { value: "DesignOps", label: "Framework" },
-    ],
+      "Moved design from execution layer to strategic function inside a global BPO. Built the operating model, hiring framework, and design culture from scratch.",
+    metric: "0 → 12",
+    metricLabel: "Team Scale",
     path: "/case-study/design-transformation",
+    tags: ["Leadership", "DesignOps", "Org Design"],
   },
   {
     number: "03",
     year: "2025 — 2026",
-    codename: "tati.la",
-    subtitle: "AI Translation Designed for Trust",
+    title: "Tati — AI Translation",
     description:
-      "Designing the trust layer between humans and AI agents. Focused on clarity, specialized interfaces, and user confidence in AI-driven products.",
-    metrics: [
-      { value: "Trust", label: "Core Feature" },
-      { value: "96%+", label: "Quality Standard" },
-    ],
+      "Designed the trust layer between humans and AI agents for a specialized translation platform. The interface is a promise: clarity, confidence, control.",
+    metric: "96%+",
+    metricLabel: "Quality Standard",
     path: "/case-study/tati-ai",
-    image: tatiHero,
-  },
-  {
-    number: "04",
-    year: "2018 — 2020",
-    codename: "Cash Conversion",
-    subtitle: "Redefining Mental Models in Fintech",
-    description:
-      "Transforming complex financial operations into seamless, human-centric experiences. Simplification of mental models for enterprise workflows.",
-    metrics: [
-      { value: "#1", label: "Mobile Bank Colombia" },
-      { value: "-40%", label: "Transfer Steps" },
-    ],
-    path: "/case-study/cash-conversion",
+    tags: ["AI Product", "Trust UX", "Co-founder"],
   },
 ];
 
 const CaseStudySection = () => {
   return (
-    <section id="work" className="py-32 lg:py-40">
+    <section id="work" className="py-24 lg:py-32">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="flex items-center gap-4 mb-20">
+        <div className="flex items-center gap-4 mb-16">
           <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
             Selected Cases
           </span>
           <div className="flex-1 h-px bg-border" />
+          <span className="text-xs font-mono text-muted-foreground">
+            {caseStudies.length} projects
+          </span>
         </div>
 
-        {/* Case studies */}
-        <div className="space-y-32">
+        {/* Case list */}
+        <div className="divide-y divide-white/10">
           {caseStudies.map((study, index) => (
-            <article
-              key={study.codename}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
-                index % 2 === 1 ? "lg:flex-row-reverse" : ""
-              }`}
+            <motion.article
+              key={study.number}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
             >
-              {/* Image placeholder */}
-              <div
-                className={`glass-card aspect-[16/10] rounded-2xl overflow-hidden group cursor-pointer ${
-                  index % 2 === 1 ? "lg:order-2" : ""
-                }`}
+              <Link
+                to={study.path}
+                className="group grid grid-cols-1 lg:grid-cols-[5rem_1fr_auto] gap-4 lg:gap-8 py-10 items-start hover:bg-white/[0.02] -mx-6 px-6 transition-colors"
               >
-                {study.image ? (
-                  <img src={study.image} alt={study.codename} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-card to-secondary flex items-center justify-center relative">
-                    <span className="text-6xl font-bold text-muted-foreground/20">
-                      {study.number}
-                    </span>
-                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                <div className="flex items-center gap-4 mb-4">
+                {/* Number + year */}
+                <div className="flex lg:flex-col gap-3 lg:gap-1">
                   <span className="text-xs font-mono text-primary">{study.number}</span>
-                  <span className="text-xs font-mono text-muted-foreground">{study.year}</span>
+                  <span className="text-xs font-mono text-muted-foreground/60">{study.year}</span>
                 </div>
 
-                <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-foreground mb-2">
-                  {study.codename}
-                </h2>
-                <h3 className="text-lg text-muted-foreground mb-6">{study.subtitle}</h3>
+                {/* Content */}
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <h2 className="text-xl lg:text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                      {study.title}
+                    </h2>
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  </div>
 
-                <p className="text-muted-foreground leading-relaxed mb-8">{study.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl mb-4">
+                    {study.description}
+                  </p>
 
-                {/* Metrics */}
-                <div className="flex gap-8 mb-8">
-                  {study.metrics.map((metric) => (
-                    <div key={metric.label}>
-                      <div className="text-2xl font-semibold text-foreground">{metric.value}</div>
-                      <div className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
-                        {metric.label}
-                      </div>
-                    </div>
-                  ))}
+                  <div className="flex flex-wrap gap-2">
+                    {study.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-mono text-muted-foreground/50 uppercase tracking-wider"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                {/* CTA */}
-                <Link 
-                  to={study.path}
-                  className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                >
-                  <span className="uppercase tracking-widest">Read Case Study</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-              </div>
-            </article>
+                {/* Key metric */}
+                <div className="text-right hidden lg:block flex-shrink-0">
+                  <div className="text-2xl font-black text-foreground/90 tracking-tight">
+                    {study.metric}
+                  </div>
+                  <div className="text-xs font-mono text-muted-foreground uppercase tracking-wider mt-1">
+                    {study.metricLabel}
+                  </div>
+                </div>
+              </Link>
+            </motion.article>
           ))}
+        </div>
+
+        {/* View all */}
+        <div className="pt-12 flex items-center gap-4">
+          <div className="flex-1 h-px bg-border" />
+          <Link
+            to="/case-study/cash-conversion"
+            className="group inline-flex items-center gap-2 text-xs font-mono text-muted-foreground hover:text-foreground uppercase tracking-widest transition-colors"
+          >
+            Also: BBVA Cash Conversion
+            <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

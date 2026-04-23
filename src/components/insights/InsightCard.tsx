@@ -17,7 +17,7 @@ const InsightCard = ({ article, featured = false }: InsightCardProps) => {
         }`}
         whileHover={{ 
           scale: 1.02,
-          boxShadow: "0 0 30px -5px hsl(24 95% 53% / 0.4)"
+          boxShadow: "0 0 30px -5px hsl(70 77% 55% / 0.4)"
         }}
         transition={{ duration: 0.2 }}
       >
