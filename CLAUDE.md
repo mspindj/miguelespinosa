@@ -155,17 +155,45 @@ Long-tail: "senior director product design portfolio", "leadership through produ
 | `public/og-image.png` | OG image generada (1200×630) |
 | `public/og-template.html` | Template HTML/CSS para regenerar OG image |
 
+## CV — Estado (Abr 2026)
+- Fuente: `/Users/nowheretraveler/Documents/MEC/CV_MiguelEspinosa_2026_ATS_ENG_v2.docx`
+- PDF público en repo: `public/CV_MiguelEspinosa_2026_ATS_ENG.pdf` (link en /about)
+- **Título**: Senior Director of Product Design
+- **Tati**: incluido como Co-Founder & Head of Product Design (2025–Present)
+- **Globant**: mantenido como Senior UX Designer / Technical Leader (título real, no modificar)
+- **BBVA**: métricas reales de Behance — 760K ops/mes, −23% transfer time, 80% investment fund mobile
+- **Zinobe**: claramente separado como contexto fintech/lending (no banking)
+- **Certificaciones confirmadas** (7 en total):
+  - Generative AI Leader Certification — Google (2026)
+  - Product Management: Innovation in Digital Products — Crehana
+  - UX Strategy in Organizations — Crehana
+  - Fundamentals of Digital Product Management — Crehana
+  - Product Metrics & KPIs — Crehana
+  - Prototyping from Scratch with Figma — Crehana
+  - Interaction Latin America (ILA) Conference — 2018
+
+## Deploy
+- **Plataforma**: Vercel (migrado desde Lovable el 23 Abr 2026)
+- `vercel.json` en raíz con SPA rewrite rule
+- Push a `main` → Vercel despliega automáticamente
+- Dominio: miguelespinosa.co
+
 ## Pendientes
-- [ ] **CV PDF**: agregar `/public/CV_MiguelEspinosa_2026.pdf` para que funcione el download link en /about
-- [ ] Auditar contenido de cada case study vs copy canónico de Notion
+- [ ] Auditar case studies TP Design System y Design Transformation vs copy canónico de Notion
 - [ ] Evaluar Lighthouse score (performance, SEO, a11y)
 - [ ] Evaluar prerendering para SEO (React SPA sin SSR)
-- [ ] Git push → Lovable deploy
+- [ ] Configurar dominio custom en Vercel (DNS → A record 76.76.21.21)
+- [ ] Subir CV v2 a /public para actualizar el link de descarga en /about
 
 ## Sesiones
 - **21 Abr 2026** — Diagnóstico inicial. Todo el contenido está en Notion. Repo tiene 4 case studies sin auditar.
 - **22 Abr 2026** — Sprint completo:
   - P0: SEO fixes (index.html, OG image, JSON-LD)
-  - P1: Sistema de color (chartreuse), HeroSection copy, ManifestoSection 8 puntos, Footer, ExperienceSection bio
+  - P1: Sistema de color (chartreuse), HeroSection copy, ManifestoSection, Footer, ExperienceSection
   - P2: About page (/about), análisis de 21 portafolios de referencia
-  - Arquitectura final homepage: lista editorial de casos + quote única en ManifestoSection + ExperienceSection solo en /about
+  - Arquitectura final homepage: lista editorial + quote única + ExperienceSection solo en /about
+- **23 Abr 2026** — Sprint portfolio + CV:
+  - Deploy migrado a Vercel
+  - BBVA case study reconstruido como portfolio narrative completo (5 productos, métricas reales)
+  - CV v2 generado: título corregido, Tati añadido, BBVA con métricas reales de Behance, certifications actualizadas
+  - Confirmado: Globant = Senior UX Designer (no modificar), Zinobe = fintech/lending (no banking)
