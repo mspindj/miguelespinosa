@@ -25,8 +25,9 @@ const InsightsHub = () => {
   }, []);
 
   const filteredArticles = useMemo(() => {
-    if (activeFilter === "all") return articles;
-    return articles.filter((article) => article.filterTag === activeFilter);
+    const sorted = [...articles].reverse();
+    if (activeFilter === "all") return sorted;
+    return sorted.filter((article) => article.filterTag === activeFilter);
   }, [activeFilter]);
 
   return (

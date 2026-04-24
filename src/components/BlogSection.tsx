@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { articles } from "@/lib/articles";
 
 const BlogSection = () => {
-  // Get first 3 articles for the homepage preview
-  const featuredArticles = articles.slice(0, 3);
+  // Most recent 3 articles
+  const featuredArticles = [...articles].reverse().slice(0, 3);
 
   return (
     <section id="insights" className="py-32 lg:py-40 border-t border-white/10">

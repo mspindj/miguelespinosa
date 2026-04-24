@@ -108,9 +108,10 @@ const About = () => {
               </motion.p>
 
               <motion.p variants={fadeUp} className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Built design systems at global scale at Teleperformance, scaled teams from 0 to 12
-                at BBVA Colombia, led digital transformation for DIRECTV via Globant, and
-                co-founded AI-powered products in fintech and translation.
+                Built design systems at global scale at Teleperformance — leading an extended design
+                community of 30+ designers across practices and disciplines. Before that, scaled
+                the design team from 0 to 12 at BBVA Colombia, led digital transformation for
+                DIRECTV via Globant, and co-founded AI-powered products in fintech and translation.
               </motion.p>
 
               <motion.p variants={fadeUp} className="text-lg text-muted-foreground leading-relaxed mb-10">
