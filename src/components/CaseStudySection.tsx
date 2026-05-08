@@ -47,6 +47,17 @@ const caseStudies: CaseStudyData[] = [
     path: "/case-study/tati-ai",
     tags: ["AI Product", "Trust UX", "Co-founder"],
   },
+  {
+    number: "04",
+    year: "2025 — 2026",
+    title: "The Birdie Club",
+    description:
+      "Built a methodology-first AI coaching platform for a golf instructor with 70K+ followers. Gemini-powered swing analysis encoded around his proprietary RJ100 framework.",
+    metric: "$2.3K",
+    metricLabel: "ARR · 8 Days",
+    path: "/case-study/birdie-club",
+    tags: ["AI Product", "Creator Economy", "PWA"],
+  },
 ];
 
 const CaseStudySection = () => {
@@ -60,7 +71,7 @@ const CaseStudySection = () => {
           </span>
           <div className="flex-1 h-px bg-border" />
           <span className="text-xs font-mono text-muted-foreground">
-            {caseStudies.length} projects
+            {caseStudies.length} projects + BBVA
           </span>
         </div>
 

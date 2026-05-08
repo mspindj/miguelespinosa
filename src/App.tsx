@@ -27,6 +27,7 @@ import AmbassadorModelArticle from "./pages/articles/AmbassadorModelArticle";
 import OrderTakerArticle from "./pages/articles/OrderTakerArticle";
 import CostOfConfusionArticle from "./pages/articles/CostOfConfusionArticle";
 import HireForJudgmentArticle from "./pages/articles/HireForJudgmentArticle";
+import BirdieClubCase from "./pages/BirdieClubCase";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/case-study/design-transformation" element={<DesignTransformationCase />} />
           <Route path="/case-study/tati-ai" element={<TatiCase />} />
           <Route path="/case-study/cash-conversion" element={<CashConversionCase />} />
+          <Route path="/case-study/birdie-club" element={<BirdieClubCase />} />
           {/* Insights Hub */}
           <Route path="/insights" element={<InsightsHub />} />
           {/* Article routes */}
