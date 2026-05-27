@@ -27,6 +27,12 @@ import AmbassadorModelArticle from "./pages/articles/AmbassadorModelArticle";
 import OrderTakerArticle from "./pages/articles/OrderTakerArticle";
 import CostOfConfusionArticle from "./pages/articles/CostOfConfusionArticle";
 import HireForJudgmentArticle from "./pages/articles/HireForJudgmentArticle";
+import AIHarnessArticle from "./pages/articles/AIHarnessArticle";
+import AIWhereBelongsArticle from "./pages/articles/AIWhereBelongsArticle";
+import AITrustCalibrationArticle from "./pages/articles/AITrustCalibrationArticle";
+import CorrectionsLogArticle from "./pages/articles/CorrectionsLogArticle";
+import DesignerTrainsModelArticle from "./pages/articles/DesignerTrainsModelArticle";
+import DesignMdArticle from "./pages/articles/DesignMdArticle";
 import BirdieClubCase from "./pages/BirdieClubCase";
 
 const queryClient = new QueryClient();
@@ -64,6 +70,12 @@ const App = () => (
           <Route path="/insights/order-taker" element={<OrderTakerArticle />} />
           <Route path="/insights/cost-of-confusion" element={<CostOfConfusionArticle />} />
           <Route path="/insights/hire-for-judgment" element={<HireForJudgmentArticle />} />
+          <Route path="/insights/ai-harness" element={<AIHarnessArticle />} />
+          <Route path="/insights/ai-where-it-belongs" element={<AIWhereBelongsArticle />} />
+          <Route path="/insights/ai-trust-calibration" element={<AITrustCalibrationArticle />} />
+          <Route path="/insights/corrections-md" element={<CorrectionsLogArticle />} />
+          <Route path="/insights/designer-trains-model" element={<DesignerTrainsModelArticle />} />
+          <Route path="/insights/design-md" element={<DesignMdArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
