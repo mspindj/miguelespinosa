@@ -366,7 +366,7 @@ const AIDesignOS = () => {
                 <ul className="space-y-3">
                   {[
                     "You're already using AI tools and feel like you're losing control",
-                    "You want to go from "AI generates random things" to "AI does predictable things"",
+                    'You want to go from "AI generates random things" to "AI does predictable things"',
                     "You're a designer or design leader running real product work",
                     "You want a system you can set up this week, not a theory for next quarter",
                   ].map((item) => (
