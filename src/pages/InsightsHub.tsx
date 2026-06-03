@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import InsightCard from "@/components/insights/InsightCard";
 import FilterPills from "@/components/insights/FilterPills";
 import SearchCommand, { SearchTrigger } from "@/components/insights/SearchCommand";
@@ -76,6 +76,37 @@ const InsightsHub = () => {
       <div className="container mx-auto px-6">
         <div className="h-px bg-border" />
       </div>
+
+      {/* Resource Banner */}
+      <section className="py-8">
+        <div className="container mx-auto px-6">
+          <Link
+            to="/ai-design-os"
+            className="group block bg-card border border-primary/20 hover:border-primary/40 rounded-2xl p-6 lg:p-8 transition-colors"
+          >
+            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+              <div className="flex-1">
+                <span className="text-xs font-mono text-primary uppercase tracking-widest mb-2 block">
+                  Free Resource
+                </span>
+                <h3 className="text-lg font-semibold text-foreground mb-1">
+                  The AI Design Operating System
+                </h3>
+                <p className="text-sm text-muted-foreground max-w-xl">
+                  A five-component framework for designers who want to direct AI — not be directed
+                  by it. Read in 20 minutes, implement in a week.
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
+                  Get the guide
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
 
       {/* Articles Grid */}
       <section className="py-12 lg:py-16">

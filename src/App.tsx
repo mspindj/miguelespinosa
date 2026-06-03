@@ -34,6 +34,7 @@ import CorrectionsLogArticle from "./pages/articles/CorrectionsLogArticle";
 import DesignerTrainsModelArticle from "./pages/articles/DesignerTrainsModelArticle";
 import DesignMdArticle from "./pages/articles/DesignMdArticle";
 import BirdieClubCase from "./pages/BirdieClubCase";
+import AIDesignOS from "./pages/AIDesignOS";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/case-study/tati-ai" element={<TatiCase />} />
           <Route path="/case-study/cash-conversion" element={<CashConversionCase />} />
           <Route path="/case-study/birdie-club" element={<BirdieClubCase />} />
+          <Route path="/ai-design-os" element={<AIDesignOS />} />
           {/* Insights Hub */}
           <Route path="/insights" element={<InsightsHub />} />
           {/* Article routes */}

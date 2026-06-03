@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The AI Design Operating System — Miguel Espinosa</title>
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #1A1A1A;
+      --surface: #222222;
+      --surface-2: #2A2A2A;
+      --border: rgba(255,255,255,0.08);
+      --text: #FFFFFF;
+      --muted: rgba(255,255,255,0.55);
+      --accent: #C8E532;
+      --accent-bg: rgba(200,229,50,0.08);
+      --radius: 10px;
+    }
+
+    html { background: var(--bg); color: var(--text); }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Layout ─── */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+
+    @media print {
+      body { background: white; color: #111; }
+      :root {
+        --bg: white;
+        --surface: #f5f5f5;
+        --surface-2: #eeeeee;
+        --border: rgba(0,0,0,0.1);
+        --text: #111111;
+        --muted: #666666;
+        --accent: #5a7a00;
+        --accent-bg: rgba(90,122,0,0.05);
+      }
+      .no-print { display: none !important; }
+      .page { padding: 0; max-width: 100%; }
+      h2 { page-break-after: avoid; }
+      .card { page-break-inside: avoid; }
+    }
+
+    /* ─── Header ─── */
+    .doc-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 48px;
+      margin-bottom: 56px;
+    }
+
+    .label {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ─── Sections ─── */
+    section {
+      margin-bottom: 64px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+      margin-top: 48px;
+    }
+
+    h2:first-child { margin-top: 0; }
+
+    .section-label {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    p strong { color: var(--text); }
+
+    /* ─── Cards ─── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 12px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 560px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    .component-number {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 10px;
+      color: rgba(200,229,50,0.4);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 11px;
+      color: var(--accent);
+      background: var(--accent-bg);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* ─── Week timeline ─── */
+    .week-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .week-item:last-child { border-bottom: none; }
+
+    .day-label {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(200,229,50,0.5);
+      padding-top: 2px;
+    }
+
+    .week-item .action {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .week-item .detail {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ─── For/not for ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 560px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .list-col h4 {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .list-col.muted h4 { color: var(--muted); }
+
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .list-item.muted { opacity: 0.45; }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .dot.muted { background: rgba(255,255,255,0.2); }
+
+    /* ─── Callout ─── */
+    .callout {
+      background: var(--accent-bg);
+      border: 1px solid rgba(200,229,50,0.15);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .callout p {
+      font-size: 15px;
+      color: var(--text);
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* ─── Author ─── */
+    .author {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+      margin-top: 64px;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .author-title {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .author-bio {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ─── Divider ─── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ─── Print CTA ─── */
+    .print-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 48px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .print-btn {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-bg);
+      border: 1px solid rgba(200,229,50,0.2);
+      border-radius: 6px;
+      padding: 6px 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .print-btn:hover { background: rgba(200,229,50,0.15); }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Print CTA -->
+    <div class="print-cta no-print">
+      <span>Save this guide as PDF for offline reference</span>
+      <a href="javascript:window.print()" class="print-btn">Print / Save PDF</a>
+    </div>
+
+    <!-- Header -->
+    <header class="doc-header">
+      <span class="label">Free Resource — miguelespinosa.co</span>
+      <h1>The AI Design<br>Operating System</h1>
+      <p class="subtitle">
+        A five-component framework for product designers who want
+        to direct AI — not be directed by it.
+      </p>
+      <span class="meta">Miguel Espinosa &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; 15 min read</span>
+    </header>
+
+    <!-- Introduction -->
+    <section>
+      <p>
+        Most designers interact with AI the way they interact with Google Search. One prompt,
+        one response, no memory, no context, no system. It works for one-off tasks. It fails
+        for the sustained work of product design — where decisions compound, context matters,
+        and quality is non-negotiable.
+      </p>
+      <p>
+        The designers pulling ahead aren't using better models. They're using AI inside a
+        structured environment. This guide describes that environment, plainly.
+      </p>
+      <p>
+        Built from running real product design work with embedded AI agents: at Teleperformance
+        (125+ designers, 60+ countries), BBVA Colombia, Tati (AI translation), and The Birdie
+        Club (AI golf app). Practice first. Documentation second.
+      </p>
+
+      <div class="callout">
+        <p>
+          "The teams getting the most out of AI agents aren't the ones with the best models.
+          They're the ones who built something around the model worth directing."
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- The Five Components -->
+    <section>
+      <span class="section-label">The Framework</span>
+      <h2>Five components. One afternoon to set up.</h2>
+      <p>
+        The harness is everything around the model that shapes what it can see, what it's
+        allowed to do, and what happens after it acts. The prompt is part of it — but a
+        small part.
+      </p>
+
+      <div style="margin-top: 28px;">
+
+        <div class="card">
+          <span class="component-number">01</span>
+          <h3>Context Files</h3>
+          <p>
+            What the model reads before it acts. <strong>DESIGN.md</strong> captures your visual
+            system. <strong>voice.md</strong> defines how the AI sounds and handles uncertainty.
+            <strong>domain-patterns.md</strong> encodes the industry knowledge no model can infer.
+            Without these, the model invents its own version of your product.
+          </p>
+          <div class="tags">
+            <span class="tag">DESIGN.md</span>
+            <span class="tag">voice.md</span>
+            <span class="tag">domain-patterns.md</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="component-number">02</span>
+          <h3>Agent Roles</h3>
+          <p>
+            The agent that writes the spec shouldn't write the code. Separation of concerns
+            applies to agents too. One agent to specify, one to implement, one to review.
+            Each role gets its own context, its own constraints, its own definition of done.
+          </p>
+          <div class="tags">
+            <span class="tag">specifier</span>
+            <span class="tag">implementer</span>
+            <span class="tag">reviewer</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="component-number">03</span>
+          <h3>Memory</h3>
+          <p>
+            The model doesn't remember you. Your files do. <strong>corrections.md</strong> captures
+            every time the model did something wrong and what the right answer was.
+            <strong>dont-do.md</strong> captures approaches you've explicitly rejected. Both
+            travel with the project forever.
+          </p>
+          <div class="tags">
+            <span class="tag">corrections.md</span>
+            <span class="tag">dont-do.md</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="component-number">04</span>
+          <h3>Validation</h3>
+          <p>
+            Checkpoints that run after the model acts. Did it touch files outside task scope?
+            Stop. Does the output match what was specified? Verify. Validation is how you
+            build trust incrementally — not by hoping the model got it right.
+          </p>
+          <div class="tags">
+            <span class="tag">scope checks</span>
+            <span class="tag">output verification</span>
+            <span class="tag">quality gates</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="component-number">05</span>
+          <h3>Human Gates</h3>
+          <p>
+            Deliberate pauses where you — not the model — decide what happens next. Not because
+            you don't trust the model. Because trust gets earned incrementally, and some decisions
+            are yours to make.
+          </p>
+          <div class="tags">
+            <span class="tag">review checkpoints</span>
+            <span class="tag">approval workflows</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- The New Artifacts -->
+    <section>
+      <span class="section-label">The New Artifacts</span>
+      <h2>What you actually produce now</h2>
+      <p>
+        When your product is built with AI agents, you produce things that didn't exist five
+        years ago. These four files are the core.
+      </p>
+
+      <div class="card-grid" style="margin-top: 24px;">
+
+        <div class="card">
+          <span class="tag" style="margin-bottom: 12px; display: inline-block;">DESIGN.md</span>
+          <p>
+            A machine-readable version of your design system. Not for engineers — for the model.
+            Semantic color tokens, spacing scale, type scale, component inventory. When the model
+            generates a button, it reads this file instead of pattern-matching against random code
+            it saw in training.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag" style="margin-bottom: 12px; display: inline-block;">voice.md</span>
+          <p>
+            How the AI speaks in your product. How certain it sounds at different confidence levels.
+            What it says when it doesn't know. How it handles errors. This isn't marketing copy —
+            it's calibration for every AI-generated string in the product.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag" style="margin-bottom: 12px; display: inline-block;">domain-patterns.md</span>
+          <p>
+            Industry knowledge the model can't infer. In a golf app: what's the difference between
+            a handicap and a playing handicap? In banking: what does "cash conversion" actually mean
+            to a retail customer? Domain depth lives here.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag" style="margin-bottom: 12px; display: inline-block;">corrections.md</span>
+          <p>
+            An append-only log of every agent mistake and its correction. Date, context, what went
+            wrong, what the right behavior is. No measurable ROI on day one. By month three, it's
+            the most valuable artifact in your project.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Minimal DESIGN.md Template -->
+    <section>
+      <span class="section-label">Template</span>
+      <h2>A minimal DESIGN.md to start from</h2>
+      <p>
+        Copy this into your project root. Fill in your actual values. The key is semantic
+        tokens — not hex values, not Tailwind class names. Meaning, not values.
+      </p>
+
+      <div class="card" style="font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.75); margin-top: 20px; background: #1e1e1e; overflow-x: auto;">
+        <pre style="white-space: pre-wrap; margin: 0;"># DESIGN.md
+
+## Grid
+Desktop: 12 columns, 32px margin, 24px gutter
+Mobile: 4 columns, 16px margin, 16px gutter
+
+## Spacing
+Base unit: 8px
+spacing-1: 8px | spacing-2: 16px | spacing-3: 24px
+spacing-4: 32px | spacing-6: 48px | spacing-8: 64px
+
+## Typography
+Display: 48px / 700 — hero headings only
+H1: 32px / 600 | H2: 24px / 600 | H3: 20px / 500
+Body: 16px / 400 | Small: 14px / 400 | Caption: 12px / 400
+
+## Color tokens
+primary / primary-foreground   — main actions, CTAs
+secondary / secondary-foreground — supporting actions
+destructive / destructive-foreground — delete, irreversible
+muted / muted-foreground       — disabled, secondary text
+card / card-foreground         — card surfaces
+background / foreground        — page background, body text
+
+## Radius
+--radius: 8px
+sm: calc(var(--radius) - 2px)
+md: var(--radius)
+lg: calc(var(--radius) + 4px)
+
+## Restrictions
+Never use raw hex values — always semantic tokens
+Never override spacing outside the scale
+Card elevation: box-shadow only, no border on light theme</pre>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- First Week -->
+    <section>
+      <span class="section-label">Getting Started</span>
+      <h2>Your first week</h2>
+      <p>
+        Don't try to build the system all at once. Build it in the order things become
+        painful. This is the sequence that works.
+      </p>
+
+      <div style="margin-top: 24px; border-top: 1px solid var(--border);">
+
+        <div class="week-item">
+          <span class="day-label">Day 1</span>
+          <div>
+            <div class="action">Write DESIGN.md</div>
+            <p class="detail">Two hours. Semantic tokens, spacing, type scale, component list. It will pay back in weeks.</p>
+          </div>
+        </div>
+
+        <div class="week-item">
+          <span class="day-label">Day 2</span>
+          <div>
+            <div class="action">Write your first corrections.md entry</div>
+            <p class="detail">Find something the model got wrong today. Document it. The file exists now. It will compound.</p>
+          </div>
+        </div>
+
+        <div class="week-item">
+          <span class="day-label">Day 3</span>
+          <div>
+            <div class="action">Define three agents</div>
+            <p class="detail">Specifier. Implementer. Reviewer. They don't have to be sophisticated. They have to be separate.</p>
+          </div>
+        </div>
+
+        <div class="week-item">
+          <span class="day-label">Day 4</span>
+          <div>
+            <div class="action">Add your first human gate</div>
+            <p class="detail">One checkpoint where you approve before the agent continues. One.</p>
+          </div>
+        </div>
+
+        <div class="week-item">
+          <span class="day-label">Day 5</span>
+          <div>
+            <div class="action">Write domain-patterns.md</div>
+            <p class="detail">What does your product domain know that the model doesn't? Write that down.</p>
+          </div>
+        </div>
+
+        <div class="week-item">
+          <span class="day-label">Day 7</span>
+          <div>
+            <div class="action">You have a system</div>
+            <p class="detail">Not perfect. Not complete. A real system you built yourself, that reflects how you actually work.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Who it's for -->
+    <section>
+      <span class="section-label">Who This Is For</span>
+      <h2>Check before you invest the week</h2>
+
+      <div class="two-col" style="margin-top: 24px;">
+
+        <div class="list-col">
+          <h4>This is for you if</h4>
+          <div class="list-item">
+            <div class="dot"></div>
+            <span>You're already using AI tools and feel like you're losing control</span>
+          </div>
+          <div class="list-item">
+            <div class="dot"></div>
+            <span>You want to go from "AI generates random things" to "AI does predictable things"</span>
+          </div>
+          <div class="list-item">
+            <div class="dot"></div>
+            <span>You're a designer or design leader running real product work</span>
+          </div>
+          <div class="list-item">
+            <div class="dot"></div>
+            <span>You want a system you can set up this week, not a theory for next quarter</span>
+          </div>
+        </div>
+
+        <div class="list-col muted">
+          <h4>This is not for you if</h4>
+          <div class="list-item muted">
+            <div class="dot muted"></div>
+            <span>You're looking for a technical architecture guide</span>
+          </div>
+          <div class="list-item muted">
+            <div class="dot muted"></div>
+            <span>You haven't started using AI in your workflow yet</span>
+          </div>
+          <div class="list-item muted">
+            <div class="dot muted"></div>
+            <span>You want a framework someone else built that you can just install</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Author -->
+    <div class="author">
+      <div class="avatar">M</div>
+      <div>
+        <div class="author-name">Miguel Espinosa</div>
+        <div class="author-title">Senior Director of Product Design</div>
+        <p class="author-bio">
+          The system in this guide is the actual system I use. Built from running design
+          work with embedded AI at Teleperformance (design system across 60+ countries),
+          BBVA Colombia, Tati (AI translation), and The Birdie Club (AI golf app).
+          Practice first, then documentation.
+          <br><br>
+          <strong style="color: rgba(255,255,255,0.8);">miguelespinosa.co</strong>
+          &nbsp;·&nbsp; More writing at
+          <strong style="color: rgba(255,255,255,0.8);">miguelespinosa.co/insights</strong>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
