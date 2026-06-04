@@ -29,14 +29,14 @@ const components = [
     number: "04",
     name: "Validation",
     description:
-      "Checkpoints that run after the model acts. Did it touch files outside the task scope? Stop. Does the output match what was specified? Verify. Validation is how you build trust incrementally — not by hoping the model got it right.",
+      "Checkpoints that run after the model acts. Did it touch files outside the task scope? Stop. Does the output match what was specified? Verify. It sounds paranoid until the first time the model quietly refactors something you didn't ask it to touch.",
     files: ["scope checks", "output verification", "quality gates"],
   },
   {
     number: "05",
     name: "Human Gates",
     description:
-      "Deliberate pauses where you — not the model — decide what happens next. Not because you don't trust the model. Because trust gets earned incrementally, and some decisions are yours to make.",
+      "Deliberate pauses where you decide what happens next. The model can keep going without you — sometimes that's fine. For decisions that are hard to reverse, build a pause before them.",
     files: ["review checkpoints", "approval workflows"],
   },
 ];
@@ -70,7 +70,7 @@ const week = [
   { day: "Day 3", action: "Define three agents", detail: "Specifier. Implementer. Reviewer. They don't have to be smart. They have to be separate." },
   { day: "Day 4", action: "Add your first human gate", detail: "One checkpoint where you approve before the agent continues." },
   { day: "Day 5", action: "Write domain-patterns.md", detail: "What does your product domain know that the model doesn't? Write that down." },
-  { day: "Day 7", action: "You have a system", detail: "Not perfect. Not complete. A real system you built yourself, that reflects how you actually work." },
+  { day: "Day 7", action: "You have a system", detail: "Rough at the edges. It'll get sharper as you correct it." },
 ];
 
 function EmailCapture({ id }: { id: string }) {
@@ -179,8 +179,8 @@ const AIDesignOS = () => {
               The AI Design<br />Operating System
             </h1>
             <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-10">
-              Most designers let AI happen to them. The ones pulling ahead built
-              a system around it. Here's the five-component framework I use.
+              AI without a system is expensive. Every session starts from scratch,
+              every project re-explains itself. These are the five things that fixed that for me.
             </p>
 
             {/* Primary CTA */}
@@ -204,19 +204,17 @@ const AIDesignOS = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              This is a practical framework — not a theoretical one. Built from running real product
-              design work with AI agents embedded throughout: at Teleperformance (125+ designers,
-              60+ countries), BBVA Colombia, Tati, The Birdie Club.
+              I've run this across four products: Teleperformance (125+ designers, 60 countries),
+              BBVA Colombia, Tati, The Birdie Club. The context changed each time. The five
+              components stayed the same.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Most designers interact with AI the way they interact with Google Search. One prompt,
-              one response, no memory, no context, no system. It works for one-off tasks. It fails
-              for the sustained work of product design — where decisions compound, context matters,
-              and quality is non-negotiable.
+              The problem is never the model. When AI sessions feel random and unreliable, it's
+              because there's no environment around the model. No memory, no context, no scope.
+              Every session starts the same as the last one.
             </p>
             <p className="text-lg text-foreground leading-relaxed">
-              The designers who are pulling ahead aren't using better models. They're using AI inside
-              a structured environment. This guide is that environment, described plainly.
+              This guide builds the environment.
             </p>
           </div>
         </div>
@@ -366,7 +364,7 @@ const AIDesignOS = () => {
                 <ul className="space-y-3">
                   {[
                     "You're already using AI tools and feel like you're losing control",
-                    'You want to go from "AI generates random things" to "AI does predictable things"',
+                    "You spend too much time correcting the AI and not enough time using it",
                     "You're a designer or design leader running real product work",
                     "You want a system you can set up this week, not a theory for next quarter",
                   ].map((item) => (

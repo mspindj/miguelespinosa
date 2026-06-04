@@ -382,8 +382,8 @@
       <span class="label">Free Resource — miguelespinosa.co</span>
       <h1>The AI Design<br>Operating System</h1>
       <p class="subtitle">
-        A five-component framework for product designers who want
-        to direct AI — not be directed by it.
+        A five-component framework for running product design work
+        when AI is in the room and you need it to do what you expect.
       </p>
       <span class="meta">Miguel Espinosa &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; 15 min read</span>
     </header>
@@ -391,25 +391,22 @@
     <!-- Introduction -->
     <section>
       <p>
-        Most designers interact with AI the way they interact with Google Search. One prompt,
-        one response, no memory, no context, no system. It works for one-off tasks. It fails
-        for the sustained work of product design — where decisions compound, context matters,
-        and quality is non-negotiable.
+        There's a version of using AI that feels like typing into a void. You get something back,
+        you iterate, it's fine. It doesn't compound. Every session starts the same as the last.
       </p>
       <p>
-        The designers pulling ahead aren't using better models. They're using AI inside a
-        structured environment. This guide describes that environment, plainly.
+        I ran into this across four products: Teleperformance, BBVA Colombia, Tati, The Birdie Club.
+        Each one different. The failure mode was the same — no environment around the model, so
+        nothing persisted, nothing got smarter, nothing was reliable.
       </p>
       <p>
-        Built from running real product design work with embedded AI agents: at Teleperformance
-        (125+ designers, 60+ countries), BBVA Colombia, Tati (AI translation), and The Birdie
-        Club (AI golf app). Practice first. Documentation second.
+        What fixed it wasn't a better model. It was five files and three agent roles. That's this guide.
       </p>
 
       <div class="callout">
         <p>
-          "The teams getting the most out of AI agents aren't the ones with the best models.
-          They're the ones who built something around the model worth directing."
+          I stopped switching models about six months in. Nothing I tried made as much difference
+          as tightening the context files.
         </p>
       </div>
     </section>
@@ -421,9 +418,9 @@
       <span class="section-label">The Framework</span>
       <h2>Five components. One afternoon to set up.</h2>
       <p>
-        The harness is everything around the model that shapes what it can see, what it's
-        allowed to do, and what happens after it acts. The prompt is part of it — but a
-        small part.
+        Think of it as the environment the model operates inside. What it reads before it
+        acts. What it's allowed to touch. What happens after it finishes. The prompt is part
+        of that environment, but a small part.
       </p>
 
       <div style="margin-top: 28px;">
@@ -480,7 +477,7 @@
           <p>
             Checkpoints that run after the model acts. Did it touch files outside task scope?
             Stop. Does the output match what was specified? Verify. Validation is how you
-            build trust incrementally — not by hoping the model got it right.
+            It sounds paranoid until the first time the model quietly refactors something you didn't ask it to touch.
           </p>
           <div class="tags">
             <span class="tag">scope checks</span>
@@ -493,9 +490,9 @@
           <span class="component-number">05</span>
           <h3>Human Gates</h3>
           <p>
-            Deliberate pauses where you — not the model — decide what happens next. Not because
-            you don't trust the model. Because trust gets earned incrementally, and some decisions
-            are yours to make.
+            Deliberate pauses where you decide what happens next. The model can keep going
+            without you — sometimes that's fine. For decisions that are hard to reverse,
+            build a pause before them.
           </p>
           <div class="tags">
             <span class="tag">review checkpoints</span>
@@ -513,8 +510,8 @@
       <span class="section-label">The New Artifacts</span>
       <h2>What you actually produce now</h2>
       <p>
-        When your product is built with AI agents, you produce things that didn't exist five
-        years ago. These four files are the core.
+        The deliverables changed. There are four files you'll need that didn't exist in your
+        workflow two years ago.
       </p>
 
       <div class="card-grid" style="margin-top: 24px;">
@@ -522,19 +519,18 @@
         <div class="card">
           <span class="tag" style="margin-bottom: 12px; display: inline-block;">DESIGN.md</span>
           <p>
-            A machine-readable version of your design system. Not for engineers — for the model.
-            Semantic color tokens, spacing scale, type scale, component inventory. When the model
-            generates a button, it reads this file instead of pattern-matching against random code
-            it saw in training.
+            Your design system, written for the model to read. Semantic color tokens, spacing scale,
+            type scale, component inventory. Without this file, the model generates buttons that
+            are technically correct and visually wrong.
           </p>
         </div>
 
         <div class="card">
           <span class="tag" style="margin-bottom: 12px; display: inline-block;">voice.md</span>
           <p>
-            How the AI speaks in your product. How certain it sounds at different confidence levels.
-            What it says when it doesn't know. How it handles errors. This isn't marketing copy —
-            it's calibration for every AI-generated string in the product.
+            How the AI sounds in your product. How confident it is at different confidence levels.
+            What it says when it doesn't know. How it handles errors. Every AI-generated string
+            in the product has a voice — this file decides what that voice is.
           </p>
         </div>
 
@@ -566,8 +562,9 @@
       <span class="section-label">Template</span>
       <h2>A minimal DESIGN.md to start from</h2>
       <p>
-        Copy this into your project root. Fill in your actual values. The key is semantic
-        tokens — not hex values, not Tailwind class names. Meaning, not values.
+        Copy this into your project root and fill in your actual values. The only rule: use
+        semantic token names. Not hex values, not Tailwind class names. The model needs to know
+        what a color means, not what it looks like.
       </p>
 
       <div class="card" style="font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.75); margin-top: 20px; background: #1e1e1e; overflow-x: auto;">
@@ -665,7 +662,7 @@ Card elevation: box-shadow only, no border on light theme</pre>
           <span class="day-label">Day 7</span>
           <div>
             <div class="action">You have a system</div>
-            <p class="detail">Not perfect. Not complete. A real system you built yourself, that reflects how you actually work.</p>
+            <p class="detail">Rough at the edges. It'll get sharper as you correct it.</p>
           </div>
         </div>
 
@@ -689,7 +686,7 @@ Card elevation: box-shadow only, no border on light theme</pre>
           </div>
           <div class="list-item">
             <div class="dot"></div>
-            <span>You want to go from "AI generates random things" to "AI does predictable things"</span>
+            <span>You spend more time correcting the AI than using it</span>
           </div>
           <div class="list-item">
             <div class="dot"></div>
