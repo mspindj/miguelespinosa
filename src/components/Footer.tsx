@@ -1,4 +1,5 @@
 import { Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -43,9 +44,17 @@ const Footer = () => {
               </a>
             </div>
 
-            <p className="text-sm text-muted-foreground">
-              © 2026 Miguel Espinosa. Validated for AI &amp; Humans.
-            </p>
+            <div className="flex items-center gap-4">
+              <p className="text-sm text-muted-foreground">
+                © 2026 Miguel Espinosa.
+              </p>
+              <Link
+                to="/privacy"
+                className="text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors"
+              >
+                Privacy
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -35,6 +35,7 @@ import DesignerTrainsModelArticle from "./pages/articles/DesignerTrainsModelArti
 import DesignMdArticle from "./pages/articles/DesignMdArticle";
 import BirdieClubCase from "./pages/BirdieClubCase";
 import AIDesignOS from "./pages/AIDesignOS";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/case-study/cash-conversion" element={<CashConversionCase />} />
           <Route path="/case-study/birdie-club" element={<BirdieClubCase />} />
           <Route path="/ai-design-os" element={<AIDesignOS />} />
+          <Route path="/privacy" element={<Privacy />} />
           {/* Insights Hub */}
           <Route path="/insights" element={<InsightsHub />} />
           {/* Article routes */}

@@ -148,6 +148,14 @@ function EmailCapture({ id }: { id: string }) {
           <a href="mailto:mspin.dj@gmail.com" className="underline">mspin.dj@gmail.com</a>.
         </p>
       )}
+      <p className="text-xs text-muted-foreground/50 w-full">
+        By signing up you'll receive the guide and occasional emails from me.
+        Unsubscribe anytime by replying.{" "}
+        <Link to="/privacy" className="underline hover:text-muted-foreground transition-colors">
+          Privacy policy
+        </Link>
+        .
+      </p>
     </form>
   );
 }
