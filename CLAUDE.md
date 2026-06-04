@@ -178,35 +178,79 @@ Long-tail: "senior director product design portfolio", "leadership through produ
 - Push a `main` → Vercel despliega automáticamente
 - Dominio: miguelespinosa.co
 
-## Insights Hub — Estado (Abr 2026)
-15 artículos publicados. Rutas en App.tsx, metadata en src/lib/articles.ts.
+## Insights Hub — Estado (Jun 2026)
+21 artículos publicados. Rutas en App.tsx, metadata en src/lib/articles.ts.
 
-| Slug | Categoría | Featured |
-|------|-----------|----------|
-| roi-of-experience | business-roi | ✓ |
-| ai-leadership-paradox | ai-strategy | |
-| authority-gap | design-leadership | |
-| outcome-stories | design-leadership | ✓ |
-| lean-leadership | soft-skills | |
-| ai-guardrails | ai-strategy | |
-| strategy-bottleneck | ai-ethics | |
-| research-inflection | ops-strategy | |
-| generalist-advantage | soft-skills | |
-| design-debt | design-leadership | |
-| trust-layer | ai-strategy | ✓ |
-| ambassador-model | ops-strategy | |
-| order-taker | design-leadership | |
-| cost-of-confusion | business-roi | |
-| hire-for-judgment | soft-skills | |
+Los últimos 6 (serie AI harness, May 2026): `ai-harness`, `ai-where-it-belongs`, `ai-trust-calibration`, `corrections-md`, `designer-trains-model`, `design-md`.
+
+## Lead Magnet — AI Design OS (Jun 2026)
+
+### Stack
+- **Landing**: `/ai-design-os` → `src/pages/AIDesignOS.tsx`
+- **Guide HTML**: `/ai-design-os.html` → `public/ai-design-os.html` (printable to PDF, Cmd+P)
+- **API**: `api/subscribe.ts` — Vercel serverless function (Node)
+- **DB**: Supabase tabla `leads` (id, email, source, created_at) con RLS anon-insert / auth-read
+- **Email**: Resend desde `hola@miguelespinosa.co` — dominio verificado (DKIM + SPF + MX)
+- **Banner**: InsightsHub tiene banner de recurso sobre el grid de artículos
+
+### Flujo
+```
+Form → POST /api/subscribe → Supabase insert + Resend email → success state → link al guide
+```
+
+### Credenciales (en .env.local y Vercel env vars)
+- `VITE_SUPABASE_URL` — https://tjwcjnkxvnawimyptzsd.supabase.co
+- `VITE_SUPABASE_ANON_KEY` — anon public key (en Notion → Credenciales → Supabase)
+- `RESEND_API_KEY` — re_FXyzqkEi_... (en Notion → Credenciales → Resend, "para miguelespinosa.co")
+- `RESEND_DOMAIN_ID` — fa3cf1ee-bb68-4c6b-89fe-9e8436e05bfa (domain miguelespinosa.co)
+
+### DNS Resend en GoDaddy (ya configurados, verificados 03 Jun 2026)
+- TXT `resend._domainkey` → DKIM key
+- MX `send` → feedback-smtp.us-east-1.amazonses.com (priority 10)
+- TXT `send` → v=spf1 include:amazonses.com ~all
+
+### Welcome email
+- Subject: "Here's the system — and why I built it"
+- Historia personal (por qué construí el sistema) → guide CTA → workshop seed (soft) → pregunta de reply
+- Tono: peer-to-peer, no SaaS
+
+### Estrategia de monetización decidida — Modelo A
+Thought Leader → Advisor. NO curso/educator path.
+```
+Guide (gratis) → Newsletter → Workshop trimestral ($197-497, 25 personas, 3h live)
+                                        ↓
+                            Design team advisory ($5k-15k/proyecto)
+```
+- El lead magnet es herramienta de credibilidad, no inicio de funnel de productos
+- El workshop trimestral es el low ticket correcto para no diluir el posicionamiento senior
+- Pendiente: landing del workshop + secuencia de nurture Brevo (3 emails en 10 días)
+
+### Errores conocidos / aprendizajes
+- Resend KEY del proyecto (`re_FXyzqkEi_...`) ≠ KEY del plugin Claude (`re_i6nwmuQb_...`). La del proyecto es la correcta para miguelespinosa.co.
+- API route Vercel con `type: "sensitive"` no acepta `target: ["development"]` — solo production + preview.
+- Strings con comillas dobles dentro de arrays JSX rompen esbuild en Vercel (usar comillas simples en el outer string).
+- vercel.json: agregar rewrite explícito para `/api/(.*)` antes del SPA catch-all, si no Vercel intercepta las rutas de API.
+
+## Deploy
+- **Plataforma**: Vercel (migrado desde Lovable el 23 Abr 2026)
+- `vercel.json` en raíz — SPA rewrite + exclusión `/api/*`
+- Push a `main` → Vercel despliega automáticamente
+- Dominio: miguelespinosa.co
+- Vercel project ID: `prj_m1AgysIJQezp1ti5Bd5vXMcOjGVw`
+- Vercel token: en Notion → Credenciales → Vercel
 
 ## Pendientes
 - [ ] Auditar case studies TP Design System y Design Transformation vs copy canónico de Notion
 - [ ] Evaluar Lighthouse score (performance, SEO, a11y)
 - [ ] Evaluar prerendering para SEO (React SPA sin SSR)
+- [ ] Secuencia nurture Brevo: 3 emails en 10 días → CTA workshop
+- [ ] Landing del workshop trimestral (`/workshop`)
 - [x] Configurar dominio custom en Vercel — ✅ miguelespinosa.co al aire
 - [x] Subir CV v2 a /public — ✅ `CV_MiguelEspinosa_2026_ATS_ENG_v2.pdf` en producción
+- [x] Lead magnet AI Design OS — ✅ vivo en producción (03 Jun 2026)
 
 ## Sesiones
+- **03 Jun 2026** — Lead magnet completo: AI Design OS landing + HTML guide + Supabase leads + Resend email + dominio verificado. Estrategia Modelo A definida. 6 artículos serie AI harness ya estaban en repo.
 - **21 Abr 2026** — Diagnóstico inicial. Todo el contenido está en Notion. Repo tiene 4 case studies sin auditar.
 - **22 Abr 2026** — Sprint completo:
   - P0: SEO fixes (index.html, OG image, JSON-LD)
