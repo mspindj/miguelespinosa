@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import Header from "@/components/Header";
+import SystemDiagram from "@/components/SystemDiagram";
 
 const components = [
   {
@@ -228,10 +229,8 @@ const AIDesignOS = () => {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="container mx-auto px-6">
-        <div className="h-px bg-border" />
-      </div>
+      {/* System Diagram */}
+      <SystemDiagram />
 
       {/* Five components */}
       <section className="py-16 lg:py-20">
