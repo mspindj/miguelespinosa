@@ -213,9 +213,11 @@ const AIDesignOS = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I've run this across four products: Teleperformance (125+ designers, 60 countries),
-              BBVA Colombia, Tati, The Birdie Club. The context changed each time. The five
-              components stayed the same.
+              I've run this across my latest projects. The results you feel first are practical:
+              sessions carry context forward, output stops feeling random, corrections compound
+              over time instead of resetting. What takes longer to appreciate is the observability.
+              You can trace why the model went a specific direction. You can see what it read before
+              it acted. When something goes wrong, you know exactly where to look.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               The problem is never the model. When AI sessions feel random and unreliable, it's
