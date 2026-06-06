@@ -1,9 +1,26 @@
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const socialProof = ["Teleperformance", "Globant", "BBVA", "Zinobe"];
 
+const rotatingPhrases = [
+  "PRODUCT DECISIONS",
+  "BUSINESS STRATEGY",
+  "AI INNOVATION",
+];
+
 const HeroSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % rotatingPhrases.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToWork = () => {
     document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -32,9 +49,21 @@ const HeroSection = () => {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-foreground">
             LEADERSHIP THROUGH
           </h1>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-foreground/40">
-            PRODUCT DECISIONS
-          </h1>
+          {/* Rotating second line */}
+          <div className="overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={currentIndex}
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                transition={{ duration: 0.45, ease: [0.32, 0.72, 0, 1] }}
+                className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-foreground/40"
+              >
+                {rotatingPhrases[currentIndex]}
+              </motion.h1>
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Subtitle */}
