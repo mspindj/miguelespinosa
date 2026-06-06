@@ -249,7 +249,39 @@ Guide (gratis) → Newsletter → Workshop trimestral ($197-497, 25 personas, 3h
 - [x] Subir CV v2 a /public — ✅ `CV_MiguelEspinosa_2026_ATS_ENG_v2.pdf` en producción
 - [x] Lead magnet AI Design OS — ✅ vivo en producción (03 Jun 2026)
 
+## Sistema de animaciones — Estado (Jun 2026)
+
+### Componentes animados con Framer Motion
+| Componente | Tipo de animación |
+|---|---|
+| `HeroSection.tsx` | `AnimatePresence` — segunda línea del headline rota cada 3s: PRODUCT DECISIONS → BUSINESS STRATEGY → AI INNOVATION |
+| `PhilosophyMarquee.tsx` | `motion.div` infinite translate, texto outline (WebkitTextStroke), gradient fade edges |
+| `CaseStudySection.tsx` | `AnimatedMetric` en columna de metric derecha (homepage) |
+| `BlogSection.tsx` | Stagger reveal con `variants` + `staggerChildren: 0.12` |
+| `case-study/MetricGrid.tsx` | `AnimatedMetric` en cada métrica del grid |
+
+### AnimatedMetric — componente compartido
+`src/components/ui/animated-metric.tsx` — maneja 4 formatos:
+- `"−40%"` → prefijo + contador entero + sufijo
+- `"0 → 12"` → range: anima el número destino
+- `"96%+"` → contador + sufijo compuesto
+- `"$2.3K"` → prefijo + decimal con `toFixed`
+
+Se activa con `useInView` (once: true, margin: "-60px") + `animate()` de Framer Motion, 1.4s easeOut.
+
+### Regla 21st.dev
+Para nuevos componentes de UI: primero buscar en 21st.dev con `mcp___21st-dev_magic__21st_magic_component_inspiration` antes de construir desde cero. Filtrar por identidad editorial del portfolio: text-first, dark mode, sin ruido decorativo.
+
+**Descartado en análisis Jun 2026:** Bento grid para case studies — rompe la lista editorial. Gooey marquee — tono incorrecto para portfolio ejecutivo.
+
 ## Sesiones
+- **06 Jun 2026** — Animaciones con 21st.dev:
+  - HeroSection: rotating text (AnimatePresence, 3 frases, 3s interval)
+  - PhilosophyMarquee: Framer Motion + stroke outline + fade edges
+  - AnimatedMetric shared component (4 formatos de número)
+  - MetricGrid migrado a AnimatedMetric
+  - CaseStudySection métricas homepage animadas
+  - BlogSection: stagger scroll reveal en cards
 - **03 Jun 2026** — Lead magnet completo: AI Design OS landing + HTML guide + Supabase leads + Resend email + dominio verificado. Estrategia Modelo A definida. 6 artículos serie AI harness ya estaban en repo.
 - **21 Abr 2026** — Diagnóstico inicial. Todo el contenido está en Notion. Repo tiene 4 case studies sin auditar.
 - **22 Abr 2026** — Sprint completo:
