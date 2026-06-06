@@ -35,12 +35,22 @@ const BlogSection = () => {
         <div className="h-px bg-border mb-12" />
 
         {/* Article grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+        >
           {featuredArticles.map((article) => (
             <Link to={`/insights/${article.slug}`} key={article.slug}>
-              <motion.article 
+              <motion.article
+                variants={{
+                  hidden: { opacity: 0, y: 24 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                }}
                 className="group cursor-pointer border border-white/10 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md hover:border-primary/40 transition-all duration-300 h-full"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   boxShadow: "0 0 30px -5px hsl(70 77% 55% / 0.4)"
                 }}
@@ -86,7 +96,7 @@ const BlogSection = () => {
               </motion.article>
             </Link>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA Button */}
         <div className="mt-12 text-center">

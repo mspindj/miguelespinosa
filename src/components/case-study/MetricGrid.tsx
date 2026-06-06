@@ -1,4 +1,5 @@
 import { motion, type Easing } from "framer-motion";
+import { AnimatedMetric } from "@/components/ui/animated-metric";
 
 interface Metric {
   direction: "up" | "down";
@@ -50,9 +51,7 @@ const MetricGrid = ({ metrics }: MetricGridProps) => {
             >
               {metric.direction === "down" ? "↓" : "↑"}
             </span>
-            <span className="text-4xl lg:text-5xl font-bold text-foreground">
-              {metric.value}
-            </span>
+            <AnimatedMetric value={metric.value} className="text-4xl lg:text-5xl font-bold text-foreground" />
           </div>
           <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider">
             {metric.label}

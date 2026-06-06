@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { AnimatedMetric } from "@/components/ui/animated-metric";
 
 interface CaseStudyData {
   number: string;
@@ -122,9 +123,10 @@ const CaseStudySection = () => {
 
                 {/* Key metric */}
                 <div className="text-right hidden lg:block flex-shrink-0">
-                  <div className="text-2xl font-black text-foreground/90 tracking-tight">
-                    {study.metric}
-                  </div>
+                  <AnimatedMetric
+                    value={study.metric}
+                    className="text-2xl font-black text-foreground/90 tracking-tight"
+                  />
                   <div className="text-xs font-mono text-muted-foreground uppercase tracking-wider mt-1">
                     {study.metricLabel}
                   </div>
