@@ -139,8 +139,11 @@ const BirdieClubCase = () => {
         subtitle="Building a Creator's Digital Twin with AI"
       />
 
-      {/* Project URL */}
-      <div className="container mx-auto px-6 max-w-4xl pt-6">
+      {/* Role + Project URL */}
+      <div className="container mx-auto px-6 max-w-4xl pt-6 flex flex-col sm:flex-row sm:items-center gap-4">
+        <span className="inline-flex items-center gap-2 text-xs font-mono text-muted-foreground border border-border rounded-full px-3 py-1">
+          Co-founder &amp; Head of Product Design
+        </span>
         <a
           href="https://app.davidvanegas.com.co"
           target="_blank"
@@ -171,6 +174,23 @@ const BirdieClubCase = () => {
           around Ritmo, Juego Corto, and 100 Yardas — had proven results. But the model had a
           ceiling: one instructor, limited hours, and a student base that had already outgrown
           what he could serve personally.
+        </p>
+      </CaseStudySection>
+
+      {/* My Role */}
+      <CaseStudySection label="My Role">
+        <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+          Co-founder and Head of Product Design. I defined the product strategy,
+          designed the full user experience, and orchestrated development using an
+          AI-augmented harness — Lovable for UI generation, Claude Code for logic
+          and edge functions, and the SDD methodology I've published as the{" "}
+          <a
+            href="/ai-design-os"
+            className="text-primary hover:text-primary/80 transition-colors"
+          >
+            AI Design Operating System
+          </a>
+          . No traditional dev team. Product decisions and design execution, shared between two people.
         </p>
       </CaseStudySection>
 
@@ -303,8 +323,33 @@ const BirdieClubCase = () => {
         <MetricGrid metrics={metrics} />
       </CaseStudySection>
 
-      {/* Leadership Reflection */}
-      <CaseStudySection label="Leadership Reflection" className="pb-32">
+      {/* How We Operated */}
+      <CaseStudySection label="How We Operated">
+        <div className="glass-card p-8 lg:p-12 rounded-2xl border border-border">
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            Five daily Lovable credits. No staging environment. Real beta users from day one.
+            The constraint forced a discipline that most teams don't have: every prompt had to
+            be precise, every feature had to earn its place, and every production change had
+            to be intentional.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            We used the SDD harness — context files encoding David's voice and RJ100 methodology,
+            separated agent roles for spec and implementation, persistent corrections logs — to
+            maintain product coherence across dozens of sprints without a single design handoff doc.
+            The same system is now the{" "}
+            <a
+              href="/ai-design-os"
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              AI Design Operating System
+            </a>
+            .
+          </p>
+        </div>
+      </CaseStudySection>
+
+      {/* What I Learned */}
+      <CaseStudySection label="What I Learned" className="pb-32">
         <p className="text-lg text-muted-foreground mb-10">
           The hardest design challenge on this project wasn't teaching AI to analyze a golf swing.
           It was designing trust at three levels simultaneously: the paying customer trusting an AI
@@ -316,7 +361,7 @@ const BirdieClubCase = () => {
         <PullQuote
           quote="The AI wasn't the product. David's methodology was the product. The AI was the delivery system we built so one instructor could coach thousands."
           author="Miguel Espinosa"
-          role="Product Design Director"
+          role="Co-founder & Head of Product Design, The Birdie Club"
         />
       </CaseStudySection>
     </main>
