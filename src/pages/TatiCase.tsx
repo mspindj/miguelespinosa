@@ -46,10 +46,10 @@ const TatiCase = () => {
   ];
 
   const metrics = [
-    { direction: "up" as const, value: "MVP", label: "Functional MVP shipped successfully" },
-    { direction: "down" as const, value: "Low", label: "Variable costs per document" },
-    { direction: "up" as const, value: "96%+", label: "Quality standards met" },
-    { direction: "up" as const, value: "Trust", label: "Core product feature for scaling" },
+    { direction: "up" as const, value: "96%+", label: "Quality standard in legal and regulated domain translations" },
+    { direction: "up" as const, value: "3", label: "Co-founding team — product design, engineering, domain expertise" },
+    { direction: "up" as const, value: "0 → 1", label: "Full product shipped from concept to live platform" },
+    { direction: "up" as const, value: "Async", label: "Architecture choice. Document-first over real-time AI spectacle" },
   ];
 
   return (
@@ -63,8 +63,11 @@ const TatiCase = () => {
         subtitle="AI Translation Designed for Trust"
       />
 
-      {/* Project URL */}
-      <div className="container mx-auto px-6 max-w-4xl pt-6">
+      {/* Role + Project URL */}
+      <div className="container mx-auto px-6 max-w-4xl pt-6 flex flex-col sm:flex-row sm:items-center gap-4">
+        <span className="inline-flex items-center gap-2 text-xs font-mono text-muted-foreground border border-border rounded-full px-3 py-1">
+          Co-founder &amp; Head of Product Design
+        </span>
         <a
           href="http://tati.la"
           target="_blank"
@@ -101,9 +104,26 @@ const TatiCase = () => {
       {/* Context */}
       <CaseStudySection label="The Context">
         <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-          Professional translation workflows are traditionally slow, expensive, and highly 
-          dependent on expert knowledge. While generic AI tools exist, they often prioritize 
+          Professional translation workflows are traditionally slow, expensive, and highly
+          dependent on expert knowledge. While generic AI tools exist, they often prioritize
           speed at the cost of accuracy, tone, and accountability.
+        </p>
+      </CaseStudySection>
+
+      {/* My Role */}
+      <CaseStudySection label="My Role">
+        <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+          Co-founder and Head of Product Design. I defined the product strategy,
+          owned the full user experience from brief to shipped interface, and built
+          the product using an AI-augmented development harness — a methodology I've
+          since published as the{" "}
+          <a
+            href="/ai-design-os"
+            className="text-primary hover:text-primary/80 transition-colors"
+          >
+            AI Design Operating System
+          </a>
+          . Three people. No handoffs between strategy and execution.
         </p>
       </CaseStudySection>
 
@@ -218,16 +238,42 @@ const TatiCase = () => {
         <MetricGrid metrics={metrics} />
       </CaseStudySection>
 
+      {/* Operating Model */}
+      <CaseStudySection label="How We Operated">
+        <div className="glass-card p-8 lg:p-12 rounded-2xl border border-border">
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            Building a B2B AI product with three people means every decision costs
+            something. We used an AI-augmented development harness — context files,
+            separated agent roles, persistent memory, and deliberate human gates —
+            to ship product quality without a dedicated engineering team.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            The same harness is now the foundation of the{" "}
+            <a
+              href="/ai-design-os"
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              AI Design Operating System
+            </a>
+            , adopted by other design teams building AI-native products.
+          </p>
+        </div>
+      </CaseStudySection>
+
       {/* Leadership Reflection */}
-      <CaseStudySection label="Leadership Reflection" className="pb-32">
+      <CaseStudySection label="What I Learned" className="pb-32">
         <p className="text-lg text-muted-foreground mb-10">
-          AI product design is less about the "intelligence" of the model and more 
-          about the responsibility and trust of the interface.
+          When you own both the product strategy and the design execution, you stop
+          treating them as separate disciplines. The hardest decisions at Tati were
+          not visual — they were about what the product would refuse to do. Saying
+          no to real-time chat. Saying no to speed as the primary value proposition.
+          Building for trust in a domain where errors have legal consequences forced
+          a different kind of design thinking.
         </p>
         <PullQuote
-          quote="Good AI products don't just impress users—they reassure them."
+          quote="Good AI products don't just impress users — they reassure them."
           author="Miguel Espinosa"
-          role="Senior Design Director"
+          role="Co-founder & Head of Product Design, tati.la"
         />
       </CaseStudySection>
     </main>
