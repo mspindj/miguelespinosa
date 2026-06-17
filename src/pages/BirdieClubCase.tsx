@@ -120,12 +120,10 @@ const BirdieClubCase = () => {
   ];
 
   const metrics = [
-    { direction: "up" as const, value: "$2.3K", label: "ARR in first 8 days" },
-    { direction: "up" as const, value: "20", label: "Paying customers · 5 countries" },
-    { direction: "up" as const, value: "213", label: "Gift activations from 1,862-person list" },
-    { direction: "down" as const, value: "0", label: "Critical failures at launch" },
-    { direction: "up" as const, value: "82", label: "Academy lessons on proprietary CDN" },
-    { direction: "up" as const, value: "5", label: "Production bugs resolved in-flight" },
+    { direction: "up" as const, value: "38", label: "Paying founders · 5 countries · zero paid advertising" },
+    { direction: "up" as const, value: "244", label: "Community activations from 1,862-person list · still growing" },
+    { direction: "down" as const, value: "0", label: "Critical failures at launch · shipped clean on day one" },
+    { direction: "up" as const, value: "47", label: "Days post-launch · pre-open market · all growth is organic" },
   ];
 
   return (
