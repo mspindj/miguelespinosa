@@ -111,7 +111,7 @@ const ExperienceSection = () => {
             </div>
 
             <a
-              href="/CV_MiguelEspinosa_2026.pdf"
+              href="/CV_MiguelEspinosa_2026_ATS_ENG_v3.pdf"
               download
               className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
             >
