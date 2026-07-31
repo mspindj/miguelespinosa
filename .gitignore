@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code local config — contains accumulated permission grants,
+# some with real API keys embedded (e.g. Resend). Never commit.
+.claude/settings.local.json
+
+# Confidential job-application materials — repo is public, this stays local-only.
+Technical Assessments/
