@@ -137,6 +137,12 @@ Long-tail: "senior director product design portfolio", "leadership through produ
 - No romper el sistema de rutas existente
 - No modificar `tailwind.config.ts` sin revisar impacto en tokens existentes
 - No usar naranja (`24 95% 53%`) — fue la primary color original de Lovable. Ya reemplazado en todo el repo.
+- **`.claude/settings.local.json` NUNCA se commitea, está en `.gitignore`.** Encontrado el 31 Jul 2026 con un API key de Resend real en texto plano dentro del allowlist de permisos, acumulado sesión tras sesión. El repo es **público** en GitHub. Si algún día `git status` lo muestra como no-ignorado, es señal de que el `.gitignore` se rompió, revisar antes de cualquier commit.
+- **`Technical Assessments/` es intencional en este repo** (trabajo de marca personal/aplicaciones, confirmado por Miguel 31 Jul 2026), pero también está en `.gitignore` — contiene respuestas reales a assessments de otras empresas, no debe quedar público. No moverlo, no destrackearlo del gitignore.
+
+## Ambiente de desarrollo — errores conocidos (05 Ago 2026)
+- **`bun` no estaba instalado en la máquina `maitoagency`** aunque el proyecto lo declara como package manager (`bun.lock`). Se instaló vía `brew install bun` (no el instalador `curl | bash` de bun.sh, se prefiere Homebrew).
+- **`@swc/core-darwin-arm64` corrupto**: el paquete tenía `package.json` y `README.md` pero le faltaba el binario `.node` (33MB), causando `Failed to load native binding` al levantar `vite`/`vitejs-plugin-react-swc`. La causa fue una instalación previa incompleta, no algo que `bun install` normal arregle solo. Fix: `rm -rf node_modules && bun install` (reinstalación limpia sí trae el binario completo). Si el dev server falla con ese mismo error, empezar por ahí antes de investigar más.
 
 ## Archivos Clave Creados / Modificados (Abr 2026)
 | Archivo | Cambio |
@@ -155,9 +161,10 @@ Long-tail: "senior director product design portfolio", "leadership through produ
 | `public/og-image.png` | OG image generada (1200×630) |
 | `public/og-template.html` | Template HTML/CSS para regenerar OG image |
 
-## CV — Estado (Abr 2026)
-- Fuente: `/Users/nowheretraveler/Documents/MEC/CV_MiguelEspinosa_2026_ATS_ENG_v2.docx`
-- PDF público en repo: `public/CV_MiguelEspinosa_2026_ATS_ENG.pdf` (link en /about)
+## CV — Estado (05 Ago 2026)
+- Fuente: `~/Documents/MEC/CV_MiguelEspinosa_2026_ATS_ENG_v3.docx` (path varía por máquina: `nowheretraveler` o `maitoagency`, no asumir cuál sin verificar)
+- PDF público en repo: `public/CV_MiguelEspinosa_2026_ATS_ENG_v3.pdf` (link en /about, actualizado en ambos lugares: `About.tsx` y `ExperienceSection.tsx`)
+- **v3 (05 Ago 2026)**: agregada la entrada de **The Birdie Club** (Co-Founder & Head of Product Design, 2025–Present) entre Tati y Teleperformance, mismo formato que Tati. Métricas reales del case study: 38 miembros founding pagando en 5 países sin pauta paga, 244 activaciones de una lista de 1,862, cero fallas críticas en el lanzamiento.
 - **Título**: Senior Director of Product Design
 - **Tati**: incluido como Co-Founder & Head of Product Design (2025–Present)
 - **Globant**: mantenido como Senior UX Designer / Technical Leader (título real, no modificar)
@@ -171,6 +178,7 @@ Long-tail: "senior director product design portfolio", "leadership through produ
   - Product Metrics & KPIs — Crehana
   - Prototyping from Scratch with Figma — Crehana
   - Interaction Latin America (ILA) Conference — 2018
+- **Cómo editar el .docx**: no hay `pandoc` ni `soffice` instalados en la máquina `maitoagency`. Flujo que sí funcionó: `unzip` → editar `word/document.xml` a mano (buscar el bloque de la empresa vecina para copiar el patrón de `<w:p>`/`<w:r>` exacto, usar `w14:paraId` únicos) → validar con `python3 -c "import xml.etree.ElementTree as ET; ET.parse(...)"` → `zip -Xr`. Para exportar a PDF, `textutil` de macOS NO soporta `-convert pdf` (solo txt/rtf/html/doc/docx/odt/wordml/webarchive) — usar Microsoft Word vía AppleScript (`osascript`, `save as ... file format format PDF`), sí está instalado. Verificar el render con `pdftoppm -jpeg` antes de dar por bueno cualquier edit manual de XML.
 
 ## Deploy
 - **Plataforma**: Vercel (migrado desde Lovable el 23 Abr 2026)
@@ -246,8 +254,10 @@ Guide (gratis) → Newsletter → Workshop trimestral ($197-497, 25 personas, 3h
 - [ ] Secuencia nurture Brevo: 3 emails en 10 días → CTA workshop
 - [ ] Landing del workshop trimestral (`/workshop`)
 - [x] Configurar dominio custom en Vercel — ✅ miguelespinosa.co al aire
-- [x] Subir CV v2 a /public — ✅ `CV_MiguelEspinosa_2026_ATS_ENG_v2.pdf` en producción
+- [x] Subir CV v2 a /public — ✅ superado por v3 (05 Ago 2026), ver sección CV — Estado
+- [x] Subir CV v3 a /public con Birdie Club — ✅ `CV_MiguelEspinosa_2026_ATS_ENG_v3.pdf` en producción (05 Ago 2026)
 - [x] Lead magnet AI Design OS — ✅ vivo en producción (03 Jun 2026)
+- [ ] `Images/` sin foto RAW de respaldo ahora (se borró `Spin 01.jpeg` el 05 Ago 2026 por pedido de Miguel) — si se necesita reprocesar la foto de perfil en el futuro, no hay fuente RAW en el repo
 
 ## Sistema de animaciones — Estado (Jun 2026)
 
@@ -296,3 +306,10 @@ Para nuevos componentes de UI: primero buscar en 21st.dev con `mcp___21st-dev_ma
   - Confirmado: Globant = Senior UX Designer (no modificar), Zinobe = fintech/lending (no banking)
   - 6 nuevos artículos publicados en Insights Hub (hub: 9 → 15 artículos)
   - Artículos anclados en experiencia real: Tati (trust layer), BBVA (ambassador model), TP (design debt, cost of confusion)
+- **29 Jul – 05 Ago 2026** — Sprint de búsqueda de trabajo + cierre de seguridad:
+  - Cover letters + respuestas de screening para: Telefónica, Digital Design Lead (agencia Bogotá), Accenture, Scale Up (cliente SaaS PRM), RoomPriceGenie, Lodgify, bsport, Wizeline, Pearson (9 aplicaciones enviadas). SAARG.ai evaluado y descartado (sin salario + equity sin tracción + filtro de perfil junior disfrazado de "cofundador").
+  - Job Search Tracker en Notion (base de datos "Job Search Tracker — Design Leadership", kanban Nueva → Aplicada → Respuesta → Descartada) + agent `job-search-scraper` (`~/.claude/agents/`) que busca en LinkedIn vía Apify cada 3 días. Detalle completo vive en la config global, no en este repo.
+  - CV actualizado a v3: agregada la entrada de The Birdie Club (ver sección CV — Estado).
+  - Cierre de seguridad: `.claude/settings.local.json` (tenía un API key de Resend expuesto) y `Technical Assessments/` gitignoreados — el repo es público. `AGENTS.md` y `.claude/launch.json` sí se subieron (limpios, sin secretos).
+  - Ambiente de desarrollo local reparado: `bun` instalado, `node_modules` reinstalado limpio (binario de `@swc/core` venía corrupto). Ver sección de arriba.
+  - Foto RAW `Images/Spin 01.jpeg` borrada a pedido de Miguel (ya no hace falta, la versión optimizada vive en `src/assets/`).
