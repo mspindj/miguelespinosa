@@ -213,13 +213,13 @@ const BBVACaseStudy = () => {
                 <h3 className="text-lg font-semibold text-foreground mb-4 hidden lg:block">
                   {product.name}
                 </h3>
-                <p className="text-xs font-mono text-muted-foreground/60 uppercase tracking-widest mb-2">
+                <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-2">
                   Challenge
                 </p>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                   {product.challenge}
                 </p>
-                <p className="text-xs font-mono text-muted-foreground/60 uppercase tracking-widest mb-2">
+                <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-2">
                   Decision
                 </p>
                 <p className="text-muted-foreground text-sm leading-relaxed">

@@ -7,7 +7,7 @@ const Privacy = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="pt-28 pb-20 lg:pt-36">
+      <section id="main-content" className="pt-28 pb-20 lg:pt-36">
         <div className="container mx-auto px-6">
           <Link
             to="/"
@@ -24,7 +24,7 @@ const Privacy = () => {
             <h1 className="text-3xl lg:text-4xl font-semibold tracking-tight text-foreground mb-4">
               Privacy Policy
             </h1>
-            <p className="text-sm font-mono text-muted-foreground/50 mb-16">
+            <p className="text-sm font-mono text-muted-foreground mb-16">
               Last updated: June 2026
             </p>
 

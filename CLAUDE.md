@@ -260,6 +260,32 @@ Guide (gratis) → Newsletter → Workshop trimestral ($197-497, 25 personas, 3h
 - [x] Lead magnet AI Design OS — ✅ vivo en producción (03 Jun 2026)
 - [ ] `Images/` sin foto RAW de respaldo ahora (se borró `Spin 01.jpeg` el 05 Ago 2026 por pedido de Miguel) — si se necesita reprocesar la foto de perfil en el futuro, no hay fuente RAW en el repo
 
+## Auditoría Impeccable — Estado (21 Ago 2026)
+
+Corrida `/impeccable audit` (score inicial 11/20) → 7 acciones aplicadas en orden: mobile nav → contraste → overflow-x → reduced-motion → optimize imágenes → limpieza de dead code → polish.
+
+**Cambios de accesibilidad:**
+- `Header.tsx`: nav mobile con `Sheet` de shadcn (antes: `hidden md:flex` sin fallback — cero navegación en mobile fuera del homepage). Trigger de 44×44px, `aria-label="Open menu"`, cierra al navegar.
+- Skip-to-content link (`#main-content`) en las 4 páginas que usan `Header` (Index, InsightsHub, Privacy, AIDesignOS). Los case studies y artículos no lo necesitan — tienen su propio back-link único, siempre visible en cualquier viewport.
+- Contraste: eliminada la opacidad baja (`/30`, `/50`, `/60`) sobre `text-muted-foreground` en 12 sitios — con `--background: 0 0% 2%`, el piso real para 4.5:1 (AA) es ~85% opacidad, casi igual a 100%. Ahora esos textos usan `muted-foreground` completo (6.06:1) y la jerarquía secundaria viene de tamaño/tracking, no de opacidad.
+- `useReducedMotion()` en el marquee infinito y en el rotating text del hero — antes corrían sin parar sin importar la preferencia del sistema.
+- `overflow-x: hidden` en `body` — los glows decorativos de `HeroSection` (1000px) y `CaseStudyHero` (600px, reutilizado en todos los case studies) podían generar scroll horizontal fantasma en mobile.
+
+**Performance:**
+- `flamingo.jpeg` (580KB) → WebP (46KB) vía `<picture>` con fallback JPEG, `loading="lazy"` + dimensiones explícitas.
+- `tati-hero.png`: `loading="lazy"` + dimensiones (está below-the-fold, después del hero full-viewport del case study).
+
+**Limpieza de dead code encontrada durante la auditoría (no estaba en el hallazgo original):**
+- `ExperienceSection.tsx` — componente completo sin importar en ningún lado desde que se movió a `/about` en abril. Borrado.
+- `App.css` — boilerplate de Vite nunca importado (`logo-spin`, `.read-the-docs`). Borrado.
+- `miguel-espinosa.jpg` (576KB) y `spin-profile.jpg` (844KB) en `src/assets/` — sin usar. Borrados.
+
+**No tocado, verificado y dejado igual:** el token `--gradient-text` en `index.css` — el hook de diseño de Impeccable lo marcó, pero no está usado en ningún componente (cero `bg-clip-text` en todo `src/`) y estaba fuera del alcance de esta auditoría.
+
+**Nota sobre verificación en browser:** el detector mecánico de Impeccable (`detect.mjs`) devuelve `[]` sobre archivos siempre, incluso en código adversarial — modo conocido y roto, documentado en `~/.claude/CLAUDE.md`. La auditoría se hizo por lectura manual + cálculo real de contraste WCAG, no por el detector.
+
+Durante la verificación en el Browser pane de esta sesión se encontró que la pestaña queda en `document.visibilityState: "hidden"` de forma persistente (confirmado con `requestAnimationFrame` que nunca dispara ni después de 2s de espera). Esto bloqueó la verificación visual final de las animaciones (`AnimatedMetric`, rotating hero text) — se rastreó manualmente que `isInView` sí llega a `true` y que `animate()` se invoca con los valores correctos, así que el código está bien; lo que no se pudo confirmar en esta sesión es el resultado pintado en pantalla. Si se repite en otra sesión, no asumir que es el mismo bug del sitio — primero confirmar `document.visibilityState` antes de tocar código de animación.
+
 ## Sistema de animaciones — Estado (Jun 2026)
 
 ### Componentes animados con Framer Motion

@@ -1,10 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const MARQUEE_TEXT = "SCALING DECISIONS THROUGH DESIGN";
 
 const PhilosophyMarquee = () => {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section className="py-24 lg:py-32 overflow-hidden border-y border-white/10 relative">
       {/* Fade edges */}
@@ -13,14 +15,14 @@ const PhilosophyMarquee = () => {
 
       <motion.div
         className="flex whitespace-nowrap"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-          repeat: Infinity,
-          ease: "linear",
-          duration: 28,
-        }}
+        animate={reduceMotion ? {} : { x: ["0%", "-50%"] }}
+        transition={
+          reduceMotion
+            ? undefined
+            : { repeat: Infinity, ease: "linear", duration: 28 }
+        }
       >
-        {[...Array(4)].map((_, i) => (
+        {[...Array(reduceMotion ? 1 : 4)].map((_, i) => (
           <span
             key={i}
             className="text-6xl md:text-8xl font-black mx-10 select-none"

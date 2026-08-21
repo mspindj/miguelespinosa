@@ -149,7 +149,7 @@ function EmailCapture({ id }: { id: string }) {
           <a href="mailto:mspin.dj@gmail.com" className="underline">mspin.dj@gmail.com</a>.
         </p>
       )}
-      <p className="text-xs text-muted-foreground/50 w-full">
+      <p className="text-xs text-muted-foreground w-full">
         By signing up you'll receive the guide and occasional emails from me.
         Unsubscribe anytime by replying.{" "}
         <Link to="/privacy" className="underline hover:text-muted-foreground transition-colors">
@@ -167,7 +167,7 @@ const AIDesignOS = () => {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 pb-16 lg:pt-36 lg:pb-20">
+      <section id="main-content" className="pt-28 pb-16 lg:pt-36 lg:pb-20">
         <div className="container mx-auto px-6">
           <Link
             to="/insights"
@@ -385,14 +385,14 @@ const AIDesignOS = () => {
                 </ul>
               </div>
               <div>
-                <p className="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-4">This is not for you if</p>
+                <p className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-4">This is not for you if</p>
                 <ul className="space-y-3">
                   {[
                     "You're looking for a technical architecture guide",
                     "You haven't started using AI in your workflow yet",
                     "You want a framework someone else built that you can just install",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground/50">
+                    <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
                       <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/20 flex-shrink-0" />
                       {item}
                     </li>

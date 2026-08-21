@@ -50,7 +50,7 @@ const Footer = () => {
               </p>
               <Link
                 to="/privacy"
-                className="text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors"
+                className="text-xs text-muted-foreground hover:text-muted-foreground transition-colors"
               >
                 Privacy
               </Link>

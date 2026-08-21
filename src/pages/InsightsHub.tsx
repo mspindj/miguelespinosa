@@ -35,7 +35,7 @@ const InsightsHub = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-12 lg:pt-32 lg:pb-16">
+      <section id="main-content" className="pt-24 pb-12 lg:pt-32 lg:pb-16">
         <div className="container mx-auto px-6">
           {/* Back link */}
           <Link

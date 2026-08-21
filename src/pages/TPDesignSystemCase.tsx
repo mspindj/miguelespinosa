@@ -2,6 +2,7 @@ import { motion, type Easing } from "framer-motion";
 import BackToHome from "@/components/case-study/BackToHome";
 import CaseStudyHero from "@/components/case-study/CaseStudyHero";
 import flamingoImage from "@/assets/flamingo.jpeg";
+import flamingoImageWebp from "@/assets/flamingo.webp";
 import CaseStudySection from "@/components/case-study/CaseStudySection";
 import MetricGrid from "@/components/case-study/MetricGrid";
 import PullQuote from "@/components/case-study/PullQuote";
@@ -104,11 +105,17 @@ const TPDesignSystemCase = () => {
       {/* Hero image */}
       <div className="container mx-auto px-6 py-12">
         <div className="rounded-2xl overflow-hidden">
-          <img
-            src={flamingoImage}
-            alt="TP Design System"
-            className="w-full aspect-[21/9] object-cover"
-          />
+          <picture>
+            <source srcSet={flamingoImageWebp} type="image/webp" />
+            <img
+              src={flamingoImage}
+              alt="TP Design System"
+              width={1376}
+              height={768}
+              loading="lazy"
+              className="w-full aspect-[21/9] object-cover"
+            />
+          </picture>
         </div>
       </div>
 

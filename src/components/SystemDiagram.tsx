@@ -161,11 +161,11 @@ function BeforeAfter() {
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/30" />
             <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
           </div>
-          <span className="text-[11px] font-mono text-muted-foreground/50 uppercase tracking-widest">
+          <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-widest">
             without context files
           </span>
         </div>
-        <pre className="p-4 text-[12px] font-mono leading-relaxed text-muted-foreground/60 overflow-x-auto">
+        <pre className="p-4 text-[12px] font-mono leading-relaxed text-muted-foreground overflow-x-auto">
           <code>{beforeCode}</code>
         </pre>
       </div>

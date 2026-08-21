@@ -93,7 +93,7 @@ const CaseStudySection = () => {
                 {/* Number + year */}
                 <div className="flex lg:flex-col gap-3 lg:gap-1">
                   <span className="text-xs font-mono text-primary">{study.number}</span>
-                  <span className="text-xs font-mono text-muted-foreground/60">{study.year}</span>
+                  <span className="text-xs font-mono text-muted-foreground">{study.year}</span>
                 </div>
 
                 {/* Content */}
@@ -113,7 +113,7 @@ const CaseStudySection = () => {
                     {study.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs font-mono text-muted-foreground/50 uppercase tracking-wider"
+                        className="text-xs font-mono text-muted-foreground uppercase tracking-wider"
                       >
                         {tag}
                       </span>

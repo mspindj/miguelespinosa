@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -13,13 +13,15 @@ const rotatingPhrases = [
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (reduceMotion) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % rotatingPhrases.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [reduceMotion]);
 
   const scrollToWork = () => {
     document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
@@ -97,7 +99,7 @@ const HeroSection = () => {
           {socialProof.map((company) => (
             <span
               key={company}
-              className="text-sm font-medium text-muted-foreground/30 tracking-wide uppercase"
+              className="text-sm font-medium text-muted-foreground tracking-wide uppercase"
             >
               {company}
             </span>

@@ -87,6 +87,9 @@ const TatiCase = () => {
           <img
             src={tatiHero}
             alt="tati.la AI Translation platform"
+            width={1920}
+            height={1046}
+            loading="lazy"
             className="w-full aspect-[21/9] object-cover"
           />
         </div>
