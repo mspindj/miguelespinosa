@@ -127,12 +127,6 @@
     50% { opacity: 0.5; }
   }
 
-  .grid-pattern {
-    background-image: 
-      linear-gradient(hsl(0 0% 15% / 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(0 0% 15% / 0.3) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
   /* Abstract geometric patterns for blog thumbnails */
   .pattern-systems {
     background: 
