@@ -11,11 +11,10 @@ Audiencia: C-Level y VP-level en empresas globales. Inglés como idioma del port
 - Notion Master Doc: https://www.notion.so/34ae9543180181dca64fc81b1025c548
 
 ## Stack
-- React + Vite + TypeScript
-- shadcn-ui (`components.json` en raíz)
-- Tailwind CSS (`tailwind.config.ts`)
-- Lovable como plataforma de deploy
-- Bun como package manager (`bun.lock`)
+- React 18 + Vite 5 + TypeScript + react-router 6. Deploy en Vercel (push a `main`).
+- Sistema de diseño propio "Terminal" en `src/site/` (CSS plano con prefijo `tb-`). Tailwind y shadcn siguen instalados pero **ninguna página los usa**; limpiarlos es un pendiente.
+- three.js directo (sin React Three Fiber: R3F 9 exige React 19) para el árbol ASCII, Lenis para el smooth scroll, fuentes self-hosted con @fontsource (Martian Mono con ejes wdth+wght, Geist).
+- Bun como package manager (`bun.lock`), pero el repo también tiene `package-lock.json`: al agregar dependencias, actualiza los dos (`npm install --package-lock-only`).
 
 ## Comandos
 ```
@@ -27,83 +26,45 @@ bun run lint     # ESLint
 ## Estructura del Repo
 ```
 src/
-├── pages/
-│   ├── Index.tsx                    # Home
-│   ├── About.tsx                    # /about — Bio + Manifesto completo
-│   ├── CashConversionCase.tsx       # Case: BBVA Colombia
-│   ├── DesignTransformationCase.tsx # Case: TP Transformation
-│   ├── TPDesignSystemCase.tsx       # Case: TP Design System (Flamingo interno — CONFIDENCIAL)
-│   ├── TatiCase.tsx                 # Case: Tati AI Translation
-│   ├── InsightsHub.tsx              # Blog / Insights
-│   └── articles/                   # 9 artículos (todos construidos)
-├── components/
-│   ├── HeroSection.tsx
-│   ├── CaseStudySection.tsx         # Lista editorial — 3 casos + 1 "Also" link
-│   ├── PhilosophyMarquee.tsx
-│   ├── ManifestoSection.tsx         # Quote única full-screen → link a /about
-│   ├── ExperienceSection.tsx        # SOLO en /about, NO en homepage
-│   ├── BlogSection.tsx
-│   ├── Header.tsx
-│   ├── Footer.tsx
-│   ├── NavLink.tsx
-│   ├── ScrollToTop.tsx
-│   ├── article/
-│   ├── case-study/
-│   ├── insights/
-│   └── ui/
-├── hooks/
-├── lib/
-└── assets/
-    ├── miguel-profile.jpg           # Foto optimizada (59KB, 1200px max)
-    └── ...
+├── App.tsx                 # Rutas. Home, casos y 404 en el chunk principal; todo lo demás es lazy
+├── site/                   # TODO el sitio nuevo (rediseño Terminal, Sep 2026)
+│   ├── site.css            # Sistema visual completo, clases tb-*
+│   ├── SiteLayout.tsx      # Header, status bar, skip link, Lenis, teclado, títulos por ruta, foco
+│   ├── ascii/              # Render ASCII en three.js (renderer.ts) + póster de fallback
+│   ├── content/            # cases.ts (Decision Records), site.ts, insights.ts, aiDesignOs.ts
+│   ├── pages/              # Home, CasePage, About, Insights, AIDesignOS, Privacy, NotFound
+│   └── article/ArticleLayout.tsx
+├── pages/articles/         # 21 artículos. Solo contenido; usan components/article/ArticleLayout (re-export)
+├── lib/articles.ts         # Metadata de los artículos (fuente de Insights)
+└── components/ui/          # shadcn, sin uso (pendiente de limpiar)
+scripts/gen-brand-assets.mjs  # Regenera la imagen de vista previa social y los favicons
 ```
+Spec y decisiones del rediseño: `.claude/specs/redesign-terminal/` (requirements.md, design.md). Estado del pipeline: `.claude/pipeline/redesign-terminal/`.
 
-## Sistema Visual
+## Sistema Visual (Terminal, desde 24 Sep 2026)
 | Token | Valor |
 |-------|-------|
-| Background base | `#1A1A1A` (negro carbón) — CSS: `--background` |
-| Texto primario | `#FFFFFF` |
-| Accent principal | `#C8E532` (chartreuse) — CSS: `--primary: 70 77% 55%` |
-| Foreground sobre primary | `#0D0D0D` (texto oscuro sobre chartreuse) — CSS: `--primary-foreground: 0 0% 5%` |
-| Texto secundario | `rgba(255,255,255,0.55)` — CSS: `--muted-foreground` |
+| Papel (fondo) | `#ECECE6` |
+| Tinta (texto, reglas 1px) | `#0E0E0E` |
+| Tinta secundaria | `#55554F` (6.33:1 sobre papel) |
+| Acento único | `#FF4F00`, solo seleccionado/activo/hover de acciones principales/foco/en vivo. **Nunca como texto sobre papel** (2.78:1) |
 
-- Tipografía: Inter Black (font-black, font-semibold headers) + Inter Regular (body)
-- Dark mode como identidad central
-- Sin ruido decorativo — economía extrema de elementos
-- ⚠️ **Chartreuse NUNCA como background de sección** — solo en dots, bordes, texto clave, badges
+- Martian Mono (display, labels, UI) + Geist (texto largo). Grilla de 12 columnas expuesta con reglas de 1px, radio cero.
+- Los casos son **Decision Records** (DR-001 a DR-005, estado "Accepted"): contexto, problema, restricciones, opciones (SELECTED/REJECTED), decisión, implementación, consecuencias, log.
+- Teclado: `1`–`5` abren records, `h` home, `m` motion, `?` atajos. Status bar fija con sección, % de scroll, hora de Bogotá y switch de motion.
+- Origen: lab privado `~/Documents/dev/miguelespinosa-lab` (3 prototipos; Miguel eligió C, "Terminal Brutal").
 
 ## Casos de Estudio (orden canónico)
-1. **TP Design System** @ Teleperformance (`/case-study/tp-design-system` → `TPDesignSystemCase.tsx`)
-   - ⚠️ "Flamingo" es el nombre interno — CONFIDENCIAL. Nunca usar públicamente.
-2. **Design Transformation @ TP** (`/case-study/design-transformation` → `DesignTransformationCase.tsx`)
-3. **Tati** — AI Translation (`/case-study/tati-ai` → `TatiCase.tsx`) — Miguel como co-founder
-4. **Cash Conversion / BBVA Colombia** (`/case-study/cash-conversion` → `CashConversionCase.tsx`)
-   - En homepage aparece como "Also: BBVA Cash Conversion" al pie de la lista
+Todos viven en `src/site/content/cases.ts` y se renderizan con `src/site/pages/CasePage.tsx` en `/case-study/:slug` (URLs sin cambios).
+1. **DR-001 TP Design System** (`tp-design-system`). ⚠️ "Flamingo" es el nombre interno, CONFIDENCIAL: nunca en texto, alt ni nombres de archivo. La imagen de plumas (`tp-key-visual.webp`) se quedó por decisión de Miguel (24 Sep 2026).
+2. **DR-002 Design Transformation** (`design-transformation`), 2022–2025.
+3. **DR-003 Tati** (`tati-ai`), Miguel co-founder.
+4. **DR-004 The Birdie Club** (`birdie-club`), Miguel co-founder.
+5. **DR-005 BBVA Colombia** (`cash-conversion`), 2016–2019, mostrado como ARCHIVE.
 
-## Arquitectura del Homepage (decidida Abr 2026)
-El homepage sigue un patrón de **scroll narrativo**, no de landing page SaaS:
-
-```
-Header (sticky)
-HeroSection          ← Headline + subhead + CTAs + social proof (company names)
-CaseStudySection     ← Lista editorial compacta: 3 casos principales
-PhilosophyMarquee    ← Marquee de frases
-ManifestoSection     ← UNA sola quote poderosa + link a /about
-BlogSection          ← Últimos insights
-Footer
-```
-
-**Decisiones de arquitectura tomadas:**
-- `ExperienceSection` **eliminada del homepage** — vive en `/about` para mantener home enfocado en work
-- `ManifestoSection` → de 8 cards en grid a **1 quote full-screen** con whitespace generoso
-- `CaseStudySection` → de 4 articles con imágenes grandes a **lista editorial** (número + título + descripción + métrica + tags)
-- Quote canónica elegida para ManifestoSection: *"Good AI products don't impress users — they reassure them."*
-- Caso 4 (BBVA) expuesto como "Also: BBVA Cash Conversion" al pie de la lista (menor énfasis, pero accesible)
-
-**Por qué esta arquitectura:**
-- Análisis de 21 portafolios de referencia (Abr 2026): los más efectivos usan texto como elemento primario, no imágenes
-- Austin Knight, Aleksi Tappura, Max Böck → editorial, densidad intelectual, whitespace
-- Evitar "SaaS landing page" — ese patrón es de producto, no de pensador/líder
+## Arquitectura del Homepage
+Header → hero (titular + árbol ASCII) → tabla de Decision Records → ticker → manifiesto (inverso, con decode) → últimos 3 insights + callout AI Design OS → contacto. Anclas: `#work`, `#manifesto` (alias `#philosophy`), `#insights`, `#contact`.
+La tesis de abril se mantiene: texto primero, decisiones antes que artefactos, sin estética de landing SaaS.
 
 ## Principios de Contenido
 - Structured around decisions, not artifacts
@@ -124,19 +85,15 @@ Secundarias: "DesignOps", "AI product design", "design transformation", "VP of D
 Long-tail: "senior director product design portfolio", "leadership through product decisions"
 
 ## Hero Copy (canónico)
-**H1**: `LEADERSHIP THROUGH` / `PRODUCT DECISIONS` (second line en foreground/40)
-**Subhead**: `Senior Director of Product Design. Bridging business strategy, human-centered design, and AI innovation.`
-**CTA primario**: `Explore Work` → scroll a #work
-**CTA secundario**: `Read Manifesto` → /about
-**Social proof**: Teleperformance · Globant · BBVA · Zinobe (nombres, baja opacidad)
+**H1**: `LEADERSHIP THROUGH PRODUCT DECISIONS` · **Subhead**: `Senior Director of Product Design. Bridging business strategy, human-centered design, and AI innovation.` · CTAs `[ EXPLORE WORK ]` y `[ READ MANIFESTO ]` · Social proof: Teleperformance · Globant · BBVA · Zinobe.
+Cita del manifiesto, sin raya: *"Good AI products don't impress users. They reassure them."*
 
 ## Reglas de Desarrollo
 - NO editar directamente en Supabase Dashboard
-- Components: usar shadcn-ui existentes antes de crear nuevos
+- Componentes nuevos van en `src/site/` con el sistema Terminal (clases `tb-*`), no con shadcn/Tailwind.
 - No crear componentes duplicados — revisar /src/components primero
 - No romper el sistema de rutas existente
-- No modificar `tailwind.config.ts` sin revisar impacto en tokens existentes
-- No usar naranja (`24 95% 53%`) — fue la primary color original de Lovable. Ya reemplazado en todo el repo.
+- El naranja de Lovable (`24 95% 53%`) sigue prohibido. El acento actual es `#FF4F00` y solo se usa según el sistema Terminal.
 - **`.claude/settings.local.json` NUNCA se commitea, está en `.gitignore`.** Encontrado el 31 Jul 2026 con un API key de Resend real en texto plano dentro del allowlist de permisos, acumulado sesión tras sesión. El repo es **público** en GitHub. Si algún día `git status` lo muestra como no-ignorado, es señal de que el `.gitignore` se rompió, revisar antes de cualquier commit.
 - **`Technical Assessments/` es intencional en este repo** (trabajo de marca personal/aplicaciones, confirmado por Miguel 31 Jul 2026), pero también está en `.gitignore` — contiene respuestas reales a assessments de otras empresas, no debe quedar público. No moverlo, no destrackearlo del gitignore.
 - **`Docs/` está sin trackear pero NO está en `.gitignore`** (verificado 14 Ago 2026). Hoy tiene analytics de LinkedIn en `Docs/Personal Branding/`. Un `git add .` lo publicaría. Choca de frente con la convención global de cierre de jornada, que manda el journal a `Docs/journal/YYYY-MM.md`: seguirla acá stagearía material privado en un repo público. Mientras no se resuelva, **nada privado va a `Docs/`**. Lo personal, familiar, financiero o de negociación con clientes va a `~/Documents/MEC/<tema>/` o a Notion. Decisión pendiente: ignorar `Docs/` o sacar su contenido.
@@ -145,22 +102,16 @@ Long-tail: "senior director product design portfolio", "leadership through produ
 - **`bun` no estaba instalado en la máquina `maitoagency`** aunque el proyecto lo declara como package manager (`bun.lock`). Se instaló vía `brew install bun` (no el instalador `curl | bash` de bun.sh, se prefiere Homebrew).
 - **`@swc/core-darwin-arm64` corrupto**: el paquete tenía `package.json` y `README.md` pero le faltaba el binario `.node` (33MB), causando `Failed to load native binding` al levantar `vite`/`vitejs-plugin-react-swc`. La causa fue una instalación previa incompleta, no algo que `bun install` normal arregle solo. Fix: `rm -rf node_modules && bun install` (reinstalación limpia sí trae el binario completo). Si el dev server falla con ese mismo error, empezar por ahí antes de investigar más.
 
-## Archivos Clave Creados / Modificados (Abr 2026)
-| Archivo | Cambio |
-|---------|--------|
-| `index.html` | SEO completo: author, meta desc, canonical, JSON-LD, OG tags |
-| `src/index.css` | Color system: primary → chartreuse #C8E532 (`70 77% 55%`) |
-| `src/components/HeroSection.tsx` | Copy canónico, CTAs, social proof |
-| `src/components/ManifestoSection.tsx` | Reescritura total → 1 quote full-screen |
-| `src/components/CaseStudySection.tsx` | Reescritura total → lista editorial 3 casos |
-| `src/components/Footer.tsx` | Copy, CTA email, links LinkedIn/Behance |
-| `src/components/ExperienceSection.tsx` | Bio, foto, competencias, CV download link |
-| `src/pages/About.tsx` | Página nueva — foto + bio + manifesto completo 8 puntos |
-| `src/pages/Index.tsx` | Eliminado ExperienceSection del homepage |
-| `src/App.tsx` | Agregada ruta /about |
-| `src/assets/miguel-profile.jpg` | Foto optimizada (59KB desde 3.5MB) |
-| `public/og-image.png` | OG image generada (1200×630) |
-| `public/og-template.html` | Template HTML/CSS para regenerar OG image |
+## Reglas del rediseño (vigentes)
+- **Nunca animar ejes de variable font atados al scroll**: produce glitch y traba PCs corporativos. Scroll ligado solo con `transform`/`opacity`/`clip-path`. Animaciones de ejes de una sola vez (entrada, hover) sí.
+- **El switch de motion apaga TODO** lo no esencial (incluido Lenis) y al reencender nada se repite (`data-settled`); cada título conserva su estado final propio.
+- **Foco tras navegación de cliente**: va a `#main-content` (o al ancla); nunca queda en `<body>`.
+- **Contenido**: sin métricas inventadas. Las cifras vivas llevan fecha y fuente (R2.2 de la spec). Birdie: 180+ miembros pagando (piso del contador público `founders-count` de TBC) y 2.200+ compradores del PDF con acceso (dato de Miguel). TP: equipo 0 → 20+ (2022–2025). BBVA: 0 → 12 (bio).
+- **Sin raya (—)** en texto nuevo. Los cuerpos de los artículos todavía tienen rayas (pendiente).
+- **Imagen de vista previa social**: `public/og-image-terminal.png`, se regenera con `scripts/gen-brand-assets.mjs`. WhatsApp/LinkedIn cachean por URL de imagen: si cambia el diseño, **nombre de archivo nuevo** y actualizar `og:image`/`twitter:image` en `index.html`. El `favicon.ico` también se regenera ahí (en abril solo se cambió el SVG y el `.ico` siguió con el corazón de Lovable, que es el que usa WhatsApp).
+- **Dominio canónico: `www.miguelespinosa.co`** (el apex redirige 307). `canonical`, `og:url` y el JSON-LD apuntan a www.
+- **QA visual**: el Browser pane se colgó con este proyecto; se verifica con Chrome headless (puppeteer de la caché del plugin impeccable, `--use-angle=swiftshader`) contra `dist/` servido estático o contra el preview de Vercel. La fluidez con GPU real la juzga Miguel.
+- **Merge a main**: el hook `git-branch-protect` bloquea `gh pr merge` en este Mac porque usa `timeout`, que no existe en macOS (pendiente de arreglo en `~/.claude`). Mientras tanto, Miguel mergea el PR desde GitHub.
 
 ## CV — Estado (05 Ago 2026)
 - Fuente: `~/Documents/MEC/CV_MiguelEspinosa_2026_ATS_ENG_v3.docx` (path varía por máquina: `nowheretraveler` o `maitoagency`, no asumir cuál sin verificar)
@@ -252,6 +203,9 @@ Guide (gratis) → Newsletter → Workshop trimestral ($197-497, 25 personas, 3h
 - [ ] Auditar case studies TP Design System y Design Transformation vs copy canónico de Notion
 - [ ] Evaluar Lighthouse score (performance, SEO, a11y)
 - [ ] Evaluar prerendering para SEO (React SPA sin SSR)
+- [ ] Limpiar lo que dejó el rediseño: `components/ui/` (shadcn), reglas muertas en `index.css`/`tailwind.config.ts`, dependencias framer-motion/radix/react-query
+- [ ] Quitar rayas (—) de los cuerpos de los 21 artículos y de `lib/articles.ts`
+- [ ] Enviar a Awwwards cuando Miguel lo decida (meta: Honorable Mention o SOTD)
 - [ ] Secuencia nurture Brevo: 3 emails en 10 días → CTA workshop
 - [ ] Landing del workshop trimestral (`/workshop`)
 - [x] Configurar dominio custom en Vercel — ✅ miguelespinosa.co al aire
@@ -261,6 +215,8 @@ Guide (gratis) → Newsletter → Workshop trimestral ($197-497, 25 personas, 3h
 - [ ] `Images/` sin foto RAW de respaldo ahora (se borró `Spin 01.jpeg` el 05 Ago 2026 por pedido de Miguel) — si se necesita reprocesar la foto de perfil en el futuro, no hay fuente RAW en el repo
 
 ## Auditoría Impeccable — Estado (21 Ago 2026)
+
+> Histórico: los componentes que menciona (Header, HeroSection, PhilosophyMarquee...) se eliminaron con el rediseño Terminal. Las reglas de a11y siguen vigentes y ahora viven en `src/site/`.
 
 Corrida `/impeccable audit` (score inicial 11/20) → 7 acciones aplicadas en orden: mobile nav → contraste → overflow-x → reduced-motion → optimize imágenes → limpieza de dead code → polish.
 
@@ -286,30 +242,8 @@ Corrida `/impeccable audit` (score inicial 11/20) → 7 acciones aplicadas en or
 
 Durante la verificación en el Browser pane de esta sesión se encontró que la pestaña queda en `document.visibilityState: "hidden"` de forma persistente (confirmado con `requestAnimationFrame` que nunca dispara ni después de 2s de espera). Esto bloqueó la verificación visual final de las animaciones (`AnimatedMetric`, rotating hero text) — se rastreó manualmente que `isInView` sí llega a `true` y que `animate()` se invoca con los valores correctos, así que el código está bien; lo que no se pudo confirmar en esta sesión es el resultado pintado en pantalla. Si se repite en otra sesión, no asumir que es el mismo bug del sitio — primero confirmar `document.visibilityState` antes de tocar código de animación.
 
-## Sistema de animaciones — Estado (Jun 2026)
-
-### Componentes animados con Framer Motion
-| Componente | Tipo de animación |
-|---|---|
-| `HeroSection.tsx` | `AnimatePresence` — segunda línea del headline rota cada 3s: PRODUCT DECISIONS → BUSINESS STRATEGY → AI INNOVATION |
-| `PhilosophyMarquee.tsx` | `motion.div` infinite translate, texto outline (WebkitTextStroke), gradient fade edges |
-| `CaseStudySection.tsx` | `AnimatedMetric` en columna de metric derecha (homepage) |
-| `BlogSection.tsx` | Stagger reveal con `variants` + `staggerChildren: 0.12` |
-| `case-study/MetricGrid.tsx` | `AnimatedMetric` en cada métrica del grid |
-
-### AnimatedMetric — componente compartido
-`src/components/ui/animated-metric.tsx` — maneja 4 formatos:
-- `"−40%"` → prefijo + contador entero + sufijo
-- `"0 → 12"` → range: anima el número destino
-- `"96%+"` → contador + sufijo compuesto
-- `"$2.3K"` → prefijo + decimal con `toFixed`
-
-Se activa con `useInView` (once: true, margin: "-60px") + `animate()` de Framer Motion, 1.4s easeOut.
-
-### Regla 21st.dev
-Para nuevos componentes de UI: primero buscar en 21st.dev con `mcp___21st-dev_magic__21st_magic_component_inspiration` antes de construir desde cero. Filtrar por identidad editorial del portfolio: text-first, dark mode, sin ruido decorativo.
-
-**Descartado en análisis Jun 2026:** Bento grid para case studies — rompe la lista editorial. Gooey marquee — tono incorrecto para portfolio ejecutivo.
+## Animaciones
+Ver "Reglas del rediseño". El sistema anterior (Framer Motion, AnimatedMetric, marquee de abril) se eliminó en el rediseño; framer-motion sigue en package.json sin uso (pendiente de limpiar).
 
 ## Sesiones
 - **06 Jun 2026** — Animaciones con 21st.dev:
