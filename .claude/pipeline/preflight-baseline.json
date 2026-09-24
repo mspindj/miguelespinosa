@@ -1,0 +1,5 @@
+{
+  "tipos:./tsconfig.app.json": 0,
+  "tipos:./tsconfig.node.json": 0,
+  "lint": 3
+}
