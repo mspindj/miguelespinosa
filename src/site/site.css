@@ -2556,11 +2556,29 @@
 }
 .tb .tb-prose blockquote,
 .tb .tb-prose .article-callout {
-  margin: 1.8em 0 0;
-  padding: 18px 20px 20px 22px;
+  position: relative;
+  margin: 2.6em 0 0;
+  padding: 22px 20px 20px;
   border: 1px solid var(--ink);
-  border-left: 6px solid var(--ink);
   background: transparent;
+}
+/* A labelled record, not a side-tab: the tag sits on the top rule like a table header. */
+.tb .tb-prose blockquote::before,
+.tb .tb-prose .article-callout::before {
+  content: "Note";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  transform: translateY(-100%);
+  padding: 3px 8px 2px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 600 10px/1.4 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.tb .tb-prose blockquote::before {
+  content: "Quote";
 }
 .tb .tb-prose .article-callout p,
 .tb .tb-prose blockquote p {
@@ -3187,7 +3205,6 @@
 .tb-cli-err {
   padding: 10px 12px;
   border: 1px solid var(--fg);
-  border-left-width: 6px;
 }
 @media (max-width: 480px) {
   .tb-cli-submit {
