@@ -1,9 +1,9 @@
 {
   "interno": {
     "verdict": "pass",
-    "note": "Passes 6-8 after Miguel's content decisions: approved figures with sources in R2.2 (180+ via founders-count floor, 2,200+ and 0->20+ per Miguel), spec clarifications for GPT round-2 findings (all verified as spec-letter, not bugs). Pass 8 PASS on 4bccae9.",
-    "diff_sha": "752dfa0077fe",
-    "at": "2026-09-24T11:16:49-05:00"
+    "note": "Passes 9-10: fixed GPT final-round blockers (focus after client nav, incl. hash-load edge case found in pass 9; Birdie labels restored/recorded). Pass 10 PASS on a101567; last commit only moves one R2.2 sentence as the reviewer suggested.",
+    "diff_sha": "bdecc5374dd3",
+    "at": "2026-09-24T11:42:16-05:00"
   },
   "reviews": {
     "gpt": {
