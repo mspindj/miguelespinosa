@@ -3258,10 +3258,14 @@
   animation: none !important;
   transition: none !important;
 }
-.tb[data-settled] .tb-compile,
+/* Keyframe-driven headings: dropping the animation leaves each element on its own
+   declared final state (article titles settle at 87.5%, not 112.5%). */
 .tb[data-settled] .tb-compile-load,
 .tb[data-settled] .tb-hero-word {
   animation: none;
+}
+/* Transition-driven headings: jump to the same final state `.is-in` would reach. */
+.tb[data-settled] .tb-compile {
   transition: none;
   font-stretch: var(--wdth, 112.5%);
   font-weight: var(--wght, 800);
