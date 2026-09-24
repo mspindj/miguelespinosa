@@ -26,6 +26,15 @@
         ],
         "createdAt": "2026-08-21T17:00:08.643Z",
         "reason": "The --gradient-text CSS variable is defined but verified unused (zero bg-clip-text usages in src/). Pre-existing dead token, out of scope for the current audit task."
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-24T01:43:47.608Z",
+        "reason": ".pattern-systems::before is the thumbnail motif for Design Systems articles (8 uses): a masked layout grid standing for 'systems', not a page background. Existing blog thumbnail system, out of scope for this task."
       }
     ]
   }
