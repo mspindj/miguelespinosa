@@ -4,13 +4,20 @@ import { FALLBACK_MASK, FALLBACK_ROWS } from "./fallback";
 import type { AsciiRenderer } from "./renderer";
 import type { TreeSpec } from "./tree";
 
+let webglSupport: boolean | null = null;
+
+/** Probes once per session and releases the probe context, so remounts don't pile up GL contexts. */
 function hasWebGL() {
+  if (webglSupport !== null) return webglSupport;
   try {
     const c = document.createElement("canvas");
-    return !!(c.getContext("webgl2") || c.getContext("webgl"));
+    const gl = c.getContext("webgl2") || c.getContext("webgl");
+    webglSupport = !!gl;
+    gl?.getExtension("WEBGL_lose_context")?.loseContext();
   } catch {
-    return false;
+    webglSupport = false;
   }
+  return webglSupport;
 }
 
 /** Pre-rendered ASCII poster. Shown until the live render has drawn a frame, and when WebGL is missing. */

@@ -75,16 +75,17 @@ export default function SiteLayout() {
     [],
   );
 
-  // Smooth scroll, never under reduced motion. Fully destroyed on unmount.
+  // Smooth scroll only while motion is allowed (OS setting and the status-bar toggle).
+  // Fully destroyed on unmount or when motion turns off.
   useEffect(() => {
-    if (reduced) return;
+    if (!animate) return;
     const l = new Lenis({ autoRaf: true, lerp: 0.14 });
     lenis.current = l;
     return () => {
       l.destroy();
       lenis.current = null;
     };
-  }, [reduced]);
+  }, [animate]);
 
   // Route change: scroll to the hash target (and move focus there) or to the top.
   useEffect(() => {

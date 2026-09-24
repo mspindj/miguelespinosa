@@ -33,7 +33,7 @@ Source of the visual system and interaction model: `~/Documents/dev/miguelespino
 - **Case (`/case-study/:slug`).** Decision Record template (C `CasePage`), extended with the CONSTRAINTS and LOG sections. Prev/next records.
 - **Insights (`/insights`).** A log table: date, category, title, reading time. Filter by tag (the existing `filterTag` values) and a text filter shown as `$ grep` (replaces the cmdk search), plus the AI Design OS banner as a record.
 - **Article.** Log entry as above, reading-progress in the status bar.
-- **About.** "Operator profile": photo (`miguel-profile.jpg`, 1px frame, grayscale), bio, the 8 manifesto principles as a numbered spec list, experience timeline table, certifications, CV link.
+- **About.** "Operator profile": photo (`miguel-profile.jpg`, 1px frame, grayscale), bio, the 8 manifesto principles as a numbered spec list, CV link. No experience timeline or certifications: today's About has neither, and adding them from the CV would be new content (R2.2). Candidate follow-up if Miguel wants them.
 - **AI Design OS.** Same content (components 01–05, artifacts, 7-day plan, form) in terminal language. The form is a command-line style input with the same states and endpoint (R2.6).
 - **Privacy.** Plain long-form in the article styles.
 - **404.** C's "Record not found".
@@ -44,10 +44,16 @@ This is the vanilla port of C's `AsciiCanvas`. It keeps the same two passes (sce
 
 ## Microcopy introduced (R2.2)
 
-System and label copy only: the nav indices `[01]`–`[04]`, "Decision records", "Record ID / Status / Years / Client / Role", "Accepted", "Archive", section labels (Context, Problem, Constraints, Options, Decision, Implementation, Consequences, Log), "Selected", "Rejected", "Shifts", the status bar labels, the shortcuts dialog text, "Record not found", "Log entry", "Operator profile", "$ grep", "$ mail", "[ Full case study ]" style commands, and "Previously" before the social proof.
+System and label copy only, as implemented:
+- Navigation: `[01]`–`[05]` indices, "← Records", "← Index", "← Insights", "Previous record" / "Next record", "Previous entry" / "Next entry" / "First entry" / "Latest entry", "[ All insights ]", "[ Return to index ]".
+- Records: "Decision records", "Decision record DR-00n", "Record ID / Status / Years / Client / Role", "Accepted", "Archive", section labels (Context, Problem, Constraints, Options, Shifts, Decision, Implementation, Consequences, Log), "Selected", "Rejected", "Option A–C", "// " subheads, "Fig. 00 · Decision tree · 3 options, 1 selected", "Fig. 0n · DR-00n", "5 records · 2016–2026", "00 / Index", "Previously".
+- Log: "Log entry LOG-NNN", "Log ID / Date / Category / Reading time / Author", "Log · latest 3", "Log / Date / Category / Title / Read", "Filter", "$ grep", "N of 21 entries", "Read" (status bar), "n/a".
+- System: status bar labels, shortcuts dialog text, "Motion On/Off", "$ mail", "$ open <path>", "Error · 404", "Record not found", "Operator profile", "Get in touch", "Legal", "Email address", "Saving...", "Note" / "Quote" tags on callouts.
+- One composed sentence from existing facts: the BBVA summary on the records table (pending Miguel's OK).
 
 ## Out of scope (follow-ups)
 
+- Removing the dead `.article-*` / `pattern-*` rules and the Tailwind font config left in `index.css` / `tailwind.config.ts`.
 - Removing unused shadcn `ui/` components and the framer-motion/radix/react-query dependencies.
 - Removing em dashes from pre-existing article bodies.
 - Prerendering/SSR for SEO.
