@@ -1,68 +1,54 @@
 ### VERDICT: FAIL
 
 ### Requirements coverage
-
-- **R1.1** ⚠️ partial — SPA routes, including all 21 articles and five case paths, are preserved (`src/App.tsx:39-67`). [UNVERIFIED — depends on code not in diff] Confirm `/ai-design-os.html` still exists in the published static assets.
-- **R1.2** ✅ covered (`src/App.tsx:67`, `src/site/pages/NotFound.tsx:25`)
-- **R1.3** ✅ covered (`src/site/SiteHeader.tsx:9-13`, `src/site/SiteLayout.tsx:96-114`)
-- **R1.4** ✅ covered (`src/site/SiteLayout.tsx:20-38`, `src/site/SiteLayout.tsx:78-87`)
-
-- **R2.1** ✅ covered — the five cases are migrated into the typed Decision Record model (`src/site/content/cases.ts:12-833`).
-- **R2.2** ✅ covered (`src/site/content/cases.ts:12-833`, `.claude/specs/redesign-terminal/design.md:51-55`)
-- **R2.3** ✅ covered (`src/components/article/ArticleLayout.tsx:1-3`, `src/site/article/ArticleLayout.tsx:22-116`)
-- **R2.4** ✅ covered — restructured migration copy uses alternatives to em dashes (`src/site/content/cases.ts:1-3`, `src/site/content/aiDesignOs.ts:1`)
-- **R2.5** ✅ covered — the published asset is renamed and neutral alt text is used (`src/assets/tp-key-visual.webp`, `src/site/content/cases.ts:31`)
-- **R2.6** ✅ covered (`src/site/pages/SubscribeForm.tsx:18-39`, `src/site/pages/SubscribeForm.tsx:85-91`)
-
-- **R3.1** ❌ violated — accent is used for hover styling, although the palette rule restricts it to selected/active/focus/live states (`src/site/site.css:278-282`).
-- **R3.2** ⚠️ partial — both font packages are self-hosted and imported (`src/site/SiteLayout.tsx:1-2`). [UNVERIFIED — depends on package CSS not in diff] Confirm the Martian Mono `wdth.css` entry exposes both required `wdth` and `wght` variable axes rather than only width.
-- **R3.3** ✅ covered (`src/site/site.css:62-66`, `src/site/site.css:141-154`)
-- **R3.4** ⚠️ partial — all required page types use the new system (`src/App.tsx:39-67`). [UNVERIFIED — depends on external prototype not in diff] Visual equivalence to prototype C requires comparison against commit `e5cc5db`.
-
-- **R4.1** ✅ covered (`src/site/SiteLayout.tsx:116-143`, `src/site/ShortcutsDialog.tsx:85-98`)
-- **R4.2** ⚠️ partial — status, progress/time, motion and keys controls are implemented, including article mobile substitution (`src/site/StatusBar.tsx:77-99`, `src/site/site.css:603-611`). The motion control disappears entirely under reduced-motion instead of remaining part of the required status bar (`src/site/StatusBar.tsx:93-99`).
-- **R4.3** ✅ covered (`src/site/pages/Home.tsx:42`, `src/site/pages/CasePage.tsx:324-330`, `src/site/ascii/AsciiStage.tsx:25-61`)
-
-- **R5.1** ✅ covered (`src/site/SiteLayout.tsx:158-167`, `src/site/site.css:86-94`, `src/site/pages/Home.tsx:147-181`)
-- **R5.2** ✅ covered (`src/site/SiteHeader.tsx:42-55`, `src/site/SiteHeader.tsx:99-125`)
-- **R5.3** ✅ covered (`src/site/SiteLayout.tsx:89-94`, `src/site/site.css:3237-3288`, `src/site/ascii/renderer.ts:345-355`)
-- **R5.4** ✅ covered (`src/site/ascii/AsciiStage.tsx:135`, `src/site/ascii/renderer.ts:256-258`)
-
-- **R6.1** ✅ covered — font-axis changes are entrance/hover transitions, while scroll-driven WebGL only changes rotation (`src/site/site.css:198-218`, `src/site/ascii/renderer.ts:293-306`)
-- **R6.2** ❌ violated — `NotFound` is eagerly imported into the main chunk even though every route other than Home and case pages must be lazy-loaded (`src/App.tsx:6`).
-- **R6.3** ✅ covered (`src/site/ascii/AsciiStage.tsx:124-132`, `src/site/ascii/renderer.ts:24`, `src/site/ascii/renderer.ts:338-355`)
-- **R6.4** ⚠️ partial — the root clips horizontal overflow and responsive layouts are present (`src/site/site.css:15-54`). [UNVERIFIED — depends on runtime layout] Confirm every route at exactly 375px in preview.
-
-- **R7.1** ⚠️ partial — [UNVERIFIED — depends on repository state not in diff] Confirm the branch is `redesign-terminal` and no production push occurred.
-- **R7.2** ⚠️ partial — [UNVERIFIED — depends on command output not in diff] Run `bun run build` and compare lint against baseline.
-- **R7.3** ⚠️ partial — [UNVERIFIED — depends on review/deployment artifacts not in diff] Confirm final Kimi/GPT reviews, clean conformance review, verified findings, and Vercel preview smoke.
+- R1.1 ⚠️ partial — SPA routes, including all 21 article paths, are preserved (`src/App.tsx:45-69`). [UNVERIFIED — depends on code not in diff] Confirm `/ai-design-os.html` still exists and is served directly.
+- R1.2 ✅ covered (`src/App.tsx:69`, `src/site/pages/NotFound.tsx:7-27`)
+- R1.3 ✅ covered (`src/site/SiteLayout.tsx:18`, `src/site/SiteLayout.tsx:94-110`, `src/site/pages/Home.tsx:138`, `src/site/pages/Home.tsx:223`, `src/site/pages/Home.tsx:265`, `src/site/pages/Home.tsx:309`)
+- R1.4 ⚠️ partial — route-specific title resolution is implemented (`src/site/SiteLayout.tsx:23-36`, `src/site/SiteLayout.tsx:79-88`). [UNVERIFIED — depends on unchanged file not in diff] Confirm `index.html` default metadata, OG data, and JSON-LD remain intact.
+- R2.1 ❌ missing — the Birdie metric description loses the existing “pre-open market” qualifier (`src/pages/BirdieClubCase.tsx:145`, `src/site/content/cases.ts:711`).
+- R2.2 ✅ covered — approved TP and Birdie figures are scoped and dated (`src/site/content/cases.ts:170`, `src/site/content/cases.ts:711-712`)
+- R2.3 ✅ covered (`src/components/article/ArticleLayout.tsx:1-3`, `src/App.tsx:13-35`)
+- R2.4 ✅ covered — migrated content explicitly rewrites em dashes, with no visible introduced em dash proven in the new content (`src/site/content/site.ts:1`, `src/site/content/cases.ts:1-3`, `src/site/content/aiDesignOs.ts:1`)
+- R2.5 ✅ covered — the asset is renamed and neutral alt text is used (`src/assets/tp-key-visual.webp:1`, `src/site/content/cases.ts:29`)
+- R2.6 ✅ covered (`src/site/pages/SubscribeForm.tsx:19-39`, `src/site/pages/SubscribeForm.tsx:85-94`)
+- R3.1 ✅ covered (`src/site/site.css:14-25`, `src/site/site.css:80-84`, `src/site/site.css:157-181`)
+- R3.2 ✅ covered (`src/site/SiteLayout.tsx:1-2`, `src/site/site.css:39-40`, `package.json:14-15`)
+- R3.3 ✅ covered (`src/site/site.css:96-108`, `src/site/site.css:67-71`)
+- R3.4 ⚠️ partial — the specified page language and Decision Record structure are implemented (`src/site/pages/Home.tsx:337-356`, `src/site/pages/CasePage.tsx:285-388`). [UNVERIFIED — depends on prototype code not in diff] Exact fidelity to prototype C cannot be compared.
+- R4.1 ✅ covered (`src/site/SiteLayout.tsx:112-140`, `src/site/ShortcutsDialog.tsx:84-98`)
+- R4.2 ✅ covered (`src/site/StatusBar.tsx:65-98`, `src/site/site.css:548-570`, `src/site/site.css:589-598`)
+- R4.3 ✅ covered (`src/site/pages/Home.tsx:43`, `src/site/pages/CasePage.tsx:282-334`, `src/site/ascii/AsciiStage.tsx:25-63`)
+- R5.1 ✅ covered (`src/site/SiteLayout.tsx:157-165`, `src/site/site.css:73-91`, `src/site/pages/Home.tsx:142-183`, `src/site/pages/CasePage.tsx:33-67`)
+- R5.2 ❌ violated — menu-link activation explicitly disables focus restoration, and `onClose` then skips focusing the trigger (`src/site/SiteHeader.tsx:53-57`, `src/site/SiteHeader.tsx:65-68`).
+- R5.3 ✅ covered (`src/site/SiteLayout.tsx:90-110`, `src/site/Decode.tsx:31-43`, `src/site/site.css:3249-3288`)
+- R5.4 ✅ covered (`src/site/ascii/AsciiStage.tsx:134-138`, `src/site/ascii/renderer.ts:239-242`)
+- R6.1 ✅ covered (`src/site/ascii/renderer.ts:284-301`, `src/site/site.css:135-153`)
+- R6.2 ✅ covered (`src/App.tsx:7-35`, `src/site/ascii/AsciiStage.tsx:92-124`)
+- R6.3 ✅ covered (`src/site/ascii/renderer.ts:25`, `src/site/ascii/renderer.ts:237`, `src/site/ascii/renderer.ts:303-317`, `src/site/ascii/AsciiStage.tsx:126-132`)
+- R6.4 ✅ covered at the CSS containment level (`src/site/site.css:62`). [UNVERIFIED — depends on runtime rendering] Confirm every route at 375px in preview.
+- R7.1 ⚠️ [UNVERIFIED — branch and deployment state are not represented in the diff] Confirm branch is `redesign-terminal` and no push to `main` occurs without approval.
+- R7.2 ⚠️ [UNVERIFIED — build and lint output are not in the diff] Run `bun run build` and compare lint against baseline.
+- R7.3 ⚠️ [UNVERIFIED — review and preview evidence are not in the diff] Confirm Kimi review, verified findings, and Vercel smoke testing. This conformance review is not clean due to the blockers below.
 
 ### Design decisions respected
-
-1. **React 18/router 6/Vite 5; vanilla three.js** — ✅ respected (`package.json:50-64`, `src/site/ascii/renderer.ts:1`)
-2. **New implementation under `src/site/`, CSS scoped under `.tb`** — ❌ violated — implementation location is respected, but selectors such as `.tb-skip` are globally addressable rather than rooted under `.tb` (`src/site/site.css:110`).
-3. **Tailwind retained but unused by new pages** — ✅ respected
-4. **One `SiteLayout` for every route** — ✅ respected (`src/App.tsx:38-68`)
-5. **Case URLs, IDs and keyboard order unchanged** — ✅ respected (`src/site/content/cases.ts:15-16`, `src/site/content/cases.ts:170-171`, `src/site/content/cases.ts:342-343`, `src/site/content/cases.ts:467-468`, `src/site/content/cases.ts:659-660`)
-6. **All record statuses Accepted** — ✅ respected (`src/site/pages/CasePage.tsx:341-345`)
-7. **Article container redesigned; article bodies untouched** — ✅ respected (`src/components/article/ArticleLayout.tsx:1-3`)
+- 1. ✅ respected — React 18 remains and vanilla `three` is used without React Three Fiber (`package.json:55`, `package.json:66`, `src/site/ascii/renderer.ts:1`)
+- 2. ✅ respected — new system code and scoped CSS live under `src/site/` (`src/site/SiteLayout.tsx:1-16`, `src/site/site.css:14-67`)
+- 3. ✅ respected — new pages use `tb-*` classes rather than Tailwind utilities; Tailwind remains installed (`src/site/pages/Home.tsx:20-76`, `package.json:63-67`)
+- 4. ✅ respected (`src/App.tsx:44-71`, `src/site/SiteLayout.tsx:157-172`)
+- 5. ✅ respected (`src/site/content/cases.ts:12`, `src/site/content/cases.ts:153`, `src/site/content/cases.ts:348`, `src/site/content/cases.ts:491`, `src/site/content/cases.ts:730`)
+- 6. ✅ respected (`src/site/pages/CasePage.tsx:347-351`)
+- 7. ✅ respected (`src/components/article/ArticleLayout.tsx:1-3`, `src/site/article/ArticleLayout.tsx:23-114`)
 
 ### Out-of-scope changes
-
-- None proven. Deleted legacy pages/components are directly replaced by the redesign, while dependency and lockfile changes support the specified fonts, Lenis, and vanilla three.js.
-- No `tasks.md` is present, so execution decisions or approved deviations cannot be verified.
+- None proven. Removed legacy page and presentation components are directly replaced by the redesigned routes and shared system.
 
 ### Blockers (must fix before merge)
-
-- Accent is used as a hover color, contrary to the explicit selected/active/focus/live-only restriction (`src/site/site.css:278-282`).
-- The 404 route is eagerly bundled, violating the requirement that routes other than Home and case pages be lazy-loaded (`src/App.tsx:6`).
-- New CSS is not consistently rooted beneath `.tb` as required by architecture decision 2 (`src/site/site.css:110`).
-- The required status-bar motion control is omitted whenever reduced motion is active (`src/site/StatusBar.tsx:93-99`).
+- Restore the dropped “pre-open market” qualifier from the Birdie impact metric to satisfy strict no-content-loss (`src/pages/BirdieClubCase.tsx:145`, `src/site/content/cases.ts:711`).
+- Restore focus to the mobile-menu trigger whenever the menu closes, including after selecting a link (`src/site/SiteHeader.tsx:53-57`, `src/site/SiteHeader.tsx:65-68`).
 
 ### Unverified concerns
-
-- [UNVERIFIED — depends on code/assets not in diff] Verify that the static `/ai-design-os.html` file remains present in the build output.
-- [UNVERIFIED — depends on package CSS not in diff] Verify that the imported Martian Mono stylesheet exposes both `wdth` and `wght` variable axes (`src/site/SiteLayout.tsx:1`).
-- [UNVERIFIED — depends on runtime testing] Test every route at 375px for horizontal overflow, especially tables, status bar, code blocks and long record titles.
-- [UNVERIFIED — depends on external prototype not in diff] Compare the rendered Home and Decision Record pages against prototype C at commit `e5cc5db`.
-- [UNVERIFIED — depends on repository/process state not in diff] Confirm branch, build, lint baseline, external reviews and Vercel preview smoke required by R7.
+- [UNVERIFIED — depends on unchanged public assets] Verify `/ai-design-os.html` still exists and loads directly.
+- [UNVERIFIED — depends on unchanged `index.html`] Verify default title, meta, OG, and JSON-LD are unchanged.
+- [UNVERIFIED — depends on repository state and CI output] Verify branch policy, build, lint baseline, Kimi review, and Vercel preview smoke.
+- [UNVERIFIED — depends on runtime testing] Test all routes at 375px for horizontal overflow and validate menu/dialog focus behavior with keyboard-only navigation.
+- [UNVERIFIED — depends on the external lab prototype] Compare Home and interaction details against prototype C commit `e5cc5db`.

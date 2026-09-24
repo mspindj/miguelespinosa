@@ -32,7 +32,7 @@ Goal: an Awwwards-grade site (target Honorable Mention / SOTD) that remains fast
 
 ## R5. Accessibility (Awwwards weights usability ~30%)
 - R5.1 WCAG 2.2 AA contrast for all text; visible focus; skip link on every page; semantic headings and tables.
-- R5.2 Accessible mobile menu (dialog semantics, Esc closes, focus returns).
+- R5.2 Accessible mobile menu (dialog semantics; Esc returns focus to the trigger; choosing a link moves focus to the new content: `#main-content` on a route change, the target section on a hash link). Focus is never left on `<body>` after client-side navigation.
 - R5.3 `prefers-reduced-motion`: no smooth scroll, no scramble, no blinking, static WebGL frame. Motion toggle stops all non-essential animation, including smooth scroll (WCAG 2.2.2). Under OS reduced motion everything is already static, so the toggle is hidden.
 - R5.4 Canvas is decorative (`aria-hidden`); all text is real HTML.
 

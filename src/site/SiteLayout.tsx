@@ -93,6 +93,7 @@ export default function SiteLayout() {
     };
   }, [animate]);
 
+  const firstRoute = useRef(true);
   // Route change: scroll to the hash target (and move focus there) or to the top.
   useEffect(() => {
     const raw = decodeURIComponent(hash.slice(1));
@@ -108,6 +109,10 @@ export default function SiteLayout() {
     }
     if (lenis.current) lenis.current.scrollTo(0, { immediate: true, force: true });
     window.scrollTo(0, 0);
+    // Client-side navigation without a hash: move focus to the new page's content so keyboard
+    // and screen-reader users don't land on <body> (e.g. after a mobile-menu link unmounts).
+    if (!firstRoute.current) document.getElementById("main-content")?.focus({ preventScroll: true });
+    firstRoute.current = false;
   }, [pathname, hash, key]);
 
   // Keyboard layer. Never touches Tab, Space, arrows or modified keys; ignores form fields.

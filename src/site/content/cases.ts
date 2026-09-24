@@ -627,7 +627,7 @@ export const records: DecisionRecord[] = [
             { value: "38", label: "Paying founders at launch · 5 countries · zero paid advertising" },
             { value: "244", label: "Community activations from 1,862-person list" },
             { value: "0", label: "Critical failures at launch · shipped clean on day one" },
-            { value: "47", label: "Days from launch to those first numbers · all growth organic" },
+            { value: "47", label: "Days post-launch · pre-open market · all growth is organic" },
           ],
         },
       ],
