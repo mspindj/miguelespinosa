@@ -37,8 +37,8 @@ Goal: an Awwwards-grade site (target Honorable Mention / SOTD) that remains fast
 - R5.4 Canvas is decorative (`aria-hidden`); all text is real HTML.
 
 ## R6. Performance (target hardware: corporate laptops)
-- R6.1 Scroll-linked animation touches only `transform`, `opacity`, `clip-path`. No animating variable-font axes on scroll.
-- R6.2 The WebGL code loads after first paint in its own chunk and never on routes that don't show it. No React Three Fiber (keeps React 18; lighter chunk).
+- R6.1 Scroll-linked (scrubbed) animation touches only `transform`, `opacity`, `clip-path`; variable-font axes are never tied to scroll position. One-shot transitions (a heading settling once on enter, row hover) may animate font axes. Ruling 2026-09-24: the glitch Miguel saw in prototype A came from scroll-scrubbed weight on display type.
+- R6.2 Routes other than Home and case pages are lazy-loaded. The WebGL code loads after first paint in its own chunk and never on routes that don't show it. No React Three Fiber (keeps React 18; lighter chunk).
 - R6.3 Rendering stops when the canvas is offscreen or motion is off; DPR capped at 1.75.
 - R6.4 No horizontal scroll at 375px on any route.
 
