@@ -27,7 +27,7 @@ Goal: an Awwwards-grade site (target Honorable Mention / SOTD) that remains fast
 
 ## R4. Interaction
 - R4.1 Keyboard layer: `1`–`5` open records, `h` home, `m` toggles motion, `?` opens the shortcuts dialog. Ignored while typing in inputs; never overrides Tab, Space or arrows. A control can turn single-key shortcuts off (WCAG 2.1.4).
-- R4.2 Fixed status bar with current section, scroll %, Bogotá time and motion toggle. Below 768px it shows a subset (section + motion toggle; articles keep the reading %), so the bar never wraps or overflows.
+- R4.2 Fixed status bar with current section, scroll %, Bogotá time and motion toggle. Below 768px it shows a subset so the bar never wraps or overflows: section, Bogotá time (unlabelled), motion toggle and the `?` keys button; on articles the reading % replaces the time.
 - R4.3 ASCII WebGL decision tree on home (and on case pages ≥1024px), with a static ASCII poster fallback.
 
 ## R5. Accessibility (Awwwards weights usability ~30%)

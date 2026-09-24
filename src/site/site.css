@@ -3258,6 +3258,14 @@
   animation: none !important;
   transition: none !important;
 }
+.tb[data-settled] .tb-compile,
+.tb[data-settled] .tb-compile-load,
+.tb[data-settled] .tb-hero-word {
+  animation: none;
+  transition: none;
+  font-stretch: var(--wdth, 112.5%);
+  font-weight: var(--wght, 800);
+}
 .tb[data-motion="off"] .tb-compile {
   font-stretch: var(--wdth, 112.5%);
   font-weight: var(--wght, 800);

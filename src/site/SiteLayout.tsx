@@ -46,7 +46,13 @@ export default function SiteLayout() {
 
   const reduced = useReducedMotion();
   const [motionOn, setMotionOn] = useState(true);
-  const toggleMotion = useCallback(() => setMotionOn((m) => !m), []);
+  // Once the visitor has touched the motion toggle, headings stay settled for the rest of
+  // the visit: turning motion back on must not replay their one-shot entrance (R6.1).
+  const [settled, setSettled] = useState(false);
+  const toggleMotion = useCallback(() => {
+    setMotionOn((m) => !m);
+    setSettled(true);
+  }, []);
   const motion = useMemo(() => ({ reduced, motionOn, toggleMotion }), [reduced, motionOn, toggleMotion]);
   const animate = !reduced && motionOn;
 
@@ -144,7 +150,7 @@ export default function SiteLayout() {
 
   return (
     <MotionContext.Provider value={motion}>
-      <div className="tb" data-motion={animate ? "on" : "off"}>
+      <div className="tb" data-motion={animate ? "on" : "off"} data-settled={settled ? "" : undefined}>
         <a href="#main-content" className="tb-skip" onClick={skip}>
           Skip to content
         </a>
