@@ -96,6 +96,9 @@ export default function SiteLayout() {
   const firstRoute = useRef(true);
   // Route change: scroll to the hash target (and move focus there) or to the top.
   useEffect(() => {
+    // Read and clear up front: every exit path below must count as "not the first route".
+    const isFirst = firstRoute.current;
+    firstRoute.current = false;
     const raw = decodeURIComponent(hash.slice(1));
     const id = HASH_ALIASES[raw] ?? raw;
     const target = id ? document.getElementById(id) : null;
@@ -111,8 +114,7 @@ export default function SiteLayout() {
     window.scrollTo(0, 0);
     // Client-side navigation without a hash: move focus to the new page's content so keyboard
     // and screen-reader users don't land on <body> (e.g. after a mobile-menu link unmounts).
-    if (!firstRoute.current) document.getElementById("main-content")?.focus({ preventScroll: true });
-    firstRoute.current = false;
+    if (!isFirst) document.getElementById("main-content")?.focus({ preventScroll: true });
   }, [pathname, hash, key]);
 
   // Keyboard layer. Never touches Tab, Space, arrows or modified keys; ignores form fields.
