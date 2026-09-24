@@ -1,9 +1,9 @@
 {
   "interno": {
     "verdict": "pass",
-    "note": "Pass 5 PASS on fc4973f. Since paid round 1: fixed GPT blocker (motion toggle stops all non-essential animation), settled headings after toggle, fixed own regression on article title width (caught in pass 4). Verified 27 routes x 1280/375 in headless runtime.",
-    "diff_sha": "b9eefb2c02b9",
-    "at": "2026-09-24T10:47:49-05:00"
+    "note": "Passes 6-8 after Miguel's content decisions: approved figures with sources in R2.2 (180+ via founders-count floor, 2,200+ and 0->20+ per Miguel), spec clarifications for GPT round-2 findings (all verified as spec-letter, not bugs). Pass 8 PASS on 4bccae9.",
+    "diff_sha": "752dfa0077fe",
+    "at": "2026-09-24T11:16:49-05:00"
   },
   "reviews": {
     "gpt": {
