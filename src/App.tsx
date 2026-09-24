@@ -5,7 +5,7 @@ import Home from "./site/pages/Home";
 import CasePage from "./site/pages/CasePage";
 import NotFound from "./site/pages/NotFound";
 
-// Home and the decision records ship in the main chunk; every other route is its own chunk (R6.2).
+// Home, the decision records and the 404 ship in the main chunk; every other route is its own chunk (R6.2).
 const About = lazy(() => import("./site/pages/AboutPage"));
 const Insights = lazy(() => import("./site/pages/InsightsPage"));
 const AIDesignOS = lazy(() => import("./site/pages/AIDesignOSPage"));

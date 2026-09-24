@@ -13,7 +13,7 @@ Goal: an Awwwards-grade site (target Honorable Mention / SOTD) that remains fast
 
 ## R2. Content integrity
 - R2.1 No content loss: every section, metric, list item and quote on today's five case pages appears in the new case pages (restructured as Decision Records is fine; dropped content is not).
-- R2.2 No invented content: no new metrics, clients, testimonials or claims. New microcopy is limited to labels and system UI (record IDs, section labels, status bar), listed in design.md.
+- R2.2 No invented content: no new metrics, clients, testimonials or claims. Approved exceptions (Miguel, 2026-09-24), each dated in the UI: Design Transformation team 0 → 20+ at TP (Miguel's figure); The Birdie Club 185 paying members (verified via the public `founders-count` edge function, `active: 185`) and 200+ registered users (Miguel's figure); the composed BBVA summary. New microcopy is limited to labels and system UI (record IDs, section labels, status bar), listed in design.md.
 - R2.3 The 21 article bodies are not edited; they render through the redesigned `ArticleLayout`.
 - R2.4 Text newly written or restructured for this migration contains no em dash (—). Pre-existing article bodies are out of scope (tracked separately).
 - R2.5 "Flamingo" appears nowhere in visible text, alt text or published file names introduced by this change.
