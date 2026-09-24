@@ -8,17 +8,22 @@
   "reviews": {
     "gpt": {
       "model": "gpt-5.6-sol",
-      "diff_sha": "752dfa0077fe",
-      "verdict": "FAIL",
-      "at": "2026-09-24T11:17:55-05:00",
-      "findings_verified": false
+      "diff_sha": "1e66eb04b1dc",
+      "verdict": "PASS WITH GAPS",
+      "at": "2026-09-24T11:44:09-05:00",
+      "findings_verified": true
     },
     "kimi": {
       "model": "kimi-k3",
-      "diff_sha": "752dfa0077fe",
+      "diff_sha": "1e66eb04b1dc",
       "verdict": "PASS WITH GAPS",
-      "at": "2026-09-24T11:35:26-05:00",
-      "findings_verified": false
+      "at": "2026-09-24T12:05:53-05:00",
+      "findings_verified": true
     }
+  },
+  "qa": {
+    "note": "Vercel preview 5cf9a15 (miguelespinosa-icimemfoh): 33 routes x 1440/375 = 66/66 clean (no console errors, no overflow, skip link, no Flamingo/em dash); direct /ai-design-os serves SPA; /ai-design-os.html 200; form POST intercepted: body {email,source:ai-design-os}, 500 -> error with hola@, 200 -> guide link; focus after menu nav from /#work -> main-content; Birdie labels live (180+, 2,200+, pre-open market). Real GPU feel pending Miguel.",
+    "diff_sha": "1e66eb04b1dc",
+    "at": "2026-09-24T12:09:05-05:00"
   }
 }
