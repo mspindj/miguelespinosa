@@ -4,6 +4,7 @@ import { caseHref, getRecord, recordId, records } from "../content/cases";
 import type { Block, DecisionRecord, OptionRow, SectionKey } from "../content/types";
 import { useMedia } from "../context";
 import Rich from "../Rich";
+import { usePageChrome } from "../usePageChrome";
 import { Cmd, Ext } from "../ui";
 import NotFound from "./NotFound";
 
@@ -279,6 +280,7 @@ function RecSection({ n, label, rid, blocks }: { n: string; label: string; rid: 
 }
 
 function Record({ r }: { r: DecisionRecord }) {
+  usePageChrome();
   const wide = useMedia("(min-width: 1024px)");
   const rid = recordId(r);
   const idx = records.indexOf(r);

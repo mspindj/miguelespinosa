@@ -7,7 +7,9 @@ import { insightHref, latestInsights, logDate } from "../content/insights";
 import { site } from "../content/site";
 import type { DecisionRecord } from "../content/types";
 import Decode from "../Decode";
+import ResourceCallout from "../ResourceCallout";
 import SecHead from "../SecHead";
+import { usePageChrome } from "../usePageChrome";
 import { Cmd, Ext } from "../ui";
 
 const HOME_TREE: TreeSpec = { seed: 23, rootBranches: 3, chosenIndex: 1, depth: 5 };
@@ -261,7 +263,6 @@ function Manifesto() {
 
 function Insights() {
   const latest = latestInsights(3);
-  const { resource } = site;
   return (
     <section id="insights" className="tb-sec" data-tb-section="Insights" aria-labelledby="tb-ins-h" tabIndex={-1}>
       <SecHead idx="03" id="tb-ins-h" title="Insights" meta={`Log · latest ${latest.length}`} />
@@ -293,18 +294,7 @@ function Insights() {
           </span>
         </Link>
       </div>
-      <aside className="tb-resource" aria-labelledby="tb-res-h">
-        <p className="tb-label">{resource.eyebrow}</p>
-        <h3 id="tb-res-h" className="tb-resource-title">
-          <Link to={resource.href} className="tb-resource-link">
-            {resource.title}
-          </Link>
-        </h3>
-        <p className="tb-resource-body">{resource.body}</p>
-        <span className="tb-resource-cta" aria-hidden="true">
-          <Cmd>{resource.cta}</Cmd> →
-        </span>
-      </aside>
+      <ResourceCallout id="tb-res-h" />
     </section>
   );
 }
@@ -354,6 +344,7 @@ function Contact() {
 }
 
 export default function Home() {
+  usePageChrome();
   return (
     <>
       <Hero />

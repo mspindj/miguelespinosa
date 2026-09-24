@@ -17,3 +17,17 @@ export function latestInsights(count: number): Article[] {
 }
 
 export const insightHref = (a: Article) => `/insights/${a.slug}`;
+
+/** LOG-NNN from the article's position in `articles.ts` (the publication order). */
+export const logId = (a: Article) => `LOG-${String(articles.indexOf(a) + 1).padStart(3, "0")}`;
+
+export const getArticle = (slug: string | undefined) => articles.find((a) => a.slug === slug);
+
+/** Older and newer neighbours in publication order. */
+export function articleNeighbours(a: Article) {
+  const i = articles.indexOf(a);
+  return { prev: i > 0 ? articles[i - 1] : undefined, next: i < articles.length - 1 ? articles[i + 1] : undefined };
+}
+
+/** Newest first, the order the hub lists them in. */
+export const articlesNewestFirst = () => [...articles].reverse();

@@ -20,7 +20,16 @@ interface Props {
 export default function SiteHeader({ onMenuToggle }: Props) {
   const { pathname } = useLocation();
   const section = useActiveSection();
-  const current = pathname === "/" ? section.id : pathname.startsWith("/case-study/") ? "work" : "";
+  const current =
+    pathname === "/"
+      ? section.id
+      : pathname.startsWith("/case-study/")
+        ? "work"
+        : pathname.startsWith("/insights") || pathname === "/ai-design-os"
+          ? "insights"
+          : pathname.startsWith("/about")
+            ? "about"
+            : "";
 
   const [open, setOpen] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);

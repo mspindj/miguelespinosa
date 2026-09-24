@@ -3,11 +3,12 @@ import "@fontsource-variable/geist/wght.css";
 import "./site.css";
 
 import Lenis from "lenis";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { matchPath, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { caseHref, getRecord, recordId, records } from "./content/cases";
 import { DEFAULT_TITLE, site } from "./content/site";
-import { MotionContext, sectionStore, useReducedMotion } from "./context";
+import { getArticle } from "./content/insights";
+import { MotionContext, useReducedMotion } from "./context";
 import ShortcutsDialog from "./ShortcutsDialog";
 import SiteHeader from "./SiteHeader";
 import StatusBar from "./StatusBar";
@@ -15,11 +16,23 @@ import StatusBar from "./StatusBar";
 /** Old anchors that still arrive from links elsewhere. */
 const HASH_ALIASES: Record<string, string> = { philosophy: "manifesto" };
 
+const STATIC_TITLES: Record<string, string> = {
+  "/about": "About",
+  "/insights": "Insights",
+  "/ai-design-os": "The AI Design Operating System",
+  "/privacy": "Privacy Policy",
+};
+
 function titleFor(pathname: string) {
-  if (pathname === "/") return DEFAULT_TITLE;
-  const m = matchPath("/case-study/:slug", pathname);
-  const r = m ? getRecord(m.params.slug) : undefined;
+  const path = pathname.replace(/\/+$/, "") || "/";
+  if (path === "/") return DEFAULT_TITLE;
+  if (STATIC_TITLES[path]) return `${STATIC_TITLES[path]} | ${site.name}`;
+  const c = matchPath("/case-study/:slug", path);
+  const r = c ? getRecord(c.params.slug) : undefined;
   if (r) return `${r.title} · ${recordId(r)} | ${site.name}`;
+  const a = matchPath("/insights/:slug", path);
+  const article = a ? getArticle(a.params.slug) : undefined;
+  if (article) return `${article.title} | ${site.name}`;
   return `Record not found | ${site.name}`;
 }
 
@@ -41,7 +54,6 @@ export default function SiteLayout() {
   const [keysEnabled, setKeysEnabled] = useState(true);
   const menuOpen = useRef(false);
   const lenis = useRef<Lenis | null>(null);
-  const root = useRef<HTMLDivElement>(null);
 
   // Paper behind overscroll, restored when leaving the redesigned routes.
   useEffect(() => {
@@ -91,44 +103,6 @@ export default function SiteLayout() {
     window.scrollTo(0, 0);
   }, [pathname, hash, key]);
 
-  // Active section for the header and the status bar, plus one-shot "compile" reveals.
-  useEffect(() => {
-    const el = root.current;
-    if (!el) return;
-    const sections = Array.from(el.querySelectorAll<HTMLElement>("[data-tb-section]"));
-    if (sections[0]) sectionStore.set({ id: sections[0].id, label: sections[0].dataset.tbSection ?? "" });
-    const spy = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            const t = e.target as HTMLElement;
-            sectionStore.set({ id: t.id, label: t.dataset.tbSection ?? "" });
-          }
-        }
-      },
-      { rootMargin: "-45% 0px -54% 0px" },
-    );
-    sections.forEach((s) => spy.observe(s));
-
-    const reveal = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-in");
-            reveal.unobserve(e.target);
-          }
-        }
-      },
-      { rootMargin: "0px 0px -12% 0px" },
-    );
-    el.querySelectorAll("[data-tb-reveal]").forEach((n) => reveal.observe(n));
-    return () => {
-      spy.disconnect();
-      reveal.disconnect();
-      sectionStore.set({ id: "", label: "" });
-    };
-  }, [pathname]);
-
   // Keyboard layer. Never touches Tab, Space, arrows or modified keys; ignores form fields.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -169,13 +143,16 @@ export default function SiteLayout() {
 
   return (
     <MotionContext.Provider value={motion}>
-      <div ref={root} className="tb" data-motion={animate ? "on" : "off"}>
+      <div className="tb" data-motion={animate ? "on" : "off"}>
         <a href="#main-content" className="tb-skip" onClick={skip}>
           Skip to content
         </a>
         <SiteHeader onMenuToggle={onMenuToggle} />
         <main id="main-content" tabIndex={-1}>
-          <Outlet />
+          {/* Lazy routes: keep the viewport height while their chunk loads. */}
+          <Suspense fallback={<div className="tb-loading" aria-busy="true" />}>
+            <Outlet />
+          </Suspense>
         </main>
         <StatusBar onKeys={() => setKeysOpen(true)} />
         <ShortcutsDialog

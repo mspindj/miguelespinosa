@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { matchPath, useLocation } from "react-router-dom";
+import { getArticle } from "./content/insights";
 import { useActiveSection, useMotion } from "./context";
 
 const clock = new Intl.DateTimeFormat("en-GB", {
@@ -59,15 +61,20 @@ export default function StatusBar({ onKeys }: Props) {
   const pct = useScrollPercent();
   const time = useBogotaTime();
   const { motionOn, toggleMotion, reduced } = useMotion();
+  const { pathname } = useLocation();
+  const m = matchPath("/insights/:slug", pathname);
+  // On an article the scroll cell becomes reading progress, with a hairline gauge on the bar.
+  const reading = !!(m && getArticle(m.params.slug));
 
   return (
-    <aside className="tb-status" aria-label="Status bar">
+    <aside className="tb-status" aria-label="Status bar" data-reading={reading ? "true" : undefined}>
+      {reading && <span className="tb-status-progress" aria-hidden="true" style={{ transform: `scaleX(${pct / 100})` }} />}
       <span className="tb-status-cell tb-status-sec">
         <span className="tb-live" aria-hidden="true" />
         <span className="tb-status-k">Sec</span> {section.label || "Index"}
       </span>
       <span className="tb-status-cell tb-status-pct">
-        <span className="tb-status-k">Scroll</span> {String(pct).padStart(3, "0")}%
+        <span className="tb-status-k">{reading ? "Read" : "Scroll"}</span> {String(pct).padStart(3, "0")}%
       </span>
       <span className="tb-status-cell tb-status-time">
         <span className="tb-status-k">Bogotá</span> <time>{time}</time>

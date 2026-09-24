@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
+import { usePageChrome } from "../usePageChrome";
 import { Cmd } from "../ui";
 
 export default function NotFound({ query }: { query?: string }) {
+  usePageChrome();
   const { pathname } = useLocation();
   const shown = query ?? pathname.replace(/^\//, "");
   return (
