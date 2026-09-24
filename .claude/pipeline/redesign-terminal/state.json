@@ -1,0 +1,8 @@
+{
+  "interno": {
+    "verdict": "pass",
+    "note": "2 passes of spec-conformance-review. Pass 1 PASS WITH GAPS (9): fixed Google Fonts import, WebGL probe leak, motion toggle vs Lenis, side-tab borders; spec aligned (About scope, microcopy list, ASCII accent exception, canvas scroll redraw). Pass 2 PASS on 41d7e8c, verified in headless runtime. Birdie metric and BBVA summary pending Miguel.",
+    "diff_sha": "0f607f84627f",
+    "at": "2026-09-24T10:15:53-05:00"
+  }
+}
