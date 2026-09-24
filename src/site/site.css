@@ -3250,8 +3250,17 @@
 }
 
 /* --- Motion preferences ------------------------------------------------------- */
-.tb[data-motion="off"] .tb-cursor {
-  animation: none;
+/* The status-bar toggle (key M) mirrors prefers-reduced-motion: every non-essential
+   animation and transition stops and headings sit in their final state (R5.3). */
+.tb[data-motion="off"] *,
+.tb[data-motion="off"] *::before,
+.tb[data-motion="off"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+.tb[data-motion="off"] .tb-compile {
+  font-stretch: var(--wdth, 112.5%);
+  font-weight: var(--wght, 800);
 }
 @media (prefers-reduced-motion: reduce) {
   .tb *,

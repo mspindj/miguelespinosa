@@ -4,5 +4,21 @@
     "note": "2 passes of spec-conformance-review. Pass 1 PASS WITH GAPS (9): fixed Google Fonts import, WebGL probe leak, motion toggle vs Lenis, side-tab borders; spec aligned (About scope, microcopy list, ASCII accent exception, canvas scroll redraw). Pass 2 PASS on 41d7e8c, verified in headless runtime. Birdie metric and BBVA summary pending Miguel.",
     "diff_sha": "0f607f84627f",
     "at": "2026-09-24T10:15:53-05:00"
+  },
+  "reviews": {
+    "gpt": {
+      "model": "gpt-5.6-sol",
+      "diff_sha": "0f607f84627f",
+      "verdict": "FAIL",
+      "at": "2026-09-24T10:17:42-05:00",
+      "findings_verified": false
+    },
+    "kimi": {
+      "model": "kimi-k3",
+      "diff_sha": "0f607f84627f",
+      "verdict": "PASS WITH GAPS",
+      "at": "2026-09-24T10:35:00-05:00",
+      "findings_verified": false
+    }
   }
 }

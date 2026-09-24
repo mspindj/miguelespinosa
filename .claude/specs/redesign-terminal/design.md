@@ -48,7 +48,7 @@ System and label copy only, as implemented:
 - Navigation: `[01]`–`[05]` indices, "← Records", "← Index", "← Insights", "Previous record" / "Next record", "Previous entry" / "Next entry" / "First entry" / "Latest entry", "[ All insights ]", "[ Return to index ]".
 - Records: "Decision records", "Decision record DR-00n", "Record ID / Status / Years / Client / Role", "Accepted", "Archive", section labels (Context, Problem, Constraints, Options, Shifts, Decision, Implementation, Consequences, Log), "Selected", "Rejected", "Option A–C", "// " subheads, "Fig. 00 · Decision tree · 3 options, 1 selected", "Fig. 0n · DR-00n", "5 records · 2016–2026", "00 / Index", "Previously".
 - Log: "Log entry LOG-NNN", "Log ID / Date / Category / Reading time / Author", "Log · latest 3", "Log / Date / Category / Title / Read", "Filter", "$ grep", "N of 21 entries", "Read" (status bar), "n/a".
-- System: status bar labels, shortcuts dialog text, "Motion On/Off", "$ mail", "$ open <path>", "Error · 404", "Record not found", "Operator profile", "Get in touch", "Legal", "Email address", "Saving...", "Note" / "Quote" tags on callouts.
+- System: status bar labels, shortcuts dialog text, "Motion On/Off", "$ mail", "$ open <path>", "Error · 404", "Record not found", "Operator profile", "Get in touch", "Legal", "Email address", "Saving...", "Note" / "Quote" tags on callouts, "N entries" section meta, "Email · LinkedIn · Behance · CV", "CV (PDF)".
 - One composed sentence from existing facts: the BBVA summary on the records table (pending Miguel's OK).
 
 ## Out of scope (follow-ups)
