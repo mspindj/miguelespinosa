@@ -2,72 +2,69 @@
 
 ### Requirements coverage
 
-**R1. Routes and URLs**
-- R1.1 ✅ src/App.tsx:61-88 — all routes preserved: `/`, `/about`, `/case-study/:slug` (5 slugs served from `src/site/content/cases.ts`), `/ai-design-os`, `/privacy`, `/insights`, 21 article routes (counted, matches old list 1:1), catch-all at :88. `/ai-design-os.html` untouched (not in diff; linked at src/site/pages/SubscribeForm.tsx:72).
-- R1.2 ✅ src/App.tsx:88 `<Route path="*" element={<NotFound />} />` + src/site/pages/NotFound.tsx:23-26 (styled 404, link home).
-- R1.3 ✅ src/site/SiteLayout.tsx:20 (`HASH_ALIASES` philosophy→manifesto) and :103-119 (hash scroll + focus on arrival from any route); section ids src/site/pages/Home.tsx:142 (`#work`), :233 (`#manifesto`), :267 (`#insights`), :310 (`#contact`).
-- R1.4 ✅ src/site/SiteLayout.tsx:30-43 (`titleFor`) + :79-81 (effect). index.html untouched (not in diff).
+**R1. Routes**
+- R1.1 ✅ covered — all static + 5 case slugs via `:slug` (src/App.tsx:39-43; slugs in src/site/content/cases.ts records), all 21 article routes present and matching the old file 1:1 (src/App.tsx:45-65), `/ai-design-os.html` untouched and still linked on success (src/site/pages/SubscribeForm.tsx:~84).
+- R1.2 ✅ covered — catch-all inside SiteLayout (src/App.tsx:66), styled "Record not found" + `Link to="/"` (src/site/pages/NotFound.tsx:~24).
+- R1.3 ✅ covered — hash effect with focus + alias `#philosophy→#manifesto` (src/site/SiteLayout.tsx:17, 98-112); section ids on Home (`id="work"/"manifesto"/"insights"/"contact"`); header links use `/#…` (src/site/SiteHeader.tsx:8-13). Works cross-route since Home is in the main chunk.
+- R1.4 ✅ covered — per-route titles via `titleFor` + effect (src/site/SiteLayout.tsx:26-37, 75-83); index.html not touched in diff.
 
-**R2. Content integrity**
-- R2.1 ✅ src/site/content/cases.ts — section-by-section check of all five cases against the deleted pages: every metric (TP 5/5, DT 4/4, Tati 4/4, Birdie 4/4, BBVA 6/6), every list, both BBVA quotes, award callout, product rows, ambassador stats present.
-- R2.2 ⚠️ partial — three new label strings not in the design.md microcopy list: src/site/pages/Home.tsx:143 `meta={`${records.length} entries`}` ("5 entries"), src/site/pages/Home.tsx:311 `meta="Email · LinkedIn · Behance · CV"`, src/site/pages/Home.tsx:307 `"CV (PDF)"`. Also see judgment call on the BBVA summary below.
-- R2.3 ✅ src/components/article/ArticleLayout.tsx:3 re-exports `src/site/article/ArticleLayout.tsx`; no article file touched in diff.
-- R2.4 ✅ scanned all new/restructured copy (cases.ts, site.ts, aiDesignOs.ts, pages, shell): only en dashes (year ranges), middots and arrows; no `—` found.
-- R2.5 ✅ `flamingo.webp → tp-key-visual.webp` rename, `flamingo.jpeg` deleted, neutral alt at src/site/content/cases.ts:29, "(Flamingo)" removed from the DT Systems pillar (src/site/content/cases.ts:282 vs deleted DesignTransformationCase).
-- R2.6 ✅ src/site/pages/SubscribeForm.tsx:24-38 — identical POST `/api/subscribe`, body `{ email, source: "ai-design-os" }`, `res.ok` success, loading "Saving...", error state, `/ai-design-os.html` link on success. `api/subscribe.ts` not in diff.
+**R2. Content**
+- R2.1 ✅ covered — section-by-section parity verified for all five records against the deleted pages (metrics, lists, quotes, links, images: tp-key-visual + tati-hero), src/site/content/cases.ts. TP feather image kept with neutral alt (cases.ts DR-001 `image`).
+- R2.2 ✅ covered — new strings match the design.md microcopy list; the BBVA records-table summary is the documented "one composed sentence" (cases.ts DR-005 `summary`; design.md:59).
+- R2.3 ✅ covered — old import path is a shim re-exporting the new layout with compatible props (`patternClass` optional) (src/components/article/ArticleLayout.tsx:3); the 21 article files are absent from the diff.
+- R2.4 ✅ covered — em dashes systematically rewritten to commas/colons/parens/periods in all new visible copy (cases.ts, site.ts, aiDesignOs.ts, pages); none found in added strings.
+- R2.5 ✅ covered — `flamingo.webp→tp-key-visual.webp` rename, `flamingo.jpeg` deleted, neutral alt "Abstract feather texture…", "(Flamingo)" scrubbed from DR-002 Systems pillar (cases.ts:~320).
+- R2.6 ✅ covered — identical request `POST /api/subscribe` body `{email, source:"ai-design-os"}` (src/site/pages/SubscribeForm.tsx:~27-40), loading "Saving...", success link to `/ai-design-os.html`, error state; `api/subscribe.ts` not in diff.
 
 **R3. Visual system**
-- R3.1 ✅ src/site/site.css:18-24 (exact hex tokens). Accent usage audited: selection, focus ring, cursor block, live dot, aria-current nav background, switch/tag/verdict backgrounds, chosen-path glyphs (aria-hidden), `Motion On` text only on ink (site.css:621). No accent-as-text-on-paper found.
-- R3.2 ✅ src/site/SiteLayout.tsx:1-2 (`@fontsource-variable/martian-mono/wdth.css`, `geist/wght.css`); stacks at site.css:34-35. But see Unverified #1 on the wdth-only subpath.
-- R3.3 ✅ site.css:148-163 (exposed column rules, 1px) and :131-135 (`border-radius: 0` on `.tb *`).
-- R3.4 ✅ src/site/pages/Home.tsx (C home), src/site/pages/CasePage.tsx (Decision Record + CONSTRAINTS/LOG), same `.tb` system across About/Insights/Article/AI-OS/Privacy/404.
+- R3.1 ✅ covered — tokens `--paper/--ink/--ink-2/--accent` (src/site/site.css:22-26); accent only on selected/active/focus/live (nav `aria-current`, pressed tags/switch, `Verdict-on`, focus ring, selection, live dot, caret); never accent text on paper; ASCII chosen-path glyphs are `aria-hidden` (src/site/ascii/AsciiStage.tsx:~48).
+- R3.2 ⚠️ partial — Martian Mono imported as `…/martian-mono/wdth.css` only (src/site/SiteLayout.tsx:1); [UNVERIFIED — package file not in diff] fontsource per-axis files pin other axes, so wght (used 100→800 everywhere, incl. the compile animation) may be fixed at 400. Geist wght import fine (wght-only font).
+- R3.3 ✅ covered — 12-col 1px rules via `.tb-sec` gradients (site.css:~113-125), blanket `border-radius: 0` (site.css:~60).
+- R3.4 ✅ covered — all pages implemented in the system under src/site/pages/*.
 
 **R4. Interaction**
-- R4.1 ✅ src/site/SiteLayout.tsx:121-146 — 1–5 records, h home, m motion, `?` dialog; input/contenteditable guard, no modifier/repeat, only `?` calls preventDefault; off-switch at src/site/ShortcutsDialog.tsx:80-93 (WCAG 2.1.4).
-- R4.2 ⚠️ partial — full bar (section, scroll %, Bogotá time, motion toggle) at src/site/StatusBar.tsx:76-98, but site.css:633-650 hides `.tb-status-pct` below 768px (except on articles) and site.css:669-678 hides the time on articles below 768px. On a 375px non-article page the status bar shows no scroll %. Deliberate responsive trade-off visible in the diff, but a literal deviation from R4.2.
-- R4.3 ✅ src/site/pages/Home.tsx:41; case pages gated at src/site/pages/CasePage.tsx:310 (`useMedia("(min-width: 1024px)")`) + :345-351; static poster fallback src/site/ascii/AsciiStage.tsx:44-79.
+- R4.1 ✅ covered — 1–5/h/m/? layer, input-guard, no modifier keys, dialog-open guard, off switch (src/site/SiteLayout.tsx:114-137; src/site/ShortcutsDialog.tsx:~84-97).
+- R4.2 ✅ covered — section/scroll %/Bogotá time/motion/keys (src/site/StatusBar.tsx:83-99); <768px subset with labels hidden, % hidden, time unlabelled (site.css:~505-520); articles: `data-reading` shows Read % and hides time on mobile (StatusBar.tsx:~78; site.css:~524-532).
+- R4.3 ✅ covered — AsciiStage on Home (src/site/pages/Home.tsx:~45) and case pages ≥1024 via `useMedia` (src/site/pages/CasePage.tsx:~247, ~300); static poster fallback incl. no-WebGL path (AsciiStage.tsx:~30-63, ~76).
 
 **R5. Accessibility**
-- R5.1 ✅ contrast values documented site.css:6-16; focus ring+keyline site.css:80-90; skip link src/site/SiteLayout.tsx:163-165 (single layout ⇒ every page); semantic tables (src/site/pages/Home.tsx:145-183, captions/scopes) and headings.
-- R5.2 ✅ src/site/SiteHeader.tsx:99-127 — native `<dialog>` + `showModal()`, native Esc, focus return at :60-64.
-- R5.3 ✅ Lenis only when `animate` src/site/SiteLayout.tsx:93-101 (destroyed on toggle); Decode static when motion off src/site/Decode.tsx:32-38; renderer draws one static frame src/site/ascii/renderer.ts:355-379; reduced-motion CSS site.css:3254-3267; cursor blink self-terminates (5 iterations) site.css:243-257.
-- R5.4 ✅ canvas + poster aria-hidden src/site/ascii/AsciiStage.tsx:128 and renderer.ts:242; Decode keeps sr-only real text src/site/Decode.tsx:72-76.
+- R5.1 ✅ covered — contrast ratios documented and plausible (site.css:5-13), ink keyline + accent focus (site.css:~77-83), skip link in layout (SiteLayout.tsx:~160), scoped th/captions/heading hierarchy throughout.
+- R5.2 ✅ covered — native `<dialog>` + `showModal`, Esc native, focus return guarded for link navigation (src/site/SiteHeader.tsx:~36-60, ~95-120).
+- R5.3 ✅ covered — Lenis created only when motion allowed (SiteLayout.tsx:87-95), `prefers-reduced-motion` + `[data-motion="off"]` kill all animation/transition (site.css:~3255-3288), Decode renders final text (src/site/Decode.tsx:~37), renderer draws one static frame (renderer.ts `schedule`).
+- R5.4 ✅ covered — container, canvas and poster all `aria-hidden` (AsciiStage.tsx:~128; renderer.ts:~235).
 
 **R6. Performance**
-- R6.1 ✅ scroll consumers limited to: status-bar transform gauge (site.css:657-668), one-shot compile reveals on enter (site.css:222-231, explicitly allowed), hover transitions (allowed), WebGL rotation (allowed). No scroll-scrubbed font axes found.
-- R6.2 ✅ lazy routes src/App.tsx:32-55; WebGL chunk imported after double rAF src/site/ascii/AsciiStage.tsx:99-104; AsciiStage referenced only from Home and CasePage; vanilla three, no R3F.
-- R6.3 ✅ DPR cap src/site/ascii/renderer.ts:27; IntersectionObserver + motion flag gate the RAF loop renderer.ts:351-379.
-- R6.4 ⚠️ unclear — guards present (site.css:52 `overflow-x: clip`, longest-word title fit site.css:1706-1716) but 375px rendering can't be proven from a diff.
+- R6.1 ✅ covered — scroll-linked work is transform/text only (status progress `scaleX`, WebGL yaw); font axes only on one-shot enter/hover (site.css compile + row hovers); settled-flag prevents replay (SiteLayout.tsx:52-56).
+- R6.2 ✅ covered — About/Insights/AIOS/Privacy/21 articles lazy (src/App.tsx:8-33); three.js via dynamic `import("./renderer")` after double rAF (AsciiStage.tsx:~90-105); no R3F in package.json; React stays 18.
+- R6.3 ✅ covered — IntersectionObserver gates RAF (AsciiStage.tsx:~112-118), motion flag gates RAF, DPR cap `MAX_DPR = 1.75` + `setPixelRatio` (renderer.ts:21, ~230).
+- R6.4 ⚠️ partial — strong provisions (`overflow-x: clip` on `.tb`, mobile card layouts replacing tables, clamp-based title sizing), but "no horizontal scroll at 375px on any route" is runtime-verifiable only.
 
 **R7. Delivery**
-- R7.1 ⚠️ unclear — branch not visible in a diff.
-- R7.2 ⚠️ unclear — build/lint not runnable here; static pass found no broken imports (incl. `three/examples/jsm/utils/BufferGeometryUtils.js`, Lenis options, UMD type-position `React.CSSProperties`).
-- R7.3 ⚠️ unclear — process gate; this review is one input to it.
+- R7.1/R7.2/R7.3 ⚠️ unverifiable from a diff — branch, `bun run build`, lint baseline, reviews and preview smoke are process items. Static scan found no obvious type/import errors; both lockfiles updated consistently.
 
 ### Design decisions respected
-1. React 18 + RR6 + Vite 5 ✅ — react ^18.3.1 kept (package.json), vanilla `three` renderer, no `@react-three/fiber` anywhere.
-2. Code in `src/site/` ✅ — all new code under src/site/; every rule scoped `.tb`.
-3. Tailwind stays, unused on new pages ✅ — index.css keeps `@tailwind` directives; new pages use only `tb-*`; shadcn `ui/` left in place.
-4. One layout ✅ — all routes nested under `<SiteLayout />` (src/App.tsx:60).
-5. URLs/order/IDs ✅ — records array order DR-001 TP → DR-005 BBVA (src/site/content/cases.ts:9,163,320,470,649); keys 1–5 index the same array; `featured:false` puts BBVA under Archive.
-6. "Accepted" everywhere ✅ — src/site/pages/Home.tsx:101/:129, src/site/pages/CasePage.tsx:~360.
-7. Articles container-only ✅ — shim re-export, LOG-NNN from publication order (src/site/content/insights.ts:24), reading time from lib/articles.
-- Content model ✅ (site.ts / cases.ts / types.ts / insights.ts; insights not duplicated).
-- Page designs ✅ all eight match the spec (incl. `$ grep` replacing cmdk — SearchCommand.tsx deleted; ResourceCallout on Home and hub).
-- WebGL decisions ✅ (two passes, DPR ≤1.75, IO+motion gating, dispose incl. `forceContextLoss`, lazy post-first-paint).
-- ⚠️ No tasks.md found (.claude/specs/redesign-terminal/ contains only requirements.md and design.md per this diff): the deviations above (R4.2 mobile, R2.2 strings) cannot be matched against approved execution decisions.
-- ⚠️ Judgment call (not a defect): the BBVA composed summary ships in code (src/site/content/cases.ts:657 "The first dedicated Design Authority at country level. Five products, one portfolio, and the Design Ambassadors Program.") while design.md:55 marks it "pending Miguel's OK". R7.1 gates production on Miguel's OK anyway, but that OK should explicitly cover this sentence before deploy.
+1. ✅ React 18 + RR6 + Vite kept; R3F replaced by vanilla three (package.json; src/site/ascii/renderer.ts).
+2. ✅ New code in `src/site/`; every rule scoped under `.tb`, keyframes `tb-` prefixed (site.css:20+).
+3. ✅ Tailwind kept; no Tailwind utilities in new pages (all `tb-*` classes); old deps retained.
+4. ✅ One layout for every route (src/App.tsx:38 `Route element={<SiteLayout />}`).
+5. ✅ Case URLs unchanged; order DR-001→DR-005 matches; keys 1–5 follow array order (SiteLayout.tsx:126-127); BBVA in Archive group on index (Home.tsx `archive`).
+6. ✅ Status "Accepted" rendered for all five (CasePage meta dd; Home RecordRow status cell).
+7. ✅ Articles: container-only redesign, LOG-NNN, category/date/reading time from lib, long-form styles incl. `.article-callout`/`.article-list`, prev/next (src/site/article/ArticleLayout.tsx; site.css `.tb-prose`).
+- Content model mapping ⚠️ — design.md:24 maps **pillars → IMPLEMENTATION**, but DR-002 places "The Four Pillars" in `decision` (src/site/content/cases.ts:~298). No content lost and source order preserved; section grouping deviates from the documented mapping. Judgement call, not a blocker.
+- Microcopy list ✅ adhered to; no unlisted new copy found.
 
 ### Out-of-scope changes
-None detected. All deletions are old-system components being replaced; the only touched pre-existing file is the ArticleLayout shim (decision 7); spec-listed follow-ups (shadcn ui/, index.css dead rules, article bodies) are untouched as specified.
+- None. `.claude/specs/*` are the spec docs themselves; the `index.css` change (dropping the Google Fonts import) is part of R3.2 self-hosting; all deletions are the migration itself. `api/subscribe.ts`, `index.html`, `src/lib/articles.ts` untouched.
 
 ### Blockers (must fix before merge)
-None found in the diff.
+- None proven from the diff.
 
 ### Unverified concerns
-1. Fontsource axes (src/site/SiteLayout.tsx:1): if `@fontsource-variable/martian-mono/wdth.css` ships only the wdth axis (fontsource splits multi-axis fonts per subpath), `font-weight: 100→800` in the compile animation and all 700/800 UI weights render synthesized, violating R3.2 "(wdth, wght)". Check the @font-face ranges in `node_modules/@fontsource-variable/martian-mono/wdth.css`; if wdth-only, import the package index (all axes) instead. To be real, this requires wdth.css to exclude the wght axis.
-2. The 21 article files are not in the diff: confirm each (a) imports its layout via `@/components/article/ArticleLayout` (the shim) and (b) imports nothing deleted in this diff (e.g. `components/insights/ReadingProgress`, `ui/animated-metric`, the removed `Toaster`/`QueryClientProvider` context). If any does, the build breaks.
-3. `public/ai-design-os.html` and `index.html` (title/meta/OG/JSON-LD) are not in the diff: confirm they are unchanged, and that `DEFAULT_TITLE` (src/site/content/site.ts:3) matches index.html's `<title>`.
-4. Vercel static/SPA precedence for `/ai-design-os.html` (hosting config not in diff) — must still serve the static file, not the SPA fallback.
-5. R6.4 at 375px on a real device: watch the nowrap status bar (site.css:492-510) and long metric values ("Limited → Structured", handled via `data-long` at src/site/pages/CasePage.tsx:~236).
-6. Run `bun run build` and lint against baseline (R7.2); confirm the working branch is `redesign-terminal` (R7.1).
+1. **Font axis (highest risk):** [UNVERIFIED — package contents not in diff] `import "@fontsource-variable/martian-mono/wdth.css"` (SiteLayout.tsx:1). If fontsource's per-axis convention holds, wght is pinned at 400, breaking all 600/700/800 UI text and the wght compile animation (R3.2). Check `node_modules/@fontsource-variable/martian-mono/wdth.css` for the declared wght range; likely fix is importing `full.css`.
+2. **Broken imports in untouched files:** [UNVERIFIED — the 21 article files are not in the diff] deleted shared modules (`Header`, `Footer`, `NavLink`, `ReadingProgress`, `InsightCard`, `FilterPills`, `SearchCommand`, `animated-metric`, `SystemDiagram`, `case-study/*`, toast/QueryClient providers in App). If any surviving file imports one, the build fails (R7.2). Grep remaining src for those import paths before merge.
+3. **Default title match:** [UNVERIFIED — index.html not in diff] `DEFAULT_TITLE` (src/site/content/site.ts:3) is written over `document.title` on `/`; confirm it equals the existing `<title>` in index.html (R1.4).
+4. **ASCII glyph edge darkening:** post pass outputs premultiplied `vec4(col * g, g)` (renderer.ts:~76) but the material uses default NormalBlending with `transparent: true` (~:168), so stored rgb is multiplied by alpha twice (g²); glyph antialiasing will render slightly darker than the poster. Verify canvas-vs-poster parity on a preview; if visible, use CustomBlending (One, OneMinusSrcAlpha).
+5. **Lenis anchor offset:** comment claims "Lenis honours scroll-margin-top" (SiteLayout.tsx:104); if it doesn't, hash landings sit 56px high under the sticky header. Verify `/#work` arrival on a preview.
+6. **375px horizontal scroll (R6.4)** and status-bar fit on narrow screens: provisions exist; verify on a real viewport across all routes.
+7. **`/ai-design-os.html` static asset:** not in diff; confirm it still exists in `public/`.
+8. **tasks.md absent:** execution decisions unknown; specifically the BBVA composed summary is documented as "pending Miguel's OK" (design.md:59) — that approval cannot be confirmed here. R7.1/R7.3 items (branch, reviews, preview smoke) likewise unverifiable from this diff.

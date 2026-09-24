@@ -8,16 +8,16 @@
   "reviews": {
     "gpt": {
       "model": "gpt-5.6-sol",
-      "diff_sha": "0f607f84627f",
+      "diff_sha": "b9eefb2c02b9",
       "verdict": "FAIL",
-      "at": "2026-09-24T10:17:42-05:00",
+      "at": "2026-09-24T10:49:35-05:00",
       "findings_verified": false
     },
     "kimi": {
       "model": "kimi-k3",
-      "diff_sha": "0f607f84627f",
+      "diff_sha": "b9eefb2c02b9",
       "verdict": "PASS WITH GAPS",
-      "at": "2026-09-24T10:35:00-05:00",
+      "at": "2026-09-24T11:06:46-05:00",
       "findings_verified": false
     }
   }

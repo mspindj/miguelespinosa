@@ -169,7 +169,7 @@ export const records: DecisionRecord[] = [
     tagline: "Building Design as an Organizational Capability",
     summary:
       "Moved design from execution layer to strategic function inside a global BPO. Built the operating model, hiring framework, and design culture from scratch.",
-    metric: { value: "0 → 12", label: "Team scale" },
+    metric: { value: "0 → 20+", label: "Team scale" },
     tags: ["Leadership", "DesignOps", "Org Design"],
     featured: true,
     optionsLabel: "Shifts",
@@ -300,6 +300,11 @@ export const records: DecisionRecord[] = [
         {
           kind: "metrics",
           items: [
+            {
+              value: "0 → 20+",
+              label: "Core design team built",
+              note: "Built the design team at Teleperformance from zero, alongside the extended community.",
+            },
             {
               value: "Limited → Structured",
               label: "UX Maturity (NNGroup model)",
@@ -474,7 +479,7 @@ export const records: DecisionRecord[] = [
     tagline: "Building a Creator's Digital Twin with AI",
     summary:
       "Built a methodology-first AI coaching platform for a golf instructor with 70K+ followers. Gemini-powered swing analysis encoded around his proprietary RJ100 framework.",
-    metric: { value: "38", label: "Paying founders" },
+    metric: { value: "185", label: "Paying members" },
     tags: ["AI Product", "Creator Economy", "PWA"],
     featured: true,
     tree: { branches: 3, chosen: 1 },
@@ -617,10 +622,12 @@ export const records: DecisionRecord[] = [
         {
           kind: "metrics",
           items: [
-            { value: "38", label: "Paying founders · 5 countries · zero paid advertising" },
-            { value: "244", label: "Community activations from 1,862-person list · still growing" },
+            { value: "185", label: "Paying members · September 2026" },
+            { value: "200+", label: "Registered users on the platform" },
+            { value: "38", label: "Paying founders at launch · 5 countries · zero paid advertising" },
+            { value: "244", label: "Community activations from 1,862-person list" },
             { value: "0", label: "Critical failures at launch · shipped clean on day one" },
-            { value: "47", label: "Days post-launch · pre-open market · all growth is organic" },
+            { value: "47", label: "Days from launch to those first numbers · all growth organic" },
           ],
         },
       ],

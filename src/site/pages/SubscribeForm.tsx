@@ -95,8 +95,8 @@ export default function SubscribeForm({ id }: { id: string }) {
               !{" "}
             </span>
             Something went wrong. Try again or email{" "}
-            <a href="mailto:mspin.dj@gmail.com" className="tb-inline-link">
-              mspin.dj@gmail.com
+            <a href="mailto:hola@miguelespinosa.co" className="tb-inline-link">
+              hola@miguelespinosa.co
             </a>
             .
           </p>

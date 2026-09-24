@@ -20,7 +20,7 @@ Goal: an Awwwards-grade site (target Honorable Mention / SOTD) that remains fast
 - R2.6 The AI Design OS lead-magnet form keeps its behavior: POST `/api/subscribe` with the email, loading/success/error states, and the link to `/ai-design-os.html` on success. `api/subscribe.ts` is not modified.
 
 ## R3. Visual system (from prototype C)
-- R3.1 Palette: paper `#ECECE6`, ink `#0E0E0E`, secondary ink `#55554F`, one accent `#FF4F00` used only for selected/active/focus/live states and never as text on paper. Exception: glyphs of the decorative, `aria-hidden` ASCII art (chosen path), which are image, not text.
+- R3.1 Palette: paper `#ECECE6`, ink `#0E0E0E`, secondary ink `#55554F`, one accent `#FF4F00` used only for selected/active/hover/focus/live states (as a fill behind ink text on hover of primary actions, 5.86:1) and never as text on paper. Exception: glyphs of the decorative, `aria-hidden` ASCII art (chosen path), which are image, not text.
 - R3.2 Type: Martian Mono variable (wdth, wght) for display, labels and UI; Geist variable for long-form text. Self-hosted via @fontsource.
 - R3.3 Exposed 12-column grid with 1px rules, zero border radius.
 - R3.4 Home = prototype C home; case pages = Decision Record template; the same language extends to About, Insights hub, articles, AI Design OS and Privacy.
@@ -33,12 +33,12 @@ Goal: an Awwwards-grade site (target Honorable Mention / SOTD) that remains fast
 ## R5. Accessibility (Awwwards weights usability ~30%)
 - R5.1 WCAG 2.2 AA contrast for all text; visible focus; skip link on every page; semantic headings and tables.
 - R5.2 Accessible mobile menu (dialog semantics, Esc closes, focus returns).
-- R5.3 `prefers-reduced-motion`: no smooth scroll, no scramble, no blinking, static WebGL frame. Motion toggle stops all non-essential animation, including smooth scroll (WCAG 2.2.2).
+- R5.3 `prefers-reduced-motion`: no smooth scroll, no scramble, no blinking, static WebGL frame. Motion toggle stops all non-essential animation, including smooth scroll (WCAG 2.2.2). Under OS reduced motion everything is already static, so the toggle is hidden.
 - R5.4 Canvas is decorative (`aria-hidden`); all text is real HTML.
 
 ## R6. Performance (target hardware: corporate laptops)
 - R6.1 Scroll-linked (scrubbed) animation touches only `transform`, `opacity`, `clip-path`; variable-font axes are never tied to scroll position. One-shot transitions (a heading settling once on enter, row hover) may animate font axes. The WebGL canvas may redraw on scroll (tree rotation) because it is gated by R6.3 and never re-lays out text. Ruling 2026-09-24: the glitch Miguel saw in prototype A came from scroll-scrubbed weight on display type.
-- R6.2 Routes other than Home and case pages are lazy-loaded. The WebGL code loads after first paint in its own chunk and never on routes that don't show it. No React Three Fiber (keeps React 18; lighter chunk).
+- R6.2 Routes other than Home, case pages and the 404 are lazy-loaded (the 404 is also rendered by the case page for unknown slugs, ~1 KB). The WebGL code loads after first paint in its own chunk and never on routes that don't show it. No React Three Fiber (keeps React 18; lighter chunk).
 - R6.3 Rendering stops when the canvas is offscreen or motion is off; DPR capped at 1.75.
 - R6.4 No horizontal scroll at 375px on any route.
 
