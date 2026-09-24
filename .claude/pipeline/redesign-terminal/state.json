@@ -1,9 +1,9 @@
 {
   "interno": {
     "verdict": "pass",
-    "note": "2 passes of spec-conformance-review. Pass 1 PASS WITH GAPS (9): fixed Google Fonts import, WebGL probe leak, motion toggle vs Lenis, side-tab borders; spec aligned (About scope, microcopy list, ASCII accent exception, canvas scroll redraw). Pass 2 PASS on 41d7e8c, verified in headless runtime. Birdie metric and BBVA summary pending Miguel.",
-    "diff_sha": "0f607f84627f",
-    "at": "2026-09-24T10:15:53-05:00"
+    "note": "Pass 5 PASS on fc4973f. Since paid round 1: fixed GPT blocker (motion toggle stops all non-essential animation), settled headings after toggle, fixed own regression on article title width (caught in pass 4). Verified 27 routes x 1280/375 in headless runtime.",
+    "diff_sha": "b9eefb2c02b9",
+    "at": "2026-09-24T10:47:49-05:00"
   },
   "reviews": {
     "gpt": {
