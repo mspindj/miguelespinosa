@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { filterOptions, type Article, type FilterValue } from "@/lib/articles";
-import { articlesNewestFirst, insightHref, logDate, logId } from "../content/insights";
+import { articlesNewestFirst, insightHref, logDate } from "../content/insights";
 import DocHead from "../DocHead";
 import ResourceCallout from "../ResourceCallout";
 import { usePageChrome } from "../usePageChrome";
@@ -23,7 +23,6 @@ function LogRow({ a }: { a: Article }) {
   const d = logDate(a.date);
   return (
     <tr className="tb-rec-row tb-hub-row">
-      <td className="tb-td-id">{logId(a)}</td>
       <td className="tb-td-muted">
         <time dateTime={d.iso || undefined}>{d.display}</time>
       </td>
@@ -57,9 +56,8 @@ export default function InsightsPage() {
         section="Insights"
         back={{ to: "/", label: "Index" }}
         crumb="Insights"
-        eyebrow="Knowledge Hub"
-        title="Cognitive Infrastructure"
-        titleLen={14}
+        title="Insights"
+        titleLen={8}
         lede="Strategic thinking on design, AI, and organizational transformation."
       />
 
@@ -105,10 +103,20 @@ export default function InsightsPage() {
         </div>
 
         <p id="tb-hub-count" className="tb-hub-count" role="status" aria-live="polite">
-          {results.length === 0 ? "No articles found for this filter." : `${results.length} of ${ALL.length} entries`}
+          {results.length === 0 ? "No articles match this filter." : `${results.length} of ${ALL.length} entries`}
+          {results.length === 0 && (
+            <button
+              type="button"
+              className="tb-tag tb-hub-reset"
+              onClick={() => {
+                setTag("all");
+                setQuery("");
+              }}
+            >
+              Clear filters
+            </button>
+          )}
         </p>
-
-        <ResourceCallout id="tb-hub-res-h" />
 
         {results.length > 0 && (
           <>
@@ -116,7 +124,6 @@ export default function InsightsPage() {
               <table className="tb-table tb-hub-table">
                 <caption className="tb-sr">Insights log. Each title opens the article.</caption>
                 <colgroup>
-                  <col className="tb-hcol-id" />
                   <col className="tb-hcol-date" />
                   <col className="tb-hcol-cat" />
                   <col />
@@ -124,7 +131,6 @@ export default function InsightsPage() {
                 </colgroup>
                 <thead>
                   <tr>
-                    <th scope="col">Log</th>
                     <th scope="col">Date</th>
                     <th scope="col">Category</th>
                     <th scope="col">Title</th>
@@ -155,7 +161,7 @@ export default function InsightsPage() {
                       <p className="tb-log-sub">{a.subtitle}</p>
                     </div>
                     <span className="tb-log-time">
-                      {logId(a)} · {a.readingTime}
+                      {a.readingTime}
                     </span>
                   </li>
                 );
@@ -163,6 +169,8 @@ export default function InsightsPage() {
             </ol>
           </>
         )}
+
+        <ResourceCallout id="tb-hub-res-h" />
       </section>
     </>
   );

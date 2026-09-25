@@ -28,12 +28,10 @@ export const records: DecisionRecord[] = [
     tree: { branches: 3, chosen: 2 },
     sections: {
       context: [
-        { kind: "subhead", text: "The Vision" },
         {
           kind: "lead",
           text: "We envisioned a future where design at scale wouldn't depend on individuals, but on shared decisions, shared language, and shared responsibility. The TP Design System was created to make design decisions reusable, discussable, and scalable across a global organization.",
         },
-        { kind: "subhead", text: "The Context" },
         {
           kind: "text",
           text: "Teleperformance operates dozens of internal platforms and client-facing products across regions, business units, and maturity levels. Design work existed everywhere. Design alignment did not.",
@@ -176,12 +174,10 @@ export const records: DecisionRecord[] = [
     tree: { branches: 3, chosen: 2 },
     sections: {
       context: [
-        { kind: "subhead", text: "The Vision" },
         {
           kind: "lead",
           text: "The goal was to reposition design, not as a service layer, a phase in a process, or a specialized role, but as a **shared organizational capability**. A function embedded into how Teleperformance thinks, decides, and ships.",
         },
-        { kind: "subhead", text: "The Context" },
         {
           kind: "text",
           text: "Design existed across teams, but with dramatically different levels of maturity, visibility, and impact. There was talent everywhere. What was missing was the infrastructure to make that talent work together, and the organizational language to make design legible to the business.",
@@ -363,12 +359,10 @@ export const records: DecisionRecord[] = [
     sections: {
       context: [
         { kind: "link", label: "tati.la", href: "http://tati.la" },
-        { kind: "subhead", text: "The Vision" },
         {
           kind: "lead",
           text: "We envisioned a future where AI-powered translation would not optimize for speed or volume, but for **trust, accuracy, and responsibility**. tati.la was designed to amplify human expertise, not replace it.",
         },
-        { kind: "subhead", text: "The Context" },
         {
           kind: "text",
           text: "Professional translation workflows are traditionally slow, expensive, and highly dependent on expert knowledge. While generic AI tools exist, they often prioritize speed at the cost of accuracy, tone, and accountability.",
@@ -486,12 +480,10 @@ export const records: DecisionRecord[] = [
     sections: {
       context: [
         { kind: "link", label: "app.davidvanegas.com.co", href: "https://app.davidvanegas.com.co" },
-        { kind: "subhead", text: "The Vision" },
         {
           kind: "lead",
           text: "Build a **digital twin** of a golf instructor, delivering personalized AI coaching to thousands of students without losing the human voice, the methodology, or the trust that took a decade to build.",
         },
-        { kind: "subhead", text: "The Context" },
         {
           kind: "text",
           text: "David Vanegas built a 70k+ following as a Colombian golf instructor through YouTube, in-person clinics, and direct coaching. His RJ100 system, a structured methodology around Ritmo, Juego Corto, and 100 Yardas, had proven results. But the model had a ceiling: one instructor, limited hours, and a student base that had already outgrown what he could serve personally.",

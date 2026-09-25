@@ -7,7 +7,8 @@ interface Props {
   section: string;
   back: { to: string; label: string };
   crumb: string;
-  eyebrow: ReactNode;
+  /** Optional; most pages carry no eyebrow (the breadcrumb already says where you are). */
+  eyebrow?: ReactNode;
   title: ReactNode;
   lede?: ReactNode;
   /** Grow the title to fit its longest word, like record titles. */
@@ -31,7 +32,7 @@ export default function DocHead({ id, section, back, crumb, eyebrow, title, lede
         </ol>
       </nav>
       <div className="tb-doc-titleblock">
-        <p className="tb-label">{eyebrow}</p>
+        {eyebrow && <p className="tb-label">{eyebrow}</p>}
         <h1
           id={`${id}-title`}
           className="tb-doc-title tb-compile-load"

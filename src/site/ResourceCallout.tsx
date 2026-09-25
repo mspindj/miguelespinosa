@@ -7,7 +7,6 @@ export default function ResourceCallout({ id }: { id: string }) {
   const { resource } = site;
   return (
     <aside className="tb-resource" aria-labelledby={id}>
-      <p className="tb-label">{resource.eyebrow}</p>
       <h3 id={id} className="tb-resource-title">
         <Link to={resource.href} className="tb-resource-link">
           {resource.title}
