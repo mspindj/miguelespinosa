@@ -168,7 +168,7 @@ export const records: DecisionRecord[] = [
     tagline: "Building Design as an Organizational Capability",
     summary:
       "Moved design from execution layer to strategic function inside a global BPO. Built the operating model, hiring framework, and design culture from scratch.",
-    metric: { value: "0 → 20+", label: "Team scale" },
+    metric: { value: "0 → 20+", label: "Core design team" },
     tags: ["Leadership", "DesignOps", "Org Design"],
     featured: true,
     optionsLabel: "Shifts",

@@ -8,7 +8,7 @@ import { usePageChrome } from "../usePageChrome";
 // Copy carried over from the previous /about page. Em dashes rewritten.
 const bio = [
   "Senior Director of Product Design with 15+ years of experience leading digital transformation, scaling high-performance design organizations, and evolving enterprise UX through AI-driven automation and data-informed strategies.",
-  "Built design systems at global scale at Teleperformance, leading an extended design community of 30+ designers across practices and disciplines. Before that, scaled the design team from 0 to 12 at BBVA Colombia, led digital transformation for DIRECTV via Globant, and co-founded two AI products: Tati, in translation, and The Birdie Club, in golf coaching.",
+  "Built design systems at global scale at Teleperformance, building a core design team of 20+ from zero and leading an extended community of 30+ designers across practices and disciplines. Before that, scaled the design team from 0 to 12 at BBVA Colombia, led digital transformation for DIRECTV via Globant, and co-founded two AI products: Tati, in translation, and The Birdie Club, in golf coaching.",
   "My approach: resolve the problem behind the problem. Design is not a service layer. It's a decision-making infrastructure that shapes how organizations think.",
 ];
 const facts = ["Bogotá, Colombia", "Spanish passport, EU work authorization", "Open to C-Level & VP roles"];

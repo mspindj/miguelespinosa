@@ -792,6 +792,12 @@
   line-height: 0.82;
   background: var(--paper);
 }
+/* Full-bleed on phones: keep the caption inside the page gutter. */
+@media (max-width: 1023px) {
+  .tb-hero-ascii .tb-ascii-cap {
+    right: var(--g);
+  }
+}
 .tb-hero-ascii {
   position: relative;
   grid-column: 1 / -1;
