@@ -172,8 +172,8 @@ export const records: DecisionRecord[] = [
     metric: { value: "0 → 20+", label: "Core design team" },
     tags: ["Leadership", "DesignOps", "Org Design"],
     featured: true,
-    optionsLabel: "Shifts",
-    tree: { branches: 3, chosen: 2 },
+    optionsLabel: "Options",
+    tree: { branches: 2, chosen: 1 },
     sections: {
       context: [
         {
@@ -228,6 +228,23 @@ export const records: DecisionRecord[] = [
         },
       ],
       options: [
+        {
+          kind: "options",
+          items: [
+            {
+              label: "Option A",
+              name: "A central design team as an internal agency",
+              assessment: "Where we started, not where we stopped. The goal was design capability installed inside the product teams that needed it.",
+              selected: false,
+            },
+            {
+              label: "Option B",
+              name: "Baseline first, then a pilot",
+              assessment: "Surveyed team leads with the NN/g UX maturity survey, set the baseline for TP Digital, and started the transformation there before scaling it.",
+              selected: true,
+            },
+          ],
+        },
         { kind: "subhead", text: "The Strategic Shift" },
         { kind: "text", text: "Three fundamental transitions defined the transformation:" },
         {
@@ -357,7 +374,7 @@ export const records: DecisionRecord[] = [
     tags: ["AI Product", "Trust UX", "Co-founder"],
     featured: true,
     image: { src: tatiHero, alt: "tati.la AI Translation platform", width: 1920, height: 1046 },
-    tree: { branches: 2, chosen: 1 },
+    tree: { branches: 3, chosen: 2 },
     sections: {
       context: [
         { kind: "link", label: "tati.la", href: "http://tati.la" },
@@ -405,6 +422,31 @@ export const records: DecisionRecord[] = [
           ],
         },
       ],
+      options: [
+        {
+          kind: "options",
+          items: [
+            {
+              label: "Option A",
+              name: "Real-time AI chat translation",
+              assessment: "Fast and impressive in a demo, but it leaves no trail a professional can audit.",
+              selected: false,
+            },
+            {
+              label: "Option B",
+              name: "Fully automatic translation",
+              assessment: "Never on the table. The translator keeps full control of the input and the output.",
+              selected: false,
+            },
+            {
+              label: "Option C",
+              name: "Document-first, asynchronous, glossary-guided",
+              assessment: "AI does the heavy lifting, guided by expert-curated glossaries. Formats are preserved and every job leaves a history.",
+              selected: true,
+            },
+          ],
+        },
+      ],
       decision: [
         { kind: "lead", text: "We avoided the ~~\"AI spectacle\" of real-time chat~~." },
         {
@@ -421,7 +463,10 @@ export const records: DecisionRecord[] = [
               title: "Async Workflow",
               body: "A robust upload-based system with clear status tracking to manage user expectations.",
             },
-            { title: "Simplified Pricing", body: "Predictable per-document costs to ensure scalability." },
+            {
+              title: "Three pricing models",
+              body: "A quote per document based on its word count for individuals, a subscription for professional translators (Tati Pro), and volume plans for companies (Tati for Business, in validation).",
+            },
             { title: "Auditability", body: "Access to history and downloads for full accountability." },
           ],
         },
@@ -474,10 +519,10 @@ export const records: DecisionRecord[] = [
     tagline: "Building a Creator's Digital Twin with AI",
     summary:
       "Built a methodology-first AI coaching platform for a golf instructor with 70K+ followers. Gemini-powered swing analysis encoded around his proprietary RJ100 framework.",
-    metric: { value: "180+", label: "Paying members · Sep 2026" },
+    metric: { value: "195+", label: "Paying members · Sep 2026" },
     tags: ["AI Product", "Creator Economy", "PWA"],
     featured: true,
-    tree: { branches: 3, chosen: 1 },
+    tree: { branches: 2, chosen: 1 },
     sections: {
       context: [
         { kind: "link", label: "app.davidvanegas.com.co", href: "https://app.davidvanegas.com.co" },
@@ -549,21 +594,54 @@ export const records: DecisionRecord[] = [
           ],
         },
       ],
+      options: [
+        { kind: "subhead", text: "Where the product lives" },
+        {
+          kind: "options",
+          items: [
+            {
+              label: "Option A",
+              name: "Native app in the App Store",
+              assessment: "App stores take up to 30% of in-app subscription revenue. For a subscription product, that ruled it out.",
+              selected: false,
+            },
+            {
+              label: "Option B",
+              name: "Progressive web app",
+              assessment: "The same experience in the browser or installed on the home screen. Getting people to install it is the friction we accepted.",
+              selected: true,
+            },
+          ],
+        },
+        { kind: "subhead", text: "How we keep building" },
+        {
+          kind: "options",
+          items: [
+            {
+              label: "Option A",
+              name: "Stay on Lovable",
+              assessment: "Fast to launch on. As the product grew, the back-and-forth and the token spend stopped making sense.",
+              selected: false,
+            },
+            {
+              label: "Option B",
+              name: "Own stack: Claude Code, GitHub, Vercel, Supabase",
+              assessment: "A full migration, and a painless one. One person runs product design and development with complete control.",
+              selected: true,
+            },
+          ],
+        },
+      ],
       decision: [
         { kind: "subhead", text: "The Strategic Decision" },
-        { kind: "text", text: "Three decisions defined the product architecture:" },
+        { kind: "text", text: "Two decisions defined the product architecture:" },
         {
           kind: "shifts",
           items: [
             {
               from: "Generic AI",
               to: "Methodology-first",
-              note: "David's RJ100 framework (Ritmo, Juego Corto, 100 Yardas) defines the coaching structure, not a general golf knowledge base.",
-            },
-            {
-              from: "Chatbot UI",
-              to: "Coaching thread",
-              note: "Sessions persist across time. The AI remembers your last drill, your committed plan, and your follow-up check-in.",
+              note: "David's RJ100 framework (Ritmo, Juego Corto, 100 Yardas) defines the coaching structure. The asset is David; the AI works for his method, not the other way around.",
             },
             {
               from: "One product",
@@ -610,7 +688,7 @@ export const records: DecisionRecord[] = [
         {
           kind: "metrics",
           items: [
-            { value: "180+", label: "Paying members · Sep 2026" },
+            { value: "195+", label: "Paying members · Sep 2026" },
             { value: "2,200+", label: "PDF program buyers with platform access · Sep 2026" },
             { value: "38", label: "Paying founders at launch · 5 countries · zero paid advertising" },
             { value: "244", label: "Community activations from 1,862-person list" },
@@ -659,7 +737,7 @@ export const records: DecisionRecord[] = [
     metric: { value: "760K+", label: "Monthly transfers" },
     tags: ["Banking", "Design Authority", "Culture"],
     featured: false,
-    tree: { branches: 3, chosen: 0 },
+    tree: { branches: 3, chosen: 2 },
     sections: {
       context: [
         { kind: "subhead", text: "The Role" },
@@ -697,6 +775,35 @@ export const records: DecisionRecord[] = [
             {
               title: "No design culture",
               body: "Design decisions were made by whoever was in the room. There was no framework for quality, consistency, or long-term coherence.",
+            },
+          ],
+        },
+      ],
+      options: [
+        {
+          kind: "text",
+          text: "The mandate came from BBVA's global holding in Spain. The job in Colombia was to turn it into local products and local practice, alongside the bank's move from waterfall to Agile.",
+        },
+        {
+          kind: "options",
+          items: [
+            {
+              label: "Option A",
+              name: "Culture first, products later",
+              assessment: "Wait for the organization to be ready. It never is, and the products can't wait for it.",
+              selected: false,
+            },
+            {
+              label: "Option B",
+              name: "External agencies as the design engine",
+              assessment: "Used only at peaks, when the team couldn't absorb the demand, never as the model.",
+              selected: false,
+            },
+            {
+              label: "Option C",
+              name: "Design authority built in parallel",
+              assessment: "Ship products and build culture at the same time, with an in-house team and the Design Ambassadors Program.",
+              selected: true,
             },
           ],
         },
@@ -774,6 +881,10 @@ export const records: DecisionRecord[] = [
         {
           kind: "text",
           text: "The program created a distributed network of design advocates inside engineering, product, marketing, and operations, ensuring design principles outlasted any single project.",
+        },
+        {
+          kind: "text",
+          text: "Each cohort went through a full week of immersion, Monday to Friday, learning the bank's design process while practicing it. It also opened a reskilling path: when the design team had openings, ambassadors could move into them.",
         },
         {
           kind: "stats",
