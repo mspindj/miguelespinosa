@@ -46,7 +46,7 @@ export default function ArticleLayout({ category, title, subtitle, date, childre
           </div>
           <div>
             <dt>Category</dt>
-            <dd>{category}</dd>
+            <dd>{article?.category ?? category}</dd>
           </div>
           <div>
             <dt>Reading time</dt>
