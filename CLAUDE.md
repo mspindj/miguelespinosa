@@ -138,10 +138,13 @@ Cita del manifiesto, sin raya: *"Good AI products don't impress users. They reas
 - Push a `main` → Vercel despliega automáticamente
 - Dominio: miguelespinosa.co
 
-## Insights Hub — Estado (Jun 2026)
-21 artículos publicados. Rutas en App.tsx, metadata en src/lib/articles.ts.
+## Insights Hub
+29 artículos. Rutas en App.tsx, metadata en src/lib/articles.ts (el orden del array es el orden de publicación y define el LOG-NNN).
 
-Los últimos 6 (serie AI harness, May 2026): `ai-harness`, `ai-where-it-belongs`, `ai-trust-calibration`, `corrections-md`, `designer-trains-model`, `design-md`.
+Tanda del 25 Sep 2026 (LOG-022 a LOG-029), escrita desde el KB de strategic-designer y anclada en trabajo real de TBC, Tati y el rediseño: `not-the-user`, `builder-cant-see`, `five-members-four-hypotheses`, `zero-is-not-a-pass`, `guidelines-dont-enforce`, `unused-skills`, `cheap-options`, `rejected-options`.
+
+- **Fechas pasadas permitidas (decisión de Miguel, 25 Sep 2026), con una condición: un artículo nunca cita algo ocurrido después de su fecha.** Por eso la tanda arranca el 1 Jul y no el 20 May: no había anclas verificables antes.
+- Nada de nombres de miembros de TBC, precios cotizados a clientes ni hallazgos de seguridad sin cerrar. Cifras de TBC solo las que ya son públicas en el sitio o porcentajes sin datos de negocio.
 
 ## Lead Magnet — AI Design OS (Jun 2026)
 
