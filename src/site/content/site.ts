@@ -20,27 +20,27 @@ export const site = {
     principles: [
       {
         number: "01",
-        title: "UX is not UI. It's Decision Design.",
-        body: "The value is not in the artifact. It's in reducing uncertainty. My role is to make trade-offs explicit so organizations can move with confidence.",
+        title: "UX is decision design.",
+        body: "The value is the uncertainty it removes. My role is to make trade-offs explicit so organizations can move with confidence.",
       },
       {
         number: "02",
-        title: "Clarity is the New Moat.",
+        title: "Clarity is the new moat.",
         body: "In a world of AI-generated noise, the competitive advantage is clarity: in framing, in language, in impact. Whoever frames the problem owns the solution.",
       },
       {
         number: "03",
         title: "Research without a decision is vanity.",
-        body: "Research exists to unlock courses of action, not to accumulate insights. If it doesn't change something, it was theater.",
+        body: "Research exists to unlock a course of action. If it doesn't change a decision, it was theater.",
       },
       {
         number: "04",
-        title: "Impact is designed, not reported.",
-        body: "I speak the language of solvency: Cost, Risk, Revenue. Design that can't be measured can't be defended, and shouldn't be.",
+        title: "Design the impact before you report it.",
+        body: "I speak the language of solvency: cost, risk, revenue. Design that can't be measured can't be defended, and shouldn't be.",
       },
       {
         number: "05",
-        title: "I design systems and trust, not screens.",
+        title: "I design systems and trust.",
         body: "With agents and GenUI, we design rules, limits, policies, and behavioral contracts. The interface is a promise.",
       },
       {
@@ -51,12 +51,12 @@ export const site = {
       {
         number: "07",
         title: "Design debt is strategy debt.",
-        body: "A confused product doesn't have a visual problem. It has accumulated decisions without coherence. Inconsistency is a leadership failure.",
+        body: "A confused product is the sum of decisions nobody reconciled. Inconsistency is a leadership failure.",
       },
       {
         number: "08",
-        title: "The future is human, not artisanal.",
-        body: "Execution will be automatic. Judgment will not. I don't compete with the machine's speed. I compete with the quality of thought.",
+        title: "Judgment is the job now.",
+        body: "Execution is becoming automatic. I compete on the quality of thought.",
       },
     ],
   },

@@ -39,7 +39,7 @@ export const records: DecisionRecord[] = [
         },
       ],
       problem: [
-        { kind: "lead", text: "The issue wasn't visual inconsistency. It was *decision fragmentation at scale*." },
+        { kind: "lead", text: "The real problem was *decision fragmentation at scale*: teams re-negotiating decisions that should have been made once." },
         {
           kind: "list",
           items: [
@@ -145,11 +145,11 @@ export const records: DecisionRecord[] = [
         { kind: "subhead", text: "Leadership Reflection" },
         {
           kind: "text",
-          text: "My role was to create the conditions for the system to exist and scale: through vision, stakeholder alignment, and a governance model that gave teams ownership without fragmenting the system. The real outcome wasn't consistency. It was **autonomy with alignment**.",
+          text: "My role was to create the conditions for the system to exist and scale: through vision, stakeholder alignment, and a governance model that gave teams ownership without fragmenting the system. What we got was **autonomy with alignment**: teams moving on their own inside shared rules.",
         },
         {
           kind: "quote",
-          text: "Scaling design is not about standardizing creativity. It's about standardizing how teams make decisions together.",
+          text: "Scaling design means standardizing how teams decide together, and leaving the creativity to them.",
           author: AUTHOR,
           role: "Senior Director of Product Design",
         },
@@ -188,7 +188,7 @@ export const records: DecisionRecord[] = [
       problem: [
         {
           kind: "lead",
-          text: "The bottleneck wasn't a lack of designers. It was a lack of organizational infrastructure.",
+          text: "We had designers. What we lacked was organizational infrastructure: shared standards, a home for research, and a way to show design's impact.",
         },
         {
           kind: "cells",
@@ -215,7 +215,7 @@ export const records: DecisionRecord[] = [
       constraints: [
         {
           kind: "lead",
-          text: "Transformation at a global operations company isn't a design problem. It's a change management problem with design at the center.",
+          text: "At a global operations company, transformation is change management with design at the center.",
         },
         {
           kind: "cells",
@@ -348,11 +348,11 @@ export const records: DecisionRecord[] = [
         { kind: "subhead", text: "Leadership Reflection" },
         {
           kind: "text",
-          text: "My role throughout was not to design the transformation. It was to design the conditions for it to happen. That meant vision setting, stakeholder alignment, building the operating model, and then getting out of the way so teams could own it. Transformation isn't something you deliver. It's something you enable.",
+          text: "My role was to design the conditions for the transformation to happen: set the vision, align stakeholders, build the operating model, then get out of the way so teams could own it.",
         },
         {
           kind: "quote",
-          text: "Design doesn't scale when you hire more designers. It scales when the organization learns to think like one.",
+          text: "Design scales when the whole organization learns to think like a designer.",
           author: AUTHOR,
           role: "Senior Director of Product Design",
         },
@@ -542,7 +542,7 @@ export const records: DecisionRecord[] = [
       problem: [
         {
           kind: "lead",
-          text: "The challenge wasn't building an AI. It was encoding a person's judgment into software, at scale, with no margin for feeling generic.",
+          text: "The hard part was encoding one person's judgment into software, at scale, without it ever feeling generic.",
         },
         {
           kind: "cells",
@@ -580,7 +580,7 @@ export const records: DecisionRecord[] = [
             },
             {
               title: "Live platform, no staging",
-              body: "Beta testers were real paying prospects. Bugs in production weren't abstract. They were visible failures during the founder launch window.",
+              body: "Beta testers were real paying prospects, so every production bug was a visible failure during the founder launch window.",
             },
             {
               title: "LATAM mobile constraints",
@@ -635,7 +635,7 @@ export const records: DecisionRecord[] = [
         { kind: "lead", text: "We rejected the ~~generic AI coach pattern~~." },
         {
           kind: "text",
-          text: "David's RJ100 methodology isn't content. It's the **product architecture**. Every AI output is structured around its three pillars. Every drill maps to a specific focus area. Every session builds on the last. The AI doesn't give golf tips. It coaches the way David coaches, because his framework (Ritmo, Juego Corto, 100 Yardas) is what defines the system prompt, the output schema, and the coaching memory model.",
+          text: "David's RJ100 methodology is the **product architecture**. Every AI output is structured around its three pillars. Every drill maps to a specific focus area. Every session builds on the last. The AI doesn't give golf tips. It coaches the way David coaches, because his framework (Ritmo, Juego Corto, 100 Yardas) is what defines the system prompt, the output schema, and the coaching memory model.",
         },
         {
           kind: "text",
@@ -694,7 +694,7 @@ export const records: DecisionRecord[] = [
         { kind: "subhead", text: "What I Learned" },
         {
           kind: "text",
-          text: "The hardest design challenge on this project wasn't teaching AI to analyze a golf swing. It was designing trust at three levels simultaneously: the paying customer trusting an AI with their technique, 1,800 existing students trusting that this new product honored the relationship they already had with David, and David trusting that his methodology (his competitive advantage) wasn't being commoditized into a generic chatbot. Getting all three right required product decisions, not just engineering ones.",
+          text: "The hardest design problem on this project was trust, at three levels at once: the paying customer trusting an AI with their technique, 1,800 existing students trusting that this new product honored the relationship they already had with David, and David trusting that his methodology (his competitive advantage) wasn't being commoditized into a generic chatbot. Getting all three right took product decisions more than engineering ones.",
         },
         {
           kind: "quote",
@@ -736,7 +736,7 @@ export const records: DecisionRecord[] = [
         { kind: "subhead", text: "The Vision" },
         {
           kind: "lead",
-          text: "I joined BBVA Colombia as the highest-ranking design leader, the first time the bank had a dedicated Design Authority at the country level. The mandate wasn't to redesign one product. It was to transform how design worked inside a major financial institution: from invisible execution layer to strategic decision-making function.",
+          text: "I joined BBVA Colombia as the highest-ranking design leader, the first time the bank had a dedicated Design Authority at the country level. The mandate was to change how design worked inside a major financial institution: from an invisible execution layer to a function that shapes decisions.",
         },
       ],
       problem: [
@@ -894,7 +894,7 @@ export const records: DecisionRecord[] = [
         {
           kind: "callout",
           title: "Best Mobile Bank in Colombia, Accenture Innovation Awards 2019",
-          text: "The recognition wasn't for one product. It was for a consistent, cross-portfolio elevation of the digital experience over three years. Every product worked better, felt better, and was more trusted than when we started.",
+          text: "The recognition covered the whole portfolio: three years of raising the digital experience, product by product. Every product worked better, felt better, and was more trusted than when we started.",
         },
       ],
       log: [
@@ -907,11 +907,11 @@ export const records: DecisionRecord[] = [
         { kind: "subhead", text: "Leadership Reflection" },
         {
           kind: "text",
-          text: "BBVA Colombia taught me that design authority is not a title. It's a practice. You earn it by shipping things that work, building relationships that last, and creating systems that function when you're not in the room. The products improved because the decisions improved. And the decisions improved because we built a shared language for making them.",
+          text: "At BBVA Colombia I learned that design authority is earned in practice: by shipping things that work, building relationships that last, and creating systems that function when you're not in the room. The products improved because the decisions improved, and the decisions improved because we built a shared language for making them.",
         },
         {
           kind: "quote",
-          text: "The best design system you can build inside an organization isn't a component library. It's a shared understanding of what good decisions look like.",
+          text: "The best design system you can build inside an organization is a shared understanding of what a good decision looks like.",
           author: AUTHOR,
           role: "UX & Design Manager, BBVA Colombia",
         },
