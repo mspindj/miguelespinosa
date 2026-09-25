@@ -1731,6 +1731,28 @@
   grid-column: 1 / -1;
   margin-bottom: 20px;
 }
+.tb-nda {
+  padding-block: 24px;
+}
+.tb-nda-note {
+  grid-column: 1 / -1;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  background: var(--bg);
+}
+.tb-nda-note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (min-width: 1024px) {
+  .tb-nda-note {
+    grid-column: 4 / -1;
+    padding-left: var(--pad);
+  }
+}
 .tb-rsec-h {
   --wdth: 112.5%;
   --wght: 800;
