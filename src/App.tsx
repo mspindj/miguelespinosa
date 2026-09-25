@@ -31,6 +31,14 @@ const AITrustCalibrationArticle = lazy(() => import("./pages/articles/AITrustCal
 const CorrectionsLogArticle = lazy(() => import("./pages/articles/CorrectionsLogArticle"));
 const DesignerTrainsModelArticle = lazy(() => import("./pages/articles/DesignerTrainsModelArticle"));
 const DesignMdArticle = lazy(() => import("./pages/articles/DesignMdArticle"));
+const NotTheUserArticle = lazy(() => import("./pages/articles/NotTheUserArticle"));
+const BuilderCantSeeArticle = lazy(() => import("./pages/articles/BuilderCantSeeArticle"));
+const FiveMembersArticle = lazy(() => import("./pages/articles/FiveMembersArticle"));
+const ZeroIsNotAPassArticle = lazy(() => import("./pages/articles/ZeroIsNotAPassArticle"));
+const RulesDontEnforceArticle = lazy(() => import("./pages/articles/RulesDontEnforceArticle"));
+const UnusedSkillsArticle = lazy(() => import("./pages/articles/UnusedSkillsArticle"));
+const CheapOptionsArticle = lazy(() => import("./pages/articles/CheapOptionsArticle"));
+const RejectedOptionsArticle = lazy(() => import("./pages/articles/RejectedOptionsArticle"));
 
 const App = () => (
   <BrowserRouter>
@@ -63,6 +71,14 @@ const App = () => (
         <Route path="/insights/corrections-md" element={<CorrectionsLogArticle />} />
         <Route path="/insights/designer-trains-model" element={<DesignerTrainsModelArticle />} />
         <Route path="/insights/design-md" element={<DesignMdArticle />} />
+        <Route path="/insights/not-the-user" element={<NotTheUserArticle />} />
+        <Route path="/insights/builder-cant-see" element={<BuilderCantSeeArticle />} />
+        <Route path="/insights/five-members-four-hypotheses" element={<FiveMembersArticle />} />
+        <Route path="/insights/zero-is-not-a-pass" element={<ZeroIsNotAPassArticle />} />
+        <Route path="/insights/guidelines-dont-enforce" element={<RulesDontEnforceArticle />} />
+        <Route path="/insights/unused-skills" element={<UnusedSkillsArticle />} />
+        <Route path="/insights/cheap-options" element={<CheapOptionsArticle />} />
+        <Route path="/insights/rejected-options" element={<RejectedOptionsArticle />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
