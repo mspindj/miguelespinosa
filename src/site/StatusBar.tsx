@@ -79,9 +79,6 @@ export default function StatusBar({ onKeys }: Props) {
       <span className="tb-status-cell tb-status-time">
         <span className="tb-status-k">Bogotá</span> <time>{time}</time>
       </span>
-      <span className="tb-status-cell tb-status-hints">
-        <kbd>1</kbd>–<kbd>5</kbd> record <kbd>H</kbd> home <kbd>M</kbd> motion <kbd>?</kbd> keys
-      </span>
       <span className="tb-status-actions">
         {!reduced && (
           <button type="button" role="switch" aria-checked={motionOn} className="tb-status-btn" onClick={toggleMotion}>

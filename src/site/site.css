@@ -434,9 +434,30 @@
   padding: 20px 0 calc(var(--status-h) + 20px);
   font-size: 14px;
 }
+.tb-menu-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
 .tb-menu-foot a {
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+.tb-menu-motion {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tb-menu-motion[aria-checked="true"] .tb-on {
+  color: var(--ink);
+  background: var(--accent);
+  padding: 2px 4px;
 }
 
 /* --- Status bar -------------------------------------------------------------- */
@@ -478,23 +499,6 @@
   width: 7px;
   height: 11px;
   background: var(--accent);
-}
-.tb-status-hints {
-  display: none;
-  gap: 6px;
-  color: var(--paper-2);
-}
-.tb-status-hints kbd {
-  display: inline-grid;
-  place-items: center;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 4px;
-  border: 1px solid var(--paper-2);
-  color: var(--paper);
-}
-.tb-status-hints kbd:not(:first-child) {
-  margin-left: 6px;
 }
 .tb-status-actions {
   display: flex;
@@ -560,24 +564,18 @@
     display: inline;
   }
 }
-@media (min-width: 1180px) {
-  .tb-status-hints {
-    display: flex;
-  }
-}
 
 @media (pointer: coarse) {
   .tb-status-btn[aria-haspopup] {
     display: none;
   }
 }
-/* A phone with nothing left to show (OS reduced motion hides the switch, no reading gauge)
-   drops the bar and gives its height back to the page. */
+/* Phones: the bar only lives on articles, as the reading gauge. The motion switch moves to the menu. */
 @media (max-width: 767px) {
-  .tb:not(:has(.tb-status [role="switch"])):not(:has(.tb-status[data-reading])) {
+  .tb:not(:has(.tb-status[data-reading])) {
     --status-h: 0px;
   }
-  .tb:not(:has(.tb-status [role="switch"])):not(:has(.tb-status[data-reading])) .tb-status {
+  .tb-status:not([data-reading]) {
     display: none;
   }
 }
@@ -961,10 +959,10 @@
   width: 11%;
 }
 .tb-col-title {
-  width: 38%;
+  width: 32%;
 }
 .tb-col-client {
-  width: 15%;
+  width: 21%;
 }
 .tb-col-out {
   width: 19%;
@@ -1792,15 +1790,11 @@
   margin-top: 14px;
 }
 .tb-subhead {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.tb-subhead::before {
-  content: "// ";
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: clamp(18px, 1.4vw, 21px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
 }
 .tb strong {
   font-weight: 700;
@@ -2196,10 +2190,23 @@
   .tb-impact {
     grid-template-columns: 1fr 1fr;
   }
+  /* An odd last cell spans the row, so no ink "filler" block closes the grid. */
+  :is(.tb-built-cell, .tb-impact-cell):last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }
 @media (min-width: 1280px) {
   .tb-impact {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .tb-impact-cell:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+  .tb-impact-cell:last-child:nth-child(3n + 1) {
+    grid-column: 1 / -1;
+  }
+  .tb-impact-cell:last-child:nth-child(3n + 2) {
+    grid-column: span 2;
   }
 }
 
@@ -2385,15 +2392,6 @@
     grid-column: 4 / 11;
     padding-left: var(--pad);
   }
-}
-.tb-entry-sign {
-  margin-top: 48px;
-  padding-top: 16px;
-  border-top: 1px solid var(--ink);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 .tb-pager-title-sm {
   font-size: clamp(16px, 1.6vw, 22px);
@@ -2686,7 +2684,7 @@
 .tb-hub-row {
   height: auto;
 }
-.tb-hub-row > * {
+.tb-table .tb-hub-row > * {
   padding-block: 16px;
 }
 .tb-table .tb-hub-title {

@@ -71,6 +71,8 @@ export interface DecisionRecord {
   title: string;
   client: string;
   role: string;
+  /** Short role for the home records table, with the client only when the title doesn't already name it. */
+  roleShort: string;
   tagline: string;
   summary: string;
   /** Headline metric for the records index. */

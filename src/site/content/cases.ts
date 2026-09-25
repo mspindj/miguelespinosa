@@ -17,6 +17,7 @@ export const records: DecisionRecord[] = [
     title: "TP Design System",
     client: "Teleperformance",
     role: "Senior Director of Product Design",
+    roleShort: "Sr. Director · Teleperformance",
     tagline: "Scaling Design by Scaling Decisions",
     summary:
       "Multi-brand design system unifying fragmented UI libraries across a 500K+ employee organization. Token architecture + engineer-handoff automation.",
@@ -54,10 +55,10 @@ export const records: DecisionRecord[] = [
         {
           kind: "cells",
           items: [
-            { label: "01", body: "Global scale with strong local autonomy: alignment couldn't be imposed." },
-            { label: "02", body: "Products at very different lifecycle stages (Angular, React, Vue)." },
-            { label: "03", body: "Uneven design maturity across teams and business units." },
-            { label: "04", body: "No shared governance model: every team invented their own." },
+            { body: "Global scale with strong local autonomy: alignment couldn't be imposed." },
+            { body: "Products at very different lifecycle stages (Angular, React, Vue)." },
+            { body: "Uneven design maturity across teams and business units." },
+            { body: "No shared governance model: every team invented their own." },
           ],
         },
       ],
@@ -103,7 +104,6 @@ export const records: DecisionRecord[] = [
         },
         {
           kind: "cells",
-          numbered: true,
           items: [
             {
               title: "Shared design language",
@@ -164,6 +164,7 @@ export const records: DecisionRecord[] = [
     title: "Design Transformation",
     client: "Teleperformance",
     role: "Senior Director of Product Design",
+    roleShort: "Sr. Director · Teleperformance",
     tagline: "Building Design as an Organizational Capability",
     summary:
       "Moved design from execution layer to strategic function inside a global BPO. Built the operating model, hiring framework, and design culture from scratch.",
@@ -218,10 +219,10 @@ export const records: DecisionRecord[] = [
         {
           kind: "cells",
           items: [
-            { label: "01", body: "Global organization with strong local execution culture: alignment couldn't be mandated." },
-            { label: "02", body: "Design maturity was uneven across teams, regions, and business units." },
-            { label: "03", body: "Skepticism toward research: data-informed decisions were not the default." },
-            { label: "04", body: "TP is an operations company first. Speed and efficiency are structural values." },
+            { body: "Global organization with strong local execution culture: alignment couldn't be mandated." },
+            { body: "Design maturity was uneven across teams, regions, and business units." },
+            { body: "Skepticism toward research: data-informed decisions were not the default." },
+            { body: "TP is an operations company first. Speed and efficiency are structural values." },
           ],
         },
       ],
@@ -267,7 +268,6 @@ export const records: DecisionRecord[] = [
         { kind: "text", text: "The transformation ran on five purpose-built programs and platforms:" },
         {
           kind: "cells",
-          numbered: true,
           items: [
             {
               title: "TP Design System",
@@ -348,6 +348,7 @@ export const records: DecisionRecord[] = [
     title: "Tati",
     client: "tati.la",
     role: "Co-founder & Head of Product Design",
+    roleShort: "Co-founder",
     tagline: "AI Translation Designed for Trust",
     summary:
       "Designed the trust layer between humans and AI agents for a specialized translation platform. The interface is a promise: clarity, confidence, control.",
@@ -361,7 +362,7 @@ export const records: DecisionRecord[] = [
         { kind: "link", label: "tati.la", href: "http://tati.la" },
         {
           kind: "lead",
-          text: "We envisioned a future where AI-powered translation would not optimize for speed or volume, but for **trust, accuracy, and responsibility**. tati.la was designed to amplify human expertise, not replace it.",
+          text: "Most AI translation optimizes for speed and volume. tati.la optimizes for **trust, accuracy, and responsibility**, and was designed to amplify human expertise, not replace it.",
         },
         {
           kind: "text",
@@ -392,7 +393,6 @@ export const records: DecisionRecord[] = [
         { kind: "lead", text: "Constraints defined the product:" },
         {
           kind: "cells",
-          numbered: true,
           items: [
             { title: "Accuracy", body: "High expectations for specific domain-specific terminology." },
             { title: "Complexity", body: "Document-level processing requires asynchronous workflows." },
@@ -414,7 +414,6 @@ export const records: DecisionRecord[] = [
       implementation: [
         {
           kind: "cells",
-          numbered: true,
           items: [
             { title: "Glossary-Driven Logic", body: "Ensuring translation quality aligns with expert standards." },
             {
@@ -470,6 +469,7 @@ export const records: DecisionRecord[] = [
     title: "The Birdie Club",
     client: "The Birdie Club",
     role: "Co-founder & Head of Product Design",
+    roleShort: "Co-founder",
     tagline: "Building a Creator's Digital Twin with AI",
     summary:
       "Built a methodology-first AI coaching platform for a golf instructor with 70K+ followers. Gemini-powered swing analysis encoded around his proprietary RJ100 framework.",
@@ -530,22 +530,18 @@ export const records: DecisionRecord[] = [
           kind: "cells",
           items: [
             {
-              label: "01",
               title: "No traditional dev team",
               body: "Development ran through Lovable with a 5-credit daily budget. Every prompt had to be precision-targeted: no exploratory iteration.",
             },
             {
-              label: "02",
               title: "Live platform, no staging",
               body: "Beta testers were real paying prospects. Bugs in production weren't abstract. They were visible failures during the founder launch window.",
             },
             {
-              label: "03",
               title: "LATAM mobile constraints",
               body: "Target users are 40–60+ year-old golfers on 4G in Colombia, Mexico, Argentina, Chile, Spain. Video streaming had to work on real networks, not ideal ones.",
             },
             {
-              label: "04",
               title: "iOS PWA as primary delivery",
               body: "No App Store. No install friction. The product had to feel native on iPhone while living inside Safari, with all the edge cases that implies.",
             },
@@ -585,7 +581,6 @@ export const records: DecisionRecord[] = [
       implementation: [
         {
           kind: "cells",
-          numbered: true,
           items: [
             {
               title: "AI Video Analysis",
@@ -656,6 +651,7 @@ export const records: DecisionRecord[] = [
     title: "BBVA Colombia",
     client: "BBVA Colombia",
     role: "UX & Design Manager",
+    roleShort: "Design Manager",
     tagline: "Building Colombia's #1 Mobile Bank",
     summary:
       "The first dedicated Design Authority at country level. Five products, one portfolio, and the Design Ambassadors Program.",
@@ -684,7 +680,6 @@ export const records: DecisionRecord[] = [
         { kind: "lead", text: "The product problems were symptoms. The root cause was structural." },
         {
           kind: "cells",
-          numbered: true,
           items: [
             {
               title: "Design as a service layer",

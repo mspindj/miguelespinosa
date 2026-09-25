@@ -81,7 +81,7 @@ function RecordRow({ r }: { r: DecisionRecord }) {
           {r.title}
         </Link>
       </th>
-      <td className="tb-td-muted">{r.client}</td>
+      <td className="tb-td-muted">{r.roleShort}</td>
       <td className="tb-td-out">
         <strong>{r.metric.value}</strong>
         <span>{r.metric.label}</span>
@@ -105,7 +105,7 @@ function RecordCard({ r }: { r: DecisionRecord }) {
           {r.title}
         </Link>
       </h3>
-      <p className="tb-card-client">{r.client}</p>
+      <p className="tb-card-client">{r.roleShort}</p>
       <p className="tb-card-out">
         <strong>{r.metric.value}</strong>
         <span>{r.metric.label}</span>
@@ -139,7 +139,7 @@ function Records() {
               <th scope="col">ID</th>
               <th scope="col">Years</th>
               <th scope="col">Title</th>
-              <th scope="col">Client</th>
+              <th scope="col">Role</th>
               <th scope="col">Outcome</th>
               <th scope="col">
                 <span className="tb-sr">Open</span>

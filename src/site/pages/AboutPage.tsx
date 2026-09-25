@@ -65,9 +65,6 @@ export default function AboutPage() {
         <ol className="tb-built tb-principles">
           {manifesto.principles.map((pr) => (
             <li key={pr.number} className="tb-built-cell">
-              <span className="tb-built-n" aria-hidden="true">
-                {pr.number}
-              </span>
               <h3 className="tb-built-name">{pr.title}</h3>
               <p className="tb-body">{pr.body}</p>
             </li>
