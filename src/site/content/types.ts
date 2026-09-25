@@ -48,7 +48,8 @@ export type Block =
   | { kind: "shifts"; items: Shift[] }
   | { kind: "products"; items: Product[] }
   | { kind: "stats"; items: Metric[] }
-  | { kind: "metrics"; items: Metric[] }
+  /** `source` says where the numbers come from and when; shown under the grid. */
+  | { kind: "metrics"; items: Metric[]; source?: string }
   | { kind: "callout"; title: string; text: Rich }
   | { kind: "quote"; text: string; author: string; role: string }
   | { kind: "link"; label: string; href: string };
