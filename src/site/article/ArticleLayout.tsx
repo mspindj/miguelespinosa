@@ -16,8 +16,6 @@ interface Props {
   children: ReactNode;
 }
 
-const AUTHOR_ROLE = "Design Director & Strategic Leader";
-
 /**
  * An article rendered as a log entry. The 21 article files keep calling this with the same
  * props; the log ID, reading time and neighbours come from `lib/articles.ts` via the URL.
@@ -37,15 +35,10 @@ export default function ArticleLayout({ category, title, subtitle, date, childre
         section={`${id} / Header`}
         back={{ to: "/insights", label: "Insights" }}
         crumb={id}
-        eyebrow={`Log entry ${id} · ${category}`}
         title={title}
         lede={subtitle}
       >
         <dl className="tb-rec-meta tb-entry-meta">
-          <div>
-            <dt>Log ID</dt>
-            <dd>{id}</dd>
-          </div>
           <div>
             <dt>Date</dt>
             <dd>
@@ -60,10 +53,6 @@ export default function ArticleLayout({ category, title, subtitle, date, childre
             <dt>Reading time</dt>
             <dd>{article?.readingTime ?? "n/a"}</dd>
           </div>
-          <div>
-            <dt>Author</dt>
-            <dd>{site.name}</dd>
-          </div>
         </dl>
       </DocHead>
 
@@ -73,7 +62,7 @@ export default function ArticleLayout({ category, title, subtitle, date, childre
           <span className="tb-prompt" aria-hidden="true">
             --{" "}
           </span>
-          {site.name}, {AUTHOR_ROLE}
+          {site.name}, {site.role}
         </p>
       </section>
 

@@ -76,7 +76,6 @@ export default function AIDesignOSPage() {
         section="AI Design OS"
         back={{ to: "/insights", label: "Insights" }}
         crumb="AI Design OS"
-        eyebrow="Free Resource"
         title={
           <>
             The AI Design <br />
@@ -104,12 +103,11 @@ export default function AIDesignOSPage() {
       </section>
 
       <section id="diagram" className="tb-sec" data-tb-section="AI Design OS / Diagram" aria-labelledby="tb-aios-diag-h">
-        <SecHead idx="01" id="tb-aios-diag-h" title="The model is in the middle. Everything else is the environment." meta="How it fits together" />
+        <SecHead id="tb-aios-diag-h" title="The model is in the middle. Everything else is the environment." />
         <div className="tb-aios-block">
           <Architecture />
         </div>
         <div className="tb-aios-block">
-          <p className="tb-label">The difference in practice</p>
           <h3 className="tb-aios-h3">Same prompt. Same model.</h3>
           <p className="tb-body">The only variable is whether the context files are there.</p>
           <div className="tb-terms">
@@ -120,7 +118,7 @@ export default function AIDesignOSPage() {
       </section>
 
       <section id="framework" className="tb-sec" data-tb-section="AI Design OS / Framework" aria-labelledby="tb-aios-fw-h">
-        <SecHead idx="02" id="tb-aios-fw-h" title="Five components. One afternoon to set up." meta="The Framework" />
+        <SecHead id="tb-aios-fw-h" title="Five components. One afternoon to set up." />
         <ol className="tb-aios-components">
           {components.map((c) => (
             <li key={c.number} className="tb-aios-component">
@@ -140,7 +138,7 @@ export default function AIDesignOSPage() {
       </section>
 
       <section id="artifacts" className="tb-sec" data-tb-section="AI Design OS / Artifacts" aria-labelledby="tb-aios-art-h">
-        <SecHead idx="03" id="tb-aios-art-h" title="What you actually produce now" meta="The New Artifacts" />
+        <SecHead id="tb-aios-art-h" title="What you actually produce now" />
         <p className="tb-body tb-aios-lead">
           When your product is built with AI agents, you produce things that didn't exist five years ago. These four files are
           the core.
@@ -156,7 +154,7 @@ export default function AIDesignOSPage() {
       </section>
 
       <section id="first-week" className="tb-sec" data-tb-section="AI Design OS / First week" aria-labelledby="tb-aios-wk-h">
-        <SecHead idx="04" id="tb-aios-wk-h" title="Your first week" meta="Getting Started" />
+        <SecHead id="tb-aios-wk-h" title="Your first week" />
         <table className="tb-table tb-week">
           <caption className="tb-sr">First week plan</caption>
           <tbody>
@@ -176,7 +174,7 @@ export default function AIDesignOSPage() {
       </section>
 
       <section id="audience" className="tb-sec" data-tb-section="AI Design OS / Audience" aria-labelledby="tb-aios-aud-h">
-        <SecHead idx="05" id="tb-aios-aud-h" title="Who This Is For" />
+        <SecHead id="tb-aios-aud-h" title="Who This Is For" />
         <div className="tb-aios-fit">
           <div>
             <h3 className="tb-label tb-fit-h">This is for you if</h3>
@@ -199,9 +197,8 @@ export default function AIDesignOSPage() {
 
       <section id="get-pdf" className="tb-sec tb-inv" data-tb-section="AI Design OS / Get the PDF" aria-labelledby="tb-aios-pdf-h">
         <div className="tb-aios-pdf">
-          <p className="tb-label">Free PDF</p>
           <h2 id="tb-aios-pdf-h" className="tb-aios-pdf-h">
-            Get the formatted guide
+            Get the free PDF
           </h2>
           <p className="tb-body">
             The full "AI Design Operating System" as a formatted PDF, complete with templates for DESIGN.md, voice.md,

@@ -54,7 +54,7 @@ export default function SiteHeader({ onMenuToggle }: Props) {
     if (returnFocus.current) trigger.current?.focus();
   };
 
-  const navLink = (item: (typeof NAV)[number], i: number, inMenu = false) => (
+  const navLink = (item: (typeof NAV)[number], inMenu = false) => (
     <Link
       to={item.to}
       className={inMenu ? "tb-menu-link" : "tb-nav-link"}
@@ -66,9 +66,6 @@ export default function SiteHeader({ onMenuToggle }: Props) {
         }
       }}
     >
-      <span className="tb-nav-idx" aria-hidden="true">
-        [{String(i + 1).padStart(2, "0")}]
-      </span>
       <span>{item.label}</span>
     </Link>
   );
@@ -82,8 +79,8 @@ export default function SiteHeader({ onMenuToggle }: Props) {
 
       <nav className="tb-nav" aria-label="Primary">
         <ul>
-          {NAV.map((item, i) => (
-            <li key={item.section}>{navLink(item, i)}</li>
+          {NAV.map((item) => (
+            <li key={item.section}>{navLink(item)}</li>
           ))}
         </ul>
       </nav>
@@ -114,8 +111,8 @@ export default function SiteHeader({ onMenuToggle }: Props) {
         </div>
         <nav aria-label="Sections">
           <ul className="tb-menu-list">
-            {NAV.map((item, i) => (
-              <li key={item.section}>{navLink(item, i, true)}</li>
+            {NAV.map((item) => (
+              <li key={item.section}>{navLink(item, true)}</li>
             ))}
           </ul>
         </nav>

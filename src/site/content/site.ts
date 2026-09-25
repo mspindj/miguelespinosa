@@ -61,15 +61,13 @@ export const site = {
     ],
   },
   resource: {
-    eyebrow: "Free Resource",
     title: "The AI Design Operating System",
-    body: "A five-component framework for designers who want to direct AI, not be directed by it. Read in 20 minutes, implement in a week.",
+    body: "A free, five-component framework for designers who want to direct AI, not be directed by it. Read in 20 minutes, implement in a week.",
     cta: "Get the guide",
     href: "/ai-design-os",
   },
   contact: {
-    eyebrow: "Design Leadership · AI Product Strategy · Design Systems",
-    headline: ["Let's operationalize", "your design strategy."],
+    headline: ["Hiring a design leader?", "Write to me."],
     email: "hola@miguelespinosa.co",
     linkedin: "https://www.linkedin.com/in/mspin/",
     behance: "https://www.behance.net/mspin",

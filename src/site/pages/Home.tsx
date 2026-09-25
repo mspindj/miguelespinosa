@@ -14,20 +14,11 @@ import { Cmd, Ext } from "../ui";
 
 const HOME_TREE: TreeSpec = { seed: 23, rootBranches: 3, chosenIndex: 1, depth: 5 };
 
-const years = records.flatMap((r) => r.years.split(/[–-]/).map(Number)).filter(Boolean);
-const span = `${Math.min(...years)}–${Math.max(...years)}`;
-
 function Hero() {
   const words = site.headline.join(" ").split(" ");
   return (
     <section id="top" className="tb-sec tb-hero" data-tb-section="Index" aria-labelledby="tb-hero-h" tabIndex={-1}>
       <div className="tb-hero-stage">
-        <p className="tb-hero-meta">
-          <span>00 / Index</span>
-          <span>
-            {records.length} records · {span}
-          </span>
-        </p>
         <h1 id="tb-hero-h" className="tb-hero-h">
           {words.map((w, i) => (
             <span key={w} className="tb-hero-word" style={{ "--i": i } as React.CSSProperties}>
@@ -38,12 +29,11 @@ function Hero() {
             </span>
           ))}
         </h1>
-        <AsciiStage spec={HOME_TREE} className="tb-hero-ascii" caption="Fig. 00 · Decision tree · 3 options, 1 selected" />
+        <AsciiStage spec={HOME_TREE} className="tb-hero-ascii" caption="Decision tree · 3 options, 1 selected" />
       </div>
 
       <div className="tb-hero-foot">
         <div className="tb-cell tb-hero-intro">
-          <p className="tb-label">{site.role}</p>
           <p className="tb-lede">{site.subhead}</p>
         </div>
         <div className="tb-cell tb-hero-ctas">
@@ -96,12 +86,8 @@ function RecordRow({ r }: { r: DecisionRecord }) {
         <strong>{r.metric.value}</strong>
         <span>{r.metric.label}</span>
       </td>
-      <td className="tb-td-status">
-        <span className="tb-sq" aria-hidden="true" />
-        Accepted
-        <span className="tb-row-arrow" aria-hidden="true">
-          →
-        </span>
+      <td className="tb-td-status" aria-hidden="true">
+        <span className="tb-row-arrow">→</span>
       </td>
     </tr>
   );
@@ -124,12 +110,8 @@ function RecordCard({ r }: { r: DecisionRecord }) {
         <strong>{r.metric.value}</strong>
         <span>{r.metric.label}</span>
       </p>
-      <p className="tb-card-status">
-        <span className="tb-sq" aria-hidden="true" />
-        Accepted
-        <span className="tb-row-arrow" aria-hidden="true">
-          →
-        </span>
+      <p className="tb-card-status" aria-hidden="true">
+        <span className="tb-row-arrow">→</span>
       </p>
     </li>
   );
@@ -140,7 +122,7 @@ function Records() {
   const archive = records.filter((r) => !r.featured);
   return (
     <section id="work" className="tb-sec" data-tb-section="Records" aria-labelledby="tb-work-h" tabIndex={-1}>
-      <SecHead idx="01" id="tb-work-h" title="Decision records" meta={`${records.length} entries`} />
+      <SecHead id="tb-work-h" title="Decision records" />
       <div className="tb-records-desk">
         <table className="tb-table">
           <caption className="tb-sr">Decision records. Each title opens its record.</caption>
@@ -159,7 +141,9 @@ function Records() {
               <th scope="col">Title</th>
               <th scope="col">Client</th>
               <th scope="col">Outcome</th>
-              <th scope="col">Status</th>
+              <th scope="col">
+                <span className="tb-sr">Open</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -231,7 +215,7 @@ function Manifesto() {
   const [decoded, setDecoded] = useState(false);
   return (
     <section id="manifesto" className="tb-sec tb-inv" data-tb-section="Manifesto" aria-labelledby="tb-man-h" tabIndex={-1}>
-      <SecHead idx="02" id="tb-man-h" title="Manifesto" meta={eyebrow} />
+      <SecHead id="tb-man-h" title="Manifesto" meta={eyebrow} />
       <figure className="tb-quote">
         <blockquote>
           <p>
@@ -265,7 +249,7 @@ function Insights() {
   const latest = latestInsights(3);
   return (
     <section id="insights" className="tb-sec" data-tb-section="Insights" aria-labelledby="tb-ins-h" tabIndex={-1}>
-      <SecHead idx="03" id="tb-ins-h" title="Insights" meta={`Log · latest ${latest.length}`} />
+      <SecHead id="tb-ins-h" title="Insights" />
       <ol className="tb-log">
         {latest.map((a) => {
           const d = logDate(a.date);
@@ -308,9 +292,8 @@ function Contact() {
   ];
   return (
     <section id="contact" className="tb-sec tb-contact" data-tb-section="Contact" aria-labelledby="tb-con-h" tabIndex={-1}>
-      <SecHead idx="04" id="tb-con-h" title="Contact" meta="Email · LinkedIn · Behance · CV" />
+      <SecHead id="tb-con-h" title="Contact" />
       <div className="tb-contact-body">
-        <p className="tb-label">{contact.eyebrow}</p>
         <p className="tb-contact-h">
           {contact.headline.map((l) => (
             <span key={l}>{l} </span>

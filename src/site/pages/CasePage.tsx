@@ -259,14 +259,13 @@ function BlockView({ block, h }: { block: Block; h: H }) {
   }
 }
 
-function RecSection({ n, label, rid, blocks }: { n: string; label: string; rid: string; blocks: Block[] }) {
+function RecSection({ label, rid, blocks }: { label: string; rid: string; blocks: Block[] }) {
   const id = `sec-${label.toLowerCase()}`;
   const h: H = blocks.some((b) => b.kind === "subhead") ? "h4" : "h3";
   return (
-    <section id={id} className="tb-sec tb-rsec" data-tb-section={`${rid} / ${n} ${label}`} aria-labelledby={`${id}-h`}>
+    <section id={id} className="tb-sec tb-rsec" data-tb-section={`${rid} / ${label}`} aria-labelledby={`${id}-h`}>
       <div className="tb-rsec-rail">
         <h2 id={`${id}-h`} className="tb-rsec-h tb-compile" data-tb-reveal="">
-          <span className="tb-rsec-n">{n}</span>
           <span className="tb-rsec-label">{label}</span>
         </h2>
       </div>
@@ -303,7 +302,6 @@ function Record({ r }: { r: DecisionRecord }) {
         </nav>
 
         <div className="tb-rec-titleblock">
-          <p className="tb-label">Decision record {rid}</p>
           <h1
             id="tb-rec-title"
             className="tb-rec-title tb-compile-load"
@@ -319,21 +317,11 @@ function Record({ r }: { r: DecisionRecord }) {
           <AsciiStage
             spec={{ seed: 11 + Number(r.number) * 7, rootBranches: r.tree.branches, chosenIndex: r.tree.chosen, depth: 5 }}
             className="tb-rec-ascii"
-            caption={`Fig. ${r.number} · ${rid}`}
+            caption="Decision tree"
           />
         )}
 
         <dl className="tb-rec-meta">
-          <div>
-            <dt>Record ID</dt>
-            <dd>{rid}</dd>
-          </div>
-          <div>
-            <dt>Status</dt>
-            <dd>
-              <span className="tb-sq" aria-hidden="true" /> Accepted
-            </dd>
-          </div>
           <div>
             <dt>Years</dt>
             <dd>{r.years}</dd>
@@ -353,17 +341,13 @@ function Record({ r }: { r: DecisionRecord }) {
         <figure className="tb-sec tb-rec-figure">
           <div className="tb-fig">
             <img src={r.image.src} alt={r.image.alt} width={r.image.width} height={r.image.height} loading="lazy" decoding="async" />
-            <figcaption>
-              <span>Fig. {r.number}</span>
-              <span>{r.image.alt}</span>
-            </figcaption>
           </div>
         </figure>
       )}
 
-      {present.map((k, i) => {
+      {present.map((k) => {
         const label = k === "options" ? (r.optionsLabel ?? "Options") : SECTION_LABELS[k];
-        return <RecSection key={k} n={String(i + 1).padStart(2, "0")} label={label} rid={rid} blocks={r.sections[k] ?? []} />;
+        return <RecSection key={k} label={label} rid={rid} blocks={r.sections[k] ?? []} />;
       })}
 
       <nav className="tb-pager" aria-label="Records">

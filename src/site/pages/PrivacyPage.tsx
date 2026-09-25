@@ -17,7 +17,6 @@ export default function PrivacyPage() {
         section="Privacy"
         back={{ to: "/", label: "Index" }}
         crumb="Privacy"
-        eyebrow="Legal"
         title="Privacy Policy"
         titleLen={8}
         lede="Last updated: June 2026"
