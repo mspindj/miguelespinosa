@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import AsciiStage from "../ascii/AsciiStage";
+import { site } from "../content/site";
 import { caseHref, getRecord, recordId, records } from "../content/cases";
 import type { Block, DecisionRecord, OptionRow, SectionKey } from "../content/types";
 import { useMedia } from "../context";
@@ -349,6 +350,13 @@ function Record({ r }: { r: DecisionRecord }) {
         const label = k === "options" ? (r.optionsLabel ?? "Options") : SECTION_LABELS[k];
         return <RecSection key={k} label={label} rid={rid} blocks={r.sections[k] ?? []} />;
       })}
+
+      <aside className="tb-sec tb-rsec tb-nda" aria-label="Work samples">
+        <p className="tb-nda-note">
+          Work samples are under NDA. I walk through them in interviews:{" "}
+          <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+        </p>
+      </aside>
 
       <nav className="tb-pager" aria-label="Records">
         <Link to={caseHref(prev)} className="tb-pager-link" rel="prev">
