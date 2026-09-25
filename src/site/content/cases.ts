@@ -85,7 +85,7 @@ export const records: DecisionRecord[] = [
             {
               label: "Option C",
               name: "Design system as product",
-              assessment: "Embedded in teams, governed federally. Built by contributors, not guardians.",
+              assessment: "Embedded in teams, governed federally, built by contributors. The price was adoption: once it was ready, we had to pick which products migrated first, and my time at TP ended as those migrations began.",
               selected: true,
             },
           ],
@@ -240,7 +240,7 @@ export const records: DecisionRecord[] = [
             {
               label: "Option B",
               name: "Design capability installed in product teams",
-              assessment: "Designers embedded in the squads that need them, with a shared practice behind them.",
+              assessment: "Designers embedded in the squads that need them, with a shared practice behind them. Decentralizing costs a sense of control and the bond of one design team; it buys the teams real autonomy.",
               selected: true,
             },
           ],
@@ -372,7 +372,7 @@ export const records: DecisionRecord[] = [
     tagline: "AI Translation Designed for Trust",
     summary:
       "Designed the trust layer between humans and AI agents for a specialized translation platform. The interface is a promise: clarity, confidence, control.",
-    metric: { value: "96%+", label: "Quality standard" },
+    metric: { value: "96%+", label: "Semantic quality · human QA" },
     tags: ["AI Product", "Trust UX", "Co-founder"],
     featured: true,
     image: { src: tatiHero, alt: "tati.la AI Translation platform", width: 1920, height: 1046 },
@@ -430,24 +430,24 @@ export const records: DecisionRecord[] = [
           items: [
             {
               label: "Option A",
-              name: "Real-time AI chat translation",
-              assessment: "Fast and impressive in a demo, but it leaves no trail a professional can audit.",
+              name: "A general-purpose AI chat",
+              assessment: "What translators already use. It has no context layer: no glossaries, no sector knowledge between the translator and the model.",
               selected: false,
             },
             {
               label: "Option B",
               name: "Document-first, asynchronous, glossary-guided",
-              assessment: "AI does the heavy lifting, guided by 92,000+ curated terms from 880+ expert glossaries. Formats are preserved and every job leaves a history.",
+              assessment: "AI does the heavy lifting, guided by 92,000+ curated terms from 880+ expert glossaries, and every job leaves a history. The cost: onboarding means loading your own glossaries, and translators resist reviewing output from a document they haven't read yet.",
               selected: true,
             },
           ],
         },
       ],
       decision: [
-        { kind: "lead", text: "We avoided the ~~\"AI spectacle\" of real-time chat~~." },
+        { kind: "lead", text: "Translators already have a general-purpose AI chat. What they lack is **context**." },
         {
           kind: "text",
-          text: "Instead, we designed tati.la as a **document-first, asynchronous service** powered by AI but guided by expert-curated glossaries. We prioritized clarity and traceability over speed.",
+          text: "tati.la puts a context layer between the translator and the model. We designed it as a **document-first, asynchronous service** powered by AI but guided by expert-curated glossaries. We prioritized clarity and traceability over speed.",
         },
       ],
       implementation: [
@@ -474,10 +474,10 @@ export const records: DecisionRecord[] = [
         {
           kind: "metrics",
           items: [
-            { value: "96%+", label: "Quality standard in legal and regulated domain translations" },
+            { value: "96%+", label: "Semantic quality, human-reviewed QA of 51 documents across 17 sectors at first release" },
             { value: "3", label: "Co-founding team: product design, engineering, domain expertise" },
             { value: "0 → 1", label: "Full product shipped from concept to live platform" },
-            { value: "Async", label: "Architecture choice. Document-first over real-time AI spectacle" },
+            { value: "Async", label: "Architecture choice. Document-first, with a context layer, over a general AI chat" },
           ],
         },
       ],
@@ -494,7 +494,7 @@ export const records: DecisionRecord[] = [
         { kind: "subhead", text: "What I Learned" },
         {
           kind: "text",
-          text: "When you own both the product strategy and the design execution, you stop treating them as separate disciplines. The hardest decisions at Tati were not visual. They were about what the product would refuse to do. Saying no to real-time chat. Saying no to speed as the primary value proposition. Building for trust in a domain where errors have legal consequences forced a different kind of design thinking.",
+          text: "When you own both the product strategy and the design execution, you stop treating them as separate disciplines. The hardest decisions at Tati were not visual. They were about what the product would refuse to do. Saying no to becoming another AI chat. Saying no to speed as the primary value proposition. Building for trust in a domain where errors have legal consequences forced a different kind of design thinking.",
         },
         {
           kind: "quote",
@@ -715,7 +715,7 @@ export const records: DecisionRecord[] = [
     client: "BBVA Colombia",
     role: "UX & Design Manager",
     roleShort: "Design Manager",
-    tagline: "Building Colombia's #1 Mobile Bank",
+    tagline: "Behind the Best Mobile Bank in Colombia, 2019",
     summary:
       "The first dedicated Design Authority at country level. Five products, one portfolio, and the Design Ambassadors Program.",
     metric: { value: "760K+", label: "Monthly transfers" },
@@ -786,7 +786,7 @@ export const records: DecisionRecord[] = [
             {
               label: "Option C",
               name: "Design authority built in parallel",
-              assessment: "Ship products and build culture at the same time, with an in-house team and the Design Ambassadors Program.",
+              assessment: "Ship products and build culture at the same time, with an in-house team and the Design Ambassadors Program. The cost: I was never fully on either front, so the teams owned their projects and I led instead of operating.",
               selected: true,
             },
           ],
@@ -888,13 +888,12 @@ export const records: DecisionRecord[] = [
             { value: "80%", label: "Investment fund contracts via mobile" },
             { value: "760K+", label: "Monthly transfer operations" },
             { value: "125+", label: "Design Ambassadors trained" },
-            { value: "#1", label: "Mobile Bank in Colombia, 2019" },
-            { value: "2×", label: "Accenture Innovation Awards" },
+            { value: "2×", label: "Accenture Innovation Awards 2019: Best Mobile Bank and People's Choice" },
           ],
         },
         {
           kind: "callout",
-          title: "Best Mobile Bank in Colombia, 2019",
+          title: "Best Mobile Bank in Colombia, Accenture Innovation Awards 2019",
           text: "The recognition wasn't for one product. It was for a consistent, cross-portfolio elevation of the digital experience over three years. Every product worked better, felt better, and was more trusted than when we started.",
         },
       ],
