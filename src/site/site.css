@@ -2182,6 +2182,12 @@
   line-height: 1.5;
   color: var(--ink-2);
 }
+.tb-impact-source {
+  margin-top: 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-2);
+}
 .tb-impact-l {
   font-size: 11px;
   letter-spacing: 0.05em;

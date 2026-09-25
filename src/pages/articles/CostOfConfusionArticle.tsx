@@ -62,8 +62,8 @@ const CostOfConfusionArticle = () => {
       <h2>The Clarity ROI Calculation</h2>
 
       <p>
-        At Teleperformance, the design system reduced handoff time by 40% and UI-related bugs
-        by 25%. Those aren't design metrics — they're engineering capacity metrics. That
+        At Teleperformance, by our internal estimates, the design system reduced handoff time by
+        40% and UI-related bugs by 25%. Those aren't design metrics. They're engineering capacity metrics. That
         recovered capacity went back into product development, not design iteration. The
         ROI wasn't in the design system itself. It was in what the organization could build
         with the time it stopped wasting.

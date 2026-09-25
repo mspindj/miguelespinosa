@@ -212,15 +212,18 @@ function BlockView({ block, h }: { block: Block; h: H }) {
       );
     case "metrics":
       return (
-        <ul className="tb-impact">
-          {block.items.map((m) => (
-            <li key={m.label} className="tb-impact-cell" data-long={m.value.length > 7 ? "true" : undefined}>
-              <span className="tb-impact-v">{m.value}</span>
-              <span className="tb-impact-l">{m.label}</span>
-              {m.note && <span className="tb-impact-note">{m.note}</span>}
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="tb-impact">
+            {block.items.map((m) => (
+              <li key={m.label} className="tb-impact-cell" data-long={m.value.length > 7 ? "true" : undefined}>
+                <span className="tb-impact-v">{m.value}</span>
+                <span className="tb-impact-l">{m.label}</span>
+                {m.note && <span className="tb-impact-note">{m.note}</span>}
+              </li>
+            ))}
+          </ul>
+          {block.source && <p className="tb-impact-source">{block.source}</p>}
+        </>
       );
     case "callout":
       return (

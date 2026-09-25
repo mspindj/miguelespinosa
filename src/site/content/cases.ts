@@ -21,7 +21,7 @@ export const records: DecisionRecord[] = [
     tagline: "Scaling Design by Scaling Decisions",
     summary:
       "Multi-brand design system unifying fragmented UI libraries across a 500K+ employee organization. Token architecture + engineer-handoff automation.",
-    metric: { value: "−40%", label: "Handoff time" },
+    metric: { value: "−40%", label: "Handoff time · internal est. 2023–25" },
     tags: ["Design Systems", "DesignOps", "Teleperformance"],
     featured: true,
     image: { src: tpKeyVisual, alt: "Abstract feather texture, TP Design System key visual", width: 1376, height: 768 },
@@ -138,6 +138,7 @@ export const records: DecisionRecord[] = [
             { value: "80%", label: "Team adoption within 6 months" },
             { value: "90%", label: "UI consistency across products" },
           ],
+          source: "Internal estimates, Teleperformance, 2023–2025.",
         },
       ],
       log: [
