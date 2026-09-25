@@ -213,7 +213,7 @@ export default function AIDesignOSPage() {
         <p className="tb-label">{site.role}</p>
         <p className="tb-body">
           The system in this guide is the actual system I use. Built from running design work with embedded AI at Teleperformance
-          (design system across 60+ countries), BBVA Colombia, Tati (AI translation), and The Birdie Club (AI golf app). Practice
+          (design system across 60+ countries), Tati (AI translation), and The Birdie Club (AI golf app). Practice
           first, then documentation.
         </p>
         <p className="tb-aios-author-links">
