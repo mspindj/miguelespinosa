@@ -5,7 +5,7 @@ const RejectedOptionsArticle = () => {
     <ArticleLayout
       category="Design Leadership"
       title="Show the Options You Rejected"
-      subtitle="Why the case studies on this site are now decision records, and what the stricter format made me fix."
+      subtitle="Engineers write down why they chose one option over the others. I started doing the same with my portfolio."
       date="Sep 25, 2026"
       patternClass="pattern-leadership"
     >

@@ -353,7 +353,7 @@ export const articles: Article[] = [
     category: "Design Leadership",
     filterTag: "design-leadership",
     title: "Show the Options You Rejected",
-    subtitle: "Why the case studies on this site are now decision records, and what the stricter format made me fix.",
+    subtitle: "Engineers write down why they chose one option over the others. I started doing the same with my portfolio.",
     date: "Sep 25, 2026",
     readingTime: "3 min read",
     summary: "Borrowed from software architecture: context, options, decision, consequences. The rejected options are the evidence a hiring manager is looking for.",
