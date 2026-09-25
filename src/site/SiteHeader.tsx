@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { site } from "./content/site";
-import { useActiveSection } from "./context";
+import { useActiveSection, useMotion } from "./context";
 import { Cmd } from "./ui";
 
 /** `section` is the home section that marks the item as current while it is on screen. */
@@ -32,6 +32,7 @@ export default function SiteHeader({ onMenuToggle }: Props) {
             : "";
 
   const [open, setOpen] = useState(false);
+  const { motionOn, toggleMotion, reduced } = useMotion();
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const returnFocus = useRef(true);
@@ -116,9 +117,14 @@ export default function SiteHeader({ onMenuToggle }: Props) {
             ))}
           </ul>
         </nav>
-        <p className="tb-menu-foot">
+        <div className="tb-menu-foot">
           <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
-        </p>
+          {!reduced && (
+            <button type="button" role="switch" aria-checked={motionOn} className="tb-menu-motion" onClick={toggleMotion}>
+              Motion <span className={motionOn ? "tb-on" : undefined}>{motionOn ? "On" : "Off"}</span>
+            </button>
+          )}
+        </div>
       </dialog>
     </header>
   );

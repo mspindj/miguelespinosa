@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { articleNeighbours, getArticle, insightHref, logDate, logId } from "../content/insights";
-import { site } from "../content/site";
 import DocHead from "../DocHead";
 import { Cmd } from "../ui";
 import { usePageChrome } from "../usePageChrome";
@@ -58,12 +57,6 @@ export default function ArticleLayout({ category, title, subtitle, date, childre
 
       <section id="entry" className="tb-sec tb-entry-body" data-tb-section={`${id} / Entry`} aria-label="Article">
         <div className="tb-prose">{children}</div>
-        <p className="tb-entry-sign">
-          <span className="tb-prompt" aria-hidden="true">
-            --{" "}
-          </span>
-          {site.name}, {site.role}
-        </p>
       </section>
 
       <nav className="tb-pager" aria-label="Log entries">

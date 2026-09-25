@@ -242,9 +242,6 @@ function BlockView({ block, h }: { block: Block; h: H }) {
               {block.text}
             </p>
           </blockquote>
-          <figcaption className="tb-label">
-            {block.author}, {block.role}
-          </figcaption>
         </figure>
       );
     case "link":
