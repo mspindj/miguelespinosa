@@ -50,7 +50,7 @@ const RejectedOptionsArticle = () => {
         </li>
         <li>
           <strong>Numbers with dates.</strong> Metrics that keep moving now carry a date and a source. The
-          Birdie Club shows 180+ paying members as of September 2026, read from the platform's own counter,
+          Birdie Club shows 195+ paying members as of September 2026, read from the platform's own counter,
           instead of a figure that goes stale the week after I publish it.
         </li>
         <li>
