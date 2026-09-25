@@ -21,7 +21,7 @@ export const records: DecisionRecord[] = [
     tagline: "Scaling Design by Scaling Decisions",
     summary:
       "Multi-brand design system unifying fragmented UI libraries across a 500K+ employee organization. Token architecture + engineer-handoff automation.",
-    metric: { value: "−40%", label: "Handoff time · internal est. 2023–25" },
+    metric: { value: "−40%", label: "Handoff time · est. 2023–25" },
     tags: ["Design Systems", "DesignOps", "Teleperformance"],
     featured: true,
     image: { src: tpKeyVisual, alt: "Abstract feather texture, TP Design System key visual", width: 1376, height: 768 },
@@ -233,20 +233,24 @@ export const records: DecisionRecord[] = [
           items: [
             {
               label: "Option A",
-              name: "A central design team as an internal agency",
-              assessment: "Where we started, not where we stopped. The goal was design capability installed inside the product teams that needed it.",
+              name: "Central design team as an internal agency",
+              assessment: "Where we started. As the end state, it keeps design as a service other teams request, outside the squads.",
               selected: false,
             },
             {
               label: "Option B",
-              name: "Baseline first, then a pilot",
-              assessment: "Surveyed team leads with the NN/g UX maturity survey, set the baseline for TP Digital, and started the transformation there before scaling it.",
+              name: "Design capability installed in product teams",
+              assessment: "Designers embedded in the squads that need them, with a shared practice behind them.",
               selected: true,
             },
           ],
         },
-        { kind: "subhead", text: "The Strategic Shift" },
-        { kind: "text", text: "Three fundamental transitions defined the transformation:" },
+      ],
+      decision: [
+        {
+          kind: "lead",
+          text: "Install design capability inside the product teams, starting from a measured baseline: the NN/g UX maturity survey with TP Digital's team leads, then a pilot there before scaling.",
+        },
         {
           kind: "shifts",
           items: [
@@ -255,8 +259,6 @@ export const records: DecisionRecord[] = [
             { from: "Output", to: "Outcome", note: "From shipping features to shaping business results." },
           ],
         },
-      ],
-      decision: [
         { kind: "subhead", text: "The Four Pillars" },
         { kind: "lead", text: "Transformation was structured around four interdependent dimensions:" },
         {
@@ -374,7 +376,7 @@ export const records: DecisionRecord[] = [
     tags: ["AI Product", "Trust UX", "Co-founder"],
     featured: true,
     image: { src: tatiHero, alt: "tati.la AI Translation platform", width: 1920, height: 1046 },
-    tree: { branches: 3, chosen: 2 },
+    tree: { branches: 2, chosen: 1 },
     sections: {
       context: [
         { kind: "link", label: "tati.la", href: "http://tati.la" },
@@ -434,12 +436,6 @@ export const records: DecisionRecord[] = [
             },
             {
               label: "Option B",
-              name: "Fully automatic translation",
-              assessment: "Never on the table. The translator keeps full control of the input and the output.",
-              selected: false,
-            },
-            {
-              label: "Option C",
               name: "Document-first, asynchronous, glossary-guided",
               assessment: "AI does the heavy lifting, guided by 92,000+ curated terms from 880+ expert glossaries. Formats are preserved and every job leaves a history.",
               selected: true,
@@ -493,7 +489,7 @@ export const records: DecisionRecord[] = [
         },
         {
           kind: "text",
-          text: "The same harness is now the foundation of the [AI Design Operating System](/ai-design-os), adopted by other design teams building AI-native products.",
+          text: "The same harness is now the foundation of the [AI Design Operating System](/ai-design-os).",
         },
         { kind: "subhead", text: "What I Learned" },
         {
@@ -502,7 +498,7 @@ export const records: DecisionRecord[] = [
         },
         {
           kind: "quote",
-          text: "Good AI products don't just impress users. They reassure them.",
+          text: "Good AI products don't impress users. They reassure them.",
           author: AUTHOR,
           role: "Co-founder & Head of Product Design, tati.la",
         },
@@ -540,7 +536,7 @@ export const records: DecisionRecord[] = [
         { kind: "subhead", text: "My Role" },
         {
           kind: "text",
-          text: "Co-founder and Head of Product Design. I defined the product strategy, designed the full user experience, and orchestrated development using an AI-augmented harness: Lovable for UI generation, Claude Code for logic and edge functions, and the SDD methodology I've published as the [AI Design Operating System](/ai-design-os). No traditional dev team. Product decisions and design execution, shared between two people.",
+          text: "Co-founder and Head of Product Design. I defined the product strategy, designed the full user experience, and built it with an AI-augmented harness: it started on Lovable and moved fully to Claude Code, following the SDD methodology I've published as the [AI Design Operating System](/ai-design-os). No traditional dev team: product decisions are shared with David, and I run design and development.",
         },
       ],
       problem: [
@@ -580,7 +576,7 @@ export const records: DecisionRecord[] = [
           items: [
             {
               title: "No traditional dev team",
-              body: "Development ran through Lovable with a 5-credit daily budget. Every prompt had to be precision-targeted: no exploratory iteration.",
+              body: "At launch, development ran through Lovable with a 5-credit daily budget. Every prompt had to be precision-targeted: no exploratory iteration.",
             },
             {
               title: "Live platform, no staging",
@@ -682,7 +678,6 @@ export const records: DecisionRecord[] = [
             { value: "38", label: "Paying founders at launch · 5 countries · zero paid advertising" },
             { value: "244", label: "Community activations from 1,862-person list" },
             { value: "0", label: "Critical failures at launch · shipped clean on day one" },
-            { value: "47", label: "Days post-launch · pre-open market · all growth is organic" },
           ],
         },
       ],
