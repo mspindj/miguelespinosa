@@ -441,7 +441,7 @@ export const records: DecisionRecord[] = [
             {
               label: "Option C",
               name: "Document-first, asynchronous, glossary-guided",
-              assessment: "AI does the heavy lifting, guided by expert-curated glossaries. Formats are preserved and every job leaves a history.",
+              assessment: "AI does the heavy lifting, guided by 92,000+ curated terms from 880+ expert glossaries. Formats are preserved and every job leaves a history.",
               selected: true,
             },
           ],
@@ -458,7 +458,10 @@ export const records: DecisionRecord[] = [
         {
           kind: "cells",
           items: [
-            { title: "Glossary-Driven Logic", body: "Ensuring translation quality aligns with expert standards." },
+            {
+              title: "Glossary-Driven Logic",
+              body: "880+ expert glossaries, collected over two decades of professional translation, distilled into 92,000+ curated terms across 17 sectors. The knowledge layer is the product.",
+            },
             {
               title: "Async Workflow",
               body: "A robust upload-based system with clear status tracking to manage user expectations.",
@@ -633,28 +636,14 @@ export const records: DecisionRecord[] = [
         },
       ],
       decision: [
-        { kind: "subhead", text: "The Strategic Decision" },
-        { kind: "text", text: "Two decisions defined the product architecture:" },
-        {
-          kind: "shifts",
-          items: [
-            {
-              from: "Generic AI",
-              to: "Methodology-first",
-              note: "David's RJ100 framework (Ritmo, Juego Corto, 100 Yardas) defines the coaching structure. The asset is David; the AI works for his method, not the other way around.",
-            },
-            {
-              from: "One product",
-              to: "Three-tier model",
-              note: "Gift access for 1,800+ existing students. Founder pricing ($18/mo, 200 spots). Premium circle ($300/mo) as the future ceiling.",
-            },
-          ],
-        },
-        { kind: "subhead", text: "The Core Insight" },
         { kind: "lead", text: "We rejected the ~~generic AI coach pattern~~." },
         {
           kind: "text",
-          text: "David's RJ100 methodology isn't content. It's the **product architecture**. Every AI output is structured around its three pillars. Every drill maps to a specific focus area. Every session builds on the last. The AI doesn't give golf tips. It coaches the way David coaches, because his framework is what defines the system prompt, the output schema, and the coaching memory model.",
+          text: "David's RJ100 methodology isn't content. It's the **product architecture**. Every AI output is structured around its three pillars. Every drill maps to a specific focus area. Every session builds on the last. The AI doesn't give golf tips. It coaches the way David coaches, because his framework (Ritmo, Juego Corto, 100 Yardas) is what defines the system prompt, the output schema, and the coaching memory model.",
+        },
+        {
+          kind: "text",
+          text: "The asset is David. The AI works for his method, not the other way around.",
         },
       ],
       implementation: [
