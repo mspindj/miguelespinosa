@@ -860,34 +860,19 @@ export const records: DecisionRecord[] = [
         { kind: "lead", text: "Design Ambassadors Program" },
         {
           kind: "text",
-          text: "Products improve at the speed of the organization's design maturity. To scale impact beyond my team, I founded the Design Ambassadors Program, training non-designers across the bank to apply user-centered thinking in their daily decisions.",
-        },
-        {
-          kind: "text",
-          text: "The program created a distributed network of design advocates inside engineering, product, marketing, and operations, ensuring design principles outlasted any single project.",
+          text: "Products improve at the speed of the organization's design maturity. To scale impact beyond my team, I founded the Design Ambassadors Program: non-designers from engineering, product, marketing, and operations learning to apply user-centered thinking to their own decisions.",
         },
         {
           kind: "text",
           text: "Each cohort went through a full week of immersion, Monday to Friday, learning the bank's design process while practicing it. It also opened a reskilling path: when the design team had openings, ambassadors could move into them.",
-        },
-        {
-          kind: "stats",
-          items: [
-            { value: "125+", label: "Ambassadors trained" },
-            { value: "5+", label: "Departments reached" },
-            { value: "3.5", label: "Years of sustained culture change" },
-            { value: "1st", label: "Design Authority in BBVA Colombia history" },
-          ],
         },
       ],
       consequences: [
         {
           kind: "metrics",
           items: [
-            { value: "−23%", label: "Transfer time reduced" },
-            { value: "80%", label: "Investment fund contracts via mobile" },
-            { value: "760K+", label: "Monthly transfer operations" },
-            { value: "125+", label: "Design Ambassadors trained" },
+            { value: "0 → 12", label: "Design team built" },
+            { value: "125+", label: "Design Ambassadors trained across 5+ departments" },
             { value: "2×", label: "Accenture Innovation Awards 2019: Best Mobile Bank and People's Choice" },
           ],
         },
@@ -898,12 +883,6 @@ export const records: DecisionRecord[] = [
         },
       ],
       log: [
-        {
-          kind: "quote",
-          text: "You don't fix a fragmented product portfolio with better UI. You fix it by building a shared language for decisions.",
-          author: AUTHOR,
-          role: "UX & Design Manager, BBVA Colombia",
-        },
         { kind: "subhead", text: "Leadership Reflection" },
         {
           kind: "text",

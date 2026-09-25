@@ -1,7 +1,7 @@
 export interface Article {
   slug: string;
   category: string;
-  filterTag: 'ai-strategy' | 'design-leadership' | 'business-roi' | 'soft-skills' | 'ai-ethics' | 'ops-strategy';
+  filterTag: 'ai-strategy' | 'design-leadership' | 'business-product' | 'ops-strategy' | 'talent-strategy';
   title: string;
   subtitle: string;
   date: string;
@@ -14,8 +14,8 @@ export interface Article {
 export const articles: Article[] = [
   {
     slug: "roi-of-experience",
-    category: "Business Strategy",
-    filterTag: "business-roi",
+    category: "Business & Product",
+    filterTag: "business-product",
     title: "Beyond Vanity Metrics: The ROI of Experience in 2026",
     subtitle: "If you are reporting NPS in a budget meeting, you've already lost the room.",
     date: "Jan 20, 2026",
@@ -26,7 +26,7 @@ export const articles: Article[] = [
   },
   {
     slug: "ai-leadership-paradox",
-    category: "AI / Leadership",
+    category: "AI Strategy",
     filterTag: "ai-strategy",
     title: "The AI Paradox: High-Tech Demands High-Touch Leadership",
     subtitle: "AI generates answers; leaders generate the right questions.",
@@ -38,7 +38,7 @@ export const articles: Article[] = [
   },
   {
     slug: "authority-gap",
-    category: "Executive Presence",
+    category: "Design Leadership",
     filterTag: "design-leadership",
     title: "The Authority Gap: Why Your Title Isn't Enough",
     subtitle: "Shifting from 'Design Evangelist' to 'Strategic Architect'.",
@@ -62,8 +62,8 @@ export const articles: Article[] = [
   },
   {
     slug: "lean-leadership",
-    category: "Soft Skills",
-    filterTag: "soft-skills",
+    category: "Design Leadership",
+    filterTag: "design-leadership",
     title: "Lean Leadership: The Art of Doing Less, Better",
     subtitle: "Efficiency isn't about speed. It's about eliminating waste.",
     date: "Feb 10, 2026",
@@ -86,8 +86,8 @@ export const articles: Article[] = [
   },
   {
     slug: "strategy-bottleneck",
-    category: "AI Ethics",
-    filterTag: "ai-ethics",
+    category: "AI Strategy",
+    filterTag: "ai-strategy",
     title: "The Strategy Bottleneck: Why 'Can AI do it?' is the Wrong Question",
     subtitle: "When generative speed replaces strategic friction, we stop solving problems and start just picking options.",
     date: "Feb 20, 2026",
@@ -111,7 +111,7 @@ export const articles: Article[] = [
   {
     slug: "generalist-advantage",
     category: "Talent Strategy",
-    filterTag: "soft-skills",
+    filterTag: "talent-strategy",
     title: "The Return of the Generalist: Why Depth is Dead",
     subtitle: "In an AI world, specialized execution is a commodity. Synthesis is the new premium.",
     date: "Mar 1, 2026",
@@ -170,8 +170,8 @@ export const articles: Article[] = [
   },
   {
     slug: "cost-of-confusion",
-    category: "Business ROI",
-    filterTag: "business-roi",
+    category: "Business & Product",
+    filterTag: "business-product",
     title: "The Real Cost of a Confused Product",
     subtitle: "Inconsistency isn't an aesthetic problem. It's a revenue problem.",
     date: "Mar 25, 2026",
@@ -183,7 +183,7 @@ export const articles: Article[] = [
   {
     slug: "hire-for-judgment",
     category: "Talent Strategy",
-    filterTag: "soft-skills",
+    filterTag: "talent-strategy",
     title: "Hire for Judgment, Not for Tools",
     subtitle: "In an AI world, the designer who knows Figma best is the least defensible hire you can make.",
     date: "Apr 1, 2026",
@@ -266,8 +266,8 @@ export const articles: Article[] = [
   },
   {
     slug: "not-the-user",
-    category: "Product Strategy",
-    filterTag: "design-leadership",
+    category: "Business & Product",
+    filterTag: "business-product",
     title: "Neither of Us Is the User",
     subtitle: "Before we build the AI feature everyone wants, six people who pay for the product get to tell us we're wrong.",
     date: "Jul 1, 2026",
@@ -290,8 +290,8 @@ export const articles: Article[] = [
   },
   {
     slug: "five-members-four-hypotheses",
-    category: "Product Strategy",
-    filterTag: "business-roi",
+    category: "Business & Product",
+    filterTag: "business-product",
     title: "Five Members, Four Hypotheses, One Feature on Hold",
     subtitle: "The research I promised in July. Most of our hypotheses were wrong, and the AI coach will wait.",
     date: "Aug 12, 2026",
@@ -365,11 +365,10 @@ export const articles: Article[] = [
 export const filterOptions = [
   { value: "all", label: "All" },
   { value: "ai-strategy", label: "AI Strategy" },
-  { value: "ai-ethics", label: "AI Ethics" },
   { value: "design-leadership", label: "Design Leadership" },
-  { value: "business-roi", label: "Business ROI" },
+  { value: "business-product", label: "Business & Product" },
   { value: "ops-strategy", label: "Ops Strategy" },
-  { value: "soft-skills", label: "Soft Skills" },
+  { value: "talent-strategy", label: "Talent Strategy" },
 ] as const;
 
 export type FilterValue = typeof filterOptions[number]['value'];
