@@ -54,9 +54,10 @@ const AmbassadorModelArticle = () => {
 
       <ul className="article-list">
         <li>
-          <strong>Entry-level workshops.</strong> Three-hour sessions on user research basics,
-          mental models, and how to frame problems before jumping to solutions. Accessible to
-          anyone — not just technical roles.
+          <strong>A week of immersion.</strong> Each cohort spent a full week, Monday to Friday,
+          learning the bank's design process while practicing it: user research basics, mental
+          models, and how to frame problems before jumping to solutions. Open to anyone, not
+          just technical roles.
         </li>
         <li>
           <strong>Product critiques with mixed teams.</strong> Engineers, PMs, and designers

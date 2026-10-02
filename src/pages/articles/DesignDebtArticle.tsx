@@ -26,7 +26,7 @@ const DesignDebtArticle = () => {
 
       <p>
         During three years at Teleperformance, I inherited a product ecosystem built by dozens of
-        distributed teams across LATAM, Europe, and India. The interfaces weren't ugly — they were
+        distributed teams across regions. The interfaces weren't ugly — they were
         incoherent. Each team had solved the same problems independently, with different assumptions,
         different patterns, different language. The result wasn't a design problem. It was a
         <strong> governance problem masquerading as a visual one</strong>.
