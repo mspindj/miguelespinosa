@@ -8,9 +8,10 @@ import { usePageChrome } from "../usePageChrome";
 // Copy carried over from the previous /about page. Em dashes rewritten.
 const bio = [
   "Senior Director of Product Design with 15+ years of experience leading digital transformation, scaling high-performance design organizations, and evolving enterprise UX through AI-driven automation and data-informed strategies.",
-  "Built design systems at global scale at Teleperformance, building a core design team of 20+ from zero and leading an extended community of 30+ designers across practices and disciplines. Before that, scaled the design team from 0 to 12 at BBVA Colombia, led digital transformation for DIRECTV via Globant, and co-founded two AI products: Tati, in translation, and The Birdie Club, in golf coaching.",
+  "Today I run Maito Agency, which I co-founded and where we built two AI products: Tati, in translation, and The Birdie Club, in golf coaching. Before that I built design systems at global scale at Teleperformance, growing a core design team of 20+ from zero and leading an extended community of 30+ designers across practices and disciplines. Earlier, I scaled the design team from 0 to 12 at BBVA Colombia and led digital transformation for DIRECTV via Globant.",
   "My approach: resolve the problem behind the problem. Design is not a service layer. It's a decision-making infrastructure that shapes how organizations think.",
 ];
+const MAITO_URL = "https://maitoagency.com/en";
 const facts = ["Bogotá, Colombia", "Spanish passport, EU work authorization", "Open to C-Level & VP roles"];
 
 export default function AboutPage() {
@@ -37,6 +38,12 @@ export default function AboutPage() {
               </p>
             ))}
             <ul className="tb-profile-facts">
+              <li>
+                <a href={MAITO_URL} target="_blank" rel="noopener noreferrer" className="tb-fact-link">
+                  Co-founder, Maito Agency
+                  <Ext />
+                </a>
+              </li>
               {facts.map((f) => (
                 <li key={f}>{f}</li>
               ))}
