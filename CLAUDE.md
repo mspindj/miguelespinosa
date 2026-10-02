@@ -152,6 +152,13 @@ Tanda del 25 Sep 2026 (LOG-022 a LOG-029), escrita desde el KB de strategic-desi
 - **Fechas pasadas permitidas (decisión de Miguel, 25 Sep 2026), con una condición: un artículo nunca cita algo ocurrido después de su fecha.** Por eso la tanda arranca el 1 Jul y no el 20 May: no había anclas verificables antes.
 - Nada de nombres de miembros de TBC, precios cotizados a clientes ni hallazgos de seguridad sin cerrar. Cifras de TBC solo las que ya son públicas en el sitio o porcentajes sin datos de negocio.
 
+### Los Insights alimentan LinkedIn y X (desde 2 Oct 2026)
+- La rutina `linkedin-post-reminder` (domingos) convierte artículos de Insights en posts y los deja planeados en Typefully. Octubre de 2026 quedó programado completo, del 6 al 29.
+- **Si cambias un artículo o una cifra de `cases.ts`, revisa si hay un borrador programado en Typefully que lo cite** y corrígelo también. Un post enlaza a su artículo en el primer comentario: los dos tienen que decir lo mismo.
+- **Cuando un artículo viejo y un caso se contradicen, manda `src/site/content/cases.ts`.** Es el dato más reciente (confirmado por Miguel). Caso real: el artículo de embajadores decía talleres de tres horas y el caso de BBVA, una semana completa de inmersión; se corrigió el artículo (PR #16).
+- **Teleperformance: "across regions" / "entre regiones".** No listar regiones ni países (preferencia de Miguel, 2 Oct 2026).
+- Una frase de ejemplo en un artículo ("un lanzamiento que exige seis meses...") no es un caso. No se cita como hecho en un post si no está en `cases.ts` o en un registro.
+
 ## Lead Magnet — AI Design OS (Jun 2026)
 
 ### Stack
