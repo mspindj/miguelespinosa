@@ -8,6 +8,9 @@ import djBeforeAfter from "@/assets/cases/djspin/before-after-hero.webp";
 import djOptionA from "@/assets/cases/djspin/option-a-giro.webp";
 import djOptionB from "@/assets/cases/djspin/option-b-madrugada.webp";
 import djOptionC from "@/assets/cases/djspin/option-c-cartel.webp";
+import ntHero from "@/assets/cases/nowhere-traveler/final-hero-sound.webp";
+import ntInstrument from "@/assets/cases/nowhere-traveler/instrument.webp";
+import ntOptions from "@/assets/cases/nowhere-traveler/options-a-c.webp";
 import type { DecisionRecord } from "./types";
 
 const AUTHOR = "Miguel Espinosa";
@@ -1119,6 +1122,190 @@ export const records: DecisionRecord[] = [
             "**Bookings.** The site went live on 6 Oct 2026. There is no data yet.",
             "**Awards.** Not submitted. Without my own audio or video, the ceiling is low.",
             "**Motion smoothness.** I judged it in my own browser. The automated checks render in software and can't measure it.",
+          ],
+        },
+      ],
+    },
+  },
+
+  /* ------------------------------------------------------------------ DR-007 */
+  // Source: the case notes Miguel pasted on 6 Oct 2026 (same text as nowheretraveler-lab/Docs/
+  // caso-nowhere-traveler.md). Lighthouse and page weight re-measured that day on the live site.
+  // Own project, so it shows work samples. Figures avoid the press photos: credit not confirmed.
+  {
+    slug: "nowhere-traveler",
+    number: "07",
+    years: "2026",
+    title: "Nowhere Traveler",
+    client: "Nowhere Traveler, my live act",
+    role: "Designer & builder",
+    roleShort: "Designer & builder",
+    tagline: "A Musician's Site Without Music, Built as an Instrument",
+    summary:
+      "The site of an electronic live act with no published recording. The gap became the idea: a 16-step sequencer that sounds in the browser and builds a different groove on every visit.",
+    metric: { value: "0", label: "Audio files · sound is synthesized" },
+    tags: ["Personal Project", "Web Audio", "AI-Augmented Build"],
+    featured: true,
+    image: {
+      src: ntHero,
+      alt: "The Nowhere Traveler hero with sound on: the logo at full width over contour lines, with some letters lit",
+      width: 1440,
+      height: 900,
+      caption: "The hero, with sound on",
+    },
+    samples: "public",
+    tree: { branches: 3, chosen: 1 },
+    sections: {
+      context: [
+        { kind: "link", label: "nowheretraveler.com", href: "https://www.nowheretraveler.com/en" },
+        {
+          kind: "lead",
+          text: "Nowhere Traveler is my electronic live act. Its site lived on a website builder: two pages, **a generic template**, a 43-second reel from 2020 and a \"Subscribe\" form.",
+        },
+        {
+          kind: "text",
+          text: "It had no music and no way to book the show. The material was short: five photos from 2019 to 2022, the logo in outlines and four paragraphs of story.",
+        },
+        { kind: "subhead", text: "My Role" },
+        {
+          kind: "text",
+          text: "Designer and builder, with AI as the workshop. I audited what existed, set the rules, had three working prototypes built in parallel, chose the mix and took it to production.",
+        },
+      ],
+      problem: [
+        {
+          kind: "lead",
+          text: "No published recording of Nowhere Traveler exists. **That was the real problem**, more than the template.",
+        },
+        {
+          kind: "text",
+          text: "A musician's site without music can't be fixed with design.",
+        },
+      ],
+      constraints: [
+        {
+          kind: "list",
+          items: [
+            "Nothing invented: no dates, no gear, no press.",
+            "Sound never starts on its own.",
+            "It could not be confused with my other three sites: Spin, this portfolio and the agency.",
+            "No audio to host, so no player to build around.",
+          ],
+        },
+      ],
+      options: [
+        {
+          kind: "text",
+          text: "Three working prototypes, built in parallel on the same content, each with its own thesis.",
+        },
+        {
+          kind: "options",
+          items: [
+            {
+              label: "A",
+              name: "Sin mapa",
+              assessment: "A topographic terrain in WebGL that you travel with the scroll. Rejected as a whole. Its hero stayed: the real logo at full width over contour lines.",
+              selected: false,
+            },
+            {
+              label: "B",
+              name: "En vivo",
+              assessment: "The site as an instrument, with a 16-step sequencer. It became the base. The cost: a visitor hears the instrument, and there is still no recording of the show to play.",
+              selected: true,
+            },
+            {
+              label: "C",
+              name: "Bitácora",
+              assessment: "Editorial on light paper, where photography leads. The material was five photos from 2019 to 2022.",
+              selected: false,
+            },
+          ],
+        },
+        {
+          kind: "figure",
+          src: ntOptions,
+          alt: "Proposal A, Sin mapa: the logo over a dark topographic terrain with a blue accent. Proposal C, Bitácora: a serif headline on light paper",
+          width: 2298,
+          height: 900,
+          label: "A · Sin mapa, C · Bitácora",
+          caption: "The two that lost. C is cropped to its text column.",
+        },
+      ],
+      decision: [
+        {
+          kind: "lead",
+          text: "The choice was a mix: **B as the base, with A's hero**.",
+        },
+        {
+          kind: "text",
+          text: "The project's own story says \"Instead of playing back, I build\", so the site doesn't play back either. It generates the sound live with Web Audio, pure synthesis with no audio files, between 118 and 126 BPM, the real range of the show.",
+        },
+        {
+          kind: "text",
+          text: "The contour lines are tied to the sound. They thicken with the volume and pulse on every beat, and each letter of the logo lights up on its sixteenth note.",
+        },
+        {
+          kind: "figure",
+          src: ntInstrument,
+          alt: "The instrument section: the line 'En lugar de reproducir, construyo' next to a step sequencer with rows for hat, bass, melody and pad, and a button for another pattern",
+          width: 1440,
+          height: 720,
+          label: "The instrument",
+          caption: "Each visit gets a different pattern.",
+        },
+      ],
+      implementation: [
+        {
+          kind: "cells",
+          numbered: true,
+          items: [
+            {
+              title: "Diagnosis before design",
+              body: "An audit of the site, the press kit and the domain. Two findings changed the plan: the domain was paid through 2028 (what was expiring was the builder), and it had no email, so migrating meant changing two DNS records.",
+            },
+            {
+              title: "From first commit to its own domain",
+              body: "First commit on 5 Oct at 14:22, with three navigable proposals that same afternoon. Live on its own domain with a certificate on 6 Oct at 07:49, Colombia time: repository, deploy, a redirect from the old URL, metadata, sitemap and a booking form.",
+            },
+            {
+              title: "Dropping the 3D library",
+              body: "The hero terrain runs on WebGL directly. Removing three took the page's JavaScript from 293 KB to 109 KB.",
+            },
+            {
+              title: "A launch reel from the same code",
+              body: "A 31-second vertical video built from the site's own code, cut on 16 exact bars of \"Higher Demands\" (Spin, 124 BPM), with the drop at 7.7 seconds.",
+            },
+          ],
+        },
+        {
+          kind: "facts",
+          items: [
+            { label: "Stack", value: "Next.js 14, React 18, TypeScript, Vercel" },
+            { label: "Graphics", value: "WebGL directly, no library" },
+            { label: "Sound", value: "Web Audio, no library, no audio files" },
+            { label: "Languages", value: "Spanish and English" },
+          ],
+        },
+      ],
+      consequences: [
+        {
+          kind: "metrics",
+          source: "Measured on 6 Oct 2026 on the live site.",
+          items: [
+            { value: "100", label: "Lighthouse, all four categories", note: "Performance, accessibility, best practices and SEO, on mobile and desktop." },
+            { value: "109 KB", label: "JavaScript the page downloads", note: "293 KB before removing the 3D library. 319 KB for the whole page on mobile." },
+            { value: "0", label: "Audio files on the site", note: "All sound is synthesized in the browser." },
+            { value: "6.31:1", label: "Minimum text contrast", note: "AA requires 4.5:1." },
+          ],
+        },
+        { kind: "subhead", text: "What can't be claimed yet" },
+        {
+          kind: "list",
+          items: [
+            "**Business results.** The site went live on 6 Oct 2026. There are no booking requests, visits or conversions to show.",
+            "**Awards.** The design target was Awwwards level. The site has not been submitted.",
+            "**Direct send from the form.** Today it opens the visitor's email with the request written. Sending from the server is not set up.",
+            "**Visuals in the show.** The show has none. The site speaks of a graphic identity, not of projections.",
           ],
         },
       ],
