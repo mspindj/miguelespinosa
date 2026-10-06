@@ -1143,7 +1143,7 @@ export const records: DecisionRecord[] = [
     tagline: "A Musician's Site Without Music, Built as an Instrument",
     summary:
       "The site of an electronic live act with no published recording. The gap became the idea: a 16-step sequencer that sounds in the browser and builds a different groove on every visit.",
-    metric: { value: "0", label: "Audio files · sound is synthesized" },
+    metric: { value: "0", label: "Audio files · all synthesized" },
     tags: ["Personal Project", "Web Audio", "AI-Augmented Build"],
     featured: true,
     image: {
