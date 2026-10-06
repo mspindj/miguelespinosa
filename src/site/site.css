@@ -2271,6 +2271,16 @@
   font-weight: 700;
   color: var(--ink);
 }
+.tb-fig {
+  margin: 0;
+}
+.tb-block-fig {
+  margin: 20px 0;
+}
+.tb-fig figcaption span + span {
+  text-transform: none;
+  letter-spacing: 0;
+}
 .tb-reflect {
   padding: 24px 0 4px;
   border-top: 1px solid var(--ink);

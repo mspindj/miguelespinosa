@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import AsciiStage from "../ascii/AsciiStage";
 import type { TreeSpec } from "../ascii/tree";
-import { caseHref, recordId, records } from "../content/cases";
+import { caseHref, KEYED_RECORDS, recordId, records } from "../content/cases";
 import { insightHref, latestInsights, logDate } from "../content/insights";
 import { site } from "../content/site";
 import type { DecisionRecord } from "../content/types";
@@ -69,7 +69,7 @@ function RecordRow({ r }: { r: DecisionRecord }) {
     <tr className="tb-rec-row">
       <td className="tb-td-id">
         {recordId(r)}
-        {n <= 5 && (
+        {n <= KEYED_RECORDS && (
           <kbd className="tb-keyhint" aria-hidden="true">
             {n}
           </kbd>

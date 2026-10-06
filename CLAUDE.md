@@ -51,7 +51,7 @@ Spec y decisiones del rediseño: `.claude/specs/redesign-terminal/` (requirement
 
 - Martian Mono (display, labels, UI) + Geist (texto largo). Grilla de 12 columnas expuesta con reglas de 1px, radio cero.
 - Los casos son **Decision Records** (DR-001 a DR-005, estado "Accepted"): contexto, problema, restricciones, opciones (SELECTED/REJECTED), decisión, implementación, consecuencias, log.
-- Teclado: `1`–`5` abren records, `h` home, `m` motion, `?` atajos. Status bar fija con sección, % de scroll, hora de Bogotá y switch de motion.
+- Teclado: `1`–`6` abren records, `h` home, `m` motion, `?` atajos. Status bar fija con sección, % de scroll, hora de Bogotá y switch de motion.
 - Origen: lab privado `~/Documents/dev/miguelespinosa-lab` (3 prototipos; Miguel eligió C, "Terminal Brutal").
 
 ## Casos de Estudio (orden canónico)
@@ -61,6 +61,9 @@ Todos viven en `src/site/content/cases.ts` y se renderizan con `src/site/pages/C
 3. **DR-003 Tati** (`tati-ai`), Miguel co-founder.
 4. **DR-004 The Birdie Club** (`birdie-club`), Miguel co-founder.
 5. **DR-005 BBVA Colombia** (`cash-conversion`), 2016–2019, mostrado como ARCHIVE.
+6. **DR-006 djspin.co** (`djspin`), 2026. Proyecto propio (el sitio de DJ de Miguel). Fuente: `~/Documents/dev/Spin website/caso-cartel/RESUMEN.md`. Es el único caso con imágenes.
+
+**Agregar un caso:** se añade al final del arreglo `records` (el número de DR no se reordena: los IDs publicados son estables). Las teclas `1` a `9` abren los casos en el orden del arreglo (`KEYED_RECORDS`).
 
 ## Arquitectura del Homepage
 Header → hero (titular + árbol ASCII) → tabla de Decision Records → ticker → manifiesto (inverso, con decode) → últimos 3 insights + callout AI Design OS → contacto. Anclas: `#work`, `#manifesto` (alias `#philosophy`), `#insights`, `#contact`.
@@ -112,6 +115,7 @@ Cita del manifiesto, sin raya: *"Good AI products don't impress users. They reas
 - **Cierre del sitio: contratación, no consultoría** (decisión de Miguel, 25 Sep 2026). "Hiring a design leader? Write to me."
 - **Fuera del sitio por decisión de Miguel (25 Sep 2026):** el origen de The Birdie Club (sus propios agentes de golf en Gemini/ChatGPT) porque revela el valor por el que cobra la academia, y los precios/niveles de membresía. Tati sí publica las cifras del corpus (880+ glosarios, 92.000+ términos, 17 sectores); el homenaje a la carrera de su mamá no va salvo que él lo pida.
 - **Sin artefactos de trabajo en el sitio**: todo el trabajo de TP, BBVA y clientes está bajo confidencialidad; se muestra solo en entrevista (decisión de Miguel, 25 Sep 2026). No proponer capturas, tokens ni diagramas reales como fix de crítica.
+- **Excepción: proyectos propios** (6 Oct 2026). Un caso con `samples: "public"` puede llevar bloques `figure` y no muestra la nota de NDA. Las imágenes van en `src/assets/cases/<slug>/` en WebP. En DR-006 no se usan las fotos de club sin tramar: su crédito no está confirmado (por eso el lab `spin-lab` es privado).
 - **Insights: 5 filtros y la categoría visible = etiqueta del filtro** (AI Strategy, Design Leadership, Business & Product, Ops Strategy, Talent Strategy). Un artículo nuevo usa una de esas cinco; `ArticleLayout` toma la categoría de `lib/articles.ts`, no del prop.
 - **Sin raya (—)** en texto nuevo. Los cuerpos de los artículos todavía tienen rayas (pendiente).
 - **Imagen de vista previa social**: `public/og-image-terminal.png`, se regenera con `scripts/gen-brand-assets.mjs`. WhatsApp/LinkedIn cachean por URL de imagen: si cambia el diseño, **nombre de archivo nuevo** y actualizar `og:image`/`twitter:image` en `index.html`. El `favicon.ico` también se regenera ahí (en abril solo se cambió el SVG y el `.ico` siguió con el corazón de Lovable, que es el que usa WhatsApp).
