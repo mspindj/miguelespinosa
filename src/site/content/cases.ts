@@ -1,9 +1,16 @@
-// The five case studies as Decision Records. Full content carried over from the previous
+// The case studies as Decision Records. DR-001 to DR-005: Full content carried over from the previous
 // case pages (R2.1), restructured into the record sections of design.md. Em dashes from the
 // source were rewritten as commas, colons, parentheses or full stops. Nothing was added.
 
 import tpKeyVisual from "@/assets/tp-key-visual.webp";
 import tatiHero from "@/assets/tati-hero.png";
+import djBeforeAfter from "@/assets/cases/djspin/before-after-hero.webp";
+import djOptionA from "@/assets/cases/djspin/option-a-giro.webp";
+import djOptionB from "@/assets/cases/djspin/option-b-madrugada.webp";
+import djOptionC from "@/assets/cases/djspin/option-c-cartel.webp";
+import ntHero from "@/assets/cases/nowhere-traveler/final-hero-sound.webp";
+import ntInstrument from "@/assets/cases/nowhere-traveler/instrument.webp";
+import ntOptions from "@/assets/cases/nowhere-traveler/options-a-c.webp";
 import type { DecisionRecord } from "./types";
 
 const AUTHOR = "Miguel Espinosa";
@@ -897,8 +904,418 @@ export const records: DecisionRecord[] = [
       ],
     },
   },
+
+  /* ------------------------------------------------------------------ DR-006 */
+  // Source: caso-cartel/RESUMEN.md and spin-lab/CLAUDE.md (6 Oct 2026). Own project, so it shows
+  // work samples. Figures avoid the raw club photos: their credit is not confirmed.
+  {
+    slug: "djspin",
+    number: "06",
+    years: "2026",
+    title: "djspin.co",
+    client: "Spin, my DJ project",
+    role: "Designer & builder",
+    roleShort: "Designer & builder",
+    tagline: "Three Built Directions, One Against the Genre",
+    summary:
+      "The site for my DJ project, rebuilt from eight photos and sixteen covers. Three directions built as working prototypes in parallel, one chosen, in production the same day.",
+    metric: { value: "5h 20m", label: "First commit to production" },
+    tags: ["Personal Project", "Art Direction", "AI-Augmented Build"],
+    featured: true,
+    image: {
+      src: djBeforeAfter,
+      alt: "The old djspin.co hero, dark with a centered logo, next to the new one: red, with the handwritten Spin logo over poster type and a halftone portrait",
+      width: 1800,
+      height: 514,
+      caption: "Before and after",
+    },
+    samples: "public",
+    tree: { branches: 3, chosen: 2 },
+    sections: {
+      context: [
+        { kind: "link", label: "djspin.co", href: "https://djspin.co/en" },
+        {
+          kind: "lead",
+          text: "Spin is my DJ project: house, deep and progressive, more than twenty years in the booth. Its site had become **the template of the genre**: black background, glass, a red accent, rounded cards.",
+        },
+        {
+          kind: "text",
+          text: "It worked, and it looked like every other DJ site. The person it has to serve is a promoter or booker, who should understand in ten seconds who this is, hear it and know how to write.",
+        },
+        { kind: "subhead", text: "My Role" },
+        {
+          kind: "text",
+          text: "Designer and builder. I wrote the rules, ran three AI agents in parallel, each one building a proposal in its own folder, chose among the working prototypes and ported the winner to production.",
+        },
+      ],
+      problem: [
+        {
+          kind: "lead",
+          text: "The question was how to stand apart with almost nothing to show.",
+        },
+        {
+          kind: "cells",
+          items: [
+            {
+              title: "A genre with one look",
+              body: "Every DJ site is dark. The old Spin site was one more of them.",
+            },
+            {
+              title: "Thin material",
+              body: "8 photos from 2021 and 2023, 16 release covers that look nothing alike, no video and no audio of my own to host.",
+            },
+            {
+              title: "Four sites, one author",
+              body: "It could not be confused with my other three: Nowhere Traveler, this portfolio and Maito.",
+            },
+          ],
+        },
+      ],
+      constraints: [
+        {
+          kind: "list",
+          items: [
+            "Whoever books comes first. No effect gets in the way of who this is, how it sounds and how to write.",
+            "Two things stay fixed: the handwritten logo and the red #EB3E34.",
+            "Nothing invented: no dates, shows, figures, press or testimonials that don't exist.",
+            "A written list of what was off limits, so the site could not echo the old one or my other three.",
+            "Sound never starts on its own. The Bandcamp player loads on click.",
+            "Scroll-linked motion animates only transform, opacity and clip-path, behind a visible motion switch.",
+          ],
+        },
+      ],
+      options: [
+        {
+          kind: "text",
+          text: "All three were built, not drawn: working prototypes in a lab separate from the live site, fed by a single content source, so the comparison was design against design with the same copy.",
+        },
+        {
+          kind: "options",
+          items: [
+            {
+              label: "A",
+              name: "Giro",
+              assessment: "The name, taken literally: a WebGL record you drag with inertia, and the site takes the color of each release's cover. A warm dark canvas, so still inside the convention.",
+              selected: false,
+            },
+            {
+              label: "B",
+              name: "Madrugada",
+              assessment: "The scroll as one night, from 22:00 to 06:00, with the palette traveling from blue to red to dawn. It opens dark, like the rest of the genre.",
+              selected: false,
+            },
+            {
+              label: "C",
+              name: "Cartel",
+              assessment: "A club flyer in two inks: poster type, photos in halftone, no WebGL. The only one that goes against the convention, and the clearest for whoever books. The cost: the halftone that unifies the photos first turned the club shots into blobs.",
+              selected: true,
+            },
+          ],
+        },
+        {
+          kind: "figure",
+          src: djOptionA,
+          alt: "Proposal A, Giro: a dark brown site with a vinyl record in WebGL next to the headline, and the release list beside the record",
+          width: 1456,
+          height: 458,
+          label: "A · Giro",
+          caption: "Rejected",
+        },
+        {
+          kind: "figure",
+          src: djOptionB,
+          alt: "Proposal B, Madrugada: a night-blue biography screen at 22:58 and a dawn-colored bookings screen at 05:28",
+          width: 1456,
+          height: 458,
+          label: "B · Madrugada",
+          caption: "Rejected",
+        },
+        {
+          kind: "figure",
+          src: djOptionC,
+          alt: "Proposal C, Cartel, first version: a red hero with poster type and a halftone portrait, and the latest release on bone paper",
+          width: 1456,
+          height: 458,
+          label: "C · Cartel",
+          caption: "Selected. First version, before the fixes below.",
+        },
+      ],
+      decision: [
+        {
+          kind: "lead",
+          text: "I opened the three in the browser and chose **Cartel**.",
+        },
+        {
+          kind: "cells",
+          items: [
+            {
+              title: "Against the convention",
+              body: "Every DJ site is dark. This one is red, black ink and bone paper.",
+            },
+            {
+              title: "Identity from two elements",
+              body: "The handwritten logo against condensed poster type works as an identity without needing more assets.",
+            },
+            {
+              title: "The constraint becomes the style",
+              body: "Halftone unifies photos from different sessions and qualities.",
+            },
+            {
+              title: "Clearest for whoever books",
+              body: "An index of 16 releases, venues by city, and booking as a ticket stub.",
+            },
+          ],
+        },
+      ],
+      implementation: [
+        {
+          kind: "text",
+          text: "The winner moved from the lab to the production repo with parity: full-page captures of the lab against the production build, compared pixel by pixel.",
+        },
+        { kind: "subhead", text: "Three problems worth telling" },
+        {
+          kind: "cells",
+          numbered: true,
+          items: [
+            {
+              title: "The club photos printed as blobs",
+              body: "My first diagnosis was that the material had hit its limit. It hadn't. The halftone dot was fattening the ink by 63% and clogging the midtones, and those photos live in the shadows. I corrected the dot and prepared a local-contrast version of each photo, used only to compute the halftone.",
+            },
+            {
+              title: "The contact form wasn't sending, and nobody knew",
+              body: "Four failed attempts to wire it. The cause: two Vercel projects connected to the same repository, with the email key set on the one that doesn't serve the domain. It was solved by measuring which variables the function could see instead of guessing again. In the 7 days before, the function had logged no executions.",
+            },
+            {
+              title: "The copy had lines I never said",
+              body: "The editing pass cut two lines that couldn't be verified and replaced an idiom from Spain. Seven texts edited, in both languages.",
+            },
+          ],
+        },
+        { kind: "subhead", text: "What shipped" },
+        {
+          kind: "list",
+          items: [
+            "One page in Spanish and English, each language at its own address.",
+            "Prerendered at build time: the content reads without running JavaScript.",
+            "A head per language: title, description, alternate links and structured data.",
+            "A booking form that sends to a mailbox on the domain.",
+            "A visible motion switch, and respect for the system's reduced-motion preference.",
+          ],
+        },
+      ],
+      consequences: [
+        {
+          kind: "metrics",
+          source: "Measured on 6 Oct 2026 from the lab and production repos.",
+          items: [
+            { value: "5h 20m", label: "First lab commit to production", note: "07:13 to 12:33, same day." },
+            { value: "3", label: "Directions built in parallel", note: "One agent per proposal, each isolated in its folder." },
+            { value: "0 / 226", label: "WCAG AA contrast failures", note: "Texts measured in the chosen proposal." },
+            { value: "0–0.27%", label: "Pixel difference, lab against production", note: "Full-page captures of both." },
+          ],
+        },
+        { kind: "subhead", text: "What was not measured" },
+        {
+          kind: "list",
+          items: [
+            "**Performance.** No Lighthouse run and no comparison against the old site.",
+            "**Bookings.** The site went live on 6 Oct 2026. There is no data yet.",
+            "**Awards.** Not submitted. Without my own audio or video, the ceiling is low.",
+            "**Motion smoothness.** I judged it in my own browser. The automated checks render in software and can't measure it.",
+          ],
+        },
+      ],
+    },
+  },
+
+  /* ------------------------------------------------------------------ DR-007 */
+  // Source: the case notes Miguel pasted on 6 Oct 2026 (same text as nowheretraveler-lab/Docs/
+  // caso-nowhere-traveler.md). Lighthouse and page weight re-measured that day on the live site.
+  // Own project, so it shows work samples. Figures avoid the press photos: credit not confirmed.
+  {
+    slug: "nowhere-traveler",
+    number: "07",
+    years: "2026",
+    title: "Nowhere Traveler",
+    client: "Nowhere Traveler, my live act",
+    role: "Designer & builder",
+    roleShort: "Designer & builder",
+    tagline: "A Musician's Site Without Music, Built as an Instrument",
+    summary:
+      "The site of an electronic live act with no published recording. The gap became the idea: a 16-step sequencer that sounds in the browser and builds a different groove on every visit.",
+    metric: { value: "0", label: "Audio files · all synthesized" },
+    tags: ["Personal Project", "Web Audio", "AI-Augmented Build"],
+    featured: true,
+    image: {
+      src: ntHero,
+      alt: "The Nowhere Traveler hero with sound on: the logo at full width over contour lines, with some letters lit",
+      width: 1440,
+      height: 900,
+      caption: "The hero, with sound on",
+    },
+    samples: "public",
+    tree: { branches: 3, chosen: 1 },
+    sections: {
+      context: [
+        { kind: "link", label: "nowheretraveler.com", href: "https://www.nowheretraveler.com/en" },
+        {
+          kind: "lead",
+          text: "Nowhere Traveler is my electronic live act. Its site lived on a website builder: two pages, **a generic template**, a 43-second reel from 2020 and a \"Subscribe\" form.",
+        },
+        {
+          kind: "text",
+          text: "It had no music and no way to book the show. The material was short: five photos from 2019 to 2022, the logo in outlines and four paragraphs of story.",
+        },
+        { kind: "subhead", text: "My Role" },
+        {
+          kind: "text",
+          text: "Designer and builder, with AI as the workshop. I audited what existed, set the rules, had three working prototypes built in parallel, chose the mix and took it to production.",
+        },
+      ],
+      problem: [
+        {
+          kind: "lead",
+          text: "No published recording of Nowhere Traveler exists. **That was the real problem**, more than the template.",
+        },
+        {
+          kind: "text",
+          text: "A musician's site without music can't be fixed with design.",
+        },
+      ],
+      constraints: [
+        {
+          kind: "list",
+          items: [
+            "Nothing invented: no dates, no gear, no press.",
+            "Sound never starts on its own.",
+            "It could not be confused with my other three sites: Spin, this portfolio and the agency.",
+            "No audio to host, so no player to build around.",
+          ],
+        },
+      ],
+      options: [
+        {
+          kind: "text",
+          text: "Three working prototypes, built in parallel on the same content, each with its own thesis.",
+        },
+        {
+          kind: "options",
+          items: [
+            {
+              label: "A",
+              name: "Sin mapa",
+              assessment: "A topographic terrain in WebGL that you travel with the scroll. Rejected as a whole. Its hero stayed: the real logo at full width over contour lines.",
+              selected: false,
+            },
+            {
+              label: "B",
+              name: "En vivo",
+              assessment: "The site as an instrument, with a 16-step sequencer. It became the base. The cost: a visitor hears the instrument, and there is still no recording of the show to play.",
+              selected: true,
+            },
+            {
+              label: "C",
+              name: "Bitácora",
+              assessment: "Editorial on light paper, where photography leads. The material was five photos from 2019 to 2022.",
+              selected: false,
+            },
+          ],
+        },
+        {
+          kind: "figure",
+          src: ntOptions,
+          alt: "Proposal A, Sin mapa: the logo over a dark topographic terrain with a blue accent. Proposal C, Bitácora: a serif headline on light paper",
+          width: 2298,
+          height: 900,
+          label: "A · Sin mapa, C · Bitácora",
+          caption: "The two that lost. C is cropped to its text column.",
+        },
+      ],
+      decision: [
+        {
+          kind: "lead",
+          text: "The choice was a mix: **B as the base, with A's hero**.",
+        },
+        {
+          kind: "text",
+          text: "The project's own story says \"Instead of playing back, I build\", so the site doesn't play back either. It generates the sound live with Web Audio, pure synthesis with no audio files, between 118 and 126 BPM, the real range of the show.",
+        },
+        {
+          kind: "text",
+          text: "The contour lines are tied to the sound. They thicken with the volume and pulse on every beat, and each letter of the logo lights up on its sixteenth note.",
+        },
+        {
+          kind: "figure",
+          src: ntInstrument,
+          alt: "The instrument section: the line 'En lugar de reproducir, construyo' next to a step sequencer with rows for hat, bass, melody and pad, and a button for another pattern",
+          width: 1440,
+          height: 720,
+          label: "The instrument",
+          caption: "Each visit gets a different pattern.",
+        },
+      ],
+      implementation: [
+        {
+          kind: "cells",
+          numbered: true,
+          items: [
+            {
+              title: "Diagnosis before design",
+              body: "An audit of the site, the press kit and the domain. Two findings changed the plan: the domain was paid through 2028 (what was expiring was the builder), and it had no email, so migrating meant changing two DNS records.",
+            },
+            {
+              title: "From first commit to its own domain",
+              body: "First commit on 5 Oct at 14:22, with three navigable proposals that same afternoon. Live on its own domain with a certificate on 6 Oct at 07:49, Colombia time: repository, deploy, a redirect from the old URL, metadata, sitemap and a booking form.",
+            },
+            {
+              title: "Dropping the 3D library",
+              body: "The hero terrain runs on WebGL directly. Removing three took the page's JavaScript from 293 KB to 109 KB.",
+            },
+            {
+              title: "A launch reel from the same code",
+              body: "A 31-second vertical video built from the site's own code, cut on 16 exact bars of \"Higher Demands\" (Spin, 124 BPM), with the drop at 7.7 seconds.",
+            },
+          ],
+        },
+        {
+          kind: "facts",
+          items: [
+            { label: "Stack", value: "Next.js 14, React 18, TypeScript, Vercel" },
+            { label: "Graphics", value: "WebGL directly, no library" },
+            { label: "Sound", value: "Web Audio, no library, no audio files" },
+            { label: "Languages", value: "Spanish and English" },
+          ],
+        },
+      ],
+      consequences: [
+        {
+          kind: "metrics",
+          source: "Measured on 6 Oct 2026 on the live site.",
+          items: [
+            { value: "100", label: "Lighthouse, all four categories", note: "Performance, accessibility, best practices and SEO, on mobile and desktop." },
+            { value: "109 KB", label: "JavaScript the page downloads", note: "293 KB before removing the 3D library. 319 KB for the whole page on mobile." },
+            { value: "0", label: "Audio files on the site", note: "All sound is synthesized in the browser." },
+            { value: "6.31:1", label: "Minimum text contrast", note: "AA requires 4.5:1." },
+          ],
+        },
+        { kind: "subhead", text: "What can't be claimed yet" },
+        {
+          kind: "list",
+          items: [
+            "**Business results.** The site went live on 6 Oct 2026. There are no booking requests, visits or conversions to show.",
+            "**Awards.** The design target was Awwwards level. The site has not been submitted.",
+            "**Direct send from the form.** Today it opens the visitor's email with the request written. Sending from the server is not set up.",
+            "**Visuals in the show.** The show has none. The site speaks of a graphic identity, not of projections.",
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 export const recordId = (r: DecisionRecord) => `DR-${r.number.padStart(3, "0")}`;
 export const caseHref = (r: DecisionRecord) => `/case-study/${r.slug}`;
+/** Records reachable with a single number key: 1 to KEYED_RECORDS, in array order. */
+export const KEYED_RECORDS = Math.min(9, records.length);
+
 export const getRecord = (slug: string | undefined) => records.find((r) => r.slug === slug);

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { recordId, records } from "./content/cases";
+import { KEYED_RECORDS, recordId, records } from "./content/cases";
 import { Cmd } from "./ui";
 
 interface Props {
@@ -26,7 +26,7 @@ export default function ShortcutsDialog({ open, onClose, enabled, onToggleEnable
   }, [open]);
 
   const first = recordId(records[0]);
-  const last = recordId(records[Math.min(4, records.length - 1)]);
+  const last = recordId(records[KEYED_RECORDS - 1]);
 
   return (
     <dialog
@@ -51,7 +51,7 @@ export default function ShortcutsDialog({ open, onClose, enabled, onToggleEnable
         <dl className="tb-keys-list">
           <div>
             <dt>
-              <kbd>1</kbd>–<kbd>5</kbd>
+              <kbd>1</kbd>–<kbd>{KEYED_RECORDS}</kbd>
             </dt>
             <dd>
               Open record {first} to {last}

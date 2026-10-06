@@ -248,6 +248,18 @@ function BlockView({ block, h }: { block: Block; h: H }) {
           </blockquote>
         </figure>
       );
+    case "figure":
+      return (
+        <figure className="tb-fig tb-block-fig">
+          <img src={block.src} alt={block.alt} width={block.width} height={block.height} loading="lazy" decoding="async" />
+          {(block.label || block.caption) && (
+            <figcaption>
+              {block.label && <span>{block.label}</span>}
+              {block.caption && <span>{block.caption}</span>}
+            </figcaption>
+          )}
+        </figure>
+      );
     case "link":
       return (
         <p className="tb-block-link">
@@ -339,11 +351,16 @@ function Record({ r }: { r: DecisionRecord }) {
       </header>
 
       {r.image && (
-        <figure className="tb-sec tb-rec-figure">
-          <div className="tb-fig">
+        <div className="tb-sec tb-rec-figure">
+          <figure className="tb-fig">
             <img src={r.image.src} alt={r.image.alt} width={r.image.width} height={r.image.height} loading="lazy" decoding="async" />
-          </div>
-        </figure>
+            {r.image.caption && (
+              <figcaption>
+                <span>{r.image.caption}</span>
+              </figcaption>
+            )}
+          </figure>
+        </div>
       )}
 
       {present.map((k) => {
@@ -351,12 +368,14 @@ function Record({ r }: { r: DecisionRecord }) {
         return <RecSection key={k} label={label} rid={rid} blocks={r.sections[k] ?? []} />;
       })}
 
-      <aside className="tb-sec tb-rsec tb-nda" aria-label="Work samples">
-        <p className="tb-nda-note">
-          Work samples are under NDA. I walk through them in interviews:{" "}
-          <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
-        </p>
-      </aside>
+      {r.samples !== "public" && (
+        <aside className="tb-sec tb-rsec tb-nda" aria-label="Work samples">
+          <p className="tb-nda-note">
+            Work samples are under NDA. I walk through them in interviews:{" "}
+            <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+          </p>
+        </aside>
+      )}
 
       <nav className="tb-pager" aria-label="Records">
         <Link to={caseHref(prev)} className="tb-pager-link" rel="prev">

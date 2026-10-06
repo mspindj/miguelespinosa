@@ -5,7 +5,7 @@ import "./site.css";
 import Lenis from "lenis";
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { matchPath, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { caseHref, getRecord, recordId, records } from "./content/cases";
+import { caseHref, getRecord, KEYED_RECORDS, recordId, records } from "./content/cases";
 import { DEFAULT_TITLE, site } from "./content/site";
 import { getArticle } from "./content/insights";
 import { MotionContext, useReducedMotion } from "./context";
@@ -129,7 +129,7 @@ export default function SiteLayout() {
       if (e.key === "?") {
         e.preventDefault();
         setKeysOpen((o) => !o);
-      } else if (/^[1-5]$/.test(k) && records[Number(k) - 1]) {
+      } else if (/^[1-9]$/.test(k) && Number(k) <= KEYED_RECORDS) {
         navigate(caseHref(records[Number(k) - 1]));
       } else if (k === "h") {
         // "h" alone or the "g h" sequence: "g" is a harmless prefix, "h" does the work.

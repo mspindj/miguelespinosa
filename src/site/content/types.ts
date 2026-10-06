@@ -52,7 +52,9 @@ export type Block =
   | { kind: "metrics"; items: Metric[]; source?: string }
   | { kind: "callout"; title: string; text: Rich }
   | { kind: "quote"; text: string; author: string; role: string }
-  | { kind: "link"; label: string; href: string };
+  | { kind: "link"; label: string; href: string }
+  /** Only for work that is mine to show. Client work stays under NDA and gets no figures. */
+  | { kind: "figure"; src: string; alt: string; width: number; height: number; label?: string; caption?: string };
 
 export type SectionKey =
   | "context"
@@ -80,7 +82,9 @@ export interface DecisionRecord {
   metric: Metric;
   tags: string[];
   featured: boolean;
-  image?: { src: string; alt: string; width: number; height: number };
+  image?: { src: string; alt: string; width: number; height: number; caption?: string };
+  /** "public" when the work can be shown here; the record then skips the NDA note. Default: under NDA. */
+  samples?: "public";
   /** OPTIONS renders as SHIFTS (from -> to) when the source describes transitions, not choices. */
   optionsLabel?: "Options" | "Shifts";
   /** Root branches and chosen branch of the decorative ASCII tree. */
