@@ -51,7 +51,7 @@ Spec y decisiones del rediseño: `.claude/specs/redesign-terminal/` (requirement
 
 - Martian Mono (display, labels, UI) + Geist (texto largo). Grilla de 12 columnas expuesta con reglas de 1px, radio cero.
 - Los casos son **Decision Records** (DR-001 a DR-005, estado "Accepted"): contexto, problema, restricciones, opciones (SELECTED/REJECTED), decisión, implementación, consecuencias, log.
-- Teclado: `1`–`7` abren records, `h` home, `m` motion, `?` atajos. Status bar fija con sección, % de scroll, hora de Bogotá y switch de motion.
+- Teclado: `1`–`8` abren records, `h` home, `m` motion, `?` atajos. Status bar fija con sección, % de scroll, hora de Bogotá y switch de motion.
 - Origen: lab privado `~/Documents/dev/miguelespinosa-lab` (3 prototipos; Miguel eligió C, "Terminal Brutal").
 
 ## Casos de Estudio (orden canónico)
@@ -63,6 +63,7 @@ Todos viven en `src/site/content/cases.ts` y se renderizan con `src/site/pages/C
 5. **DR-005 BBVA Colombia** (`cash-conversion`), 2016–2019, mostrado como ARCHIVE.
 6. **DR-006 djspin.co** (`djspin`), 2026. Proyecto propio (el sitio de DJ de Miguel). Fuente: `~/Documents/dev/Spin website/caso-cartel/RESUMEN.md`. Con imágenes.
 7. **DR-007 Nowhere Traveler** (`nowhere-traveler`), 2026. Proyecto propio (el live act de Miguel). Fuente: `~/Documents/dev/Spin website/nowheretraveler-lab/Docs/caso-nowhere-traveler.md`. Con imágenes. Lighthouse y peso se midieron el 6 Oct 2026: si se cita otra fecha, volver a medir.
+8. **DR-008 Zinobe / Lineru** (`lineru`), 2019–2020. Trabajo de empleador: solo texto, sin pantallas. Línea de crédito del Gobierno para independientes lanzada en abril de 2020 (fuente: comunicado de MinCIT del 22 Abr 2020). Miguel lideró, no se atribuye el diseño de las pantallas. Las 3 semanas son su testimonio; sin cifras finales (el caso lo dice). Antes de agregar imágenes: decisión de Miguel sobre la excepción a la regla de artefactos y tapar su cédula y nombre en las capturas de LineruPlus.
 
 **Agregar un caso:** se añade al final del arreglo `records` (el número de DR no se reordena: los IDs publicados son estables). Las teclas `1` a `9` abren los casos en el orden del arreglo (`KEYED_RECORDS`).
 
