@@ -1311,6 +1311,143 @@ export const records: DecisionRecord[] = [
       ],
     },
   },
+
+  /* ------------------------------------------------------------------ DR-008 */
+  // Source: Miguel's account (7 Oct 2026) and the Ministry of Commerce release of 22 Apr 2020.
+  // Client work: text only, no screens. No final figures are available, so none are published.
+  {
+    slug: "lineru",
+    number: "08",
+    years: "2019\u20132020",
+    title: "Zinobe",
+    client: "Zinobe SAS",
+    role: "Head of Product Design",
+    roleShort: "Head of Design",
+    tagline: "A Government Credit Line, Live in Three Weeks",
+    summary:
+      "In April 2020 Zinobe was the first fintech enabled for the Government's credit line for independent workers. The date was set for us. Some early proposals were a Google Form; we built on the product we already had.",
+    metric: { value: "3 wks", label: "To a Government-set date" },
+    tags: ["Fintech", "Credit", "Fixed Deadline"],
+    featured: false,
+    tree: { branches: 2, chosen: 1 },
+    sections: {
+      context: [
+        { kind: "subhead", text: "The Role" },
+        {
+          kind: "facts",
+          items: [
+            { label: "Company", value: "Zinobe SAS" },
+            { label: "Title", value: "Head of Product Design" },
+            { label: "Scope", value: "Lineru, the digital credit product" },
+          ],
+        },
+        { kind: "subhead", text: "The Launch" },
+        {
+          kind: "lead",
+          text: "In April 2020 Colombia opened a credit line for independent workers, backed by the national guarantee fund and run through approved fintechs. Zinobe was the first fintech enabled to operate it.",
+        },
+        {
+          kind: "text",
+          text: "Pre-registration opened on April 19 and applications on April 24. The Government set the dates, and we built toward them.",
+        },
+        {
+          kind: "link",
+          label: "Source: Ministry of Commerce, Industry and Tourism, April 22, 2020",
+          href: "https://www.mincit.gov.co/prensa/noticias/industria/zinobe-primera-fintech-en-linea-de-credito",
+        },
+      ],
+      problem: [
+        { kind: "lead", text: "The date was not ours to move." },
+        {
+          kind: "cells",
+          items: [
+            {
+              title: "A fixed launch date",
+              body: "The program came with its dates. Whatever we shipped had to be live when applications opened.",
+            },
+            {
+              title: "A fully digital process",
+              body: "According to the program announcement, registration, application, biometric verification and the credit decision all happened online, with no physical documents.",
+            },
+            {
+              title: "Different amounts and terms",
+              body: "Lineru was already live. The program brought its own conditions: up to COP 4.5 million, 12 months, and a three-month grace period.",
+            },
+          ],
+        },
+      ],
+      constraints: [
+        {
+          kind: "list",
+          items: [
+            "About three weeks, from the date we were given to launch.",
+            "The Lineru product and technology base, which stayed the same.",
+            "Our component library. At that time we did not talk about design systems.",
+          ],
+        },
+      ],
+      options: [
+        {
+          kind: "text",
+          text: "Some of the first proposals from the team were built to get out fast, starting with a Google Form.",
+        },
+        {
+          kind: "options",
+          items: [
+            {
+              label: "Option A",
+              name: "A Google Form",
+              assessment:
+                "The fastest way out. The program required a fully digital process with biometric verification and no physical documents, and a form could not do that.",
+              selected: false,
+            },
+            {
+              label: "Option B",
+              name: "Build on what we had",
+              assessment:
+                "Build the real flow on the Lineru base and our component library, from a war room.",
+              selected: true,
+            },
+          ],
+        },
+      ],
+      decision: [
+        {
+          kind: "lead",
+          text: "Take the date as given and build the real thing on what we already had.",
+        },
+        {
+          kind: "text",
+          text: "We worked with the inputs the team had: the Lineru base and the component library. We set up a war room and started executing.",
+        },
+      ],
+      implementation: [
+        {
+          kind: "text",
+          text: "Same technology and product base as Lineru, with the amounts and conditions of the program.",
+        },
+        {
+          kind: "text",
+          text: "According to the program announcement, the flow took about a minute to register and fifteen to apply, with biometric verification and a credit decision in under fifteen minutes.",
+        },
+      ],
+      consequences: [
+        {
+          kind: "callout",
+          title: "First fintech enabled for the line",
+          text: "Zinobe was the first fintech enabled to operate the Government's credit line for independent workers, according to the Ministry of Commerce, Industry and Tourism (April 22, 2020).",
+        },
+        { kind: "subhead", text: "What can't be claimed" },
+        {
+          kind: "list",
+          items: [
+            "**Results after launch.** I do not have final figures for applications, approvals or disbursements, so none are published here.",
+            "**Speed of the base.** Lineru existed before this work. The three weeks cover the adaptation and the decisions about what to change, not the product itself.",
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 export const recordId = (r: DecisionRecord) => `DR-${r.number.padStart(3, "0")}`;
