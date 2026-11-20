@@ -65,7 +65,7 @@ Todos viven en `src/site/content/cases.ts` y se renderizan con `src/site/pages/C
 7. **DR-007 Nowhere Traveler** (`nowhere-traveler`), 2026. Proyecto propio (el live act de Miguel). Fuente: `~/Documents/dev/Spin website/nowheretraveler-lab/Docs/caso-nowhere-traveler.md`. Con imágenes. Lighthouse y peso se midieron el 6 Oct 2026: si se cita otra fecha, volver a medir.
 8. **DR-008 Zinobe / Lineru** (`lineru`), 2019–2020. Trabajo de empleador: solo texto, sin pantallas. Línea de crédito del Gobierno para independientes lanzada en abril de 2020 (fuente: comunicado de MinCIT del 22 Abr 2020). Miguel lideró, no se atribuye el diseño de las pantallas. Las 3 semanas son su testimonio; sin cifras finales (el caso lo dice). Antes de agregar imágenes: decisión de Miguel sobre la excepción a la regla de artefactos y tapar su cédula y nombre en las capturas de LineruPlus.
 
-**Agregar un caso:** se añade al final del arreglo `records` (el número de DR no se reordena: los IDs publicados son estables). Las teclas `1` a `9` abren los casos en el orden del arreglo (`KEYED_RECORDS`).
+**Agregar un caso:** se añade al final del arreglo `records` (el número de DR no se reordena: los IDs publicados son estables). Las teclas `1` a `9` abren los casos en el orden del arreglo (`KEYED_RECORDS`). Las cifras de `metric` y `metrics` van cortas (hasta 5 caracteres, como `69→0` o `195+`): con `69 to 0` la grilla de tres columnas se desbordó y cortó la tercera.
 
 ## Arquitectura del Homepage
 Header → hero (titular + árbol ASCII) → tabla de Decision Records → ticker → manifiesto (inverso, con decode) → últimos 3 insights + callout AI Design OS → contacto. Anclas: `#work`, `#manifesto` (alias `#philosophy`), `#insights`, `#contact`.
