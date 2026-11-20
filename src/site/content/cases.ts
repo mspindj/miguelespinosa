@@ -1473,7 +1473,7 @@ export const records: DecisionRecord[] = [
         { kind: "link", label: "app.davidvanegas.com.co", href: "https://app.davidvanegas.com.co" },
         {
           kind: "lead",
-          text: "The app had its own accessibility bar for older players: text of 16 px and touch targets of 48 px. On November 19, 2026 it was audited against **WCAG 2.2 AA**, with the browser as the instrument.",
+          text: "The app had its own accessibility bar for older players: text of 16 px and touch targets of 48 px. On November 19, 2026 it was audited against **WCAG 2.2 AA** in the browser.",
         },
         {
           kind: "text",
@@ -1488,7 +1488,7 @@ export const records: DecisionRecord[] = [
       problem: [
         {
           kind: "lead",
-          text: "The failures were not spread evenly. They sat on the page where members pay and on the first step of the main feature.",
+          text: "The failures clustered on the page where members pay and on the first step of the main feature.",
         },
         {
           kind: "cells",
@@ -1503,11 +1503,11 @@ export const records: DecisionRecord[] = [
             },
             {
               title: "A token used for what it says it is not",
-              body: "The design tokens define that gray with a comment: not text, a functional border. Four files used it as text color. The system was right and the pages ignored it.",
+              body: "The design tokens define that gray with a comment: not text, a functional border. Four files used it as text color.",
             },
             {
               title: "Text at 200%",
-              body: "Five screens scrolled sideways when the text size doubled: buttons and labels that did not wrap.",
+              body: "Five screens scrolled sideways when the text size doubled, because buttons and labels did not wrap.",
             },
           ],
         },
@@ -1526,7 +1526,7 @@ export const records: DecisionRecord[] = [
       options: [
         {
           kind: "text",
-          text: "Most of the work was execution. The decision that changed the outcome was a correction to the first fix. The cookie notice sits at the bottom of every screen. An internal review found that, with a dialog open, a tap on the notice went through to the dialog: on the delete-round confirmation, tapping \"Privacy policy\" pressed \"Yes, delete\".",
+          text: "The cookie notice sits at the bottom of every screen. An internal review found that, with a dialog open, a tap on the notice went through to the dialog: on the delete-round confirmation, tapping \"Privacy policy\" pressed \"Yes, delete\".",
         },
         {
           kind: "options",
@@ -1535,7 +1535,7 @@ export const records: DecisionRecord[] = [
               label: "Option A",
               name: "Raise the new dialogs above the notice",
               assessment:
-                "Stacking order on the two dialogs built in this work. It fixed those two. A second internal review failed it: five other layers had the same defect, from before this work. The More drawer, delete account, the other round deletion, the iOS notifications notice and the selects.",
+                "Stacking order on the two dialogs built in this work. It fixed those two. A second internal review failed it: five other layers had the same defect, from before this work: the More drawer, delete account, the other round deletion, the iOS notifications notice and the selects.",
               selected: false,
             },
             {
@@ -1616,7 +1616,7 @@ export const records: DecisionRecord[] = [
         {
           kind: "list",
           items: [
-            "**Full WCAG 2.2 AA conformance.** axe finds part of the issues. The rest were checked by hand on the pages tested. A VoiceOver pass on an iPhone is still pending, so the announcement of an analysis is unconfirmed.",
+            "**Full WCAG 2.2 AA conformance.** axe finds part of the issues. The other criteria were checked with scripts and by reading the code, on the pages tested. A VoiceOver pass on an iPhone is still pending, so the announcement of an analysis is unconfirmed.",
             "**CI does not guard the delete buttons.** The CI test accounts have no swings or rounds, so those buttons only exist in the staging measurement.",
             "**One focus mark I could not explain.** The script flags the date field of the profile page before and after. Repeating the same keys by hand shows the focus ring. It is noted, not marked as solved.",
             "**The bar for older players.** Text below 16 px and touch targets below 48 px are a separate debt and still open.",
