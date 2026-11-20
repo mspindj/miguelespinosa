@@ -1448,9 +1448,187 @@ export const records: DecisionRecord[] = [
       ],
     },
   },
+
+  /* ------------------------------------------------------------------ DR-009 */
+  // Source: The Birdie Club repo, spec accesibilidad-wcag (evidencia.md sections 1 to 12), PRs 285 and 287,
+  // 19 and 20 Nov 2026. Own project, text only. No business result is published: none has been measured.
+  {
+    slug: "birdie-accessibility",
+    number: "09",
+    years: "2026",
+    title: "The Birdie Club Accessibility",
+    client: "The Birdie Club",
+    role: "Co-founder & Head of Product Design",
+    roleShort: "Co-founder",
+    tagline: "Fixing Accessibility Where the Money and the Main Flow Are",
+    summary:
+      "An audit of a coaching app for golfers over 55 against WCAG 2.2 AA, measured in the browser and fixed in order of cost to the member. The elements failing in axe went from 69 to 0, and a test now fails the build if they come back.",
+    metric: { value: "69\u21920", label: "Elements failing WCAG in axe · Nov 2026" },
+    tags: ["Accessibility", "WCAG 2.2 AA", "AI-Augmented Build"],
+    featured: false,
+    samples: "public",
+    tree: { branches: 2, chosen: 1 },
+    sections: {
+      context: [
+        { kind: "link", label: "app.davidvanegas.com.co", href: "https://app.davidvanegas.com.co" },
+        {
+          kind: "lead",
+          text: "The app had its own accessibility bar for older players: text of 16 px and touch targets of 48 px. On November 19, 2026 it was audited against **WCAG 2.2 AA**, with the browser as the instrument.",
+        },
+        {
+          kind: "text",
+          text: "The audience is players of 55 and older, reading on a phone, often outdoors. Of the 55 criteria at levels A and AA, 13 failed, 32 passed, 3 needed a screen reader to confirm, 2 did not apply and 5 (captions and audio description) were left out on purpose.",
+        },
+        { kind: "subhead", text: "My Role" },
+        {
+          kind: "text",
+          text: "Co-founder and Head of Product Design. I asked for the fixes to start with the pages that handle money and the main flow. The build ran on the same AI-augmented harness as the rest of the product: a written spec, tests, and two cross-model reviews before merge.",
+        },
+      ],
+      problem: [
+        {
+          kind: "lead",
+          text: "The failures were not spread evenly. They sat on the page where members pay and on the first step of the main feature.",
+        },
+        {
+          kind: "cells",
+          items: [
+            {
+              title: "Where we charge",
+              body: "The plans page had 10 texts below the 4.5:1 contrast minimum. The line about the monthly option without commitment measured 3.24:1.",
+            },
+            {
+              title: "The first step of the main feature",
+              body: "The \"Antes de grabar\" guide in the swing analysis was not a dialog. With Tab, the first eight stops landed in the side menu hidden behind it. Its two angle choices were divs with a click handler, out of reach for a keyboard.",
+            },
+            {
+              title: "A token used for what it says it is not",
+              body: "The design tokens define that gray with a comment: not text, a functional border. Four files used it as text color. The system was right and the pages ignored it.",
+            },
+            {
+              title: "Text at 200%",
+              body: "Five screens scrolled sideways when the text size doubled: buttons and labels that did not wrap.",
+            },
+          ],
+        },
+      ],
+      constraints: [
+        {
+          kind: "list",
+          items: [
+            "No redesign and no copy changes. Only what the audit listed.",
+            "Colors only from the existing tokens. No new hex values.",
+            "The product's own bar for older players is a separate debt with its own test. It stayed out.",
+            "Out of scope: captions and audio description for the videos, the funnel pages on a partner's tool (measured and reported, not touched), and the Stripe checkout.",
+          ],
+        },
+      ],
+      options: [
+        {
+          kind: "text",
+          text: "Most of the work was execution. The decision that changed the outcome was a correction to the first fix. The cookie notice sits at the bottom of every screen. An internal review found that, with a dialog open, a tap on the notice went through to the dialog: on the delete-round confirmation, tapping \"Privacy policy\" pressed \"Yes, delete\".",
+        },
+        {
+          kind: "options",
+          items: [
+            {
+              label: "Option A",
+              name: "Raise the new dialogs above the notice",
+              assessment:
+                "Stacking order on the two dialogs built in this work. It fixed those two. A second internal review failed it: five other layers had the same defect, from before this work. The More drawer, delete account, the other round deletion, the iOS notifications notice and the selects.",
+              selected: false,
+            },
+            {
+              label: "Option B",
+              name: "Let the notice receive the touch",
+              assessment:
+                "One class on the notice, so it takes taps even when a dialog has removed them from the rest of the page. It covers the layers that exist and the ones still to come.",
+              selected: true,
+            },
+          ],
+        },
+      ],
+      decision: [
+        {
+          kind: "lead",
+          text: "Fix in order of cost to the member, measure with the browser, and leave a test behind.",
+        },
+        {
+          kind: "text",
+          text: "First the analysis flow: the dialog, the delete button and the announcement of results. Then the pages where members pay: contrast and text growth. Then the rest. The guard went last, seeded on what was already fixed, so its baseline is true.",
+        },
+      ],
+      implementation: [
+        { kind: "subhead", text: "What changed" },
+        {
+          kind: "list",
+          items: [
+            "**Recording guide.** A real dialog: it has a name, keeps focus inside, closes with Escape and returns focus to the button that opened it. In 14 presses of Tab and Shift+Tab, all 14 stayed inside. The angle choices became buttons.",
+            "**Contrast.** 63 texts moved to tokens that already existed. The gray text went to the ink token at 8.2:1 on white, the yellow label to the amber token at about 6:1.",
+            "**Text at 200%.** Two global rules: let long words break, and take the no-wrap off the base button. Screens scrolling sideways went from 5 to 0 of the 12 measured.",
+            "**Focus under the cookie notice.** The page reserves the height of whatever floats at the bottom. Focus covered by a fixed element went from 81 to 0 in 30 keyboard runs, in three passes, each found by measuring the one before.",
+            "**Smaller items.** Every page has its own title. The state of an analysis is announced to screen readers. The delete-swing button left the row's button and says which swing it deletes. The privacy table can be reached with a keyboard. Profile fields have labels and autocomplete.",
+          ],
+        },
+        { kind: "subhead", text: "The guard" },
+        {
+          kind: "text",
+          text: "axe-core runs on every pull request over ten measurements: nine routes plus the open recording guide. If any count goes up, CI turns red and names the element. A second check compares what the eye sees at each point of the cookie notice with what a tap reaches there.",
+        },
+        {
+          kind: "text",
+          text: "Before merge the branch went through two internal review passes and two outside model reviews. The second internal pass failed it. So did one of the outside reviews, for three reasons: a leftover hex color and a spec line that promised a behavior the code never had, both corrected the next day, and a gap in the test, stated below.",
+        },
+      ],
+      consequences: [
+        {
+          kind: "metrics",
+          items: [
+            {
+              value: "69\u21920",
+              label: "Elements failing WCAG A and AA",
+              note: "axe-core over 165 pages: 25 routes across four account states and three viewports.",
+            },
+            {
+              value: "81\u21920",
+              label: "Times keyboard focus was covered",
+              note: "30 Tab runs, at 390 px and 1280 px.",
+            },
+            {
+              value: "5\u21920",
+              label: "Screens scrolling sideways at 200% text",
+              note: "Of 12 measured.",
+            },
+          ],
+          source:
+            "Measured on 19 and 20 Nov 2026 on the staging build, with the same four scripts before and after: axe-core 4.10.2, a Tab walk, a focus-indicator check and a text-at-200% reflow check.",
+        },
+        { kind: "subhead", text: "What measuring found that reading the code did not" },
+        {
+          kind: "list",
+          items: [
+            "**The cookie notice let taps through.** It looked right on screen. Only asking the browser what sits at each point of the notice found it, and it predated this work.",
+            "**The first version of the guard passed with a mistake planted on purpose.** The join page had not painted when axe ran, so it measured an empty page and found nothing. The guard now waits for real text, and with the mistake planted it fails and names the element.",
+            "**The first focus check reported zero problems on all 30 screens.** It compared the box shadow against none, and the CSS framework leaves a transparent shadow on every element, so it always passed.",
+          ],
+        },
+        { kind: "subhead", text: "What can't be claimed yet" },
+        {
+          kind: "list",
+          items: [
+            "**Full WCAG 2.2 AA conformance.** axe finds part of the issues. The rest were checked by hand on the pages tested. A VoiceOver pass on an iPhone is still pending, so the announcement of an analysis is unconfirmed.",
+            "**CI does not guard the delete buttons.** The CI test accounts have no swings or rounds, so those buttons only exist in the staging measurement.",
+            "**One focus mark I could not explain.** The script flags the date field of the profile page before and after. Repeating the same keys by hand shows the focus ring. It is noted, not marked as solved.",
+            "**The bar for older players.** Text below 16 px and touch targets below 48 px are a separate debt and still open.",
+            "**Effect on members or sales.** Not measured.",
+          ],
+        },
+      ],
+    },
+  },
 ];
 
-export const recordId = (r: DecisionRecord) => `DR-${r.number.padStart(3, "0")}`;
+export const recordId =(r: DecisionRecord) => `DR-${r.number.padStart(3, "0")}`;
 export const caseHref = (r: DecisionRecord) => `/case-study/${r.slug}`;
 /** Records reachable with a single number key: 1 to KEYED_RECORDS, in array order. */
 export const KEYED_RECORDS = Math.min(9, records.length);
